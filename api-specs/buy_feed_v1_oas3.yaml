@@ -1,0 +1,687 @@
+openapi: 3.0.0
+info:
+  title: Buy Feed API
+  description: The Feed API provides the ability to download TSV_GZIP feed files containing eBay items and an hourly snapshot file for a specific category, date, and marketplace.<br /><br />In addition to the API, there is an open-source Feed SDK written in Java that downloads, combines files into a single file when needed, and unzips the entire feed file. It also lets you specify field filters to curate the items in the file.
+  contact:
+    name: eBay Inc,
+  license:
+    name: eBay API License Agreement
+    url: https://go.developer.ebay.com/api-license-agreement
+  version: v1.0.1
+servers:
+  - url: https://api.ebay.com{basePath}
+    description: Production
+    variables:
+      basePath:
+        default: /buy/feed/v1
+paths:
+  /access:
+    get:
+      tags:
+        - access
+      description: The getAccess method retrieves the access rules specific to the application; for example, the feed types to which the application has permissions. An application may be constrained to certain marketplaces, and to specific L1 categories within those marketplaces. You can use this information to apply filters to the getFiles method when obtaining details on accessible downloadable files.<h3><b>Restrictions </b></h3>                <p>For a list of supported sites and other restrictions, see <a href="/api-docs/buy/feed/overview.html#API">API Restrictions</a>.</p>
+      operationId: getAccess
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationAccess'
+        '204':
+          description: No Content
+        '500':
+          description: Internal Server Error
+          x-response-codes:
+            errors:
+              '13006':
+                domain: API_FEED
+                category: APPLICATION
+                description: There was a problem with an eBay internal system or process. Contact eBay developer support for assistance.
+      security:
+        - api_auth:
+            - https://api.ebay.com/oauth/api_scope/buy.item.feed
+  /feed_type/{feed_type_id}:
+    get:
+      tags:
+        - feed_type
+      description: Use the <b>getFeedType</b> method to obtain the details about a particular feed type to determine its applicability to your needs.<br /><br />With the response, you can compare the eBay marketplaces and categories with the eBay marketplaces and categories that your application is enabled to access. By making these comparisons, you can avoid attempting to download feed files that you do not have access to.<br /><br /><span class="tablenote"><span style="color:#004680"><strong>Note:</strong></span> For a list of supported sites and other restrictions, see <a href="/api-docs/buy/feed/overview.html#API">API Restrictions</a>.</span>
+      operationId: getFeedType
+      parameters:
+        - name: feed_type_id
+          in: path
+          description: The unique identifier for the feed type to be used as a search filter.<br /><br />Use the <b>getFeedTypes</b> method to identify the available feed types.<br /><br /><span class="tablenote"><span style="color:#004680"><strong>Note:</strong></span> Refer to <a href="/api-docs/buy/feed/v1/static/overview.html#feed-types" target="_blank">Supported feed types</a> to learn more about the feed types supported by the Feed API.</span>
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeedType'
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+          x-response-codes:
+            errors:
+              '14000':
+                domain: API_FEED
+                category: REQUEST
+                description: Invalid feed type id.
+        '500':
+          description: Internal Server Error
+          x-response-codes:
+            errors:
+              '13006':
+                domain: API_FEED
+                category: APPLICATION
+                description: There was a problem with an eBay internal system or process. Contact eBay developer support for assistance.
+      security:
+        - api_auth:
+            - https://api.ebay.com/oauth/api_scope/buy.item.feed
+  /feed_type:
+    get:
+      tags:
+        - feed_type
+      description: <p>Use the <b>getFeedTypes</b> method to obtain the details about one or more feed types that are available to be downloaded. If no query parameters are used, all possible feed types are returned.</p>You can filter your search by adding <b>feed_scope</b> and/or <b>marketplace_ids</b> parameters to the URI.</p><p>For instance, a call using <code>GET https://api.ebay.com/buy/feed/v1/feed_type</code> will return all available feed files. A call using <code> GET https://api.ebay.com/buy/feed/v1/feed_type?feed_scope=DAILY&marketplace_ids=EBAY_US</code> will limit the returned list to daily feed files available from the  US marketplace.</p><h3><b>Restrictions </b></h3><p>For a list of supported sites and other restrictions, see <a href="/api-docs/buy/feed/v1/overview.html#API">API Restrictions</a>.</p>
+      operationId: getFeedTypes
+      parameters:
+        - name: continuation_token
+          in: query
+          description: The server returns this token to the web client when the responses received require multiple pages to display. The web client sends this token back to the server to get the next page of results.
+          required: false
+          schema:
+            type: string
+        - name: feed_scope
+          in: query
+          description: Specifies the frequency with which the feed file is made available (<code>HOURLY</code>, <code>DAILY</code>, <code>WEEKLY</code>).<br /><br />Currently only <code>DAILY</code> is supported.
+          required: false
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: The number of records to show in the current response.<br /><br /><b>Default:</b> 20<br /><b>Minimum:</b> 20<br /><b>Maximum:</b> 100
+          required: false
+          schema:
+            type: string
+        - name: marketplace_ids
+          in: query
+          description: Use this parameter to limit marketplaces you want to see. To search for multiple marketplaces at once, list them in the URI separated by commas.<br /><br /><b>Example:</b> <code>GET https://api.ebay.com/buy/feed/v1/feedtype?marketplaceids=EBAY_FR,EBAY_AU</code>.<br /><br />See <a href="/api-docs/buy/feed/v1/overview.html#API">API Restrictions</a> for information on supported sites.
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeedTypeSearchResponse'
+        '400':
+          description: Bad Request
+          x-response-codes:
+            errors:
+              '13003':
+                domain: API_FEED
+                category: REQUEST
+                description: 'Invalid feed_scope. Valid values: [HOURLY,DAILY,WEEKLY]'
+              '14001':
+                domain: API_FEED
+                category: REQUEST
+                description: Invalid limit. Supported ranges 20 - 100.
+              '14002':
+                domain: API_FEED
+                category: REQUEST
+                description: Invalid or expired continuation token.
+              '14010':
+                domain: API_FEED
+                category: REQUEST
+                description: Invalid 'marketplace_ids' filter. Please refer to documentation for supported values. Max supported:10
+        '500':
+          description: Internal Server Error
+          x-response-codes:
+            errors:
+              '13006':
+                domain: API_FEED
+                category: APPLICATION
+                description: There was a problem with an eBay internal system or process. Contact eBay developer support for assistance.
+      security:
+        - api_auth:
+            - https://api.ebay.com/oauth/api_scope/buy.item.feed
+  /file/{file_id}/download:
+    get:
+      tags:
+        - file
+      description: <p>Use the <b>downloadFile</b> method to download a selected TSV_gzip feed file.<p>Use the <b>getFiles</b> methods to obtain the <b>file_id</b> of the specific feed file you require.</p><h3><b>Downloading feed files </b></h3>  <p>The feed files are binary gzip files. If the file is larger than 200 MB, the download must be streamed in chunks. You specify the size of the chunks in bytes using the <a href="#range-header">Range</a> request header. The <a href="#content-range">content-range</a> response header indicates where in the full resource this partial chunk of data belongs  and the total number of bytes in the file.       For more information about using these headers, see <a href="/api-docs/buy/static/api-feed.html#retrv-gzip">Retrieving a GZIP feed file</a>.    </p>
+      operationId: downloadFile
+      parameters:
+        - name: file_id
+          in: path
+          description: The unique identifier of the feed file that you wish to download. Use the <b>getFiles</b> method to obtain the <b>fileId</b> value for the desired feed file.
+          required: true
+          schema:
+            type: string
+        - name: Range
+          in: header
+          description: 'Indicates where in the full resource this partial chunk of data belongs and the total number of bytes in the file.<br /><br /><b>Example: </b> <code>bytes=0-102400</code>.<br /><br />For more information about using this header, see <a href="/api-docs/buy/static/api-feed.html#retrv-gzip">Retrieving a gzip feed file</a>.'
+          required: false
+          schema:
+            type: string
+        - name: X-EBAY-C-MARKETPLACE-ID
+          in: header
+          description: 'This is the ID of the eBay marketplace that the feed file belongs to. <br /><br /><b>Example:</b><code>X-EBAY-C-MARKETPLACE-ID: EBAY_US</code>.<br /><br />For a list of supported sites and other restrictions, see <a href="/api-docs/buy/feed/overview.html#API">API Restrictions</a>.'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/OutputStream'
+        '206':
+          description: Partial Content
+          content:
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/OutputStream'
+        '400':
+          description: Bad Request
+          x-response-codes:
+            errors:
+              '13014':
+                domain: API_FEED
+                category: REQUEST
+                description: Invalid or missing header X-EBAY-C-MARKETPLACE-ID.
+              '13015':
+                domain: API_FEED
+                category: REQUEST
+                description: Range header is required for file size greater than {allowedLength} bytes.
+              '13016':
+                domain: API_FEED
+                category: REQUEST
+                description: 'The Range request header format is invalid. Format: ''bytes=start position-end position''. For help, see the API Reference documentation for this call.'
+        '403':
+          description: Forbidden
+          x-response-codes:
+            errors:
+              '14007':
+                domain: API_FEED
+                category: REQUEST
+                description: Insufficient permissions to download this file. Please check oauth scopes required for this feed type and buy/feed/v1/access for access constraints.
+              '14009':
+                domain: API_FEED
+                category: REQUEST
+                description: Insufficient permissions for the feed type for the specified marketplace. Please contact eBay Technical Support for further assistance.
+        '404':
+          description: Not Found
+          x-response-codes:
+            errors:
+              '14004':
+                domain: API_FEED
+                category: REQUEST
+                description: The specified file Id does not exist for marketplace specified or may have expired. Please check the maximum allowed look back for the feed type and scope.
+        '416':
+          description: Range Not Satisfiable
+          x-response-codes:
+            errors:
+              '13017':
+                domain: API_FEED
+                category: REQUEST
+                description: The Range header is invalid. Please verify that the start and end positions are correct, 'range start-range end' does not exceed the allowed maximum of {allowedLength} bytes  and is consistent with the file size.
+        '500':
+          description: Internal Server Error
+          x-response-codes:
+            errors:
+              '13006':
+                domain: API_FEED
+                category: APPLICATION
+                description: There was a problem with an eBay internal system or process. Contact eBay developer support for assistance.
+      security:
+        - api_auth:
+            - https://api.ebay.com/oauth/api_scope/buy.item.feed
+  /file/{file_id}:
+    get:
+      tags:
+        - file
+      description: 'Use the <b>getFile</b> method to fetch the details of a feed file available to download, as specified by the file''s <b>file_id</b>.</p><p>Details in the response include: the feed''s <b>file_id</b>, the date it became available, eBay categories that support the feed, its frequency (currently only HOURLY is supported), the time span it covers, its feed type, its format (currently only TSV is available), its size in bytes, the schema under which it was pulled, and the marketplaces it applies to.</p>'
+      operationId: getFile
+      parameters:
+        - name: file_id
+          in: path
+          description: Unique identifier of feed file. Feed file IDs can be retrieved with the <b>getFiles</b> method.
+          required: true
+          schema:
+            type: string
+        - name: X-EBAY-C-MARKETPLACE-ID
+          in: header
+          description: 'This is the ID of the eBay marketplace on which the feed file exists. <br /><br /><b>Example:</b> <code>X-EBAY-C-MARKETPLACE-ID: EBAY_US</code>.<br /><br />For a list of supported sites and other restrictions, see <a href="/api-docs/buy/feed/overview.html#API">API Restrictions</a>.'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileMetadata'
+        '400':
+          description: Bad Request
+          x-response-codes:
+            errors:
+              '13014':
+                domain: API_FEED
+                category: REQUEST
+                description: Invalid or missing header X-EBAY-C-MARKETPLACE-ID.
+        '403':
+          description: Forbidden
+          x-response-codes:
+            errors:
+              '14009':
+                domain: API_FEED
+                category: REQUEST
+                description: Insufficient permissions for the feed type for the specified marketplace. Please contact eBay Technical Support for further assistance.
+        '404':
+          description: Not Found
+          x-response-codes:
+            errors:
+              '14004':
+                domain: API_FEED
+                category: REQUEST
+                description: The specified file Id does not exist for marketplace specified or may have expired. Please check the maximum allowed look back for the feed type and scope.
+        '500':
+          description: Internal Server Error
+          x-response-codes:
+            errors:
+              '13006':
+                domain: API_FEED
+                category: APPLICATION
+                description: There was a problem with an eBay internal system or process. Contact eBay developer support for assistance.
+      security:
+        - api_auth:
+            - https://api.ebay.com/oauth/api_scope/buy.item.feed
+  /file:
+    get:
+      tags:
+        - file
+      description: <p>The <b>getFiles</b> method provides a list of the feed files available for download.</p>Details for each feed returned include the date the feed was generated, the frequency with which it is pulled (currently only HOURLY is supported), its feed type, its <b>fileid</b>, its format (currently only TSV is supported), the eBay marketplaces it applies to, the schema version under which it was generated, its size in bytes, and the time span it covers (in hours).</p><p>You can limit your search results by feed type, marketplace, scope, and eBay L1 category.</p><h3><b>Restrictions </b></h3><p>For a list of supported sites and other restrictions, see <a href="/api-docs/buy/feed/overview.html#API">API Restrictions</a>.</p>
+      operationId: getFiles
+      parameters:
+        - name: category_ids
+          in: query
+          description: This query parameter is used to specify one or more eBay L1 category IDs. If this filter is used, only feed files that are supported for the specified category (or categories) will be returned in the response. Each category ID value must be delimited by a comma.<br /><br /><b>Max:</b> 20 values
+          required: false
+          schema:
+            type: string
+        - name: continuation_token
+          in: query
+          description: The server returns this token to the web client when the responses received require multiple pages to display. The web client sends this token back to the server to get the next page of results.
+          required: false
+          schema:
+            type: string
+        - name: feed_scope
+          in: query
+          description: Specifies the frequency with which the feed file is made available (<code>HOURLY</code>, <code>DAILY</code>, <code>WEEKLY</code>).<br /><br />Currently only <code>DAILY</code> is supported.
+          required: false
+          schema:
+            type: string
+        - name: feed_type_id
+          in: query
+          description: The unique identifier for the feed type.<br /><br />Use the <b>getFeedTypes</b> method to identify the available feed types.<br /><br /><span class="tablenote"><span style="color:#004680"><strong>Note:</strong></span> Refer to <a href="/api-docs/buy/feed/v1/static/overview.html#feed-types" target="_blank">Supported feed types</a> to learn more about the feed types supported by the Feed API.</span>
+          required: false
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: The number of records to show in the response.<br /><br /><b>Default:</b> 20<br /><br /><b>Minimum:</b> 20<br /><br /><b>Maximum:</b> 100
+          required: false
+          schema:
+            type: string
+        - name: look_back
+          in: query
+          description: How far back from the current time to limit the returned feed files. The returned feed files will be those generated between the current time and the look-back time.<br /><br /><b>Example:</b> A value of <code>120</code> will limit the returned feed files to those generated in the past 2 hours (120 minutes). If 3 feed files have been generated in the past 2 hours, those 3 files will be returned. A feed file generated 4 hours earlier will not be returned.
+          required: false
+          schema:
+            type: string
+        - name: X-EBAY-C-MARKETPLACE-ID
+          in: header
+          description: 'This is the ID of the eBay marketplace on which to search for feed files.<br /><br /><b>Example:</b> <code>X-EBAY-C-MARKETPLACE-ID: EBAY_US</code>.<br /><br /><p>For a list of supported sites and other restrictions, see <a href="/api-docs/buy/feed/overview.html#API">API Restrictions</a>.'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileMetadataSearchResponse'
+        '400':
+          description: Bad Request
+          x-response-codes:
+            errors:
+              '13003':
+                domain: API_FEED
+                category: REQUEST
+                description: 'Invalid ''feed_scope''. Valid values: [HOURLY,DAILY,WEEKLY]'
+              '13014':
+                domain: API_FEED
+                category: REQUEST
+                description: Invalid or missing header X-EBAY-C-MARKETPLACE-ID.
+              '14001':
+                domain: API_FEED
+                category: REQUEST
+                description: Invalid limit. Supported ranges 20 - 100.
+              '14002':
+                domain: API_FEED
+                category: REQUEST
+                description: Invalid or expired continuation token.
+              '14005':
+                domain: API_FEED
+                category: REQUEST
+                description: 'Maximum number of category_ids exceeded.Limit: 20.'
+              '14006':
+                domain: API_FEED
+                category: REQUEST
+                description: Invalid look back period for the feedType and feedScope.Please refer to documentation.
+              '14008':
+                domain: API_FEED
+                category: REQUEST
+                description: Invalid or missing feed type Id.
+        '403':
+          description: Forbidden
+          x-response-codes:
+            errors:
+              '14009':
+                domain: API_FEED
+                category: REQUEST
+                description: Insufficient permissions for the feed type for the specified marketplace. Please contact eBay Technical Support for further assistance.
+        '500':
+          description: Internal Server Error
+          x-response-codes:
+            errors:
+              '13006':
+                domain: API_FEED
+                category: APPLICATION
+                description: There was a problem with an eBay internal system or process. Contact eBay developer support for assistance.
+      security:
+        - api_auth:
+            - https://api.ebay.com/oauth/api_scope/buy.item.feed
+components:
+  schemas:
+    Access:
+      type: object
+      properties:
+        constraints:
+          type: array
+          description: This array shows the eBay marketplace and eBay L1 categories that the corresponding feed type applies to. If there are no <b>marketplaceId</b> constraints, the application has access to all marketplaces. If there are no <b>categoryId</b> constraints, then the application has access to all categories within the given marketplace.
+          items:
+            $ref: '#/components/schemas/FeedTypeConstraint'
+        feedType:
+          type: string
+          description: The identifier of the feed type that the application has access to.
+      description: Defines the constraints on the feed files available for download within the specified feed type.
+    ApplicationAccess:
+      type: object
+      properties:
+        accesses:
+          type: array
+          description: 'The response payload will contain a list of every feed type the application can access. The marketplaces and L1 categories to which the application is constrained within each feed are also returned. If no marketplaces are listed for a particular feed type, the application has access to all marketplaces. L1 categories are constrained according to marketplace. If a marketplace is listed with no L1 categories, the application has access to all categories in that marketplace. See <b>Sample 1: getAccess Request</b> below.'
+          items:
+            $ref: '#/components/schemas/Access'
+      description: An array of application configurations that determines the feed files available to the application.
+    Constraint:
+      type: object
+      properties:
+        marketplaceIds:
+          type: array
+          description: A list of the marketplaces to which the application is constrained within the feed type.<br/><br/><b>Example:</b> A value of <code>EBAY_US</code> means the application is constrained to the U.S. marketplace for the listed feed.<br /><br /><span class="tablenote"><span style="color:#004680"><strong>Note:</strong></span> The <b>Buy Feed</b> API is not supported by all eBay marketplaces. See <a href='/api-docs/buy/feed/v1/overview.html#API'>API restrictions</a> for information about regional constraints.</span>
+          items:
+            type: string
+            description: ' For implementation help, refer to <a href=''https://developer.ebay.com/api-docs/buy/feed/types/bas:MarketplaceIdEnum''>eBay API documentation</a>'
+      description: A parameter of the application's configuration used to define the feed files that the application can access.
+    Dimension:
+      type: object
+      properties:
+        dimensionKey:
+          type: string
+          description: The key element for a value in the <b>dimensions</b> array, paired with its value(s). Currently, only <b>CATEGORY</b> (available L1 category) is available. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/buy/feed/types/api:DimensionKeyEnum'>eBay API documentation</a>
+        values:
+          type: array
+          description: The dimension value(s) paired with the <b>dimensionKey</b> in the <b>dimensions</b> array. Currently, the only supported dimension is CATEGORY, so the values in this array will be L1 eBay categories.”
+          items:
+            type: string
+      description: <p>A key-pair array of values used to define the feed files available to the application.
+    Error:
+      type: object
+      properties:
+        category:
+          type: string
+          description: Identifies the type of erro.
+        domain:
+          type: string
+          description: Name for the primary system where the error occurred. This is relevant for application errors.
+        errorId:
+          type: integer
+          description: A unique number to identify the error.
+          format: int32
+        inputRefIds:
+          type: array
+          description: An array of request elements most closely associated to the error.
+          items:
+            type: string
+        longMessage:
+          type: string
+          description: A more detailed explanation of the error.
+        message:
+          type: string
+          description: Information on how to correct the problem, in the end user's terms and language where applicable.
+        outputRefIds:
+          type: array
+          description: An array of request elements most closely associated to the error.
+          items:
+            type: string
+        parameters:
+          type: array
+          description: An array of name/value pairs that describe details the error condition. These are useful when multiple errors are returned.
+          items:
+            $ref: '#/components/schemas/ErrorParameter'
+        subdomain:
+          type: string
+          description: 'Further helps indicate which subsystem the error is coming from. System subcategories include: Initialization, Serialization, Security, Monitoring, Rate Limiting, etc.'
+      description: This type defines the fields that can be returned in an error.
+    ErrorParameter:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The object of the error.
+        value:
+          type: string
+          description: The value of the object.
+    FeedType:
+      type: object
+      properties:
+        description:
+          type: string
+          description: A description of the feed type.
+        feedTypeId:
+          type: string
+          description: The unique identifier of the feed type.<br /><br /><span class="tablenote"><span style="color:#004680"><strong>Note:</strong></span> Refer to <a href="/api-docs/buy/feed/v1/static/overview.html#feed-types" target="_blank">Supported feed types</a> for additional details.</span>
+        supportedFeeds:
+          type: array
+          description: An array of the feed files of the indicated feed type that are available to be downloaded.
+          items:
+            $ref: '#/components/schemas/SupportedFeed'
+      description: This type is used by the <b>getFeedType</b> and <b>getFeedTypes</b> methods to provide more details about a feed type, including the OAuth scopes required to download the feed files and the constraints on the feed type.
+    FeedTypeConstraint:
+      type: object
+      properties:
+        categoryIds:
+          type: array
+          description: An array of the eBay categories the application can access in a feed. See the <a href='https://developer.ebay.com/api-docs/commerce/taxonomy/overview.html'>Taxonomy API</a> for details about obtaining a list eBay L1 categories. The category is expressed as the category's <b>categoryId</b>, not its <b>categoryName</b>; e.g.,  <code>172008</code>, not <code>Gift Cards &amp; Coupons</code>.<br /><br />If no <b>categoryIds</b> are listed, the application can access all categories in the specified marketplace.
+          items:
+            type: string
+        marketplaceId:
+          type: string
+          description: This enum value indicates an eBay marketplace for which the application can access feed files for the corresponding feed type<br/><br/><b>Example:</b> <code>EBAY_US</code> for the U.S. or <code>EBAY_DE</code> for Germany. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/buy/feed/types/bas:MarketplaceIdEnum'>eBay API documentation</a>
+      description: This is used to define the eBay marketplaces and eBay L1 categories that support the corresponding feed type
+    FeedTypeSearchResponse:
+      type: object
+      properties:
+        feedTypes:
+          type: array
+          description: An array of the feed types that match the search criteria.
+          items:
+            $ref: '#/components/schemas/FeedType'
+        href:
+          type: string
+          description: The URL to to the current set of results.
+        limit:
+          type: integer
+          description: The number of records to show in the current response.
+          format: int32
+        next:
+          type: string
+          description: You can use this URL to retrieve the next page of results beyond those displayed on the page if there are more results that match the search criteria.
+        total:
+          type: integer
+          description: The total number of matches for the search criteria.
+          format: int32
+      description: This type is used by the base response of the getFeedTypes method.
+    FileMetadata:
+      type: object
+      properties:
+        access:
+          type: string
+          description: Indicates whether the application is permitted to access the feed file. One of <code>ALLOWED</code> or <code>RESTRICTED</code>. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/buy/feed/types/api:AccessEnum'>eBay API documentation</a>
+        dimensions:
+          type: array
+          description: 'An array of dimensions supported by the corresponding feed file. <br /><br />Currently the only dimension available is <b>CATEGORY</b>.<br /><br /><b>Example:</b><BR /><code>&quot;dimensionKey&quot;: &quot;CATEGORY&quot;,<br />&quotvalues&quot;: &lsqb;&quot;15032&quot;&rsqb;'
+          items:
+            $ref: '#/components/schemas/Dimension'
+        feedDate:
+          type: string
+          description: The date on which the feed was created. <br /><br /><b>Format:</b> UTC format <code>(yyyy-MM-ddThh:00:00.000Z)</code>.
+        feedScope:
+          type: string
+          description: Specifies the frequency with which the feed file is made available (<code>HOURLY</code>, <code>DAILY</code>, <code>WEEKLY</code>).<br /><br />Currently only <code>DAILY</code> is supported. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/buy/feed/types/api:FeedScopeEnum'>eBay API documentation</a>
+        feedTypeId:
+          type: string
+          description: The unique identifier of the feed type.<br /><br /><span class="tablenote"><span style="color:#004680"><strong>Note:</strong></span> Refer to <a href="/api-docs/buy/feed/v1/static/overview.html#feed-types" target="_blank">Supported feed types</a> for additional details.</span>
+        fileId:
+          type: string
+          description: The file's unique identifier. This <b>fileid</b> is used to select the feed file when using the <b>downloadFile</b> method.
+        format:
+          type: string
+          description: Format of the returned feed file. Currently only TSV is supported. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/buy/feed/types/api:FormatEnum'>eBay API documentation</a>
+        marketplaceId:
+          type: string
+          description: The eBay marketplace identifier for the marketplace(s) to which the feed applies.<br /><br /><b>Example:</b> <code>EBAY_UK</code>. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/buy/feed/types/bas:MarketplaceIdEnum'>eBay API documentation</a>
+        schemaVersion:
+          type: string
+          description: Version of the API schema under which the feed was created.
+        size:
+          type: integer
+          description: Size of the feed file in bytes.
+          format: int32
+        span:
+          description: 'The time span between feed files that applies to the feed type (e.g., hourly, daily, weekly). This is returned in hours. <br /><br /><b>Possible Values: </b> <code>YEAR</code>, <code>MONTH</code>, <code>DAY</code>, <code>HOUR</code>'
+          $ref: '#/components/schemas/TimeDuration'
+      description: This type is used to provide metadata about each feed file in a <b>getFile</b> or <b>getFiles</b> response.
+    FileMetadataSearchResponse:
+      type: object
+      properties:
+        fileMetadata:
+          type: array
+          description: An array of metadata values describing the available feed files that match the input criteria.
+          items:
+            $ref: '#/components/schemas/FileMetadata'
+        href:
+          type: string
+          description: The URL to to the current set of results.
+        limit:
+          type: integer
+          description: The number of results that will be displayed on each page, as set by the <b>limit</b> URI parameter.<br /><br /><b>Default:</b> 20
+          format: int32
+        next:
+          type: string
+          description: You can use this URL to retrieve the next page of results beyond those displayed on the page if there are more results that match the search criteria.
+        total:
+          type: integer
+          description: The total number of matches for the search criteria.
+          format: int32
+      description: This type is used by the base response of the <b>getFiles</b> method.
+    OutputStream:
+      type: object
+      description: The container object for the feed file being downloaded.
+    SupportedFeed:
+      type: object
+      properties:
+        authorizationScopes:
+          type: array
+          description: The oauth authorization scopes which grant access to the feed files.<br /><br />Currently the only applicable authorization scope is <code>https://api.ebay.com/oauth/api_scope/buy.item.feed</code>.<br /><br /><span class="tablenote"><span style="color:#004680"><strong>Note:</strong></span> You can view your application's oauth scopes on the <a href='developer.ebay.com/my/keys'>Application Keys</a> page.</span>
+          items:
+            type: string
+        constraint:
+          description: This container shows the eBay marketplaces that support the corresponding feed type. If no constraints are returned, all marketplaces are supported.
+          $ref: '#/components/schemas/Constraint'
+        feedScope:
+          type: string
+          description: Specifies the frequency with which the feed file is made available (<code>HOURLY</code>, <code>DAILY</code>, <code>WEEKLY</code>).<br /><br />Currently only <code>DAILY</code> is supported. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/buy/feed/types/api:FeedScopeEnum'>eBay API documentation</a>
+        lookBack:
+          description: How far back from the current time to limit the returned feed files. The returned feed files will be those generated between the current time and the look-back time.<br /><br /><b>Example:</b> A value of <code>120</code> will limit the returned feed files to those generated in the past 2 hours (120 minutes). If 3 feed files have been generated in the past 2 hours, those 3 files will be returned. A feed file generated 4 hours earlier will not be returned.
+          $ref: '#/components/schemas/TimeDuration'
+        status:
+          type: string
+          description: The status for this feed. One of <code>ACTIVE</code>, <code>PAUSED</code>, or <code>DEPRECATED</code>. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/buy/feed/types/api:FeedStatusEnum'>eBay API documentation</a>
+        supportedSchemas:
+          type: array
+          description: An array of the supported <b>Feed</b> API schemas for this feed type.
+          items:
+            $ref: '#/components/schemas/SupportedSchema'
+      description: The object that is returned by a successful <b>getFeedType</b> or <b>getFeedTypes</b> search describing the characteristics of a feed type.
+    SupportedSchema:
+      type: object
+      properties:
+        definition:
+          type: string
+          description: A list of the fields that will be returned in the feed file.<br /><br /><span class="tablenote"><span style="color:#004680"><strong>Note:</strong></span> Refer to <a href="/api-docs/buy/feed/v1/static/overview.html#feed-types" target="_blank">Supported feed types</a> to learn about the feed fields that are included in each supported feed type.</span>
+        deprecated:
+          type: boolean
+          description: Indicates whether the schema is still functional or deprecated. One of either <code>true</code> or <code>false</code>.
+        formats:
+          type: array
+          description: An list of the available formats in which the schema can be downloaded. Currently only TSV (Tab Separated Values) is supported.
+          items:
+            type: string
+            description: ' For implementation help, refer to <a href=''https://developer.ebay.com/api-docs/buy/feed/types/api:FormatEnum''>eBay API documentation</a>'
+        schemaVersion:
+          type: string
+          description: The version of the <b>Feed</b> API schema under which the feed type was created.<br /><br /><b>Example:</b> 1.0.
+      description: A <b>Feed</b> API schema version(s) supported by the feed type.
+    TimeDuration:
+      type: object
+      properties:
+        unit:
+          type: string
+          description: This enumeration value indicates the time unit used for the time period. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/buy/feed/types/bas:TimeDurationUnitEnum'>eBay API documentation</a>
+        value:
+          type: integer
+          description: The number of units of time in the span.
+          format: int32
+      description: The time span between feed files that applies to the feed type (e.g., hourly, daily, weekly). This is returned in hours.
+  securitySchemes:
+    api_auth:
+      type: oauth2
+      description: The security definitions for this API. Please check individual operations for applicable scopes.
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.ebay.com/identity/v1/oauth2/token
+          scopes:
+            https://api.ebay.com/oauth/api_scope/buy.item.feed: View curated feeds of eBay items

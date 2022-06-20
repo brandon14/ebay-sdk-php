@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<ruleset name="unit-test-examples PHPMD Ruleset"
+         xmlns="http://pmd.sf.net/ruleset/1.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd"
+         xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd">
+  <description>
+        This custom phpmd ruleset starts with all rules enabled. The rule swill be slowly adjusted as needed.
+  </description>
+
+  <rule ref="rulesets/cleancode.xml">
+        <exclude name="StaticAccess" />
+    </rule>
+    <rule ref="rulesets/codesize.xml">
+        <exclude name="TooManyPublicMethods" />
+    </rule>
+    <rule ref="rulesets/codesize.xml/TooManyPublicMethods">
+        <priority>1</priority>
+        <properties>
+            <property name="maxmethods" value="15" />
+        </properties>
+    </rule>
+    <rule ref="rulesets/controversial.xml" />
+    <rule ref="rulesets/controversial.xm/CamelCaseMethodName">
+        <priority>1</priority>
+        <properties>
+            <property name="allow-underscore-test" value="true" />
+        </properties>
+    </rule>
+    <rule ref="rulesets/design.xml">
+        <exclude name="CouplingBetweenObjects" />
+    </rule>
+    <rule ref="rulesets/design.xml/CouplingBetweenObjects">
+        <priority>1</priority>
+        <properties>
+            <property name="minimum" value="15" />
+        </properties>
+    </rule>
+    <rule ref="rulesets/naming.xml">
+        <exclude name="ShortVariable" />
+    </rule>
+    <rule ref="rulesets/naming.xml/ShortVariable">
+        <priority>1</priority>
+        <properties>
+            <property name="minimum" value="2" />
+        </properties>
+    </rule>
+    <rule ref="rulesets/unusedcode.xml" />
+
+    <!-- Ignore vendor folder. -->
+    <exclude-pattern>vendor</exclude-pattern>
+    <!-- Exclude tests -->
+    <exclude-pattern>tests</exclude-pattern>
+    <!-- Exclude doctum cache -->
+    <exclude-pattern>doctum_cache</exclude-pattern>
+    <!-- Exclude docs folder -->
+    <exclude-pattern>docs</exclude-pattern>
+    <!-- Exclude generated files -->
+    <exclude-pattern>src</exclude-pattern>
+</ruleset>

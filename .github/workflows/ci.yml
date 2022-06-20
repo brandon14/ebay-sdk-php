@@ -1,0 +1,64 @@
+name: ci
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+    release:
+      name: Release
+      if: startsWith(github.ref, 'refs/tags/')
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+          with:
+            ref: ${{ github.head_ref }}
+
+        - name: Build changelog
+          id: github_release
+          uses: mikepenz/release-changelog-builder-action@v1
+          with:
+            outputFile: 'CHANGELOG.md'
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+        - name: Commit changelog changes
+          uses: stefanzweifel/git-auto-commit-action@v4
+          with:
+            commit_message: Generate CHANGELOG.md
+
+        - name: Update contributors
+          uses: minicli/action-contributors@v3
+          env:
+            CONTRIB_REPOSITORY: 'brandon14/ebay-sdk-php'
+            CONTRIB_OUTPUT_FILE: 'CONTRIBUTORS.md'
+
+        - name: Commit contributors changes
+          uses: stefanzweifel/git-auto-commit-action@v4
+          with:
+            commit_message: Generate CONTRIBUTORS.md
+
+        - name: Build docs
+          uses: sudo-bot/action-doctum@v5
+          with:
+            config-file: doctum.php
+            method: "update"
+            cli-args: "--output-format=github --no-ansi --no-progress -v"
+
+        - name: Commit doc changes
+          uses: stefanzweifel/git-auto-commit-action@v4
+          with:
+            commit_message: Publish docs
+            file_pattern: "docs/*"
+            add_options: "-f"
+            skip_dirty_check: true
+
+        - name: Create release
+          uses: softprops/action-gh-release@v1
+          with:
+            tag_name: ${{ github.ref }}
+            release_name: ${{ github.ref }}
+            body: ${{steps.github_release.outputs.changelog}}
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

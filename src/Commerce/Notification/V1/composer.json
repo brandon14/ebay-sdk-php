@@ -1,0 +1,30 @@
+{
+    "name": "trollandtoad/ebay-commerce-notification-v1",
+    "description": "The eBay Notification API enables management of the entire end-to-end eBay notification experience by allowing users to:<ul><li>Browse for supported notification topics and retrieve topic details</li><li>Create, configure, and manage notification destination endpionts</li><li>Configure, manage, and test notification subscriptions</li><li>Process eBay notifications and verify the integrity of the message payload</li></ul>",
+    "keywords": ["openapitools", "openapi-generator", "openapi", "php", "sdk", "rest", "api", "ebay"],
+    "homepage": "https://github.com/trollandtoad/ebay-commerce-notification-v1",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "OpenAPI-Generator contributors",
+            "homepage": "https://openapi-generator.tech"
+        },
+        {
+            "name": "Brandon Clothier",
+            "email": "brclothier@trollandtoad.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2 || ^8.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^6.2.1 || ^7.0",
+        "guzzlehttp/psr7": "^1.7 || ^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "TNT\\Ebay\\Commerce\\Notification\\V1\\" : "/"
+        }
+    }
+}

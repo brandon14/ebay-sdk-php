@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<ruleset name="unit-test-examples Standard" namespace="App\CS\Standard">
+  <description>The phpcs coding standard for the brandon14/ebay-sdk-php project.</description>
+
+  <!-- Only process .php files. -->
+  <arg name="extensions" value="php" />
+  <!-- Show all errors. -->
+  <arg name="error-severity" value="1" />
+  <!-- Hide warnings. -->
+  <arg name="warning-severity" value="0" />
+  <arg name="colors" />
+  <arg value="sp" />
+
+  <!-- Ignore vendor folder. -->
+  <exclude-pattern>vendor</exclude-pattern>
+  <!-- Exclude tests -->
+  <exclude-pattern>tests/</exclude-pattern>
+  <!-- Exclude doctum cache -->
+  <exclude-pattern>doctum_cache/</exclude-pattern>
+  <!-- Exclude docs folder -->
+  <exclude-pattern>docs/</exclude-pattern>
+    <!-- Exclude generated files -->
+  <exclude-pattern>src/</exclude-pattern>
+
+  <rule ref="PSR2" />
+
+</ruleset>

@@ -1,0 +1,30 @@
+{
+    "name": "trollandtoad/ebay-sell-account-v1",
+    "description": "The <b>Account API</b> gives sellers the ability to configure their eBay seller accounts, including the seller's policies (eBay business policies and seller-defined custom policies), opt in and out of eBay seller programs, configure sales tax tables, and get account information.  <br/><br/>For details on the availability of the methods in this API, see <a href=\"/api-docs/sell/account/overview.html#requirements\">Account API requirements and restrictions</a>.",
+    "keywords": ["openapitools", "openapi-generator", "openapi", "php", "sdk", "rest", "api", "ebay"],
+    "homepage": "https://github.com/trollandtoad/ebay-sell-account-v1",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "OpenAPI-Generator contributors",
+            "homepage": "https://openapi-generator.tech"
+        },
+        {
+            "name": "Brandon Clothier",
+            "email": "brclothier@trollandtoad.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2 || ^8.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^6.2.1 || ^7.0",
+        "guzzlehttp/psr7": "^1.7 || ^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "TNT\\Ebay\\Sell\\Account\\V1\\" : "/"
+        }
+    }
+}

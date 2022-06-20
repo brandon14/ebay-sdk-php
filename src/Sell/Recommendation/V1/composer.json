@@ -1,0 +1,30 @@
+{
+    "name": "trollandtoad/ebay-sell-recommendation-v1",
+    "description": "The <b>Recommendation API</b> returns information that sellers can use to optimize the configuration of their listings on eBay. <br><br>Currently, the API contains a single method, <b>findListingRecommendations</b>. This method provides information that sellers can use to configure Promoted Listings ad campaigns to maximize the visibility of their items in the eBay marketplace.",
+    "keywords": ["openapitools", "openapi-generator", "openapi", "php", "sdk", "rest", "api", "ebay"],
+    "homepage": "https://github.com/trollandtoad/ebay-sell-recommendation-v1",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "OpenAPI-Generator contributors",
+            "homepage": "https://openapi-generator.tech"
+        },
+        {
+            "name": "Brandon Clothier",
+            "email": "brclothier@trollandtoad.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2 || ^8.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^6.2.1 || ^7.0",
+        "guzzlehttp/psr7": "^1.7 || ^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "TNT\\Ebay\\Sell\\Recommendation\\V1\\" : "/"
+        }
+    }
+}

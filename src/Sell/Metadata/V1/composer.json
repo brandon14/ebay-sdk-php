@@ -1,0 +1,30 @@
+{
+    "name": "trollandtoad/ebay-sell-metadata-v1",
+    "description": "The Metadata API has operations that retrieve configuration details pertaining to the different eBay marketplaces. In addition to marketplace information, the API also has operations that get information that helps sellers list items on eBay.",
+    "keywords": ["openapitools", "openapi-generator", "openapi", "php", "sdk", "rest", "api", "ebay"],
+    "homepage": "https://github.com/trollandtoad/ebay-sell-metadata-v1",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "OpenAPI-Generator contributors",
+            "homepage": "https://openapi-generator.tech"
+        },
+        {
+            "name": "Brandon Clothier",
+            "email": "brclothier@trollandtoad.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2 || ^8.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^6.2.1 || ^7.0",
+        "guzzlehttp/psr7": "^1.7 || ^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "TNT\\Ebay\\Sell\\Metadata\\V1\\" : "/"
+        }
+    }
+}

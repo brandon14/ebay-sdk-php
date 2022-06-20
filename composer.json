@@ -1,0 +1,82 @@
+{
+    "name": "brandon14/ebay-sdk-php",
+    "description": "Combined Ebay API SDK generated using the OpenAPI generator and the Ebay OpenAPI specifications",
+    "type": "library",
+    "keywords": ["openapitools", "openapi-generator", "openapi", "php", "sdk", "rest", "api", "ebay"],
+    "license": "MIT",
+    "homepage": "https://github.com/brandon14/ebay-sdk-php",
+    "support": {
+        "issues": "https://github.com/brandon14/ebay-sdk-php/issues",
+        "source": "https://github.com/brandon14/ebay-sdk-php",
+        "email": "brclothier@trollandtoad.com"
+    },
+    "authors": [
+        {
+            "name": "Brandon Clothier",
+            "email": "brclothier@trollandtoad.com",
+            "role": "Lead Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.2 || ^8.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^6.2.1 || ^7.0",
+        "guzzlehttp/psr7": "^1.7 || ^2.0"
+    },
+    "require-dev": {
+        "comcast/php-legal-licenses": "^1.1",
+        "friendsofphp/php-cs-fixer": "^3.2",
+        "phpmd/phpmd": "^2.11",
+        "phpunit/phpunit": "^8.5.23 || ^9.0",
+        "roave/security-advisories": "dev-latest",
+        "squizlabs/php_codesniffer": "^3.6",
+        "vimeo/psalm": "^4.15"
+    },
+    "scripts": {
+        "analyze": "psalm",
+        "analyze:stats": "composer run-script analyze -- --stats",
+        "lint:phpcs:check": "phpcs ./",
+        "lint:phpcs:fix": "phpcbf ./",
+        "lint:phpmd": "phpmd ./ text ./phpmd.xml",
+        "lint:php-cs-fixer:fix": [
+            "@putenv PHP_CS_FIXER_IGNORE_ENV=1",
+            "php-cs-fixer fix"
+        ],
+        "lint:php-cs-fixer:check": "composer run-script lint:php-cs-fixer:fix -- --dry-run --verbose",
+        "lint": "composer run-script lint:phpcs:check && composer run-script lint:php-cs-fixer:check && composer run-script lint:phpmd",
+        "lint:fix": "composer run-script lint:phpcs:fix && composer run-script lint:php-cs-fixer:fix",
+        "test:phpunit": "phpunit --order-by=random --testdox",
+        "test": "composer run-script lint && composer run-script test:phpunit",
+        "licenses:generate": "php-legal-licenses generate",
+        "post-update-cmd": [
+            "composer run-script test:phpunit",
+            "composer run-script licenses:generate"
+        ],
+        "post-install-cmd": [
+            "composer run-script licenses:generate"
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+            "TNT\\Ebay\\" : "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TNT\\Ebay\\Tests\\" : "tests"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev",
+            "dev-main": "1.0-dev"
+        }
+    },
+    "prefer-stable": true
+}

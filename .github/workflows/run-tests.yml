@@ -1,0 +1,61 @@
+name: run-tests
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 0 * * *'
+jobs:
+  run-tests:
+    runs-on: ${{ matrix.os }}
+    continue-on-error: ${{ matrix.experimental }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        php: [7.2, 7.3, 7.4, 8.0, 8.1]
+        dependency-version: [prefer-lowest, prefer-stable]
+        experimental: [false]
+        include:
+          - php: 8.2
+            os: ubuntu-latest
+            dependency-version: prefer-lowest
+            experimental: true
+          - php: 8.2
+            os: ubuntu-latest
+            dependency-version: prefer-stable
+            experimental: true
+
+    name: PHP-${{ matrix.php }} - OS-${{ matrix.os }} - ${{ matrix.dependency-version }} - Experimental- ${{ matrix.experimental }}
+
+    steps:
+      - name: Update apt
+        run: sudo apt-get update --fix-missing
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: curl, json, mbstring
+          coverage: xdebug
+
+      - name: Install dependencies
+        run: |
+          composer self-update
+          composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
+          composer dump-autoload
+          composer validate --no-check-all --strict
+
+      - name: Execute tests
+        run: composer run-script test
+
+      - name: Upload coverage
+        if: ${{ github.event_name != 'schedule' && matrix.php == '7.4' }}
+        uses: codecov/codecov-action@v2
+        with:
+          fail_ci_if_error: true
+          files: ./coverage.xml

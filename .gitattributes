@@ -1,0 +1,3 @@
+* text=auto
+CHANGELOG.md export-ignore
+/composer.lock -merge
