@@ -28,6 +28,7 @@
     "require-dev": {
         "comcast/php-legal-licenses": "^1.1",
         "friendsofphp/php-cs-fixer": "^3.2",
+        "phpcompatibility/php-compatibility": "^9.3",
         "phpmd/phpmd": "^2.11",
         "phpunit/phpunit": "^8.5.23 || ^9.0",
         "roave/security-advisories": "dev-latest",
@@ -52,10 +53,12 @@
         "licenses:generate": "php-legal-licenses generate",
         "post-update-cmd": [
             "composer run-script test:phpunit",
-            "composer run-script licenses:generate"
+            "composer run-script licenses:generate",
+            "phpcs --config-set installed_paths vendor/phpcompatibility/php-compatibility"
         ],
         "post-install-cmd": [
-            "composer run-script licenses:generate"
+            "composer run-script licenses:generate",
+            "phpcs --config-set installed_paths vendor/phpcompatibility/php-compatibility"
         ]
     },
     "autoload": {

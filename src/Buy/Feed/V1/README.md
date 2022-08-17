@@ -1,4 +1,4 @@
-# trollandtoad/ebay-buy-feed-v1
+# brandon14/ebay-buy-feed-v1
 
 The Feed API provides the ability to download TSV_GZIP feed files containing eBay items and an hourly snapshot file for a specific category, date, and marketplace.<br /><br />In addition to the API, there is an open-source Feed SDK written in Java that downloads, combines files into a single file when needed, and unzips the entire feed file. It also lets you specify field filters to curate the items in the file.
 
@@ -19,11 +19,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/trollandtoad/ebay-buy-feed-v1.git"
+      "url": "https://github.com/brandon14/ebay-buy-feed-v1.git"
     }
   ],
   "require": {
-    "trollandtoad/ebay-buy-feed-v1": "*@dev"
+    "brandon14/ebay-buy-feed-v1": "*@dev"
   }
 }
 ```
@@ -36,7 +36,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/trollandtoad/ebay-buy-feed-v1/vendor/autoload.php');
+require_once('/path/to/brandon14/ebay-buy-feed-v1/vendor/autoload.php');
 ```
 
 ## Getting Started

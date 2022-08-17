@@ -1,8 +1,8 @@
 {
-    "name": "trollandtoad/ebay-commerce-taxonomy-v1",
+    "name": "brandon14/ebay-commerce-taxonomy-v1",
     "description": "Use the Taxonomy API to discover the most appropriate eBay categories under which sellers can offer inventory items for sale, and the most likely categories under which buyers can browse or search for items to purchase. In addition, the Taxonomy API provides metadata about the required and recommended category aspects to include in listings, and also has two operations to retrieve parts compatibility information.",
     "keywords": ["openapitools", "openapi-generator", "openapi", "php", "sdk", "rest", "api", "ebay"],
-    "homepage": "https://github.com/trollandtoad/ebay-commerce-taxonomy-v1",
+    "homepage": "https://github.com/brandon14/ebay-commerce-taxonomy-v1",
     "license": "MIT",
     "authors": [
         {

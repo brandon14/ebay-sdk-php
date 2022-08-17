@@ -1,8 +1,8 @@
 {
-    "name": "trollandtoad/ebay-sell-finances-v1",
+    "name": "brandon14/ebay-sell-finances-v1",
     "description": "This API is used to retrieve seller payouts and monetary transaction details related to those payouts.",
     "keywords": ["openapitools", "openapi-generator", "openapi", "php", "sdk", "rest", "api", "ebay"],
-    "homepage": "https://github.com/trollandtoad/ebay-sell-finances-v1",
+    "homepage": "https://github.com/brandon14/ebay-sell-finances-v1",
     "license": "MIT",
     "authors": [
         {

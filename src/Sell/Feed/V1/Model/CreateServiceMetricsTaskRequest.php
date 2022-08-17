@@ -261,7 +261,7 @@ class CreateServiceMetricsTaskRequest implements ModelInterface, ArrayAccess, \J
     /**
      * Sets feed_type.
      *
-     * @param string|null $feed_type The feedType specified for the task. The report lists the transaction details that contribute to the service metrics evaluation. Supported types include: CUSTOMER_SERVICE_METRICS_REPORT
+     * @param string|null $feed_type The <strong>feedType</strong> specified for the task. The report lists the transaction details that contribute to the service metrics evaluation. Supported types include:<p><code>CUSTOMER_SERVICE_METRICS_REPORT</code></p>
      *
      * @return self
      */
@@ -309,7 +309,7 @@ class CreateServiceMetricsTaskRequest implements ModelInterface, ArrayAccess, \J
     /**
      * Sets schema_version.
      *
-     * @param string|null $schema_version The version number of the file format. Valid value: 1.0
+     * @param string|null $schema_version The version number of the file format. <p><b>Valid value: </b><code>1.0</code><p>
      *
      * @return self
      */

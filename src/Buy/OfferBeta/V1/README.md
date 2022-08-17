@@ -1,4 +1,4 @@
-# trollandtoad/ebay-buy-offer-beta-v1
+# brandon14/ebay-buy-offer-beta-v1
 
 <span class=\"tablenote\"><b>Note:</b> This is a <a href=\"https://developer.ebay.com/api-docs/static/versioning.html#limited\" target=\"_blank\"> <img src=\"/cms/img/docs/partners-api.svg\" class=\"legend-icon partners-icon\" title=\"Limited Release\"  alt=\"Limited Release\" />(Limited Release)</a> API available only to select developers approved by business units.</span><br /><br />The Buy Offer API enables Partners to place proxy bids for a buyer and retrieve the auctions where the buyer is bidding.  By placing a proxy bid, the buyer is agreeing to purchase the item if they win the auction. </p> 
 
@@ -19,11 +19,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/trollandtoad/ebay-buy-offer-beta-v1.git"
+      "url": "https://github.com/brandon14/ebay-buy-offer-beta-v1.git"
     }
   ],
   "require": {
-    "trollandtoad/ebay-buy-offer-beta-v1": "*@dev"
+    "brandon14/ebay-buy-offer-beta-v1": "*@dev"
   }
 }
 ```
@@ -36,7 +36,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/trollandtoad/ebay-buy-offer-beta-v1/vendor/autoload.php');
+require_once('/path/to/brandon14/ebay-buy-offer-beta-v1/vendor/autoload.php');
 ```
 
 ## Getting Started

@@ -151,7 +151,7 @@ class ShipmentApi
     /**
      * Operation cancelShipment.
      *
-     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment to be canceled. The shipmentId value is generated and returned by a call to createFromShippingQuote. (required)
+     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment to be canceled. The &lt;b&gt;shipmentId&lt;/b&gt; value is generated and returned by a call to &lt;b&gt;createFromShippingQuote&lt;/b&gt;. (required)
      *
      * @throws \TNT\Ebay\Sell\Logistics\V1\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -168,7 +168,7 @@ class ShipmentApi
     /**
      * Operation cancelShipmentWithHttpInfo.
      *
-     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment to be canceled. The shipmentId value is generated and returned by a call to createFromShippingQuote. (required)
+     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment to be canceled. The &lt;b&gt;shipmentId&lt;/b&gt; value is generated and returned by a call to &lt;b&gt;createFromShippingQuote&lt;/b&gt;. (required)
      *
      * @throws \TNT\Ebay\Sell\Logistics\V1\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -242,7 +242,7 @@ class ShipmentApi
     /**
      * Operation cancelShipmentAsync.
      *
-     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment to be canceled. The shipmentId value is generated and returned by a call to createFromShippingQuote. (required)
+     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment to be canceled. The &lt;b&gt;shipmentId&lt;/b&gt; value is generated and returned by a call to &lt;b&gt;createFromShippingQuote&lt;/b&gt;. (required)
      *
      * @throws \InvalidArgumentException
      *
@@ -261,7 +261,7 @@ class ShipmentApi
     /**
      * Operation cancelShipmentAsyncWithHttpInfo.
      *
-     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment to be canceled. The shipmentId value is generated and returned by a call to createFromShippingQuote. (required)
+     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment to be canceled. The &lt;b&gt;shipmentId&lt;/b&gt; value is generated and returned by a call to &lt;b&gt;createFromShippingQuote&lt;/b&gt;. (required)
      *
      * @throws \InvalidArgumentException
      *
@@ -300,7 +300,7 @@ class ShipmentApi
     /**
      * Create request for operation 'cancelShipment'.
      *
-     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment to be canceled. The shipmentId value is generated and returned by a call to createFromShippingQuote. (required)
+     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment to be canceled. The &lt;b&gt;shipmentId&lt;/b&gt; value is generated and returned by a call to &lt;b&gt;createFromShippingQuote&lt;/b&gt;. (required)
      *
      * @throws \InvalidArgumentException
      *
@@ -630,7 +630,7 @@ class ShipmentApi
     /**
      * Operation downloadLabelFile.
      *
-     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment associated with the shipping label you want to download. The shipmentId value is generated and returned by a call to createFromShippingQuote. (required)
+     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment associated with the shipping label you want to download. The &lt;b&gt;shipmentId&lt;/b&gt; value is generated and returned by a call to &lt;b&gt;createFromShippingQuote&lt;/b&gt;. (required)
      *
      * @throws \TNT\Ebay\Sell\Logistics\V1\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -647,7 +647,7 @@ class ShipmentApi
     /**
      * Operation downloadLabelFileWithHttpInfo.
      *
-     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment associated with the shipping label you want to download. The shipmentId value is generated and returned by a call to createFromShippingQuote. (required)
+     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment associated with the shipping label you want to download. The &lt;b&gt;shipmentId&lt;/b&gt; value is generated and returned by a call to &lt;b&gt;createFromShippingQuote&lt;/b&gt;. (required)
      *
      * @throws \TNT\Ebay\Sell\Logistics\V1\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -721,7 +721,7 @@ class ShipmentApi
     /**
      * Operation downloadLabelFileAsync.
      *
-     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment associated with the shipping label you want to download. The shipmentId value is generated and returned by a call to createFromShippingQuote. (required)
+     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment associated with the shipping label you want to download. The &lt;b&gt;shipmentId&lt;/b&gt; value is generated and returned by a call to &lt;b&gt;createFromShippingQuote&lt;/b&gt;. (required)
      *
      * @throws \InvalidArgumentException
      *
@@ -740,7 +740,7 @@ class ShipmentApi
     /**
      * Operation downloadLabelFileAsyncWithHttpInfo.
      *
-     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment associated with the shipping label you want to download. The shipmentId value is generated and returned by a call to createFromShippingQuote. (required)
+     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment associated with the shipping label you want to download. The &lt;b&gt;shipmentId&lt;/b&gt; value is generated and returned by a call to &lt;b&gt;createFromShippingQuote&lt;/b&gt;. (required)
      *
      * @throws \InvalidArgumentException
      *
@@ -779,7 +779,7 @@ class ShipmentApi
     /**
      * Create request for operation 'downloadLabelFile'.
      *
-     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment associated with the shipping label you want to download. The shipmentId value is generated and returned by a call to createFromShippingQuote. (required)
+     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment associated with the shipping label you want to download. The &lt;b&gt;shipmentId&lt;/b&gt; value is generated and returned by a call to &lt;b&gt;createFromShippingQuote&lt;/b&gt;. (required)
      *
      * @throws \InvalidArgumentException
      *
@@ -871,7 +871,7 @@ class ShipmentApi
     /**
      * Operation getShipment.
      *
-     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment you want to retrieve. The shipmentId value is generated and returned by a call to createFromShippingQuote. (required)
+     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment you want to retrieve. The &lt;b&gt;shipmentId&lt;/b&gt; value is generated and returned by a call to &lt;b&gt;createFromShippingQuote&lt;/b&gt;. (required)
      *
      * @throws \TNT\Ebay\Sell\Logistics\V1\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -888,7 +888,7 @@ class ShipmentApi
     /**
      * Operation getShipmentWithHttpInfo.
      *
-     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment you want to retrieve. The shipmentId value is generated and returned by a call to createFromShippingQuote. (required)
+     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment you want to retrieve. The &lt;b&gt;shipmentId&lt;/b&gt; value is generated and returned by a call to &lt;b&gt;createFromShippingQuote&lt;/b&gt;. (required)
      *
      * @throws \TNT\Ebay\Sell\Logistics\V1\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -962,7 +962,7 @@ class ShipmentApi
     /**
      * Operation getShipmentAsync.
      *
-     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment you want to retrieve. The shipmentId value is generated and returned by a call to createFromShippingQuote. (required)
+     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment you want to retrieve. The &lt;b&gt;shipmentId&lt;/b&gt; value is generated and returned by a call to &lt;b&gt;createFromShippingQuote&lt;/b&gt;. (required)
      *
      * @throws \InvalidArgumentException
      *
@@ -981,7 +981,7 @@ class ShipmentApi
     /**
      * Operation getShipmentAsyncWithHttpInfo.
      *
-     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment you want to retrieve. The shipmentId value is generated and returned by a call to createFromShippingQuote. (required)
+     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment you want to retrieve. The &lt;b&gt;shipmentId&lt;/b&gt; value is generated and returned by a call to &lt;b&gt;createFromShippingQuote&lt;/b&gt;. (required)
      *
      * @throws \InvalidArgumentException
      *
@@ -1020,7 +1020,7 @@ class ShipmentApi
     /**
      * Create request for operation 'getShipment'.
      *
-     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment you want to retrieve. The shipmentId value is generated and returned by a call to createFromShippingQuote. (required)
+     * @param string $shipment_id This path parameter specifies the unique eBay-assigned ID of the shipment you want to retrieve. The &lt;b&gt;shipmentId&lt;/b&gt; value is generated and returned by a call to &lt;b&gt;createFromShippingQuote&lt;/b&gt;. (required)
      *
      * @throws \InvalidArgumentException
      *

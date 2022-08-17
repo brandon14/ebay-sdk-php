@@ -1,4 +1,4 @@
-# trollandtoad/ebay-sell-listing-beta-v1
+# brandon14/ebay-sell-listing-beta-v1
 
 <span class=\"tablenote\"><b>Note:</b> This is a <a href=\"https://developer.ebay.com/api-docs/static/versioning.html#limited\" target=\"_blank\"> <img src=\"/cms/img/docs/partners-api.svg\" class=\"legend-icon partners-icon\" title=\"Limited Release\"  alt=\"Limited Release\" />(Limited Release)</a> API available only to select developers approved by business units.</span><br /><br />Enables a seller adding an ad or item on a Partner's site to automatically create an eBay listing draft using the item details from the Partner's site.
 
@@ -19,11 +19,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/trollandtoad/ebay-sell-listing-beta-v1.git"
+      "url": "https://github.com/brandon14/ebay-sell-listing-beta-v1.git"
     }
   ],
   "require": {
-    "trollandtoad/ebay-sell-listing-beta-v1": "*@dev"
+    "brandon14/ebay-sell-listing-beta-v1": "*@dev"
   }
 }
 ```
@@ -36,7 +36,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/trollandtoad/ebay-sell-listing-beta-v1/vendor/autoload.php');
+require_once('/path/to/brandon14/ebay-sell-listing-beta-v1/vendor/autoload.php');
 ```
 
 ## Getting Started

@@ -1,4 +1,4 @@
-# trollandtoad/ebay-commerce-catalog-beta-v1
+# brandon14/ebay-commerce-catalog-beta-v1
 
 The Catalog API allows users to search for and locate an eBay catalog product that is a direct match for the product that they wish to sell. Listing against an eBay catalog product helps insure that all listings (based off of that catalog product) have complete and accurate information. In addition to helping to create high-quality listings, another benefit to the seller of using catalog information to create listings is that much of the details of the listing will be prefilled, including the listing title, the listing description, the item specifics, and a stock image for the product (if available). Sellers will not have to enter item specifics themselves, and the overall listing process is a lot faster and easier.
 
@@ -19,11 +19,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/trollandtoad/ebay-commerce-catalog-beta-v1.git"
+      "url": "https://github.com/brandon14/ebay-commerce-catalog-beta-v1.git"
     }
   ],
   "require": {
-    "trollandtoad/ebay-commerce-catalog-beta-v1": "*@dev"
+    "brandon14/ebay-commerce-catalog-beta-v1": "*@dev"
   }
 }
 ```
@@ -36,7 +36,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/trollandtoad/ebay-commerce-catalog-beta-v1/vendor/autoload.php');
+require_once('/path/to/brandon14/ebay-commerce-catalog-beta-v1/vendor/autoload.php');
 ```
 
 ## Getting Started

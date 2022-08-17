@@ -1,6 +1,6 @@
-# trollandtoad/ebay-sell-analytics-v1
+# brandon14/ebay-sell-analytics-v1
 
-The <i>Analytics API</i> provides data and information about a seller and their eBay business.  <br><br>The resources and methods in this API let sellers review information on their listing performance, metrics on their customer service performance, and details on their eBay seller performance rating.  <br><br>The three resources in the Analytics API provide the following data and information: <ul><li><b>Customer Service Metric</b> &ndash; Returns benchmark data and a metric rating pertaining to a seller's customer service performance as compared to other seller's in the same peer group.</li> <li><b>Traffic Report</b> &ndash; Returns data and information that shows how buyers are engaging with a seller's listings.</li> <li><b>Seller Standards Profile</b> &ndash; Returns information pertaining to a seller's profile rating.</li></ul> Sellers can use the data and information returned by the various Analytics API methods to determine where they can make improvements to increase sales and how they might improve their seller status as viewed by eBay buyers.  <br><br>For details on using this API, see <a href=\"/api-docs/sell/static/performance/analyzing-performance.html\" title=\"Selling Integration Guide\">Analyzing seller performance</a>.
+The <i>Analytics API</i> provides data and information about a seller and their eBay business.  <br><br>The resources and methods in this API let sellers review information on their listing performance, metrics on their customer service performance, and details on their eBay seller performance rating.  <br><br>The three resources in the Analytics API provide the following data and information: <ul><li><b>Customer Service Metric</b> &ndash; Returns data on a seller's customer service performance as compared to other seller's in the same peer group.</li> <li><b>Traffic Report</b> &ndash; Returns data that shows how buyers are engaging with a seller's listings.</li> <li><b>Seller Standards Profile</b> &ndash; Returns data pertaining to a seller's performance rating.</li></ul> Sellers can use the data and information returned by the various Analytics API methods to determine where they can make improvements to increase sales and how they might improve their seller status as viewed by eBay buyers.  <br><br>For details on using this API, see <a href=\"/api-docs/sell/static/performance/analyzing-performance.html\" title=\"Selling Integration Guide\">Analyzing seller performance</a>.
 
 
 ## Installation & Usage
@@ -19,11 +19,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/trollandtoad/ebay-sell-analytics-v1.git"
+      "url": "https://github.com/brandon14/ebay-sell-analytics-v1.git"
     }
   ],
   "require": {
-    "trollandtoad/ebay-sell-analytics-v1": "*@dev"
+    "brandon14/ebay-sell-analytics-v1": "*@dev"
   }
 }
 ```
@@ -36,7 +36,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/trollandtoad/ebay-sell-analytics-v1/vendor/autoload.php');
+require_once('/path/to/brandon14/ebay-sell-analytics-v1/vendor/autoload.php');
 ```
 
 ## Getting Started
@@ -59,9 +59,9 @@ $apiInstance = new TNT\Ebay\Sell\Analytics\V1\Api\CustomerServiceMetricApi(
     new GuzzleHttp\Client(),
     $config
 );
-$customer_service_metric_type = 'customer_service_metric_type_example'; // string | Use this path parameter to specify the type of customer service metrics and benchmark data you want returned for the seller. Supported types are: <ul><li><code>ITEM_NOT_AS_DESCRIBED</code></li><li><code>ITEM_NOT_RECEIVED</code></li></ul>
-$evaluation_marketplace_id = 'evaluation_marketplace_id_example'; // string | Use this query parameter to specify the Marketplace ID to evaluate for the customer service metrics and benchmark data.  <br><br>For the list of supported marketplaces, see <a href=\"/api-docs/sell/analytics/static/overview.html#requirements\" title=\"Analytics API Overview\" target=\"_blank\">Analytics API requirements and restrictions</a>. For implementation help, refer to eBay API documentation at https://developer.ebay.com/api-docs/sell/analytics/types/bas:MarketplaceIdEnum
-$evaluation_type = 'evaluation_type_example'; // string | Use this path parameter to specify the type of the seller evaluation you want returned, either: <ul><li><code>CURRENT</code> &ndash; A monthly evaluation that occurs on the 20th of every month.</li> <li><code>PROJECTED</code> &ndash; A daily evaluation that provides a projection of how the seller is currently performing with regards to the upcoming evaluation period.</li></ul>
+$customer_service_metric_type = 'customer_service_metric_type_example'; // string | Use this path parameter to specify the type of customer service metrics and benchmark data you want returned for the seller. Supported types are: ITEM_NOT_AS_DESCRIBED ITEM_NOT_RECEIVED
+$evaluation_marketplace_id = 'evaluation_marketplace_id_example'; // string | Use this query parameter to specify the Marketplace ID to evaluate for the customer service metrics and benchmark data. For the list of supported marketplaces, see Analytics API requirements and restrictions. For implementation help, refer to eBay API documentation at https://developer.ebay.com/devzone/rest/api-ref/analytics/types/MarketplaceIdEnum.html
+$evaluation_type = 'evaluation_type_example'; // string | Use this path parameter to specify the type of the seller evaluation you want returned, either: CURRENT &ndash; A monthly evaluation that occurs on the 20th of every month. PROJECTED &ndash; A daily evaluation that provides a projection of how the seller is currently performing with regards to the upcoming evaluation period.
 
 try {
     $result = $apiInstance->getCustomerServiceMetric($customer_service_metric_type, $evaluation_marketplace_id, $evaluation_type);
@@ -135,5 +135,5 @@ vendor/bin/phpunit
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.3.0`
+- API version: `1.2.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

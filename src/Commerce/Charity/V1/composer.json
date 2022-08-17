@@ -1,8 +1,8 @@
 {
-    "name": "trollandtoad/ebay-commerce-charity-v1",
+    "name": "brandon14/ebay-commerce-charity-v1",
     "description": "The Charity API allows third-party developers to search for and access details on supported charitable organizations.",
     "keywords": ["openapitools", "openapi-generator", "openapi", "php", "sdk", "rest", "api", "ebay"],
-    "homepage": "https://github.com/trollandtoad/ebay-commerce-charity-v1",
+    "homepage": "https://github.com/brandon14/ebay-commerce-charity-v1",
     "license": "MIT",
     "authors": [
         {

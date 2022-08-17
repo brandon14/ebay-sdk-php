@@ -25,6 +25,7 @@ Model/DisputeSummaryResponse.php
 Model/EbayCollectAndRemitTax.php
 Model/EbayFulfillmentProgram.php
 Model/EbayTaxReference.php
+Model/EbayVaultProgram.php
 Model/Error.php
 Model/ErrorParameter.php
 Model/EvidenceRequest.php
@@ -99,6 +100,7 @@ docs/Model/DisputeSummaryResponse.md
 docs/Model/EbayCollectAndRemitTax.md
 docs/Model/EbayFulfillmentProgram.md
 docs/Model/EbayTaxReference.md
+docs/Model/EbayVaultProgram.md
 docs/Model/Error.md
 docs/Model/ErrorParameter.md
 docs/Model/EvidenceRequest.md

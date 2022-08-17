@@ -151,16 +151,17 @@ class ShippingQuoteApi
     /**
      * Operation createShippingQuote.
      *
-     * @param \TNT\Ebay\Sell\Logistics\V1\Model\ShippingQuoteRequest $shipping_quote_request The request object for createShippingQuote. (required)
+     * @param string                                                 $x_ebay_c_marketplace_id This header parameter specifies the eBay marketplace for the shipping quote that is being created. For a list of valid values, refer to the section &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Marketplace ID Values&lt;/a&gt; in the &lt;b&gt;Using eBay RESTful APIs&lt;/b&gt; guide. (required)
+     * @param \TNT\Ebay\Sell\Logistics\V1\Model\ShippingQuoteRequest $shipping_quote_request  The request object for &lt;b&gt;createShippingQuote&lt;/b&gt;. (required)
      *
      * @throws \TNT\Ebay\Sell\Logistics\V1\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      *
      * @return \TNT\Ebay\Sell\Logistics\V1\Model\ShippingQuote
      */
-    public function createShippingQuote($shipping_quote_request)
+    public function createShippingQuote($x_ebay_c_marketplace_id, $shipping_quote_request)
     {
-        [$response] = $this->createShippingQuoteWithHttpInfo($shipping_quote_request);
+        [$response] = $this->createShippingQuoteWithHttpInfo($x_ebay_c_marketplace_id, $shipping_quote_request);
 
         return $response;
     }
@@ -168,16 +169,17 @@ class ShippingQuoteApi
     /**
      * Operation createShippingQuoteWithHttpInfo.
      *
-     * @param \TNT\Ebay\Sell\Logistics\V1\Model\ShippingQuoteRequest $shipping_quote_request The request object for createShippingQuote. (required)
+     * @param string                                                 $x_ebay_c_marketplace_id This header parameter specifies the eBay marketplace for the shipping quote that is being created. For a list of valid values, refer to the section &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Marketplace ID Values&lt;/a&gt; in the &lt;b&gt;Using eBay RESTful APIs&lt;/b&gt; guide. (required)
+     * @param \TNT\Ebay\Sell\Logistics\V1\Model\ShippingQuoteRequest $shipping_quote_request  The request object for &lt;b&gt;createShippingQuote&lt;/b&gt;. (required)
      *
      * @throws \TNT\Ebay\Sell\Logistics\V1\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      *
      * @return array of \TNT\Ebay\Sell\Logistics\V1\Model\ShippingQuote, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createShippingQuoteWithHttpInfo($shipping_quote_request)
+    public function createShippingQuoteWithHttpInfo($x_ebay_c_marketplace_id, $shipping_quote_request)
     {
-        $request = $this->createShippingQuoteRequest($shipping_quote_request);
+        $request = $this->createShippingQuoteRequest($x_ebay_c_marketplace_id, $shipping_quote_request);
 
         try {
             $options = $this->createHttpClientOption();
@@ -242,15 +244,16 @@ class ShippingQuoteApi
     /**
      * Operation createShippingQuoteAsync.
      *
-     * @param \TNT\Ebay\Sell\Logistics\V1\Model\ShippingQuoteRequest $shipping_quote_request The request object for createShippingQuote. (required)
+     * @param string                                                 $x_ebay_c_marketplace_id This header parameter specifies the eBay marketplace for the shipping quote that is being created. For a list of valid values, refer to the section &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Marketplace ID Values&lt;/a&gt; in the &lt;b&gt;Using eBay RESTful APIs&lt;/b&gt; guide. (required)
+     * @param \TNT\Ebay\Sell\Logistics\V1\Model\ShippingQuoteRequest $shipping_quote_request  The request object for &lt;b&gt;createShippingQuote&lt;/b&gt;. (required)
      *
      * @throws \InvalidArgumentException
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createShippingQuoteAsync($shipping_quote_request)
+    public function createShippingQuoteAsync($x_ebay_c_marketplace_id, $shipping_quote_request)
     {
-        return $this->createShippingQuoteAsyncWithHttpInfo($shipping_quote_request)
+        return $this->createShippingQuoteAsyncWithHttpInfo($x_ebay_c_marketplace_id, $shipping_quote_request)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -261,16 +264,17 @@ class ShippingQuoteApi
     /**
      * Operation createShippingQuoteAsyncWithHttpInfo.
      *
-     * @param \TNT\Ebay\Sell\Logistics\V1\Model\ShippingQuoteRequest $shipping_quote_request The request object for createShippingQuote. (required)
+     * @param string                                                 $x_ebay_c_marketplace_id This header parameter specifies the eBay marketplace for the shipping quote that is being created. For a list of valid values, refer to the section &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Marketplace ID Values&lt;/a&gt; in the &lt;b&gt;Using eBay RESTful APIs&lt;/b&gt; guide. (required)
+     * @param \TNT\Ebay\Sell\Logistics\V1\Model\ShippingQuoteRequest $shipping_quote_request  The request object for &lt;b&gt;createShippingQuote&lt;/b&gt;. (required)
      *
      * @throws \InvalidArgumentException
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createShippingQuoteAsyncWithHttpInfo($shipping_quote_request)
+    public function createShippingQuoteAsyncWithHttpInfo($x_ebay_c_marketplace_id, $shipping_quote_request)
     {
         $returnType = '\TNT\Ebay\Sell\Logistics\V1\Model\ShippingQuote';
-        $request = $this->createShippingQuoteRequest($shipping_quote_request);
+        $request = $this->createShippingQuoteRequest($x_ebay_c_marketplace_id, $shipping_quote_request);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -300,14 +304,19 @@ class ShippingQuoteApi
     /**
      * Create request for operation 'createShippingQuote'.
      *
-     * @param \TNT\Ebay\Sell\Logistics\V1\Model\ShippingQuoteRequest $shipping_quote_request The request object for createShippingQuote. (required)
+     * @param string                                                 $x_ebay_c_marketplace_id This header parameter specifies the eBay marketplace for the shipping quote that is being created. For a list of valid values, refer to the section &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Marketplace ID Values&lt;/a&gt; in the &lt;b&gt;Using eBay RESTful APIs&lt;/b&gt; guide. (required)
+     * @param \TNT\Ebay\Sell\Logistics\V1\Model\ShippingQuoteRequest $shipping_quote_request  The request object for &lt;b&gt;createShippingQuote&lt;/b&gt;. (required)
      *
      * @throws \InvalidArgumentException
      *
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createShippingQuoteRequest($shipping_quote_request)
+    public function createShippingQuoteRequest($x_ebay_c_marketplace_id, $shipping_quote_request)
     {
+        // verify the required parameter 'x_ebay_c_marketplace_id' is set
+        if ($x_ebay_c_marketplace_id === null || (is_array($x_ebay_c_marketplace_id) && count($x_ebay_c_marketplace_id) === 0)) {
+            throw new \InvalidArgumentException('Missing the required parameter $x_ebay_c_marketplace_id when calling createShippingQuote');
+        }
         // verify the required parameter 'shipping_quote_request' is set
         if ($shipping_quote_request === null || (is_array($shipping_quote_request) && count($shipping_quote_request) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $shipping_quote_request when calling createShippingQuote');
@@ -319,6 +328,11 @@ class ShippingQuoteApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
+        // header params
+        if ($x_ebay_c_marketplace_id !== null) {
+            $headerParams['X-EBAY-C-MARKETPLACE-ID'] = ObjectSerializer::toHeaderValue($x_ebay_c_marketplace_id);
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -389,7 +403,7 @@ class ShippingQuoteApi
     /**
      * Operation getShippingQuote.
      *
-     * @param string $shipping_quote_id This path parameter specifies the unique eBay-assigned ID of the shipping quote you want to retrieve. The shippingQuoteId value is generated and returned by a call to createShippingQuote. (required)
+     * @param string $shipping_quote_id This path parameter specifies the unique eBay-assigned ID of the shipping quote you want to retrieve. The &lt;b&gt;shippingQuoteId&lt;/b&gt; value is generated and returned by a call to &lt;b&gt;createShippingQuote&lt;/b&gt;. (required)
      *
      * @throws \TNT\Ebay\Sell\Logistics\V1\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -406,7 +420,7 @@ class ShippingQuoteApi
     /**
      * Operation getShippingQuoteWithHttpInfo.
      *
-     * @param string $shipping_quote_id This path parameter specifies the unique eBay-assigned ID of the shipping quote you want to retrieve. The shippingQuoteId value is generated and returned by a call to createShippingQuote. (required)
+     * @param string $shipping_quote_id This path parameter specifies the unique eBay-assigned ID of the shipping quote you want to retrieve. The &lt;b&gt;shippingQuoteId&lt;/b&gt; value is generated and returned by a call to &lt;b&gt;createShippingQuote&lt;/b&gt;. (required)
      *
      * @throws \TNT\Ebay\Sell\Logistics\V1\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -480,7 +494,7 @@ class ShippingQuoteApi
     /**
      * Operation getShippingQuoteAsync.
      *
-     * @param string $shipping_quote_id This path parameter specifies the unique eBay-assigned ID of the shipping quote you want to retrieve. The shippingQuoteId value is generated and returned by a call to createShippingQuote. (required)
+     * @param string $shipping_quote_id This path parameter specifies the unique eBay-assigned ID of the shipping quote you want to retrieve. The &lt;b&gt;shippingQuoteId&lt;/b&gt; value is generated and returned by a call to &lt;b&gt;createShippingQuote&lt;/b&gt;. (required)
      *
      * @throws \InvalidArgumentException
      *
@@ -499,7 +513,7 @@ class ShippingQuoteApi
     /**
      * Operation getShippingQuoteAsyncWithHttpInfo.
      *
-     * @param string $shipping_quote_id This path parameter specifies the unique eBay-assigned ID of the shipping quote you want to retrieve. The shippingQuoteId value is generated and returned by a call to createShippingQuote. (required)
+     * @param string $shipping_quote_id This path parameter specifies the unique eBay-assigned ID of the shipping quote you want to retrieve. The &lt;b&gt;shippingQuoteId&lt;/b&gt; value is generated and returned by a call to &lt;b&gt;createShippingQuote&lt;/b&gt;. (required)
      *
      * @throws \InvalidArgumentException
      *
@@ -538,7 +552,7 @@ class ShippingQuoteApi
     /**
      * Create request for operation 'getShippingQuote'.
      *
-     * @param string $shipping_quote_id This path parameter specifies the unique eBay-assigned ID of the shipping quote you want to retrieve. The shippingQuoteId value is generated and returned by a call to createShippingQuote. (required)
+     * @param string $shipping_quote_id This path parameter specifies the unique eBay-assigned ID of the shipping quote you want to retrieve. The &lt;b&gt;shippingQuoteId&lt;/b&gt; value is generated and returned by a call to &lt;b&gt;createShippingQuote&lt;/b&gt;. (required)
      *
      * @throws \InvalidArgumentException
      *

@@ -7,7 +7,7 @@ info:
   license:
     name: eBay API License Agreement
     url: https://go.developer.ebay.com/api-license-agreement
-  version: v1.7.0
+  version: v1.8.0
 servers:
   - url: https://api.ebay.com{basePath}
     description: Production
@@ -1869,7 +1869,7 @@ paths:
     get:
       tags:
         - sales_tax
-      description: Use this call to retrieve all sales tax table entries that the seller has defined for a specific country. All four response fields will be returned for each tax jurisdiction that matches the search criteria.<br/><br/><span class="tablenote"><b>Important!</b> In most US states and territories, eBay now 'collects and remits' sales tax, so sellers can no longer configure sales tax rates for these states/territories.</span>
+      description: Use this call to retrieve all sales tax table entries that the seller has defined for a specific country. All four response fields will be returned for each tax jurisdiction that matches the search criteria. <br/><br/><span class="tablenote"><b>Important!</b> In most US states and territories, eBay now 'collects and remits' sales tax, so sellers can no longer configure sales tax rates for these states/territories.</span>
       operationId: getSalesTaxes
       parameters:
         - name: country_code
@@ -1944,6 +1944,64 @@ paths:
                 domain: API_ACCOUNT
                 category: APPLICATION
                 description: There was a problem with an eBay internal system or process. Contact eBay developer support for assistance.
+      security:
+        - api_auth:
+            - https://api.ebay.com/oauth/api_scope/sell.account
+            - https://api.ebay.com/oauth/api_scope/sell.account.readonly
+  /advertising_eligibility:
+    get:
+      tags:
+        - advertising_eligibility
+      description: This method allows developers to check the seller eligibility status for eBay advertising programs.
+      operationId: getAdvertisingEligibility
+      parameters:
+        - name: program_types
+          in: query
+          description: A comma-separated list of eBay advertising programs.<br /><br /><span class="tablenote"><b>Tip:</b> See the <a href="/api-docs/sell/account/types/plser:AdvertisingProgramEnum"> AdvertisingProgramEnum</a> type for possible values.</span><br /><br />If no programs are specified, the results will be returned for all programs.
+          required: false
+          schema:
+            type: string
+        - name: X-EBAY-C-MARKETPLACE-ID
+          in: header
+          description: The unique identifier of the eBay marketplace for which the seller eligibility status shall be checked.<br /><br /><span class="tablenote"><b>Note:</b> This value is case-sensitive.</span>
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SellerEligibilityMultiProgramResponse'
+        '400':
+          description: Bad Request
+          x-response-codes:
+            errors:
+              '50114':
+                domain: API_ACCOUNT
+                category: REQUEST
+                description: The HTTP request header 'X-EBAY-C-MARKETPLACE-ID' is required.
+              '50116':
+                domain: API_ACCOUNT
+                category: REQUEST
+                description: Invalid program_type(s) {programTypes}.
+              '50117':
+                domain: API_ACCOUNT
+                category: REQUEST
+                description: Invalid marketplaceId in HTTP request header 'X-EBAY-C-MARKETPLACE-ID' {marketplaceId}.
+        '500':
+          description: Internal Server Error
+          x-response-codes:
+            errors:
+              '35001':
+                domain: API_ACCOUNT
+                category: APPLICATION
+                description: There was a problem with an eBay internal system or process. Contact eBay developer support for assistance.
+              '35002':
+                domain: API_ACCOUNT
+                category: APPLICATION
+                description: Internal error. Please wait a few minutes and try the call again.
       security:
         - api_auth:
             - https://api.ebay.com/oauth/api_scope/sell.account
@@ -2490,11 +2548,11 @@ components:
       properties:
         referenceId:
           type: string
-          description: '<span class="tablenote"><b>Note</b>: DO NOT USE THIS FIELD. eBay now controls all electronic payment methods available for a marketplace, and a seller never has to specify any electronic payment methods, including PayPal. </span><br/><br/>Contains the PayPal email address of the recipient (seller) if <b>referenceType</b> is set to <code>PAYPAL_EMAIL</code>.'
+          description: '<span class="tablenote"><b>Note</b>: DO NOT USE THIS FIELD. eBay now controls all electronic payment methods available for a marketplace, and a seller never has to specify any electronic payment methods.</span>'
         referenceType:
           type: string
-          description: '<span class="tablenote"><b>Note</b>: DO NOT USE THIS FIELD. eBay now controls all electronic payment methods available for a marketplace, and a seller never has to specify any electronic payment methods, including PayPal. </span><br/><br/>This field''s value indicates the type of account where payment will be received. Currently, the only supported value is PAYPAL_EMAIL. For implementation help, refer to <a href=''https://developer.ebay.com/api-docs/sell/account/types/api:RecipientAccountReferenceTypeEnum''>eBay API documentation</a>'
-      description: '<span class="tablenote"><b>Note</b>: This type is no longer applicable. eBay now controls all electronic payment methods available for a marketplace, and a seller never has to specify any electronic payment methods, including PayPal. </span>'
+          description: '<span class="tablenote"><b>Note</b>: DO NOT USE THIS FIELD. eBay now controls all electronic payment methods available for a marketplace, and a seller never has to specify any electronic payment methods.</span> For implementation help, refer to <a href=''https://developer.ebay.com/api-docs/sell/account/types/api:RecipientAccountReferenceTypeEnum''>eBay API documentation</a>'
+      description: '<span class="tablenote"><b>Note</b>: This type is no longer applicable. eBay now controls all electronic payment methods available for a marketplace, and a seller never has to specify any electronic payment methods.</span>'
     Region:
       type: object
       properties:
@@ -2677,6 +2735,28 @@ components:
           items:
             $ref: '#/components/schemas/SalesTax'
       description: This type is used by the root response of the <b>getSalesTaxes</b> method.
+    SellerEligibilityMultiProgramResponse:
+      type: object
+      properties:
+        advertisingEligibility:
+          type: array
+          description: An array of response fields that define the seller eligibility for eBay adverstising programs.
+          items:
+            $ref: '#/components/schemas/SellerEligibilityResponse'
+      description: The base response of the <b>getAdvertisingEligibility</b> method that contains the seller eligibility information for one or more advertising programs.
+    SellerEligibilityResponse:
+      type: object
+      properties:
+        programType:
+          type: string
+          description: The eBay advertising program for which a seller may be eligible. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/account/types/plser:AdvertisingProgramEnum'>eBay API documentation</a>
+        reason:
+          type: string
+          description: The reason why a seller is ineligible for the specified eBay advertising program.<br /><br />This field is only returned if the seller is ineligible for the eBay advertising program. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/account/types/plser:SellerIneligibleReasonEnum'>eBay API documentation</a>
+        status:
+          type: string
+          description: The seller elibibilty status for the specified eBay advertising program. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/account/types/cmlib:SellerEligibilityEnum'>eBay API documentation</a>
+      description: A type that is used to provide the seller's eligibility status for an eBay advertising program.
     SellingLimit:
       type: object
       properties:

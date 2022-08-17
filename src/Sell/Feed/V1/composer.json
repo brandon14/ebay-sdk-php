@@ -1,8 +1,8 @@
 {
-    "name": "trollandtoad/ebay-sell-feed-v1",
+    "name": "brandon14/ebay-sell-feed-v1",
     "description": "<p>The <strong>Feed API</strong> lets sellers upload input files, download reports and files including their status, filter reports using URI parameters, and retrieve customer service metrics task details.</p>",
     "keywords": ["openapitools", "openapi-generator", "openapi", "php", "sdk", "rest", "api", "ebay"],
-    "homepage": "https://github.com/trollandtoad/ebay-sell-feed-v1",
+    "homepage": "https://github.com/brandon14/ebay-sell-feed-v1",
     "license": "MIT",
     "authors": [
         {

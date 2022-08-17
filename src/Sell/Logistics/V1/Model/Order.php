@@ -255,7 +255,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets channel.
      *
-     * @param string|null $channel The e-commerce platform or environment where the order was created. Use the value EBAY to get the rates available for eBay orders.
+     * @param string|null $channel The e-commerce platform or environment where the order was created. Use the value <code>EBAY</code> to get the rates available for eBay orders.
      *
      * @return self
      */
@@ -279,7 +279,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets order_id.
      *
-     * @param string|null $order_id The unique ID of the order supplied by the channel of origin. For eBay orders, this would be the orderId.
+     * @param string|null $order_id The unique ID of the order supplied by the channel of origin. For eBay orders, this would be the <b>orderId</b>.
      *
      * @return self
      */

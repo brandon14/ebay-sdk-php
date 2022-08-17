@@ -308,7 +308,7 @@ class InventoryTaskCollection implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets limit.
      *
-     * @param int|null $limit The value of the limit parameter submitted in the request, which is the maximum number of inventory tasks to return per page, from the result set. A result set is the complete set of tasks returned by the method. Note: Though this parameter is not required to be submitted in the request, the parameter defaults to 10 if omitted. Additionally, if this is the last or only page of the result set, the page may contain fewer tasks than the limit value submitted in the request. To determine the number of pages in a result set, divide the total value (total number of tasks matching the input criteria) by this limit value, and then round up to the next integer. For example, if the total value was 120 (120 total tasks) and the limit value was 50 (show 50 tasks per page), the total number of pages in the result set is three, so the seller would have to make three separate getInventoryTasks calls to view all tasks matching the input criteria.
+     * @param int|null $limit The value of the <strong>limit</strong> parameter submitted in the request, which is the maximum number of inventory tasks to return per page, from the result set. A result set is the complete set of tasks returned by the method.<br /><br /><span class=\"tablenote\"><strong>Note:</strong> Though this parameter is not required to be submitted in the request, the parameter defaults to <code>10</code> if omitted. Additionally, if this is the last or only page of the result set, the page may contain fewer tasks than the <strong>limit</strong> value submitted in the request.</span><br /><br />To determine the number of pages in a result set, divide the total value (total number of tasks matching the input criteria) by this limit value, and then round up to the next integer. For example, if the <strong>total</strong> value was <code>120</code> (120 total tasks) and the <strong>limit</strong> value was <code>50</code> (show 50 tasks per page), the total number of pages in the result set is three, so the seller would have to make three separate <strong>getInventoryTasks</strong> calls to view all tasks matching the input criteria.
      *
      * @return self
      */
@@ -356,7 +356,7 @@ class InventoryTaskCollection implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets offset.
      *
-     * @param int|null $offset The number of results skipped in the result set before listing the first returned result. This value can be specified in the request with the offset query parameter. Note: The items in a paginated result set use a zero-based list, where the first item in the list has an offset of 0.
+     * @param int|null $offset The number of results skipped in the result set before listing the first returned result. This value can be specified in the request with the <strong>offset</strong> query parameter.<br /><br /><span class=\"tablenote\"><strong>Note:</strong> The items in a paginated result set use a zero-based list, where the first item in the list has an offset of <code>0</code>.</span>
      *
      * @return self
      */
@@ -404,7 +404,7 @@ class InventoryTaskCollection implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets tasks.
      *
-     * @param \TNT\Ebay\Sell\Feed\V1\Model\InventoryTask[]|null $tasks An array of the inventory tasks on this page. The tasks are sorted by creation date. Note: An empty array is returned if the filter criteria excludes all tasks.
+     * @param \TNT\Ebay\Sell\Feed\V1\Model\InventoryTask[]|null $tasks An array of the inventory tasks on this page. The tasks are sorted by creation date.<br /><br /><span class=\"tablenote\"><strong>Note:</strong> An empty array is returned if the filter criteria excludes all tasks.</span>
      *
      * @return self
      */

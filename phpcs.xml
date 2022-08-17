@@ -19,9 +19,16 @@
   <exclude-pattern>doctum_cache/</exclude-pattern>
   <!-- Exclude docs folder -->
   <exclude-pattern>docs/</exclude-pattern>
-    <!-- Exclude generated files -->
-  <exclude-pattern>src/</exclude-pattern>
 
-  <rule ref="PSR2" />
+  <!-- Run against the PHPCompatibility ruleset -->
+  <rule ref="PHPCompatibility"/>
+
+  <config name="testVersion" value="7.2-"/>
+
+  <!-- Check for PSR-12 style -->
+  <rule ref="PSR12" >
+    <exclude name="PSR12.Operators.OperatorSpacing.NoSpaceBefore"></exclude>
+    <exclude name="PSR12.Operators.OperatorSpacing.NoSpaceAfter"></exclude>
+  </rule>
 
 </ruleset>

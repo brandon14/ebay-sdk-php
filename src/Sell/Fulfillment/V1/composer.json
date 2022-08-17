@@ -1,8 +1,8 @@
 {
-    "name": "trollandtoad/ebay-sell-fulfillment-v1",
+    "name": "brandon14/ebay-sell-fulfillment-v1",
     "description": "Use the Fulfillment API to complete the process of packaging, addressing, handling, and shipping each order on behalf of the seller, in accordance with the payment method and timing specified at checkout.",
     "keywords": ["openapitools", "openapi-generator", "openapi", "php", "sdk", "rest", "api", "ebay"],
-    "homepage": "https://github.com/trollandtoad/ebay-sell-fulfillment-v1",
+    "homepage": "https://github.com/brandon14/ebay-sell-fulfillment-v1",
     "license": "MIT",
     "authors": [
         {

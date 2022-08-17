@@ -66,7 +66,7 @@ use TNT\Ebay\Sell\Logistics\V1\ObjectSerializer;
  * PurchasedRate Class Doc Comment.
  *
  * @category Class
- * @description The &amp;quot;rate&amp;quot; that has been selected and purchased for the shipment, as referenced by the rateId value.
+ * @description The \&quot;rate\&quot; that has been selected and purchased for the shipment, as referenced by the &lt;b&gt;rateId&lt;/b&gt; value.
  *
  * @author   OpenAPI Generator team
  *
@@ -381,7 +381,7 @@ class PurchasedRate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets destination_time_zone.
      *
-     * @param string|null $destination_time_zone The time zone of the destination according to Time Zone Database. For example, &quot;America/Los_Angeles&quot;.
+     * @param string|null $destination_time_zone The time zone of the destination according to <a href=\"https://www.iana.org/time-zones\" target=\"_blank\">Time Zone Database</a>. For example, \"America/Los_Angeles\".
      *
      * @return self
      */
@@ -405,7 +405,7 @@ class PurchasedRate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets max_estimated_delivery_date.
      *
-     * @param string|null $max_estimated_delivery_date A string value representing maximum (latest) estimated delivery time, formatted as an ISO 8601 string, which is based on the 24-hour Coordinated Universal Time (UTC) clock. Format: [YYYY]-[MM]-[DD]T[HH]:[MM]:[SS].[SSS]Z Example: 2018-08-20T07:09:00.000Z
+     * @param string|null $max_estimated_delivery_date A string value representing maximum (latest) estimated delivery time, formatted as an <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\" title=\"https://www.iso.org\" target=\"_blank\">ISO 8601</a> string, which is based on the 24-hour Coordinated Universal Time (UTC) clock.  <br><br><b>Format:</b> <code>[YYYY]-[MM]-[DD]T[HH]:[MM]:[SS].[SSS]Z</code> <br><b>Example:</b> <code>2018-08-20T07:09:00.000Z</code>
      *
      * @return self
      */
@@ -429,7 +429,7 @@ class PurchasedRate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets min_estimated_delivery_date.
      *
-     * @param string|null $min_estimated_delivery_date a string value representing minimum (earliest) estimated delivery time, formatted as an ISO 8601ISO 8601 UTC string
+     * @param string|null $min_estimated_delivery_date A string value representing minimum (earliest) estimated delivery time, formatted as an <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\" title=\"https://www.iso.org\" target=\"_blank\">ISO 8601</a>ISO 8601</a> UTC string.
      *
      * @return self
      */
@@ -597,7 +597,7 @@ class PurchasedRate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets shipping_quote_id.
      *
-     * @param string|null $shipping_quote_id the unique eBay-generated ID of the shipping quote from which the seller selected a shipping rate (rateId)
+     * @param string|null $shipping_quote_id the unique eBay-generated ID of the <i>shipping quote</i> from which the seller selected a shipping rate (<b>rateId</b>)
      *
      * @return self
      */

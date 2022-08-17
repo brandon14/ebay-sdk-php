@@ -36,7 +36,7 @@ use Doctum\RemoteRepository\GitHubRemoteRepository;
 $dir = __DIR__.'/src';
 $iterator = Finder::create()
     ->files()
-    ->name('*.php')
+    ->notName('.*.php')
     ->in($dir);
 
 return new Doctum($iterator, [

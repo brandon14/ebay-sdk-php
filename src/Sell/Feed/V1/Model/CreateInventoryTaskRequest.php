@@ -266,7 +266,7 @@ class CreateInventoryTaskRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets schema_version.
      *
-     * @param string|null $schema_version The schemaVersion/version number of the file format (use the schema version of the API to which you are programming): LMS Version Details / Schema Version File Exchange Schema Version
+     * @param string|null $schema_version The schemaVersion/version number of the file format (use the schema version of the API to which you are programming):<ul><li><a href=\"/api-docs/sell/static/lms-migration/lms-to-feed-version-details-schema-version.html\" target=\"_blank\">LMS Version Details / Schema Version</a></li><li><a href=\"/api-docs/sell/static/feed/fx-feeds-quick-reference.html#schema\" target=\"_blank\">Seller Hub feed schema version</a></li></ul>
      *
      * @return self
      */
@@ -290,7 +290,7 @@ class CreateInventoryTaskRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets feed_type.
      *
-     * @param string|null $feed_type The feed type associated with the inventory task you are about to create. Use a feedType that is available for your API. Presently, only one feed type is available: LMS_ACTIVE_INVENTORY_REPORT
+     * @param string|null $feed_type The feed type associated with the inventory task you are about to create. Use a <strong>feedType</strong> that is available for your API. Presently, only one feed type is available:<ul><li><code>LMS_ACTIVE_INVENTORY_REPORT</code></li></ul><br/><br/>See <a href=\"/api-docs/sell/static/feed/lms-feeds-quick-reference.html#merchant-data-reports-download-feed-types\" target=\"_blank\">Report download feed types</a> for more information.
      *
      * @return self
      */
@@ -338,7 +338,7 @@ class CreateInventoryTaskRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets inventory_file_template.
      *
-     * @param string|null $inventory_file_template The inventory file template used to return specific types of inventory tasks. Presently not applicable for LMS_ACTIVE_INVENTORY_REPORT. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:InventoryFileTemplateEnum'>eBay API documentation</a>
+     * @param string|null $inventory_file_template The inventory file template used to return specific types of inventory tasks. Presently not applicable for <code>LMS_ACTIVE_INVENTORY_REPORT</code>. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:InventoryFileTemplateEnum'>eBay API documentation</a>
      *
      * @return self
      */

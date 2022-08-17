@@ -66,7 +66,7 @@ use TNT\Ebay\Sell\Feed\V1\ObjectSerializer;
  * CreateOrderTaskRequest Class Doc Comment.
  *
  * @category Class
- * @description The type that defines the fields for the createOrderTask request.
+ * @description The type that defines the fields for the &lt;b&gt; createOrderTask&lt;/b&gt; request.
  *
  * @author   OpenAPI Generator team
  *
@@ -261,7 +261,7 @@ class CreateOrderTaskRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets feed_type.
      *
-     * @param string|null $feed_type The feed type associated with the task. The only presently supported value is LMS_ORDER_REPORT.
+     * @param string|null $feed_type The feed type associated with the task. The only presently supported value is <code>LMS_ORDER_REPORT</code>. See <a href=\"/api-docs/sell/static/feed/lms-feeds-quick-reference.html#merchant-data-reports-download-feed-types\" target=\"_blank\">Report download feed types</a> for more information.
      *
      * @return self
      */
@@ -309,7 +309,7 @@ class CreateOrderTaskRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets schema_version.
      *
-     * @param string|null $schema_version The schema version of the LMS OrderReport. For the LMS_ORDER_REPORT feed type, see the OrderReport reference page to see the present schema version. The schemaVersion value is the version number shown at the top of the OrderReport page. Restriction: This value must be 1113 or higher. The OrderReport schema version is updated about every two weeks. All version numbers are odd numbers (even numbers are skipped). For example, the next release version after '1113' is '1115'.
+     * @param string|null $schema_version The schema version of the LMS OrderReport. For the <code>LMS_ORDER_REPORT</code> feed type, see the <a href=\"/devzone/merchant-data/CallRef/OrderReport.html#OrderReport\">OrderReport</a> reference page to see the present schema version. The <b> schemaVersion</b> value is the version number shown at the top of the <b> OrderReport</b> page. <br /><br /><b>Restriction: </b> This value must be 1113 or higher. The OrderReport schema version is updated about every two weeks. All version numbers are odd numbers (even numbers are skipped). For example, the next release version after '1113' is '1115'.
      *
      * @return self
      */

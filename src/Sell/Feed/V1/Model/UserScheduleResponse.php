@@ -66,7 +66,7 @@ use TNT\Ebay\Sell\Feed\V1\ObjectSerializer;
  * UserScheduleResponse Class Doc Comment.
  *
  * @category Class
- * @description The type that defines the fields for a paginated result set of available schedules. The response consists of 0 or more sequenced pages where each page has 0 or more items.
+ * @description The type that defines the fields for a paginated result set of available schedules. The response consists of 0 or more sequenced &lt;em&gt; pages&lt;/em&gt; where each page has 0 or more items.
  *
  * @author   OpenAPI Generator team
  *
@@ -327,7 +327,7 @@ class UserScheduleResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets schedule_id.
      *
-     * @param string|null $schedule_id The ID of the schedule. This ID is generated when the schedule was created by the createSchedule method.
+     * @param string|null $schedule_id The ID of the schedule. This ID is generated when the schedule was created by the <strong>createSchedule</strong> method.
      *
      * @return self
      */
@@ -375,7 +375,7 @@ class UserScheduleResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets feed_type.
      *
-     * @param string|null $feed_type the feedType associated with the schedule
+     * @param string|null $feed_type the <strong>feedType</strong> associated with the schedule
      *
      * @return self
      */
@@ -423,7 +423,7 @@ class UserScheduleResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets preferred_trigger_day_of_month.
      *
-     * @param int|null $preferred_trigger_day_of_month The preferred day of the month to trigger the schedule. This field can be used with preferredTriggerHour for monthly schedules. The last day of the month is used for numbers larger than the number of days in the month.
+     * @param int|null $preferred_trigger_day_of_month The preferred day of the month to trigger the schedule. This field can be used with <strong>preferredTriggerHour</strong> for monthly schedules. The last day of the month is used for numbers larger than the number of days in the month.
      *
      * @return self
      */
@@ -447,7 +447,7 @@ class UserScheduleResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets preferred_trigger_day_of_week.
      *
-     * @param string|null $preferred_trigger_day_of_week The preferred day of the week to trigger the schedule. This field can be used with preferredTriggerHour for weekly schedules. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:DayOfWeekEnum'>eBay API documentation</a>
+     * @param string|null $preferred_trigger_day_of_week The preferred day of the week to trigger the schedule. This field can be used with <strong>preferredTriggerHour</strong> for weekly schedules. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:DayOfWeekEnum'>eBay API documentation</a>
      *
      * @return self
      */
@@ -471,7 +471,7 @@ class UserScheduleResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets preferred_trigger_hour.
      *
-     * @param string|null $preferred_trigger_hour The preferred two-digit hour of the day to trigger the schedule. Format: UTC hhZ For example, the following represents 11:00 am UTC: 11Z
+     * @param string|null $preferred_trigger_hour The preferred two-digit hour of the day to trigger the schedule. <br /><br /><b>Format:</b> UTC <code>hhZ</code><br /><br />For example, the following represents 11:00 am UTC:<br /><br /><code>11Z</code><br /><br />
      *
      * @return self
      */
@@ -495,7 +495,7 @@ class UserScheduleResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets schedule_end_date.
      *
-     * @param string|null $schedule_end_date The timestamp on which the report generation (subscription) ends. After this date, the schedule status becomes INACTIVE.
+     * @param string|null $schedule_end_date The timestamp on which the report generation (subscription) ends. After this date, the schedule status becomes <code>INACTIVE</code>.
      *
      * @return self
      */

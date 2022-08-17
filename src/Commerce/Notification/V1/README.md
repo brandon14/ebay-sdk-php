@@ -1,4 +1,4 @@
-# trollandtoad/ebay-commerce-notification-v1
+# brandon14/ebay-commerce-notification-v1
 
 The eBay Notification API enables management of the entire end-to-end eBay notification experience by allowing users to:<ul><li>Browse for supported notification topics and retrieve topic details</li><li>Create, configure, and manage notification destination endpionts</li><li>Configure, manage, and test notification subscriptions</li><li>Process eBay notifications and verify the integrity of the message payload</li></ul>
 
@@ -19,11 +19,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/trollandtoad/ebay-commerce-notification-v1.git"
+      "url": "https://github.com/brandon14/ebay-commerce-notification-v1.git"
     }
   ],
   "require": {
-    "trollandtoad/ebay-commerce-notification-v1": "*@dev"
+    "brandon14/ebay-commerce-notification-v1": "*@dev"
   }
 }
 ```
@@ -36,7 +36,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/trollandtoad/ebay-commerce-notification-v1/vendor/autoload.php');
+require_once('/path/to/brandon14/ebay-commerce-notification-v1/vendor/autoload.php');
 ```
 
 ## Getting Started

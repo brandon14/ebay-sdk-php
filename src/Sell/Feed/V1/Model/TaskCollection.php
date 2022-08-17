@@ -66,7 +66,7 @@ use TNT\Ebay\Sell\Feed\V1\ObjectSerializer;
  * TaskCollection Class Doc Comment.
  *
  * @category Class
- * @description The type that defines the fields for a paginated result set of tasks. The response consists of 0 or more sequenced pages where each page has 0 or more items.
+ * @description The type that defines the fields for a paginated result set of tasks. The response consists of 0 or more sequenced &lt;em&gt; pages&lt;/em&gt; where each page has 0 or more items.
  *
  * @author   OpenAPI Generator team
  *
@@ -309,7 +309,7 @@ class TaskCollection implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets limit.
      *
-     * @param int|null $limit The value of the limit parameter submitted in the request, which is the maximum number of tasks to return per page, from the result set. A result set is the complete set of tasks returned by the method. Note: Though this parameter is not required to be submitted in the request, the parameter defaults to 10 if omitted. Note: If this is the last or only page of the result set, the page may contain fewer tasks than the limit value. To determine the number of pages in a result set, divide the total value (total number of tasks matching input criteria) by this limit value, and then round up to the next integer. For example, if the total value was 120 (120 total tasks) and the limit value was 50 (show 50 tasks per page), the total number of pages in the result set is three, so the seller would have to make three separate getTasks calls to view all tasks matching the input criteria.
+     * @param int|null $limit The value of the <strong>limit</strong> parameter submitted in the request, which is the maximum number of tasks to return per page, from the result set. A result set is the complete set of tasks returned by the method. <p> <span class=\"tablenote\"><strong>Note:</strong> Though this parameter is not required to be submitted in the request, the parameter defaults to 10 if omitted.</span></p><p> <span class=\"tablenote\"><strong>Note:</strong> If this is the last or only page of the result set, the page may contain fewer tasks than the <strong>limit</strong> value. To determine the number of pages in a result set, divide the total value (total number of tasks matching input criteria) by this limit value, and then round up to the next integer. For example, if the <strong>total</strong> value was <code>120</code> (120 total tasks) and the <strong>limit</strong> value was <code>50</code> (show 50 tasks per page), the total number of pages in the result set is three, so the seller would have to make three separate <strong>getTasks</strong> calls to view all tasks matching the input criteria.</span></p>
      *
      * @return self
      */
@@ -357,7 +357,7 @@ class TaskCollection implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets offset.
      *
-     * @param int|null $offset The number of results skipped in the result set before listing the first returned result. This value can be set in the request with the offset query parameter. Note: The items in a paginated result set use a zero-based list where the first item in the list has an offset of 0.
+     * @param int|null $offset The number of results skipped in the result set before listing the first returned result. This value can be set in the request with the <b>offset</b> query parameter. <p class=\"tablenote\"><strong>Note: </strong>The items in a paginated result set use a zero-based list where the first item in the list has an offset of <code>0</code>.</p>
      *
      * @return self
      */

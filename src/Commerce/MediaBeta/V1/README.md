@@ -1,4 +1,4 @@
-# trollandtoad/ebay-commerce-media-beta-v1
+# brandon14/ebay-commerce-media-beta-v1
 
 The Media API allows sellers to create, upload, and fetch videos.
 
@@ -19,11 +19,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/trollandtoad/ebay-commerce-media-beta-v1.git"
+      "url": "https://github.com/brandon14/ebay-commerce-media-beta-v1.git"
     }
   ],
   "require": {
-    "trollandtoad/ebay-commerce-media-beta-v1": "*@dev"
+    "brandon14/ebay-commerce-media-beta-v1": "*@dev"
   }
 }
 ```
@@ -36,7 +36,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/trollandtoad/ebay-commerce-media-beta-v1/vendor/autoload.php');
+require_once('/path/to/brandon14/ebay-commerce-media-beta-v1/vendor/autoload.php');
 ```
 
 ## Getting Started

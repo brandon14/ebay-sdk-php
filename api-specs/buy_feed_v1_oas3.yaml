@@ -248,7 +248,7 @@ paths:
     get:
       tags:
         - file
-      description: 'Use the <b>getFile</b> method to fetch the details of a feed file available to download, as specified by the file''s <b>file_id</b>.</p><p>Details in the response include: the feed''s <b>file_id</b>, the date it became available, eBay categories that support the feed, its frequency (currently only HOURLY is supported), the time span it covers, its feed type, its format (currently only TSV is available), its size in bytes, the schema under which it was pulled, and the marketplaces it applies to.</p>'
+      description: 'Use the <b>getFile</b> method to fetch the details of a feed file available to download, as specified by the file''s <b>file_id</b>.</p><p>Details in the response include: the feed''s <b>file_id</b>, the date it became available, eBay categories that support the feed, its frequency, the time span it covers, its feed type, its format (currently only TSV is available), its size in bytes, the schema under which it was pulled, and the marketplaces it applies to.</p>'
       operationId: getFile
       parameters:
         - name: file_id
@@ -309,7 +309,7 @@ paths:
     get:
       tags:
         - file
-      description: <p>The <b>getFiles</b> method provides a list of the feed files available for download.</p>Details for each feed returned include the date the feed was generated, the frequency with which it is pulled (currently only HOURLY is supported), its feed type, its <b>fileid</b>, its format (currently only TSV is supported), the eBay marketplaces it applies to, the schema version under which it was generated, its size in bytes, and the time span it covers (in hours).</p><p>You can limit your search results by feed type, marketplace, scope, and eBay L1 category.</p><h3><b>Restrictions </b></h3><p>For a list of supported sites and other restrictions, see <a href="/api-docs/buy/feed/overview.html#API">API Restrictions</a>.</p>
+      description: <p>The <b>getFiles</b> method provides a list of the feed files available for download.</p>Details for each feed returned include the date the feed was generated, the frequency with which it is pulled, its feed type, its <b>fileid</b>, its format (currently only TSV is supported), the eBay marketplaces it applies to, the schema version under which it was generated, its size in bytes, and the time span it covers (in hours).</p><p>You can limit your search results by feed type, marketplace, scope, and eBay L1 category.</p><h3><b>Restrictions </b></h3><p>For a list of supported sites and other restrictions, see <a href="/api-docs/buy/feed/overview.html#API">API Restrictions</a>.</p>
       operationId: getFiles
       parameters:
         - name: category_ids

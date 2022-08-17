@@ -1,8 +1,8 @@
 {
-    "name": "trollandtoad/ebay-sell-metadata-v1",
+    "name": "brandon14/ebay-sell-metadata-v1",
     "description": "The Metadata API has operations that retrieve configuration details pertaining to the different eBay marketplaces. In addition to marketplace information, the API also has operations that get information that helps sellers list items on eBay.",
     "keywords": ["openapitools", "openapi-generator", "openapi", "php", "sdk", "rest", "api", "ebay"],
-    "homepage": "https://github.com/trollandtoad/ebay-sell-metadata-v1",
+    "homepage": "https://github.com/brandon14/ebay-sell-metadata-v1",
     "license": "MIT",
     "authors": [
         {

@@ -1,4 +1,4 @@
-# trollandtoad/ebay-buy-marketing-beta-v1
+# brandon14/ebay-buy-marketing-beta-v1
 
 The Marketing API retrieves eBay products based on a metric, such as Best Selling, as well as products that were also bought and also viewed.
 
@@ -19,11 +19,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/trollandtoad/ebay-buy-marketing-beta-v1.git"
+      "url": "https://github.com/brandon14/ebay-buy-marketing-beta-v1.git"
     }
   ],
   "require": {
-    "trollandtoad/ebay-buy-marketing-beta-v1": "*@dev"
+    "brandon14/ebay-buy-marketing-beta-v1": "*@dev"
   }
 }
 ```
@@ -36,7 +36,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/trollandtoad/ebay-buy-marketing-beta-v1/vendor/autoload.php');
+require_once('/path/to/brandon14/ebay-buy-marketing-beta-v1/vendor/autoload.php');
 ```
 
 ## Getting Started

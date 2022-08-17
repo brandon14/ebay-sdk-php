@@ -13,6 +13,9 @@
 
 # brandon14/ebay-sdk-php
 
+**NOTE:** This library has not been fully tested, and should not be considered stable or suitable for production
+environments.
+
 ## Table Of Contents
 
 1. [Requirements](https://github.com/brandon14/ebay-sdk-php#requirements)
@@ -59,6 +62,9 @@ You can install the entire bundle of Ebay libraries via:
 composer require brandon14/ebay-sdk-php
 ```
 
+_NOTE: This is not implemented yet, and will be available in an upcoming release once we get the subtree splitting
+set up._
+
 If you wish to install individual API libraries, you can via the following (this would for example install the
 `Buy/Browser/V1` library):
 
@@ -84,7 +90,7 @@ code added.
 
 ## Documentation
 
-Documentation to this project can be found [here](https://trollandtoad.github.io/ebay-sdk-php/).
+Documentation to this project can be found [here](https://brandon14.github.io/ebay-sdk-php/).
 
 ## Contributing
 

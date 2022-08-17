@@ -1,8 +1,8 @@
 {
-    "name": "trollandtoad/ebay-sell-account-v2",
+    "name": "brandon14/ebay-sell-account-v2",
     "description": "This API allows sellers to retrieve and manage their custom shipping rate tables.",
     "keywords": ["openapitools", "openapi-generator", "openapi", "php", "sdk", "rest", "api", "ebay"],
-    "homepage": "https://github.com/trollandtoad/ebay-sell-account-v2",
+    "homepage": "https://github.com/brandon14/ebay-sell-account-v2",
     "license": "MIT",
     "authors": [
         {

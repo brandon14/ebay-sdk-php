@@ -1,4 +1,4 @@
-# trollandtoad/ebay-sell-compliance-v1
+# brandon14/ebay-sell-compliance-v1
 
 Service for providing information to sellers about their listings being non-compliant, or at risk for becoming non-compliant, against eBay listing policies.
 
@@ -19,11 +19,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/trollandtoad/ebay-sell-compliance-v1.git"
+      "url": "https://github.com/brandon14/ebay-sell-compliance-v1.git"
     }
   ],
   "require": {
-    "trollandtoad/ebay-sell-compliance-v1": "*@dev"
+    "brandon14/ebay-sell-compliance-v1": "*@dev"
   }
 }
 ```
@@ -36,7 +36,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/trollandtoad/ebay-sell-compliance-v1/vendor/autoload.php');
+require_once('/path/to/brandon14/ebay-sell-compliance-v1/vendor/autoload.php');
 ```
 
 ## Getting Started

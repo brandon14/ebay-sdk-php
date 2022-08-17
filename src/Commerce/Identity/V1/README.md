@@ -1,4 +1,4 @@
-# trollandtoad/ebay-commerce-identity-v1
+# brandon14/ebay-commerce-identity-v1
 
 <span class=\"tablenote\"><b>Note:</b> This is a <a href=\"https://developer.ebay.com/api-docs/static/versioning.html#limited\" target=\"_blank\"> <img src=\"/cms/img/docs/partners-api.svg\" class=\"legend-icon partners-icon\" title=\"Limited Release\"  alt=\"Limited Release\" />(Limited Release)</a> API available only to select developers approved by business units.</span><br /><br />Retrieves the authenticated user's account profile information. It can be used to let users log into your app or site using eBay, which frees you from needing to store and protect user's PII (Personal Identifiable Information) data.
 
@@ -19,11 +19,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/trollandtoad/ebay-commerce-identity-v1.git"
+      "url": "https://github.com/brandon14/ebay-commerce-identity-v1.git"
     }
   ],
   "require": {
-    "trollandtoad/ebay-commerce-identity-v1": "*@dev"
+    "brandon14/ebay-commerce-identity-v1": "*@dev"
   }
 }
 ```
@@ -36,7 +36,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/trollandtoad/ebay-commerce-identity-v1/vendor/autoload.php');
+require_once('/path/to/brandon14/ebay-commerce-identity-v1/vendor/autoload.php');
 ```
 
 ## Getting Started

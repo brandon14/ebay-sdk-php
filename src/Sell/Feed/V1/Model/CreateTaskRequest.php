@@ -66,7 +66,7 @@ use TNT\Ebay\Sell\Feed\V1\ObjectSerializer;
  * CreateTaskRequest Class Doc Comment.
  *
  * @category Class
- * @description The type that defines the fields for the createTask method.
+ * @description The type that defines the fields for the &lt;b&gt; createTask&lt;/b&gt; method.
  *
  * @author   OpenAPI Generator team
  *
@@ -255,7 +255,7 @@ class CreateTaskRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets feed_type.
      *
-     * @param string|null $feed_type The feed type associated with the task. Only use a feedType that is available for your API. Available feed types: LMS FeedTypes: All LMS feed types except LMS_ORDER_REPORT and LMS_ACTIVE_INVENTORY_REPORT File Exchange FeedTypes
+     * @param string|null $feed_type The feed type associated with the task. Only use a <strong>feedType</strong> that is available for your API. Available feed types:<ul><li><a href=\"/api-docs/sell/static/feed/lms-feeds-quick-reference.html#trading-upload-feed-types\" target=\"_blank\">Inventory upload feed types</a></li><li><a href=\"/api-docs/sell/static/feed/lms-feeds-quick-reference.html#merchant-data-upload-feed-types\" target=\"_blank\">Fulfillment upload feed types</a></li><li><a href=\"/api-docs/sell/static/feed/fx-feeds-quick-reference.html#availabl\" target=\"_blank\">Seller Hub feed types</a></li></ul>
      *
      * @return self
      */
@@ -279,7 +279,7 @@ class CreateTaskRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets schema_version.
      *
-     * @param string|null $schema_version The schemaVersion/version number of the file format (use the schema version of the API to which you are programming): LMS Version Details / Schema Version File Exchange Schema Version
+     * @param string|null $schema_version The schemaVersion/version number of the file format (use the schema version of the API to which you are programming):<ul><li><a href=\"/api-docs/sell/static/lms-migration/lms-to-feed-version-details-schema-version.html\" target=\"_blank\">LMS Version Details / Schema Version</a></li><li><a href=\"/api-docs/sell/static/feed/fx-feeds-quick-reference.html#schema\" target=\"_blank\">Seller Hub feed schema version</a></li></ul>
      *
      * @return self
      */

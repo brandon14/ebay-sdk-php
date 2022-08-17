@@ -16,6 +16,7 @@ Model/Charge.php
 Model/Error.php
 Model/ErrorParameter.php
 Model/Fee.php
+Model/FeeJurisdiction.php
 Model/FundingSource.php
 Model/ModelInterface.php
 Model/OrderLineItem.php
@@ -44,6 +45,7 @@ docs/Model/Charge.md
 docs/Model/Error.md
 docs/Model/ErrorParameter.md
 docs/Model/Fee.md
+docs/Model/FeeJurisdiction.md
 docs/Model/FundingSource.md
 docs/Model/OrderLineItem.md
 docs/Model/Payout.md

@@ -1,8 +1,8 @@
 {
-    "name": "trollandtoad/ebay-sell-inventory-v1",
+    "name": "brandon14/ebay-sell-inventory-v1",
     "description": "The Inventory API is used to create and manage inventory, and then to publish and manage this inventory on an eBay marketplace. There are also methods in this API that will convert eligible, active eBay listings into the Inventory API model.",
     "keywords": ["openapitools", "openapi-generator", "openapi", "php", "sdk", "rest", "api", "ebay"],
-    "homepage": "https://github.com/trollandtoad/ebay-sell-inventory-v1",
+    "homepage": "https://github.com/brandon14/ebay-sell-inventory-v1",
     "license": "MIT",
     "authors": [
         {

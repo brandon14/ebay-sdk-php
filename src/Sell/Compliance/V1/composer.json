@@ -1,8 +1,8 @@
 {
-    "name": "trollandtoad/ebay-sell-compliance-v1",
+    "name": "brandon14/ebay-sell-compliance-v1",
     "description": "Service for providing information to sellers about their listings being non-compliant, or at risk for becoming non-compliant, against eBay listing policies.",
     "keywords": ["openapitools", "openapi-generator", "openapi", "php", "sdk", "rest", "api", "ebay"],
-    "homepage": "https://github.com/trollandtoad/ebay-sell-compliance-v1",
+    "homepage": "https://github.com/brandon14/ebay-sell-compliance-v1",
     "license": "MIT",
     "authors": [
         {

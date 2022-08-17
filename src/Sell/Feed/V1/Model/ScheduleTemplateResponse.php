@@ -66,7 +66,7 @@ use TNT\Ebay\Sell\Feed\V1\ObjectSerializer;
  * ScheduleTemplateResponse Class Doc Comment.
  *
  * @category Class
- * @description The type that defines the fields for a paginated result set of available schedule templates. The response consists of 0 or more sequenced pages where each page has 0 or more items.
+ * @description The type that defines the fields for a paginated result set of available schedule templates. The response consists of 0 or more sequenced &lt;em&gt; pages&lt;/em&gt; where each page has 0 or more items.
  *
  * @author   OpenAPI Generator team
  *
@@ -279,7 +279,7 @@ class ScheduleTemplateResponse implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets feed_type.
      *
-     * @param string|null $feed_type The feed type of the schedule template. Note: When calling createSchedule and updateSchedule methods you must match the feed type specified by the schedule template (this feedType).
+     * @param string|null $feed_type The feed type of the schedule template. <p> <span class=\"tablenote\"><strong>Note:</strong> When calling <strong>createSchedule</strong> and <strong>updateSchedule</strong> methods you must match the feed type specified by the schedule template (this feedType).</span></p>
      *
      * @return self
      */
@@ -303,7 +303,7 @@ class ScheduleTemplateResponse implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets frequency.
      *
-     * @param string|null $frequency This field specifies how often the schedule is generated. If set to HALF_HOUR or ONE_HOUR, you cannot set a preferredTriggerHour using createSchedule or updateSchedule. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:FrequencyEnum'>eBay API documentation</a>
+     * @param string|null $frequency This field specifies how often the schedule is generated. If set to <code>HALF_HOUR</code> or <code>ONE_HOUR</code>, you cannot set a <strong>preferredTriggerHour</strong> using <strong>createSchedule</strong> or <strong>updateSchedule</strong>. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:FrequencyEnum'>eBay API documentation</a>
      *
      * @return self
      */
@@ -375,7 +375,7 @@ class ScheduleTemplateResponse implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets status.
      *
-     * @param string|null $status The present status of the template. You cannot create or modify a schedule using a template with an INACTIVE status. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:StatusEnum'>eBay API documentation</a>
+     * @param string|null $status The present status of the template. You cannot create or modify a schedule using a template with an <code>INACTIVE</code> status.  For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:StatusEnum'>eBay API documentation</a>
      *
      * @return self
      */

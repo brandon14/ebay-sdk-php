@@ -255,7 +255,7 @@ class ShipmentCancellation implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets cancellation_requested_date.
      *
-     * @param string|null $cancellation_requested_date the time and date the request was made to cancel the shipment, formatted as an ISO 8601 UTC string
+     * @param string|null $cancellation_requested_date The time and date the request was made to cancel the shipment, formatted as an <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\" title=\"https://www.iso.org\" target=\"_blank\">ISO 8601</a> UTC string.
      *
      * @return self
      */

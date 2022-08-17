@@ -19,6 +19,7 @@ Model/Fee.php
 Model/GuestCheckoutSessionResponseV2.php
 Model/GuestPurchaseOrderV2.php
 Model/Image.php
+Model/ImportChargesV2.php
 Model/ImportTax.php
 Model/LegacyReference.php
 Model/LineItem.php
@@ -56,6 +57,7 @@ docs/Model/Fee.md
 docs/Model/GuestCheckoutSessionResponseV2.md
 docs/Model/GuestPurchaseOrderV2.md
 docs/Model/Image.md
+docs/Model/ImportChargesV2.md
 docs/Model/ImportTax.md
 docs/Model/LegacyReference.md
 docs/Model/LineItem.md

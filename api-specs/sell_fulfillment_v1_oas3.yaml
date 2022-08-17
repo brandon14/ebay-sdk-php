@@ -7,7 +7,7 @@ info:
   license:
     name: eBay API License Agreement
     url: https://go.developer.ebay.com/api-license-agreement
-  version: v1.19.10
+  version: v1.19.13
 servers:
   - url: https://api.ebay.com{basePath}
     description: Production
@@ -181,7 +181,7 @@ paths:
       tags:
         - order
       summary: Issue Refund
-      description: This method allows a seller (opted in to eBay Managed Payments) to issue a full or partial refund to a buyer for an order. Full or partial refunds can be issued at the order level or line item level.<br/><br/>The refunds issued through this method are processed asynchronously, so the refund will not show as 'Refunded' right away. A seller will have to make a subsequent <a href="https://developer.ebay.com/api-docs/sell/fulfillment/resources/order/methods/getOrder" target="_blank">getOrder</a> call to check the status of the refund.  The status of an order refund can be found in the <a href="https://developer.ebay.com/api-docs/sell/fulfillment/resources/order/methods/getOrder#response.paymentSummary.refunds.refundStatus" target="_blank">paymentSummary.refunds.refundStatus</a> field of the <a href="https://developer.ebay.com/api-docs/sell/fulfillment/resources/order/methods/getOrder" target="_blank">getOrder</a> response. <br/><br/><span class="tablenote"><strong>Note:</strong> eBay Managed Payments is currently only available to a limited number of US sellers, but this program is scheduled to become available to more sellers throughout 2019 and beyond. </span>
+      description: This method allows a seller to issue a full or partial refund to a buyer for an order. Full or partial refunds can be issued at the order level or line item level.<br/><br/>The refunds issued through this method are processed asynchronously, so the refund will not show as 'Refunded' right away. A seller will have to make a subsequent <a href="https://developer.ebay.com/api-docs/sell/fulfillment/resources/order/methods/getOrder" target="_blank">getOrder</a> call to check the status of the refund.  The status of an order refund can be found in the <a href="https://developer.ebay.com/api-docs/sell/fulfillment/resources/order/methods/getOrder#response.paymentSummary.refunds.refundStatus" target="_blank">paymentSummary.refunds.refundStatus</a> field of the <a href="https://developer.ebay.com/api-docs/sell/fulfillment/resources/order/methods/getOrder" target="_blank">getOrder</a> response.
       operationId: issueRefund
       parameters:
         - name: order_id
@@ -266,11 +266,11 @@ paths:
               '34917':
                 domain: API_FULFILLMENT
                 category: BUSINESS
-                description: The order status is not correct, refund can't be triggered against the order.
+                description: This order was already refunded.
               '34920':
                 domain: API_FULFILLMENT
                 category: BUSINESS
-                description: This order is out of time to trigger refund.
+                description: It's too late to issue a refund for this order.
               '34921':
                 domain: API_FULFILLMENT
                 category: REQUEST
@@ -282,7 +282,7 @@ paths:
               '34923':
                 domain: API_FULFILLMENT
                 category: REQUEST
-                description: Refund can't be issued for this type of order (seller created order).
+                description: Refund cannot be issued for this type of order.
         '403':
           description: Access Forbidden
         '404':
@@ -325,6 +325,14 @@ paths:
                 domain: API_FULFILLMENT
                 category: BUSINESS
                 description: Your refund did not go through because we could not verify your payment option. Please change your payment option and try again.
+              '34929':
+                domain: API_FULFILLMENT
+                category: REQUEST
+                description: You cannot refund this order yet since the buyer payment has not been processed. Please try again later.
+              '34930':
+                domain: API_FULFILLMENT
+                category: REQUEST
+                description: Default payment method limit exceeded. Please use a different payment option or try again later.
         '500':
           description: Internal Server Error
           x-response-codes:
@@ -509,7 +517,7 @@ paths:
       parameters:
         - name: payment_dispute_id
           in: path
-          description: This is the unique identifier of the payment dispute. This path parameter must be passed in at the end of the call URI to identify the payment dispute to retrieve. This identifier is automatically created by eBay once the payment dispute comes into the eBay managed payments system. The unique identifier for payment disputes is returned in the <strong>paymentDisputeId</strong> field in the <strong>getPaymentDisputeSummaries</strong> response.
+          description: This is the unique identifier of the payment dispute. This path parameter must be passed in at the end of the call URI to identify the payment dispute to retrieve. This identifier is automatically created by eBay once the payment dispute comes into the eBay system. The unique identifier for payment disputes is returned in the <strong>paymentDisputeId</strong> field in the <strong>getPaymentDisputeSummaries</strong> response.
           required: true
           schema:
             type: string
@@ -629,7 +637,7 @@ paths:
       parameters:
         - name: payment_dispute_id
           in: path
-          description: This is the unique identifier of the payment dispute. This path parameter must be passed in at the end of the call URI to identify the payment dispute for which the user wishes to see all activity. This identifier is automatically created by eBay once the payment dispute comes into the eBay managed payments system. The unique identifier for payment disputes is returned in the <strong>paymentDisputeId</strong> field in the <strong>getPaymentDisputeSummaries</strong> response.<br><br>This path parameter is required, and the actual identifier value is passed in right after the <strong>payment_dispute</strong> resource. See the Resource URI above.
+          description: This is the unique identifier of the payment dispute. This path parameter must be passed in at the end of the call URI to identify the payment dispute for which the user wishes to see all activity. This identifier is automatically created by eBay once the payment dispute comes into the eBay system. The unique identifier for payment disputes is returned in the <strong>paymentDisputeId</strong> field in the <strong>getPaymentDisputeSummaries</strong> response.<br><br>This path parameter is required, and the actual identifier value is passed in right after the <strong>payment_dispute</strong> resource. See the Resource URI above.
           required: true
           schema:
             type: string
@@ -759,7 +767,7 @@ paths:
       parameters:
         - name: payment_dispute_id
           in: path
-          description: This is the unique identifier of the payment dispute. This path parameter must be passed into the call URI to identify the payment dispute for which the user plans to contest. This identifier is automatically created by eBay once the payment dispute comes into the eBay managed payments system. The unique identifier for payment disputes is returned in the <strong>paymentDisputeId</strong> field in the <strong>getPaymentDisputeSummaries</strong> response.<br><br>This path parameter is required, and the actual identifier value is passed in right after the <strong>payment_dispute</strong> resource. See the Resource URI above.
+          description: This is the unique identifier of the payment dispute. This path parameter must be passed into the call URI to identify the payment dispute for which the user plans to contest. This identifier is automatically created by eBay once the payment dispute comes into the eBay system. The unique identifier for payment disputes is returned in the <strong>paymentDisputeId</strong> field in the <strong>getPaymentDisputeSummaries</strong> response.<br><br>This path parameter is required, and the actual identifier value is passed in right after the <strong>payment_dispute</strong> resource. See the Resource URI above.
           required: true
           schema:
             type: string
@@ -825,7 +833,7 @@ paths:
       parameters:
         - name: payment_dispute_id
           in: path
-          description: This is the unique identifier of the payment dispute. This path parameter must be passed into the call URI to identify the payment dispute for which the user plans to accept. This identifier is automatically created by eBay once the payment dispute comes into the eBay managed payments system. The unique identifier for payment disputes is returned in the <strong>paymentDisputeId</strong> field in the <strong>getPaymentDisputeSummaries</strong> response.<br><br>This path parameter is required, and the actual identifier value is passed in right after the <strong>payment_dispute</strong> resource. See the Resource URI above.
+          description: This is the unique identifier of the payment dispute. This path parameter must be passed into the call URI to identify the payment dispute for which the user plans to accept. This identifier is automatically created by eBay once the payment dispute comes into the eBay system. The unique identifier for payment disputes is returned in the <strong>paymentDisputeId</strong> field in the <strong>getPaymentDisputeSummaries</strong> response.<br><br>This path parameter is required, and the actual identifier value is passed in right after the <strong>payment_dispute</strong> resource. See the Resource URI above.
           required: true
           schema:
             type: string
@@ -878,12 +886,12 @@ paths:
       tags:
         - payment_dispute
       summary: Upload an Evidence File
-      description: This method is used to upload an evidence file for a contested payment dispute. The unique identifier of the payment dispute is passed in as a path parameter, and unique identifiers for payment disputes can be retrieved with the <strong>getPaymentDisputeSummaries</strong> method.<br><br>The <strong>uploadEvidenceFile</strong> only uploads an encrypted, binary image file (using multipart/form-data HTTP request header), and does not have a request payload. The three image formats supported at this time are .JPEG, .JPG, and .PNG.<br><br>Once the file is successfully uploaded, the seller will need to grab the <strong>fileId</strong> value in the response payload to add this file to a new evidence set using the <strong>addEvidence</strong> method, or to add this file to an existing evidence set using the <strong>updateEvidence</strong> method.
+      description: This method is used to upload an evidence file for a contested payment dispute. The unique identifier of the payment dispute is passed in as a path parameter, and unique identifiers for payment disputes can be retrieved with the <strong>getPaymentDisputeSummaries</strong> method.<br><br><span class="tablenote"><strong>Note:</strong> The <strong>uploadEvidenceFile</strong> only uploads an encrypted, binary image file (using <strong>multipart/form-data</strong> HTTP request header), and does not have a JSON-based request payload.<br><br>Use 'file' as the name of the key that you use to upload the image file. The upload will not be successful if a different key name is used.<br><br>The three image formats supported at this time are <strong>.JPEG</strong>, <strong>.JPG</strong>, and <strong>.PNG</strong>.</span><br><br>After the file is successfully uploaded, the seller will need to grab the <strong>fileId</strong> value in the response payload to add this file to a new evidence set using the <strong>addEvidence</strong> method, or to add this file to an existing evidence set using the <strong>updateEvidence</strong> method.
       operationId: uploadEvidenceFile
       parameters:
         - name: payment_dispute_id
           in: path
-          description: This is the unique identifier of the payment dispute. This path parameter must be passed into the call URI to identify the payment dispute for which the user plans to upload an evidence file. This identifier is automatically created by eBay once the payment dispute comes into the eBay managed payments system. The unique identifier for payment disputes is returned in the <strong>paymentDisputeId</strong> field in the <strong>getPaymentDisputeSummaries</strong> response.<br><br>This path parameter is required, and the actual identifier value is passed in right after the <strong>payment_dispute</strong> resource. See the Resource URI above.
+          description: This is the unique identifier of the payment dispute. This path parameter must be passed into the call URI to identify the payment dispute for which the user plans to upload an evidence file. This identifier is automatically created by eBay after the payment dispute comes into the eBay system. The unique identifier for payment disputes is returned in the <strong>paymentDisputeId</strong> field in the <strong>getPaymentDisputeSummaries</strong> response.<br><br>This path parameter is required, and the actual identifier value is passed in right after the <strong>payment_dispute</strong> resource. See the Resource URI above.
           required: true
           schema:
             type: string
@@ -905,7 +913,15 @@ paths:
               '33006':
                 domain: API_FULFILLMENT
                 category: REQUEST
-                description: File size should be less than 10 Mb.
+                description: File size should be 1.5 MB or less.
+              '33106':
+                domain: API_FULFILLMENT
+                category: REQUEST
+                description: The file name should not be empty and should not exceed 255 characters.
+              '33107':
+                domain: API_FULFILLMENT
+                category: REQUEST
+                description: Only one file can be uploaded per request.
         '404':
           description: Not Found
           x-response-codes:
@@ -922,6 +938,10 @@ paths:
                 domain: API_FULFILLMENT
                 category: REQUEST
                 description: Upload file for evidence is not permitted for given payment dispute state.
+              '33105':
+                domain: API_FULFILLMENT
+                category: REQUEST
+                description: You reached the maximum number of files you can upload.
         '500':
           description: Internal Server Error
           x-response-codes:
@@ -949,7 +969,7 @@ paths:
       parameters:
         - name: payment_dispute_id
           in: path
-          description: This is the unique identifier of the payment dispute. This path parameter must be passed into the call URI to identify the payment dispute for which the user plans to add evidence for a contested payment dispute. This identifier is automatically created by eBay once the payment dispute comes into the eBay managed payments system. The unique identifier for payment disputes is returned in the <strong>paymentDisputeId</strong> field in the <strong>getPaymentDisputeSummaries</strong> response.<br><br>This path parameter is required, and the actual identifier value is passed in right after the <strong>payment_dispute</strong> resource. See the Resource URI above.
+          description: This is the unique identifier of the payment dispute. This path parameter must be passed into the call URI to identify the payment dispute for which the user plans to add evidence for a contested payment dispute. This identifier is automatically created by eBay once the payment dispute comes into the eBay system. The unique identifier for payment disputes is returned in the <strong>paymentDisputeId</strong> field in the <strong>getPaymentDisputeSummaries</strong> response.<br><br>This path parameter is required, and the actual identifier value is passed in right after the <strong>payment_dispute</strong> resource. See the Resource URI above.
           required: true
           schema:
             type: string
@@ -989,7 +1009,7 @@ paths:
               '33104':
                 domain: API_FULFILLMENT
                 category: REQUEST
-                description: Exceed allowed file size
+                description: The combined size of attached files should be 1.5MB or less.
         '404':
           description: Not Found
           x-response-codes:
@@ -1033,7 +1053,7 @@ paths:
       parameters:
         - name: payment_dispute_id
           in: path
-          description: This is the unique identifier of the payment dispute. This path parameter must be passed into the call URI to identify the payment dispute for which the user plans to update the evidence set for a contested payment dispute. This identifier is automatically created by eBay once the payment dispute comes into the eBay managed payments system. The unique identifier for payment disputes is returned in the <strong>paymentDisputeId</strong> field in the <strong>getPaymentDisputeSummaries</strong> response.<br><br>This path parameter is required, and the actual identifier value is passed in right after the <strong>payment_dispute</strong> resource. See the Resource URI above.
+          description: This is the unique identifier of the payment dispute. This path parameter must be passed into the call URI to identify the payment dispute for which the user plans to update the evidence set for a contested payment dispute. This identifier is automatically created by eBay once the payment dispute comes into the eBay system. The unique identifier for payment disputes is returned in the <strong>paymentDisputeId</strong> field in the <strong>getPaymentDisputeSummaries</strong> response.<br><br>This path parameter is required, and the actual identifier value is passed in right after the <strong>payment_dispute</strong> resource. See the Resource URI above.
           required: true
           schema:
             type: string
@@ -1073,7 +1093,7 @@ paths:
               '33104':
                 domain: API_FULFILLMENT
                 category: REQUEST
-                description: Exceed allowed file size
+                description: The combined size of attached files should be 1.5MB or less.
         '404':
           description: Not Found
           x-response-codes:
@@ -1202,7 +1222,7 @@ components:
       type: object
       properties:
         taxAddress:
-          description: This container consists of address information that can be used by sellers for tax purpose.
+          description: This container consists of address information that can be used by sellers for tax purpose.<br/><br/><span class="tablenote"><strong>Note:</strong> When using the eBay vault program, if an item is shipped to a vault, the tax address will be the vault address.</span>
           $ref: '#/components/schemas/TaxAddress'
         taxIdentifier:
           description: This container consists of taxpayer identification information for buyers from Italy, Spain, or Guatemala. It is currently only returned for orders occurring on the eBay Italy or eBay Spain marketplaces.<br /><br /><span class="tablenote"><strong>Note:</strong> Currently, the <strong>taxIdentifier</strong> container is only returned in <strong>getOrder</strong> and not in <strong>getOrders</strong>. So, if a seller wanted to view a buyer's tax information for a particular order returned in <strong>getOrders</strong>, that seller would need to use the <strong>orderId</strong> value for that particular order, and then run a <strong>getOrder</strong> call against that order ID. </span>
@@ -1359,7 +1379,7 @@ components:
       type: object
       properties:
         amount:
-          description: The monetary amount of the 'Collect and Remit' tax. This presently includes US state-mandated sales tax, 'Good and Services' tax in Australia and New Zealand, and VAT collected for the UK and EU countries.<br /><br /><span class="tablenote"><strong>Note:</strong> If the corresponding <strong>taxType</strong> is <code>STATE_SALES_TAX</code>, <code>GST</code>, or <code>VAT</code>, and the <strong>lineItems.taxes</strong> container also appears for this line item with the same tax amount, the order is subject to 'eBay Collect and Remit' tax. For orders that are subject to 'eBay Collect and Remit' tax, the tax amount in this field will be included in the <strong>lineItems.total</strong>, <strong>paymentSummary.payments.amount</strong>, <strong>paymentSummary.totalDueSeller</strong>, and <strong>pricingSummary.total</strong> fields.</span>
+          description: The monetary amount of the 'Collect and Remit' tax. This currently includes:<br/><ul><li>US state-mandated sales tax</li><li>Federal and Provincial Sales Tax in Canada</li><li>'Goods and Services' tax in Canada, Australia, and New Zealand</li><li>VAT collected for the UK and EU countries</li></ul><br /><br /><span class="tablenote"><strong>Note:</strong> If the corresponding <strong>taxType</strong> is <code>STATE_SALES_TAX</code>, <code>PROVINCE_SALES_TAX</code>, <code>GST</code>, or <code>VAT</code>, and the <strong>lineItems.taxes</strong> container also appears for this line item with the same tax amount, the order is subject to 'eBay Collect and Remit' tax. For orders that are subject to 'eBay Collect and Remit' tax, the tax amount in this field will be included in the <strong>lineItems.total</strong>, <strong>paymentSummary.payments.amount</strong>, <strong>paymentSummary.totalDueSeller</strong>, and <strong>pricingSummary.total</strong> fields.</span>
           $ref: '#/components/schemas/Amount'
         ebayReference:
           description: This container field describes the line-item level VAT tax details. <p><span class="tablenote"><b>Note:</b> On January 31, 2022, the <strong>orders.fulfillmentStartInstructions.shippingStep.shipTo.contactAddress.addressLine2</strong> will stop being used to return VAT information, so developers should make sure they integrate with the new fields before that time. </span></p>
@@ -1370,7 +1390,7 @@ components:
         collectionMethod:
           type: string
           description: This field indicates the collection method used to collect the 'Collect and Remit' tax for the order. This field is always returned for orders subject to 'Collect and Remit' tax, and its value is always <code>NET</code>.<br /><br /><span class="tablenote"><strong>Note:</strong> Although the <strong>collectionMethod</strong> field is returned for all orders subject to 'Collect and Remit' tax, the <strong>collectionMethod</strong> field and the <strong>CollectionMethodEnum</strong> type are not currently of any practical use, although this field may have use in the future. If and when the logic of this field is changed, this note will be updated and a note will also be added to the Release Notes.</span> For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/fulfillment/types/sel:CollectionMethodEnum'>eBay API documentation</a>
-      description: This type contains information about the type and amount of tax that eBay will collect and remit to the state, province, country, or other taxing authority in the buyer's location, as required by that taxing authority. 'Collect and Remit' tax includes US state-mandated sales tax, 'Goods and Services' tax in Australia or New Zealand, VAT collected for the UK and EU countries.
+      description: This type contains information about the type and amount of tax that eBay will collect and remit to the state, province, country, or other taxing authority in the buyer's location, as required by that taxing authority.<br/><br/>'Collect and Remit' tax includes:<ul><li>US state-mandated sales tax</li><li>Federal and Provincial Sales Tax in Canada</li><li>'Goods and Services' tax in Canada, Australia, and New Zealand</li><li>VAT collected for the UK and EU countries</li></ul>
     EbayFulfillmentProgram:
       type: object
       properties:
@@ -1383,11 +1403,17 @@ components:
       properties:
         name:
           type: string
-          description: 'This field value is returned to indicate the VAT tax type, which will vary by country/region. This string value will be one of the following:<ul><li><code>ABN</code>: if this string is returned, the ID in the <strong>value</strong> field is an Australia tax ID</li><li><code>IOSS</code>: if this string is returned, the ID in the <strong>value</strong> field is an eBay EU or UK IOSS number</li><li><code>IRD</code>: if this string is returned, the ID in the <strong>value</strong> field is an eBay New Zealand tax ID</li><li><code>OSS</code>: if this string is returned, the ID in the <strong>value</strong> field is an  eBay Germany VAT ID</li><li><code>VOEC</code>: if this string is returned, the ID in the <strong>value</strong> field is an eBay Norway tax ID</li></ul>'
+          description: 'This field value is returned to indicate the VAT tax type, which will vary by country/region. This string value will be one of the following:<ul><li><code>ABN</code>: if this string is returned, the ID in the <strong>value</strong> field is an Australia tax ID</li><li><code>DDG</code>: if this string is returned, it indicates that tax has been collected and remitted for Digitally Delivered Goods (DDG)</li><li><code>IOSS</code>: if this string is returned, the ID in the <strong>value</strong> field is an eBay EU or UK IOSS number</li><li><code>IRD</code>: if this string is returned, the ID in the <strong>value</strong> field is an eBay New Zealand tax ID</li><li><code>OSS</code>: if this string is returned, the ID in the <strong>value</strong> field is an  eBay Germany VAT ID</li><li><code>VOEC</code>: if this string is returned, the ID in the <strong>value</strong> field is an eBay Norway tax ID</li></ul>'
         value:
           type: string
           description: 'The value returned in this field is the VAT identifier number (VATIN), which will vary by country/region. This field will be returned if VAT tax is applicable for the order. The <strong>name</strong> field indicates the VAT tax type, which will vary by country/region: <ul><li><strong>ABN</strong>: <em>eBay AU tax ID</em></li><li><strong>IOSS</strong>: <em>eBay EU IOSS number</em> / <em>eBay UK IOSS number</em></li><li><strong>IRD</strong>: <em>eBay NZ tax ID</em></li><li><strong>OSS</strong>: <em>eBay DE VAT ID</em></li><li><strong>VOEC</strong>: <em>eBay NO number</em></li></ul>'
       description: This type describes the VAT tax details. The eBay VAT tax type and the eBay VAT identifier number will be returned if a VAT tax is applicable for the order. <p> <span class="tablenote"><b>Note:</b> On January 31, 2022, the <strong>orders.fulfillmentStartInstructions.shippingStep.shipTo.contactAddress.addressLine2</strong> will stop being used to return VAT information, so developers should make sure they integrate with the new fields before that time.</span></p>
+    EbayVaultProgram:
+      type: object
+      properties:
+        fulfillmentType:
+          type: string
+          description: 'This field specifies how an eBay vault order will be fulfilled. Supported options are:<ul><li><b>Seller to Vault</b>: the order will be shipped by the seller to an authenticator.</li><li><b>Vault to Vault</b>: the order will be shipped from an eBay vault to the buyer''s vault.</li><li><b>Vault to Buyer</b>: the order will be shipped from an eBay vault to the buyer''s shipping address.</li></ul> For implementation help, refer to <a href=''https://developer.ebay.com/api-docs/sell/fulfillment/types/sel:EbayVaultFulfillmentTypeEnum''>eBay API documentation</a>'
     Error:
       type: object
       properties:
@@ -1504,9 +1530,9 @@ components:
       properties:
         ebaySupportedFulfillment:
           type: boolean
-          description: This field is only returned if its value is <code>true</code> and indicates that the fulfillment will be shipped via eBay's Global Shipping Program. <br /><br />For more information, see the <a href="https://www.ebay.com/help/selling/shipping-items/setting-shipping-options/global-shipping-program?id=4646" target="_blank">Global Shipping Program</a> help topic.
+          description: This field is only returned if its value is <code>true</code> and indicates that the fulfillment will be shipped via eBay's Global Shipping Program. <br /><br />For more information, see the <a href="https://www.ebay.com/help/selling/shipping-items/setting-shipping-options/global-shipping-program?id=4646 " target="_blank">Global Shipping Program</a> help topic.
         finalDestinationAddress:
-          description: This container is only returned if the value of <b>ebaySupportedFulfillment</b> field is <code>true</code>. <br /><br />This is the final destination address for a Global Shipping Program shipment, which is usually the buyer's home. Sellers should not ship directly to this address; instead they should ship this package to their international shipping provider's domestic warehouse. The international shipping provider is responsible for delivery to the final destination address.<br /><br />For more information, see <a href="https://developer.ebay.com/devzone/guides/features-guide/default.html#Development/Shipping-APIWork.html#AddressingaGlobalShippingProgramShipment" target="_blank">Addressing a Global Shipping Program Shipment</a>.<p> <span class="tablenote"><strong>Note:</strong> For Authenticity Guarantee program shipment, this is the address of the authenticator’s warehouse. The authenticator is responsible for delivery to the buyer shipping address.</span></p>
+          description: This container is only returned if the value of <b>ebaySupportedFulfillment</b> field is <code>true</code>. <br /><br />This is the final destination address for a Global Shipping Program shipment, which is usually the buyer's home. Sellers should not ship directly to this address; instead they should ship this package to their international shipping provider's domestic warehouse. The international shipping provider is responsible for delivery to the final destination address.<br /><br />For more information, see <a href="https://developer.ebay.com/devzone/guides/features-guide/default.html#Development/Shipping-APIWork.html#AddressingaGlobalShippingProgramShipment " target="_blank">Addressing a Global Shipping Program Shipment</a>.<p> <span class="tablenote"><strong>Note:</strong> For Authenticity Guarantee program shipment, this is the address of the authenticator's warehouse. The authenticator is responsible for delivery to the buyer shipping address.</span></p>
           $ref: '#/components/schemas/Address'
         fulfillmentInstructionsType:
           type: string
@@ -1572,7 +1598,7 @@ components:
       properties:
         countryCode:
           type: string
-          description: The two-letter <a href="https://www.iso.org/iso-3166-country-codes.html" title="https://www.iso.org" target="_blank">ISO 3166</a> code representing the country of the address. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/fulfillment/types/ba:CountryCodeEnum'>eBay API documentation</a>
+          description: The two-letter <a href="https://www.iso.org/iso-3166-country-codes.html " title="https://www.iso.org " target="_blank">ISO 3166</a> code representing the country of the address. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/fulfillment/types/ba:CountryCodeEnum'>eBay API documentation</a>
         location:
           type: string
           description: Indicates the geographical location of the item (along with the value in the <strong>countryCode</strong> field). This field provides city, province, state, or similar information.
@@ -1606,7 +1632,7 @@ components:
           $ref: '#/components/schemas/Amount'
         ebayCollectAndRemitTaxes:
           type: array
-          description: This container will be returned if the order line item is subject to a 'Collect and Remit' tax that eBay will collect and remit to the proper taxing authority on the buyer's behalf. 'Collect and Remit' tax includes US state-mandated sales tax, 'Goods and Services' tax in Australia or New Zealand, and VAT collected for UK and EU countries. The amount of this tax is shown in the <strong>amount</strong> field, and the type of tax is shown in the <strong>taxType</strong> field.<br/><br/> eBay will display the tax type and amount during checkout in accordance with the buyer's address, and handle collection and remittance of the tax without requiring the seller to take any action.
+          description: This container will be returned if the order line item is subject to a 'Collect and Remit' tax that eBay will collect and remit to the proper taxing authority on the buyer's behalf.<br/><br/>'Collect and Remit' tax includes:<ul><li>US state-mandated sales tax</li><li>Federal and Provincial Sales Tax in Canada</li><li>'Goods and Services' tax in Canada, Australia, and New Zealand</li><li>VAT collected for the UK and EU countries</li></ul>The amount of this tax is shown in the <strong>amount</strong> field, and the type of tax is shown in the <strong>taxType</strong> field.<br/><br/>eBay will display the tax type and amount during checkout in accordance with the buyer's address, and handle collection and remittance of the tax without requiring the seller to take any action.
           items:
             $ref: '#/components/schemas/EbayCollectAndRemitTax'
         giftDetails:
@@ -1666,7 +1692,7 @@ components:
           type: string
           description: The title of the listing.
         total:
-          description: 'This is the total price that the buyer must pay for the line item after all costs (item cost, delivery cost, taxes) are added, minus any discounts and/or promotions.<br /><br /><span class="tablenote"><strong>Note:</strong> For orders that are subject to ''eBay Collect and Remit'' tax, the ''Collect and Remit'' tax amount for the order will be included in this <strong>total</strong> value only when the <strong>fieldGroups</strong> query parameter is set to <code>TAX_BREAKDOWN</code>. If the <strong>fieldGroups</strong> query parameter is not set to <code>TAX_BREAKDOWN</code>, ''Collect and Remit'' will not be added into this <strong>total</strong> value.<br><br>To determine if ''Collect and Remit'' taxes were added into this <strong>total</strong> value, the user can check for the corresponding <strong>lineItems.ebayCollectAndRemitTaxes</strong> and the <strong>lineItems.taxes</strong> containers in the response. If both of these containers appear for one or more line items in the response with the following <strong>taxType</strong> values, the ''Collect and Remit'' tax amount that the buyer paid is in this amount:<ul><li><code>STATE_SALES_TAX</code>: US state-mandated sales tax</li><li><code>GST</code>: ''Good and Services'' tax in Australia or New Zealand</li><li><code>VAT</code>: VAT collected for UK or EU countries</li></ul></span>'
+          description: 'This is the total price that the buyer must pay for the line item after all costs (item cost, delivery cost, taxes,) are added, minus any discounts and/or promotions.<br /><br /><span class="tablenote"><strong>Note:</strong> For orders that are subject to ''eBay Collect and Remit'' tax, the ''Collect and Remit'' tax amount for the order will be included in this <strong>total</strong> value only when the <strong>fieldGroups</strong> query parameter is set to <code>TAX_BREAKDOWN</code>. If the <strong>fieldGroups</strong> query parameter is not set to <code>TAX_BREAKDOWN</code>, ''Collect and Remit'' will not be added into this <strong>total</strong> value.<br><br>To determine if ''Collect and Remit'' taxes were added into this <strong>total</strong> value, the user can check for the corresponding <strong>lineItems.ebayCollectAndRemitTaxes</strong> and the <strong>lineItems.taxes</strong> containers in the response. If both of these containers appear for one or more line items in the response with the following <strong>taxType</strong> values, the ''Collect and Remit'' tax amount that the buyer paid is in this amount:<ul><li><code>STATE_SALES_TAX</code>: US state-mandated sales tax</li><li><code>PROVINCE_SALES_TAX</code>: Provincial Sales Tax in Canada</li><li><code>GST</code>: ''Goods and Services'' tax in Canada, Australia, and New Zealand</li><li><code>VAT</code>: VAT collected for UK and EU countries</li></ul></span>'
           $ref: '#/components/schemas/Amount'
       description: This type contains the details of each line item in an order.
     LineItemFulfillmentInstructions:
@@ -1674,7 +1700,7 @@ components:
       properties:
         guaranteedDelivery:
           type: boolean
-          description: This field is returned as <code>true</code> if the order line item is qualified for eBay Guaranteed Delivery, or <code>false</code> if it is not eligible. Only domestic shipments are available for eBay Guaranteed Delivery. At this time, eBay Guaranteed Delivery is only available to a select number of sellers on the US and Australia sites, but this feature will be enabled on more eBay sites in 2019.<br/><br/>  There are two different eBay Guaranteed Delivery options - 'Handling time' option and 'Door-to-Door' option. With both options, the seller is commiting to getting the order delivered to the buyer within three business days after purchase. <br/><br/> With the 'Handling time' option, the seller's stated handling time for a listing must be 'same-day' or '1-day', and at least one of the available shipping service options should have a shipping time that guarantees that the buyer receives the order on time. With this option, eBay will set the 'ship-by date' and expected delivery window for the seller, and the seller should just make sure they physically ship the order by the <strong>shipToDate</strong>.<br/><br/> With the 'Door-to-door' option, the seller must create regional shipping rate tables (with shipping costs and delivery times based on destination regions), and then apply these regional shipping rates/delivery times to the listing. <br/><br/> If a 'Door-to-door' order does not arrive on time, the seller must refund the buyer the full shipping cost (if any), and the buyer also has the option of returning the item for a full refund, and the seller will also have to pay the return shipping cost. With 'Handling time' option, as long as the seller meets the stated handling time, and ships using the correct shipping service option, eBay will refund the buyer the shipping cost and pay for return shipping label (if buyer wants to return item) if the order arrives after the expected delivery time. <br/><br/> For more information on the details and requirements of eBay Guaranteed Delivery, see the <a href="https://www.ebay.com/help/selling/shipping-items/offering-ebay-guaranteed-delivery?id=4645" target="_blank">Offering eBay Guaranteed Delivery</a> help topic.<br/><br/> This field will always be returned regardless of whether the listing site offers eBay Guaranteed Delivery or if the seller is opted in to the feature.
+          description: This field is returned as <code>true</code> if the order line item is qualified for eBay Guaranteed Delivery, or <code>false</code> if it is not eligible. Only domestic shipments are available for eBay Guaranteed Delivery. At this time, eBay Guaranteed Delivery is only available to a select number of sellers on the US and Australia sites, but this feature will be enabled on more eBay sites in 2019.<br/><br/>  There are two different eBay Guaranteed Delivery options - 'Handling time' option and 'Door-to-Door' option. With both options, the seller is commiting to getting the order delivered to the buyer within three business days after purchase. <br/><br/> With the 'Handling time' option, the seller's stated handling time for a listing must be 'same-day' or '1-day', and at least one of the available shipping service options should have a shipping time that guarantees that the buyer receives the order on time. With this option, eBay will set the 'ship-by date' and expected delivery window for the seller, and the seller should just make sure they physically ship the order by the <strong>shipToDate</strong>.<br/><br/> With the 'Door-to-door' option, the seller must create regional shipping rate tables (with shipping costs and delivery times based on destination regions), and then apply these regional shipping rates/delivery times to the listing. <br/><br/> If a 'Door-to-door' order does not arrive on time, the seller must refund the buyer the full shipping cost (if any), and the buyer also has the option of returning the item for a full refund, and the seller will also have to pay the return shipping cost. With 'Handling time' option, as long as the seller meets the stated handling time, and ships using the correct shipping service option, eBay will refund the buyer the shipping cost and pay for return shipping label (if buyer wants to return item) if the order arrives after the expected delivery time. <br/><br/> For more information on the details and requirements of eBay Guaranteed Delivery, see the <a href="https://www.ebay.com/help/selling/shipping-items/offering-ebay-guaranteed-delivery?id=4645 " target="_blank">Offering eBay Guaranteed Delivery</a> help topic.<br/><br/> This field will always be returned regardless of whether the listing site offers eBay Guaranteed Delivery or if the seller is opted in to the feature.
         maxEstimatedDeliveryDate:
           type: string
           description: The estimated latest date and time that the buyer can expect to receive the line item based on the seller's stated handling time and the transit times of the available shipping service options. If the listing is eligible for eBay Guaranteed Delivery (value of <b>guaranteedDelivery</b> field is <code>true</code>, the seller must pay extra attention to this date, as a failure to deliver by this date/time can result in a 'Late shipment' seller defect, and can affect seller level and Top-Rated Seller status. In addition to the seller defect, buyers will be eligible for a shipping cost refund, and will also be eligible to return the item for a full refund (with no return shipping charge) if they choose. <br /><br /><span class="tablenote"><strong>Note:</strong> This timestamp is in ISO 8601 format, which uses the 24-hour Universal Coordinated Time (UTC) clock. <br /><br /><b>Format:</b> <code>[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z</code> <br /><b>Example:</b> <code>2015-08-04T19:09:02.768Z</code></span>
@@ -1713,7 +1739,7 @@ components:
       type: object
       properties:
         amount:
-          description: This field shows the refund amount for a line item. This field is only returned if the buyer is due a refund for the line item.
+          description: This field shows the refund amount for a line item. This field is only returned if the buyer is due a refund for the line item.<br/><br/><span class="tablenote"><b>Note:</b> The refund amount shown is the seller's <i><b>net amount</b></i> received from the sale/transaction. eBay-collected tax will not be included in this amount, so the actual amount of the buyer's refund may be higher than this value.</span>
           $ref: '#/components/schemas/Amount'
         refundDate:
           type: string
@@ -1758,7 +1784,7 @@ components:
           description: The date and time that the order was created. This timestamp is in ISO 8601 format, which uses the 24-hour Universal Coordinated Time (UTC) clock. <br /><br /><b>Format:</b> <code>[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z</code> <br /><b>Example:</b> <code>2015-08-04T19:09:02.768Z</code>
         ebayCollectAndRemitTax:
           type: boolean
-          description: This field is only returned if <code>true</code>, and indicates that eBay will collect tax (US state-mandated sales tax, 'Goods and Services' tax in Australia or New Zealand, and VAT collected for UK and EU countries) for at least one line item in the order, and remit the tax to the taxing authority of the buyer's residence. If this field is returned, the seller should search for one or more <strong>ebayCollectAndRemitTaxes</strong> containers at the line item level to get more information about the type of tax and the amount.
+          description: This field is only returned if <code>true</code>, and indicates that eBay will collect tax (US state-mandated sales tax, Federal and Provincial Sales Tax in Canada, 'Goods and Services' tax in Canada, Australia, and New Zealand, and VAT collected for UK and EU countries,) for at least one line item in the order, and remit the tax to the taxing authority of the buyer's residence. If this field is returned, the seller should search for one or more <strong>ebayCollectAndRemitTaxes</strong> containers at the line item level to get more information about the type of tax and the amount.
         fulfillmentHrefs:
           type: array
           description: This array contains a list of one or more <strong>getShippingFulfillment</strong> call URIs that can be used to retrieve shipping fulfillments that have been set up for the order.
@@ -1825,7 +1851,7 @@ components:
       type: object
       properties:
         amount:
-          description: The monetary amount of the refund. This container is always returned for each refund.
+          description: This field shows the refund amount for an order. This container is always returned for each refund.<br/><br/><span class="tablenote"><b>Note:</b> The refund amount shown is the seller's <i><b>net amount</b></i> received from the sale/transaction. eBay-collected tax will not be included in this amount, so the actual amount of the buyer's refund may be higher than this value.</span>
           $ref: '#/components/schemas/Amount'
         refundDate:
           type: string
@@ -1879,7 +1905,7 @@ components:
       type: object
       properties:
         amount:
-          description: 'The amount that seller receives for the order via the payment method mentioned in <strong>Payment.paymentMethod</strong>.<br /><br /><span class="tablenote"><strong>Note:</strong> For orders that are subject to ''eBay Collect and Remit'' tax, which includes US state-mandated sales tax, ''Good and Services'' tax in Australia and New Zealand, and VAT collected for UK or EU, the ''Collect and Remit'' tax amount for the order will be included in this <strong>amount.value</strong> field (and in the <strong>amount.convertedFromValue</strong> field if currency conversion is applicable).<br><br> To determine if ''Collect and Remit'' taxes were added into this <strong>totalDueSeller</strong> value, the user can check for the corresponding <strong>lineItems.ebayCollectAndRemitTaxes</strong> and the <strong>lineItems.taxes</strong> containers in the response. If both of these containers appear for one or more line items in the response with the following <strong>taxType</strong> values, the ''Collect and Remit'' tax amount that the buyer paid is in this amount:<ul><li><code>STATE_SALES_TAX</code>: US</li><li><code>GST</code>: Australia or New Zealand</li><li><code>VAT</code>: UK or EU countries</li></ul></span>'
+          description: 'The amount that seller receives for the order via the payment method mentioned in <strong>Payment.paymentMethod</strong>.<br /><br /><span class="tablenote"><strong>Note:</strong> For orders that are subject to ''eBay Collect and Remit'' tax, which includes US state-mandated sales tax, Federal and Provincial Sales Tax in Canada, ''Good and Services'' tax in Canada, Australia, and New Zealand, and VAT collected for UK or EU, the ''Collect and Remit'' tax amount for the order will be included in this <strong>amount.value</strong> field (and in the <strong>amount.convertedFromValue</strong> field if currency conversion is applicable).<br><br> To determine if ''Collect and Remit'' taxes were added into this <strong>totalDueSeller</strong> value, the user can check for the corresponding <strong>lineItems.ebayCollectAndRemitTaxes</strong> and the <strong>lineItems.taxes</strong> containers in the response. If both of these containers appear for one or more line items in the response with the following <strong>taxType</strong> values, the ''Collect and Remit'' tax amount that the buyer paid is included in this amount:<ul><li><code>STATE_SALES_TAX</code>: US</li><li><code>PROVINCE_SALES_TAX</code>: Provincial Sales Tax in Canada</li><li><code>GST</code>: Canada, Australia, and New Zealand</li><li><code>VAT</code>: UK and EU countries</li></ul></span>'
           $ref: '#/components/schemas/Amount'
         paymentDate:
           type: string
@@ -1948,7 +1974,7 @@ components:
           description: This is the unique identifier of the order involved in the payment dispute. <br/><br/><span class="tablenote"><strong>Note:</strong> eBay rolled out a new Order ID format in June 2019. The legacy APIs still support the old and new order ID format to identify orders, but only the new order ID format is returned in REST-based API responses. </span>
         paymentDisputeId:
           type: string
-          description: This is the unique identifier of the payment dispute. This is the same identifier that is passed in to the call URI. This identifier is automatically created by eBay once the payment dispute comes into the eBay Managed Payments system.
+          description: This is the unique identifier of the payment dispute. This is the same identifier that is passed in to the call URI. This identifier is automatically created by eBay once the payment dispute comes into the eBay system.
         paymentDisputeStatus:
           type: string
           description: The enumeration value in this field gives the current status of the payment dispute. The status of a payment dispute partially determines other fields that are returned in the response. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/fulfillment/types/api:DisputeStateEnum'>eBay API documentation</a>
@@ -2036,7 +2062,7 @@ components:
           description: This is the unique identifier of the order involved in the payment dispute. <br/><br/><span class="tablenote"><strong>Note:</strong> eBay rolled out a new Order ID format in June 2019. The legacy APIs still support the old and new order ID format to identify orders, but only the new order ID format is supported in REST-based APIs. </span>
         paymentDisputeId:
           type: string
-          description: This is the unique identifier of the payment dispute. This identifier is automatically created by eBay once the payment dispute comes into the eBay Managed Payments system. This identifier is passed in at the end of the <strong>getPaymentDispute</strong> call URI to retrieve a specific payment dispute. The <strong>getPaymentDispute</strong> method returns more details about a payment dispute than the <strong>getPaymentDisputeSummaries</strong> method.
+          description: This is the unique identifier of the payment dispute. This identifier is automatically created by eBay once the payment dispute comes into the eBay system. This identifier is passed in at the end of the <strong>getPaymentDispute</strong> call URI to retrieve a specific payment dispute. The <strong>getPaymentDispute</strong> method returns more details about a payment dispute than the <strong>getPaymentDisputeSummaries</strong> method.
         paymentDisputeStatus:
           type: string
           description: The enumeration value in this field gives the current status of the payment dispute. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/fulfillment/types/api:DisputeStateEnum'>eBay API documentation</a>
@@ -2085,7 +2111,7 @@ components:
           items:
             $ref: '#/components/schemas/OrderRefund'
         totalDueSeller:
-          description: 'This is the total price that the seller receives for the entire order after all costs (item cost, delivery cost, taxes) are added for all line items, minus any discounts and/or promotions for any of the line items. Note that this value is subject to change before payment is actually made by the buyer (if the <strong>paymentStatus</strong> value was <code>PENDING</code> or <code>FAILED</code>), or if a partial or full refund occurs with the order.<br /><br /><span class="tablenote"><strong>Note:</strong> For orders that are subject to ''eBay Collect and Remit'' tax, the ''Collect and Remit'' tax amount for the order will be included in this <strong>totalDueSeller</strong> value. <br><br>To determine if ''Collect and Remit'' taxes were added into this <strong>totalDueSeller</strong> value, the user can check for the corresponding <strong>lineItems.ebayCollectAndRemitTaxes</strong> and the <strong>lineItems.taxes</strong> containers in the response. If both of these containers appear for one or more line items in the response with the following <strong>taxType</strong> values, the ''Collect and Remit'' tax amount that the buyer paid is in this amount:<ul><li><code>STATE_SALES_TAX</code>: US</li><li><code>GST</code>: Australia or New Zealand</li><li><code>VAT</code>: UK or EU countries</li></ul></span>'
+          description: 'This is the total price that the seller receives for the entire order after all costs (item cost, delivery cost, taxes) are added for all line items, minus any discounts and/or promotions for any of the line items. Note that this value is subject to change before payment is actually made by the buyer (if the <strong>paymentStatus</strong> value was <code>PENDING</code> or <code>FAILED</code>), or if a partial or full refund occurs with the order.<br /><br /><span class="tablenote"><strong>Note:</strong> For orders that are subject to ''eBay Collect and Remit'' tax, the ''Collect and Remit'' tax amount for the order will be included in this <strong>totalDueSeller</strong> value.<br><br>To determine if ''Collect and Remit'' taxes were added into this <strong>totalDueSeller</strong> value, the user can check for the corresponding <strong>lineItems.ebayCollectAndRemitTaxes</strong> and the <strong>lineItems.taxes</strong> containers in the response. If both of these containers appear for one or more line items in the response with the following <strong>taxType</strong> values, the ''Collect and Remit'' tax amount that the buyer paid is included in this amount:<ul><li><code>STATE_SALES_TAX</code>: US</li><li><code>PROVINCE_SALES_TAX</code>: Provincial Sales Tax in Canada</li><li><code>GST</code>: Canada, Australia, and New Zealand</li><li><code>VAT</code>: VAT collected for UK and EU countries</li></ul></span>'
           $ref: '#/components/schemas/Amount'
       description: This type contains information about the various monetary exchanges that apply to the net balance due for the order.
     Phone:
@@ -2147,7 +2173,7 @@ components:
           description: This container shows the total amount of tax for the order. To calculate the tax percentage rate, divide this value by the value of the <b>total</b> field. <br/><br/>This container is only returned if any type of tax (sales tax, tax on shipping, tax on handling, import tax, etc.) is applied to the order.
           $ref: '#/components/schemas/Amount'
         total:
-          description: 'The total cost of the order after adding all line item costs, delivery costs, sales tax, and special fees, and then subtracting all special discounts and price adjustments.<br /><br /><span class="tablenote"><strong>Note:</strong> For orders that are subject to ''eBay Collect and Remit'' tax, the ''Collect and Remit'' tax amount for the order will be included in this <strong>total</strong> value only when the <strong>fieldGroups</strong> query parameter is set to <code>TAX_BREAKDOWN</code>. If the <strong>fieldGroups</strong> query parameter is not set to <code>TAX_BREAKDOWN</code>, ''Collect and Remit'' will not be added into this <strong>total</strong> value.<br><br>To determine if ''Collect and Remit'' taxes were added into this <strong>total</strong> value, the user can check for the corresponding <strong>lineItems.ebayCollectAndRemitTaxes</strong> and the <strong>lineItems.taxes</strong> containers in the response. If both of these containers appear for one or more line items in the response with the following <strong>taxType</strong> values, the ''Collect and Remit'' tax amount that the buyer paid is in this amount:<ul><li><code>STATE_SALES_TAX</code>: US state-mandated sales tax</li><li><code>GST</code>: ''Good and Services'' tax in Australia or New Zealand</li><li><code>VAT</code>: VAT collected for UK or EU countries</li></ul></span>'
+          description: 'The total cost of the order after adding all line item costs, delivery costs, sales tax, and special fees, and then subtracting all special discounts and price adjustments.<br /><br /><span class="tablenote"><strong>Note:</strong> For orders that are subject to ''eBay Collect and Remit'' tax, the ''Collect and Remit'' tax amount for the order will be included in this <strong>total</strong> value only when the <strong>fieldGroups</strong> query parameter is set to <code>TAX_BREAKDOWN</code>. If the <strong>fieldGroups</strong> query parameter is not set to <code>TAX_BREAKDOWN</code>, ''Collect and Remit'' will not be added into this <strong>total</strong> value.<br><br>To determine if ''Collect and Remit'' taxes were added into this <strong>total</strong> value, the user can check for the corresponding <strong>lineItems.ebayCollectAndRemitTaxes</strong> and the <strong>lineItems.taxes</strong> containers in the response. If both of these containers appear for one or more line items in the response with the following <strong>taxType</strong> values, the ''Collect and Remit'' tax amount that the buyer paid is included in this amount:<ul><li><code>STATE_SALES_TAX</code>: US state-mandated sales tax</li><li><code>PROVINCE_SALES_TAX</code>: Provincial Sales Tax in Canada</li><li><code>GST</code>: ''Good and Services'' tax in Canada, Australia, and New Zealand</li><li><code>VAT</code>: VAT collected for UK and EU countries</li></ul></span>'
           $ref: '#/components/schemas/Amount'
       description: This type contains a summary of cumulative costs and charges for all line items of an order, including item price, price adjustments, sales taxes, delivery costs, and order discounts.
     Program:
@@ -2156,6 +2182,9 @@ components:
         authenticityVerification:
           description: This field is returned when the third-party authenticator performs the authentication verification inspection on the order line item. Different values will be returned based on whether the item passed or failed the authentication verification inspection.
           $ref: '#/components/schemas/PostSaleAuthenticationProgram'
+        ebayVault:
+          description: This field provides information about the eBay vault program that has been selected for an order. This is returned only for those items that are eligible for the eBay Vault Program.
+          $ref: '#/components/schemas/EbayVaultProgram'
         fulfillmentProgram:
           description: This field provides details about an order line item being handled by eBay fulfillment. It is only returned for paid orders being fulfilled by eBay or an eBay fulfillment partner.
           $ref: '#/components/schemas/EbayFulfillmentProgram'
@@ -2240,7 +2269,7 @@ components:
           description: The date and time that the fulfillment package was shipped. This timestamp is in ISO 8601 format, which uses the 24-hour Universal Coordinated Time (UTC) clock. This field should only be returned if the package has been shipped.<br /><br /><b>Format:</b> <code>[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z</code> <br /><b>Example:</b> <code>2015-08-04T19:09:02.768Z</code>
         shippingCarrierCode:
           type: string
-          description: The eBay code identifying the shipping carrier for this fulfillment. This field is returned if available. <br /><br /><span class="tablenote"><strong>Note:</strong> The Trading API's <b>ShippingCarrierCodeType</b> enumeration type contains the most current list of eBay shipping carrier codes and the countries served by each carrier. See <a href="https://developer.ebay.com/Devzone/XML/docs/Reference/eBay/types/ShippingCarrierCodeType.html" target="_blank">ShippingCarrierCodeType</a>.</span>
+          description: The eBay code identifying the shipping carrier for this fulfillment. This field is returned if available. <br /><br /><span class="tablenote"><strong>Note:</strong> The Trading API's <b>ShippingCarrierCodeType</b> enumeration type contains the most current list of eBay shipping carrier codes and the countries served by each carrier. See <a href="https://developer.ebay.com/Devzone/XML/docs/Reference/eBay/types/ShippingCarrierCodeType.html " target="_blank">ShippingCarrierCodeType</a>.</span>
       description: This type contains the complete details of an existing fulfillment for an order.
     ShippingFulfillmentDetails:
       type: object
@@ -2255,7 +2284,7 @@ components:
           description: This is the actual date and time that the fulfillment package was shipped. This timestamp is in ISO 8601 format, which uses the 24-hour Universal Coordinated Time (UTC) clock. The seller should use the actual date/time that the package was shipped, but if this field is omitted, it will default to the current date/time.<br /><br /><b>Format:</b> <code>[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z</code> <br /><b>Example:</b> <code>2015-08-04T19:09:02.768Z</code><br /><br /><b>Default:</b> The current date and time.
         shippingCarrierCode:
           type: string
-          description: The unique identifier of the shipping carrier being used to ship the line item(s). Technically, the <strong>shippingCarrierCode</strong> and <strong>trackingNumber</strong> fields are optional, but generally these fields will be provided if the shipping carrier and tracking number are known. <br /><br /><span class="tablenote"><strong>Note:</strong> Use the Trading API's <a href="https://developer.ebay.com/devzone/XML/docs/Reference/eBay/GeteBayDetails.html" target="_blank">GeteBayDetails</a> call to retrieve the latest shipping carrier enumeration values. When making the <a href="https://developer.ebay.com/devzone/XML/docs/Reference/eBay/GeteBayDetails.html" target="_blank">GeteBayDetails</a> call, include the <strong>DetailName</strong> field in the request payload and set its value to <code>ShippingCarrierDetails</code>. Each valid shipping carrier enumeration value is returned in a <strong>ShippingCarrierDetails.ShippingCarrier</strong> field in the response payload.</span>
+          description: The unique identifier of the shipping carrier being used to ship the line item(s). Technically, the <strong>shippingCarrierCode</strong> and <strong>trackingNumber</strong> fields are optional, but generally these fields will be provided if the shipping carrier and tracking number are known. <br /><br /><span class="tablenote"><strong>Note:</strong> Use the Trading API's <a href="https://developer.ebay.com/devzone/XML/docs/Reference/eBay/GeteBayDetails.html " target="_blank">GeteBayDetails</a> call to retrieve the latest shipping carrier enumeration values. When making the <a href="https://developer.ebay.com/devzone/XML/docs/Reference/eBay/GeteBayDetails.html " target="_blank">GeteBayDetails</a> call, include the <strong>DetailName</strong> field in the request payload and set its value to <code>ShippingCarrierDetails</code>. Each valid shipping carrier enumeration value is returned in a <strong>ShippingCarrierDetails.ShippingCarrier</strong> field in the response payload.</span>
         trackingNumber:
           type: string
           description: The tracking number provided by the shipping carrier for this fulfillment. The seller should be careful that this tracking number is accurate since the buyer will use this tracking number to track shipment, and eBay has no way to verify the accuracy of this number.<br /><br />This field and the <b>shippingCarrierCode</b> field are mutually dependent. If you include one, you must also include the other.<br /><br /><span class="tablenote"><strong>Note:</strong> If you include <b>trackingNumber</b> (and <b>shippingCarrierCode</b>) in the request, the resulting fulfillment's ID (returned in the HTTP location code) is the tracking number. If you do not include shipment tracking information, the resulting fulfillment ID will default to an arbitrary number such as <code>999</code>.</span>
@@ -2283,12 +2312,12 @@ components:
       properties:
         shippingCarrierCode:
           type: string
-          description: The unique identifier of the shipping carrier being used to ship the line item. <br /><br /><span class="tablenote"><strong>Note:</strong> The Trading API's <a href="https://developer.ebay.com/devzone/XML/docs/Reference/eBay/GeteBayDetails.html" target="_blank">GeteBayDetails</a> call can be used to retrieve the latest shipping carrier and shipping service option enumeration values.</span>
+          description: The unique identifier of the shipping carrier being used to ship the line item. <br /><br /><span class="tablenote"><strong>Note:</strong> The Trading API's <a href="https://developer.ebay.com/devzone/XML/docs/Reference/eBay/GeteBayDetails.html " target="_blank">GeteBayDetails</a> call can be used to retrieve the latest shipping carrier and shipping service option enumeration values.</span>
         shippingServiceCode:
           type: string
-          description: The unique identifier of the shipping service option being used to ship the line item.<br /><br /><span class="tablenote"><strong>Note:</strong> Use the Trading API's <a href="https://developer.ebay.com/devzone/XML/docs/Reference/eBay/GeteBayDetails.html" target="_blank">GeteBayDetails</a> call to retrieve the latest shipping carrier and shipping service option enumeration values. When making the <a href="https://developer.ebay.com/devzone/XML/docs/Reference/eBay/GeteBayDetails.html" target="_blank">GeteBayDetails</a> call, include the <strong>DetailName</strong> field in the request payload and set its value to <code>ShippingServiceDetails</code>. Each valid shipping service option (returned in <strong>ShippingServiceDetails.ShippingService</strong> field) and corresponding shipping carrier (returned in <strong>ShippingServiceDetails.ShippingCarrier</strong> field) is returned in response payload.</span>
+          description: The unique identifier of the shipping service option being used to ship the line item.<br /><br /><span class="tablenote"><strong>Note:</strong> Use the Trading API's <a href="https://developer.ebay.com/devzone/XML/docs/Reference/eBay/GeteBayDetails.html " target="_blank">GeteBayDetails</a> call to retrieve the latest shipping carrier and shipping service option enumeration values. When making the <a href="https://developer.ebay.com/devzone/XML/docs/Reference/eBay/GeteBayDetails.html " target="_blank">GeteBayDetails</a> call, include the <strong>DetailName</strong> field in the request payload and set its value to <code>ShippingServiceDetails</code>. Each valid shipping service option (returned in <strong>ShippingServiceDetails.ShippingService</strong> field) and corresponding shipping carrier (returned in <strong>ShippingServiceDetails.ShippingCarrier</strong> field) is returned in response payload.</span>
         shipTo:
-          description: This container consists of shipping and contact information about the individual or organization to whom the fulfillment package will be shipped. <br /><br /> <span class="tablenote"><strong>Note:</strong> For a Global Shipping Program shipment, this is the address of the international shipping provider's domestic warehouse. The international shipping provider is responsible for delivery to the final destination address. For more information, see <a href="https://developer.ebay.com/devzone/guides/features-guide/default.html#Development/Shipping-APIWork.html#AddressingaGlobalShippingProgramShipment" target="_blank">Addressing a Global Shipping Program Shipment</a>.</span>
+          description: This container consists of shipping and contact information about the individual or organization to whom the fulfillment package will be shipped.<br/><span class="tablenote"><strong>Note:</strong> When <b>FulfillmentInstructionsType</b> is <code>FULFILLED_BY_EBAY</code>, there will be no <b>shipTo</b> address displayed.</span><br/><span class="tablenote"><strong>Note:</strong> For Digitally Delivered Goods (DDG), this address is the same as the Buyer's Registration Address.</span><br/><span class="tablenote"><strong>Note:</strong> For a Global Shipping Program shipment, this is the address of the international shipping provider's domestic warehouse. The international shipping provider is responsible for delivery to the final destination address. For more information, see <a href="https://developer.ebay.com/devzone/guides/features-guide/default.html#Development/Shipping-APIWork.html#AddressingaGlobalShippingProgramShipment " target="_blank">Addressing a Global Shipping Program Shipment</a>.</span>
           $ref: '#/components/schemas/ExtendedContact'
         shipToReferenceId:
           type: string
@@ -2341,7 +2370,7 @@ components:
           description: This enumeration value indicates the type of tax identification being used for the buyer. The different tax types are defined in the <strong>TaxIdentifierTypeEnum</strong> type. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/fulfillment/types/sel:TaxIdentifierTypeEnum'>eBay API documentation</a>
         issuingCountry:
           type: string
-          description: This two-letter code indicates the country that issued the buyer's tax ID. The country that the two-letter code represents can be found in the <strong>CountryCodeEnum</strong> type, or in the  <a href="https://www.iso.org/iso-3166-country-codes.html">ISO 3166</a> standard. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/fulfillment/types/ba:CountryCodeEnum'>eBay API documentation</a>
+          description: This two-letter code indicates the country that issued the buyer's tax ID. The country that the two-letter code represents can be found in the <strong>CountryCodeEnum</strong> type, or in the  <a href="https://www.iso.org/iso-3166-country-codes.html ">ISO 3166</a> standard. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/fulfillment/types/ba:CountryCodeEnum'>eBay API documentation</a>
       description: This type is used by the <strong>taxIdentifier</strong> container that is returned in <strong>getOrder</strong>. The <strong>taxIdentifier</strong> container consists of taxpayer identification information for buyers from Italy, Spain, or Guatemala. It is currently only returned for orders occurring on the eBay Italy or eBay Spain marketplaces.<br /><br /><span class="tablenote"><strong>Note:</strong> Currently, the <strong>taxIdentifier</strong> container is only returned in <strong>getOrder</strong> and not in <strong>getOrders</strong>. So, if a seller wanted to view a buyer's tax information for a particular order returned in <strong>getOrders</strong>, that seller would need to use the <strong>orderId</strong> value for that particular order, and then run a <strong>getOrder</strong> call against that order ID. </span>
     TrackingInfo:
       type: object

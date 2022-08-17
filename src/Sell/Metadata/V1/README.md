@@ -1,4 +1,4 @@
-# trollandtoad/ebay-sell-metadata-v1
+# brandon14/ebay-sell-metadata-v1
 
 The Metadata API has operations that retrieve configuration details pertaining to the different eBay marketplaces. In addition to marketplace information, the API also has operations that get information that helps sellers list items on eBay.
 
@@ -19,11 +19,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/trollandtoad/ebay-sell-metadata-v1.git"
+      "url": "https://github.com/brandon14/ebay-sell-metadata-v1.git"
     }
   ],
   "require": {
-    "trollandtoad/ebay-sell-metadata-v1": "*@dev"
+    "brandon14/ebay-sell-metadata-v1": "*@dev"
   }
 }
 ```
@@ -36,7 +36,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/trollandtoad/ebay-sell-metadata-v1/vendor/autoload.php');
+require_once('/path/to/brandon14/ebay-sell-metadata-v1/vendor/autoload.php');
 ```
 
 ## Getting Started

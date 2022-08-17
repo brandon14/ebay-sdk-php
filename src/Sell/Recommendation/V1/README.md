@@ -1,4 +1,4 @@
-# trollandtoad/ebay-sell-recommendation-v1
+# brandon14/ebay-sell-recommendation-v1
 
 The <b>Recommendation API</b> returns information that sellers can use to optimize the configuration of their listings on eBay. <br><br>Currently, the API contains a single method, <b>findListingRecommendations</b>. This method provides information that sellers can use to configure Promoted Listings ad campaigns to maximize the visibility of their items in the eBay marketplace.
 
@@ -19,11 +19,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/trollandtoad/ebay-sell-recommendation-v1.git"
+      "url": "https://github.com/brandon14/ebay-sell-recommendation-v1.git"
     }
   ],
   "require": {
-    "trollandtoad/ebay-sell-recommendation-v1": "*@dev"
+    "brandon14/ebay-sell-recommendation-v1": "*@dev"
   }
 }
 ```
@@ -36,7 +36,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/trollandtoad/ebay-sell-recommendation-v1/vendor/autoload.php');
+require_once('/path/to/brandon14/ebay-sell-recommendation-v1/vendor/autoload.php');
 ```
 
 ## Getting Started

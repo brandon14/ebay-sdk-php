@@ -290,7 +290,7 @@ class ServiceMetricsTask implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets completion_date.
      *
-     * @param string|null $completion_date The timestamp when the customer service metrics task went into the COMPLETED or COMPLETED_WITH_ERROR state. This field is only returned if the status is one of the two completed values. This state means that eBay has compiled the report for the seller based on the seller&rsquo;s filter criteria, and the seller can run a getResultFile call to download the report.
+     * @param string|null $completion_date The timestamp when the customer service metrics task went into the <code>COMPLETED</code> or <code>COMPLETED_WITH_ERROR</code> state. This field is only returned if the status is one of the two completed values. This state means that eBay has compiled the report for the seller based on the seller’s filter criteria, and the seller can run a <strong>getResultFile</strong> call to download the report.
      *
      * @return self
      */
@@ -338,7 +338,7 @@ class ServiceMetricsTask implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets detail_href.
      *
-     * @param string|null $detail_href the relative getCustomerServiceMetricTask call URI path to retrieve the corresponding task
+     * @param string|null $detail_href the relative <strong>getCustomerServiceMetricTask</strong> call URI path to retrieve the corresponding task
      *
      * @return self
      */
@@ -410,7 +410,7 @@ class ServiceMetricsTask implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets schema_version.
      *
-     * @param string|null $schema_version The schema version number of the file format. If omitted, the default value is used. Default value: 1.0
+     * @param string|null $schema_version The schema version number of the file format. If omitted, the default value is used. <p><b>Default value: </b><code>1.0</code><p>
      *
      * @return self
      */
@@ -434,7 +434,7 @@ class ServiceMetricsTask implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets status.
      *
-     * @param string|null $status An enumeration value that indicates the state of the task. See FeedStatusEnum for values. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:FeedStatusEnum'>eBay API documentation</a>
+     * @param string|null $status An enumeration value that indicates the state of the task. See <strong>FeedStatusEnum</strong> for values. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:FeedStatusEnum'>eBay API documentation</a>
      *
      * @return self
      */

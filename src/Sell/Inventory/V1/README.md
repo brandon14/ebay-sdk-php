@@ -1,4 +1,4 @@
-# trollandtoad/ebay-sell-inventory-v1
+# brandon14/ebay-sell-inventory-v1
 
 The Inventory API is used to create and manage inventory, and then to publish and manage this inventory on an eBay marketplace. There are also methods in this API that will convert eligible, active eBay listings into the Inventory API model.
 
@@ -19,11 +19,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/trollandtoad/ebay-sell-inventory-v1.git"
+      "url": "https://github.com/brandon14/ebay-sell-inventory-v1.git"
     }
   ],
   "require": {
-    "trollandtoad/ebay-sell-inventory-v1": "*@dev"
+    "brandon14/ebay-sell-inventory-v1": "*@dev"
   }
 }
 ```
@@ -36,7 +36,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/trollandtoad/ebay-sell-inventory-v1/vendor/autoload.php');
+require_once('/path/to/brandon14/ebay-sell-inventory-v1/vendor/autoload.php');
 ```
 
 ## Getting Started

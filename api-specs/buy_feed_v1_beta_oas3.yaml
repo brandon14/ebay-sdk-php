@@ -1,13 +1,13 @@
 openapi: 3.0.0
 info:
   title: Item Feed Service
-  description: <span class="tablenote"><b>Note:</b> This is a <a href="https://developer.ebay.com/api-docs/static/versioning.html#limited" target="_blank"> <img src="/cms/img/docs/partners-api.svg" class="legend-icon partners-icon" title="Limited Release"  alt="Limited Release" />(Limited Release)</a> API available only to select developers approved by business units.</span><br /><br />The Feed API provides the ability to download TSV_GZIP feed files containing eBay items and an hourly snapshot file of the items that have changed within an hour for a specific category, date and marketplace. <p>In addition to the API, there is an open source <a href="https://github.com/eBay/FeedSDK" target="_blank">Feed SDK</a> written in Java that downloads, combines files into a single file when needed, and unzips the entire feed file. It also lets you specify field filters to curate the items in the file.</p>
+  description: <span class="tablenote"><b>Note:</b> This is a <a href="https://developer.ebay.com/api-docs/static/versioning.html#limited " target="_blank"> <img src="/cms/img/docs/partners-api.svg" class="legend-icon partners-icon" title="Limited Release"  alt="Limited Release" />(Limited Release)</a> API available only to select developers approved by business units.</span><br /><br />The Feed API provides the ability to download TSV_GZIP feed files containing eBay items and an hourly snapshot file of the items that have changed within an hour for a specific category, date and marketplace. <p>In addition to the API, there is an open source <a href="https://github.com/eBay/FeedSDK " target="_blank">Feed SDK</a> written in Java that downloads, combines files into a single file when needed, and unzips the entire feed file. It also lets you specify field filters to curate the items in the file.</p>
   contact:
     name: eBay Inc,
   license:
     name: eBay API License Agreement
     url: https://go.developer.ebay.com/api-license-agreement
-  version: v1_beta.31.0
+  version: v1_beta.33.0
 servers:
   - url: https://api.ebay.com{basePath}
     description: Production
@@ -42,13 +42,13 @@ paths:
             type: string
         - name: feed_scope
           in: query
-          description: 'Specifies the type of feed file to return. <br /><br /><b>Valid Values: </b>   <ul> <li><b> NEWLY_LISTED</b> - Returns the daily <b>Item</b> feed file containing all Good ''Til Cancelled items that were listed on the day specified by the <b> date</b> parameter in the category specified by the <b> category_id</b> parameter.  <br /><br /><code>/item?feed_scope=NEWLY_LISTED&category_id=15032&date=20170925</code></li>  <li><b>ALL_ACTIVE</b> - Returns the weekly <b>Item Bootstrap</b> feed file containing all the Good ''Til Cancelled items in the category specified by the <b> category_id</b> parameter.  <br /><br /><span class="tablenote"><b>Note:</b> Bootstrap files are generated every Tuesday and the file is available on Wednesday. However, the exact time the file is available can vary so we recommend you download the Bootstrap file on Thursday. The items in the file are the items that were in the specified category on Sunday.</span> <br /><br /><code>/item?feed_scope=ALL_ACTIVE&category_id=15032</code>  </ul>'
+          description: 'Specifies the type of feed file to return. <br /><br /><b>Valid Values: </b>   <ul> <li><b> NEWLY_LISTED</b> - Returns the daily <b>Item</b> feed file containing all Good ''Til Cancelled items that were listed on the day specified by the <b> date</b> parameter in the category specified by the <b> category_id</b> parameter.<br /><br /><code>/item?feed_scope=NEWLY_LISTED&category_id=15032&date=20170925</code></li><li><b>ALL_ACTIVE</b> - Returns the weekly <b>Item Bootstrap</b> feed file containing all the Good ''Til Cancelled items in the category specified by the <b>category_id</b> parameter.<br /><br /><span class="tablenote"><b>Note:</b> Bootstrap files are generated every Tuesday and the file is available on Wednesday. However, the exact time the file is available can vary so we recommend you download the Bootstrap file on Thursday. The items in the file are the items that were in the specified category on Sunday.</span> <br /><br /><code>/item?feed_scope=ALL_ACTIVE&category_id=15032</code>  </ul>'
           required: true
           schema:
             type: string
         - name: category_id
           in: query
-          description: 'An eBay top-level category ID of the items to be returned in the feed file. <br /> <br />The list of eBay category IDs changes over time and category IDs are not the same across all the eBay marketplaces. To get a list of the top-level categories for a marketplace, you can use the Taxonomy API <a href="/api-docs/commerce/taxonomy/resources/category_tree/methods/getCategoryTree">getCategoryTree</a> method. This method retrieves the complete category tree for the marketplace. The top-level categories are identified by the <b> categoryTreeNodeLevel </b> field. <br /><br /><b>For example: </b><br />&nbsp;&nbsp;<code>"categoryTreeNodeLevel": 1</code> <br /><br />For details see <a href="/api-docs/buy/buy-categories.html">Get Categories for Buy APIs</a>. </li>  </ul> <br /><br />   <b>Restriction: </b> Must be a top-level (L1) category </b>'
+          description: 'An eBay top-level category ID of the items to be returned in the feed file. <br /> <br />The list of eBay category IDs changes over time and category IDs are not the same across all the eBay marketplaces. To get a list of the top-level categories for a marketplace, you can use the Taxonomy API <a href="/api-docs/commerce/taxonomy/resources/category_tree/methods/getCategoryTree">getCategoryTree</a> method. This method retrieves the complete category tree for the marketplace. The top-level categories are identified by the <b>categoryTreeNodeLevel</b> field. <br /><br /><b>For example:</b><br />&nbsp;&nbsp;<code>"categoryTreeNodeLevel": 1</code> <br /><br />For details see <a href="/api-docs/buy/buy-categories.html">Get Categories for Buy APIs</a>. </li>  </ul> <br /><br />   <b>Restriction:</b> Must be a top-level (L1) category other than Real Estate. Items listed under Real Estate L1 categories are excluded from all feeds in all marketplaces.'
           required: true
           schema:
             type: string
@@ -182,7 +182,7 @@ paths:
         '416':
           description: Range not satisfiable
         '500':
-          description: Internal server error
+          description: Internal Server Error
           x-response-codes:
             errors:
               '13006':
@@ -219,13 +219,13 @@ paths:
             type: string
         - name: feed_scope
           in: query
-          description: 'Specifies the type of file to return. <br /><br /><b>Valid Values: </b>   <ul> <li><b> NEWLY_LISTED</b> - Returns the <b>Item Group</b> feed file containing the  item group variation information for items in the daily <a href="/api-docs/buy/feed/resources/item/methods/getItemFeed">Item</a> feed file that were associated with an item group. <br /><br />The items in this type of <b>Item</b> feed file are items that were listed on the day specified by the <b> date</b> parameter in the category specified by the <b> category_id</b> parameter. <br /><br /><code>/item_group?feed_scope=NEWLY_LISTED&category_id=15032&date=20170925</code></li> <li><b>ALL_ACTIVE</b> - Returns the weekly <b>Item Group Bootstrap</b> file containing the item group  variation information for items in the weekly <a href="/api-docs/buy/feed/resources/item/methods/getItemFeed">Item Bootstrap</a> feed file that were associated with an item group. The items are Good ''Til Cancelled items in the category specified by the <b> category_id</b> parameter.  <br /><br />  <span class="tablenote"><b>Note: </b> Bootstrap files are generated every Tuesday and the file is available on Wednesday. However, the exact time the file is available can vary so we recommend you download the Bootstrap file on Thursday. The item groups in the file are for the items that were in the specified category on Sunday.</span><br /><br /><code>/item_group?feed_scope=ALL_ACTIVE&category_id=15032</code> <br /><br /> '
+          description: 'Specifies the type of file to return. <br /><br /><b>Valid Values: </b>   <ul> <li><b> NEWLY_LISTED</b> - Returns the <b>Item Group</b> feed file containing the  item group variation information for items in the daily <a href="/api-docs/buy/feed/resources/item/methods/getItemFeed">Item</a> feed file that were associated with an item group. <br /><br />The items in this type of <b>Item</b> feed file are items that were listed on the day specified by the <b> date</b> parameter in the category specified by the <b>category_id</b> parameter. <br /><br /><code>/item_group?feed_scope=NEWLY_LISTED&category_id=15032&date=20170925</code></li> <li><b>ALL_ACTIVE</b> - Returns the weekly <b>Item Group Bootstrap</b> file containing the item group  variation information for items in the weekly <a href="/api-docs/buy/feed/resources/item/methods/getItemFeed">Item Bootstrap</a> feed file that were associated with an item group. The items are Good ''Til Cancelled items in the category specified by the <b> category_id</b> parameter.  <br /><br />  <span class="tablenote"><b>Note: </b> Bootstrap files are generated every Tuesday and the file is available on Wednesday. However, the exact time the file is available can vary so we recommend you download the Bootstrap file on Thursday. The item groups in the file are for the items that were in the specified category on Sunday.</span><br /><br /><code>/item_group?feed_scope=ALL_ACTIVE&category_id=15032</code> <br /><br /> '
           required: true
           schema:
             type: string
         - name: category_id
           in: query
-          description: 'An eBay top-level category ID of the items to be returned in the feed file. <br /> <br />The list of eBay category IDs changes over time and category IDs are not the same across all the eBay marketplaces. To get a list of the top-level categories for a marketplaces, you can use the Taxonomy API <a href="/api-docs/commerce/taxonomy/resources/category_tree/methods/getCategoryTree">getCategoryTree</a> method. This method retrieves the complete category tree for the marketplace. The top-level categories are identified by the <b> categoryTreeNodeLevel </b> field. <br /><br /><b>For example: </b><br />&nbsp;&nbsp;<code>"categoryTreeNodeLevel": 1</code> <br /><br />For details see <a href="/api-docs/buy/buy-categories.html">Get Categories for Buy APIs</a>. </li>  </ul> <br /><br />   <b>Restriction: </b> Must be a top-level category </b>'
+          description: 'An eBay top-level category ID of the items to be returned in the feed file.<br /> <br />The list of eBay category IDs changes over time and category IDs are not the same across all the eBay marketplaces. To get a list of the top-level categories for a marketplaces, you can use the Taxonomy API <a href="/api-docs/commerce/taxonomy/resources/category_tree/methods/getCategoryTree">getCategoryTree</a> method. This method retrieves the complete category tree for the marketplace. The top-level categories are identified by the <b>categoryTreeNodeLevel</b> field. <br /><br /><b>For example:</b><br />&nbsp;&nbsp;<code>"categoryTreeNodeLevel": 1</code> <br /><br />For details see <a href="/api-docs/buy/buy-categories.html">Get Categories for Buy APIs</a>. </li>  </ul> <br /><br />   <b>Restriction:</b> Must be a top-level category other than Real Estate. Items listed under Real Estate L1 categories are excluded from all feeds in all marketplaces.'
           required: true
           schema:
             type: string
@@ -359,7 +359,7 @@ paths:
         '416':
           description: Range not satisfiable
         '500':
-          description: Internal server error
+          description: Internal Server Error
           x-response-codes:
             errors:
               '13006':
@@ -396,13 +396,13 @@ paths:
             type: string
         - name: category_id
           in: query
-          description: 'An eBay top-level category ID  of the items to be returned in the feed file. <br /> <br />The list of eBay category IDs changes over time and category IDs are not the same across all the eBay marketplaces. To get a list of the top-level categories for a marketplace, you can use the Taxonomy API <a href="/api-docs/commerce/taxonomy/resources/category_tree/methods/getCategoryTree">getCategoryTree</a> method. This method retrieves the complete category tree for the marketplace. The top-level categories are identified by the <b> categoryTreeNodeLevel </b> field. <br /><br /><b>For example: </b><br />&nbsp;&nbsp;<code>"categoryTreeNodeLevel": 1</code> <br /><br />For details see <a href="/api-docs/buy/buy-categories.html">Get Categories for Buy APIs</a>. </li>  </ul> <br /><br />   <b>Restriction: </b> Must be a top-level category </b>'
+          description: 'An eBay top-level category ID  of the items to be returned in the feed file.<br /> <br />The list of eBay category IDs changes over time and category IDs are not the same across all the eBay marketplaces. To get a list of the top-level categories for a marketplace, you can use the Taxonomy API <a href="/api-docs/commerce/taxonomy/resources/category_tree/methods/getCategoryTree">getCategoryTree</a> method. This method retrieves the complete category tree for the marketplace. The top-level categories are identified by the <b>categoryTreeNodeLevel</b> field.<br /><br /><b>For example:</b><br />&nbsp;&nbsp;<code>"categoryTreeNodeLevel": 1</code> <br /><br />For details see <a href="/api-docs/buy/buy-categories.html">Get Categories for Buy APIs</a>.</li>  </ul> <br /><br />   <b>Restriction:</b> Must be a top-level category other than Real Estate. Items listed under Real Estate L1 categories are excluded from all feeds in all marketplaces.'
           required: true
           schema:
             type: string
         - name: snapshot_date
           in: query
-          description: 'The date and hour of the snapshot feed file you want. Each file contains the items that changed within the hour in the specified category. So, the 9AM file contains the items that changed between 9AM and 9:59AM on the day specified.  It takes 2 hours to generate a snapshot file, which means to get the file for 9AM the earliest you could submit the call is at 11AM.<br /><br />There are 7 days of <b> Hourly Snapshot</b> feed files available.      <p><span class="tablenote"><b>Note: </b> The Feed API uses GMT, so you must convert your local time to GMT. For example, if you lived in California and wanted the September 15th 7pm file, you would submit the following call: <br /> <br /><code>item_snapshot?category_id=625&snapshot_date=2017-09-16T02:00:00.000Z</code> </span></p>  <b>Format: </b>UTC format (yyyy-MM-ddThh:00:00.000Z) <br /><br />Files are generated on the hour, so minutes and seconds are <em> always</em> zeros.'
+          description: 'The date and hour of the snapshot feed file you want. Each file contains the items that changed within the hour in the specified category. So, the 9AM file contains the items that changed between 9AM and 9:59AM on the day specified.  It takes 2 hours to generate a snapshot file, which means to get the file for 9AM the earliest you could submit the call is at 11AM.<br /><br />There are 7 days of <b> Hourly Snapshot</b> feed files available.<p><span class="tablenote"><b>Note: </b> The Feed API uses GMT, so you must convert your local time to GMT. For example, if you lived in California and wanted the September 15th 7pm file, you would submit the following call: <br /> <br /><code>item_snapshot?category_id=625&snapshot_date=2017-09-16T02:00:00.000Z</code> </span></p>  <b>Format: </b>UTC format (yyyy-MM-ddThh:00:00.000Z) <br /><br />Files are generated on the hour, so minutes and seconds are <em> always</em> zeros.'
           required: true
           schema:
             type: string
@@ -522,7 +522,7 @@ paths:
         '416':
           description: Range not satisfiable
         '500':
-          description: Internal server error
+          description: Internal Server Error
           x-response-codes:
             errors:
               '13006':
@@ -559,7 +559,7 @@ paths:
             type: string
         - name: category_id
           in: query
-          description: 'An eBay top-level category ID of the items to be returned in the feed file. <br /> <br />The list of eBay category IDs changes over time and category IDs are not the same across all the eBay marketplaces. To get a list of the top-level categories for a marketplaces, you can use the Taxonomy API <a href="/api-docs/commerce/taxonomy/resources/category_tree/methods/getCategoryTree">getCategoryTree</a> method. This method retrieves the complete category tree for the marketplace. The top-level categories are identified by the <b> categoryTreeNodeLevel </b> field. <br /><br /><b>For example: </b><br />&nbsp;&nbsp;<code>"categoryTreeNodeLevel": 1</code> <br /><br />For details see <a href="/api-docs/buy/api-feed.html#Getcat">Get the eBay categories of a marketplace</a>. </li>  </ul> <br /><br />   <b>Restriction: </b> Must be a top-level category'
+          description: 'An eBay top-level category ID of the items to be returned in the feed file.<br /> <br />The list of eBay category IDs changes over time and category IDs are not the same across all the eBay marketplaces. To get a list of the top-level categories for a marketplaces, you can use the Taxonomy API <a href="/api-docs/commerce/taxonomy/resources/category_tree/methods/getCategoryTree">getCategoryTree</a> method. This method retrieves the complete category tree for the marketplace. The top-level categories are identified by the <b>categoryTreeNodeLevel</b> field.<br /><br /><b>For example:</b><br />&nbsp;&nbsp;<code>"categoryTreeNodeLevel": 1</code> <br /><br />For details see <a href="/api-docs/buy/api-feed.html#Getcat">Get the eBay categories of a marketplace</a>.</li></ul><br /><br /><b>Restriction:</b> Must be a top-level category other than Real Estate. Items listed under Real Estate L1 categories are excluded from all feeds in all marketplaces.'
           required: true
           schema:
             type: string
@@ -780,7 +780,7 @@ components:
           description: The feedback score of the seller. This value is based on the ratings from eBay members that bought items from this seller.
         gtin:
           type: string
-          description: The unique Global Trade Item Number of the item as defined by <a href="https://www.gtin.info" target="_blank">https://www.gtin.info</a>. This can be a UPC (Universal Product Code), EAN (European Article Number), or an ISBN (International Standard Book Number) value.
+          description: The unique Global Trade Item Number of the item as defined by <a href="https://www.gtin.info " target="_blank">https://www.gtin.info</a>. This can be a UPC (Universal Product Code), EAN (European Article Number), or an ISBN (International Standard Book Number) value.
         brand:
           type: string
           description: The name brand of the item, such as Nike, Apple, etc.
@@ -792,10 +792,10 @@ components:
           description: The eBay product identifier of a product from the eBay product catalog. You can use this value in the Browse API <a href="/api-docs/buy/browse/resources/item_summary/methods/search">search</a> method to retrieve items for this product and in the <a href="/api-docs/buy/marketing/resources/methods">Marketing API</a> methods to retrieve 'also viewed' and 'also bought' products to encourage up-selling and cross-selling.
         conditionId:
           type: string
-          description: 'The identifier of the condition of the item. For example, 1000 is the identifier for NEW. For a list of condition names and IDs, see <a href="https://developer.ebay.com/devzone/finding/callref/enums/conditionIdList.html" target="_blank">Item Condition IDs and Names</a>.<br /><br /><span class="tablenote"><b> Note: </b>As of September 1, 2021, condition ID 2500 (''Seller Refurbished'') is no longer a valid item condition in the <b>Cell Phones & Smartphones</b> category (category ID 9355) for the following marketplaces: US, Canada, UK, Germany, and Australia. This refurbished item condition has been replaced by three new refurbished values, which include ''Excellent - Refurbished'' (condition ID 2010), ''Very Good - Refurbished'' (condition ID 2020), and ''Good - Refurbished'' (condition ID 2030).</span><br /><br />Code so that your app gracefully handles any future changes to this list.'
+          description: The identifier of the condition of the item. For example, 1000 is the identifier for NEW. For a list of condition names and IDs, see <a href="https://developer.ebay.com/devzone/finding/callref/enums/conditionIdList.html " target="_blank">Item Condition IDs and Names</a>.<br /><br />Code so that your app gracefully handles any future changes to this list.
         condition:
           type: string
-          description: 'The text describing the condition of the item. For a list of condition names, see <a href="https://developer.ebay.com/devzone/finding/callref/enums/conditionIdList.html" target="_blank">Item Condition IDs and Names</a>.<br /><br /><span class="tablenote"><b> Note: </b>As of September 1, 2021, condition ID 2500 (''Seller Refurbished'') is no longer a valid item condition in the <b>Cell Phones & Smartphones</b> category (category ID 9355) for the following marketplaces: US, Canada, UK, Germany, and Australia. This refurbished item condition has been replaced by three new refurbished values, which include ''Excellent - Refurbished'' (condition ID 2010), ''Very Good - Refurbished'' (condition ID 2020), and ''Good - Refurbished'' (condition ID 2030).</span>'
+          description: The text describing the condition of the item. For a list of condition names, see <a href="https://developer.ebay.com/devzone/finding/callref/enums/conditionIdList.html " target="_blank">Item Condition IDs and Names</a>.
         priceValue:
           type: string
           description: 'The price of the item, which can be a discounted price. If it is discounted, information about the discount is returned in the <b>originalPriceValue</b>, <b>originalPriceCurrency</b>, <b>discountAmount</b>, and <b>discountPercentage</b> columns.<br /><br /><span class="tablenote"><b> Note: </b>The price includes the value-added tax (VAT) for applicable jurisdictions when requested from supported marketplaces. In this case, users must pass the <a href="/api-docs/static/rest-request-components.html#HTTP"><code>X-EBAY-C-MARKETPLACE-ID</code></a> request header specifying the supported marketplace (such as <code>EBAY_GB</code>) to see the VAT-inclusive pricing. For more information on VAT, refer to <a href="https://www.ebay.co.uk/help/listings/default/vat-obligations-eu?id=4650&st=12&pos=1&query=Your%20VAT%20obligations%20in%20the%20EU&intent=VAT">VAT Obligations in the EU</a>.</span>'
@@ -998,13 +998,25 @@ components:
           description: The size of the item.
         gender:
           type: string
-          description: In cases where items could vary by gender, this specifies which gender the product is for. <br /><br /><b>Valid values:</b> <code>male</code>, <code>female</code>, <code>unisex</code>.
+          description: In cases where items could vary by gender, this specifies for which gender the product is intended. Possible values include male, female, and unisex.
         material:
           type: string
           description: The material that the item is made of.
         totalUnits:
           type: string
           description: For an item that is priced by the unit, the total number of units that are on offer. For example, if the item is priced by the meter and 50 cm is on offer, the <b>totalUnits</b> would be 0.5 m.
+        ecoParticipationFeeValue:
+          type: string
+          description: The amount of the Eco Participation Fee, a fee paid toward the eventual disposal of the purchased item.
+        ecoParticipationFeeCurrency:
+          type: string
+          description: The currency in which the Eco Participation Fee for the item is paid.
+        takeBackPolicyLabel:
+          type: string
+          description: The seller-defined label of the TAKE_BACK custom policy for the item. A TAKE_BACK policy describes the seller's regulatory responsibility to take back a purchased item for disposal when the buyer purchases a new one.
+        takeBackPolicyDescription:
+          type: string
+          description: The seller-defined description of the TAKE_BACK custom policy for the item.
       description: The type that defines the columns returned in the <b>Item</b> feed file.
     ItemGroup:
       type: object
@@ -1104,7 +1116,7 @@ components:
           description: The feedback score of the seller. This value is based on the ratings from eBay members that bought items from this seller.
         gtin:
           type: string
-          description: The unique Global Trade Item Number of the item as defined by <a href="https://www.gtin.info" target="_blank">https://www.gtin.info</a>. This can be a UPC (Universal Product Code), EAN (European Article Number), or an ISBN (International Standard Book Number) value.
+          description: The unique Global Trade Item Number of the item as defined by <a href="https://www.gtin.info " target="_blank">https://www.gtin.info</a>. This can be a UPC (Universal Product Code), EAN (European Article Number), or an ISBN (International Standard Book Number) value.
         brand:
           type: string
           description: The name brand of the item, such as Nike, Apple, etc.
@@ -1116,10 +1128,10 @@ components:
           description: The eBay product identifier of a product from the eBay product catalog. You can use this value in the Browse API <a href="/api-docs/buy/browse/resources/item_summary/methods/search">search</a> method to retrieve items for this product and in the <a href="/api-docs/buy/marketing/resources/methods">Marketing API</a> methods to retrieve 'also viewed' and 'also bought' products to encourage up-selling and cross-selling.
         conditionId:
           type: string
-          description: 'The identifier of the condition of the item. For example, 1000 is the identifier for NEW. For a list of condition names and IDs, see <a href="https://developer.ebay.com/devzone/finding/callref/enums/conditionIdList.html" target="_blank">Item Condition IDs and Names</a>.<br /><br /><span class="tablenote"><b>Note: </b>As of September 1, 2021, condition ID 2500 (''Seller Refurbished'') is no longer a valid item condition in the <b>Cell Phones & Smartphones</b> category (category ID 9355) for the following marketplaces: US, Canada, UK, Germany, and Australia. This refurbished item condition has been replaced by three new refurbished values, which include ''Excellent - Refurbished'' (condition ID 2010), ''Very Good - Refurbished'' (condition ID 2020), and ''Good - Refurbished'' (condition ID 2030).</span><br />Code so that your app gracefully handles any future changes to this list.'
+          description: The identifier of the condition of the item. For example, 1000 is the identifier for NEW. For a list of condition names and IDs, see <a href="https://developer.ebay.com/devzone/finding/callref/enums/conditionIdList.html " target="_blank">Item Condition IDs and Names</a>.<br /><br />Code so that your app gracefully handles any future changes to this list.
         condition:
           type: string
-          description: 'The text describing the condition of the item, such as New or Used. For a list of condition names, see <a href="https://developer.ebay.com/devzone/finding/callref/enums/conditionIdList.html" target="_blank">Item Condition IDs and Names</a>.<br /><br /><span class="tablenote"><b>Note: </b>As of September 1, 2021, condition ID 2500 (''Seller Refurbished'') is no longer a valid item condition in the <b>Cell Phones & Smartphones</b> category (category ID 9355) for the following marketplaces: US, Canada, UK, Germany, and Australia. This refurbished item condition has been replaced by three new refurbished values, which include ''Excellent - Refurbished'' (condition ID 2010), ''Very Good - Refurbished'' (condition ID 2020), and ''Good - Refurbished'' (condition ID 2030).</span>'
+          description: The text describing the condition of the item, such as New or Used. For a list of condition names, see <a href="https://developer.ebay.com/devzone/finding/callref/enums/conditionIdList.html " target="_blank">Item Condition IDs and Names</a>.
         priceValue:
           type: string
           description: 'The price of the item, which can be a discounted price. <br /><br /><span class="tablenote"><b> Note: </b>The price includes the value-added tax (VAT) for applicable jurisdictions when requested from supported marketplaces. In this case, users must pass the <a href="/api-docs/static/rest-request-components.html#HTTP"><code>X-EBAY-C-MARKETPLACE-ID</code></a> request header specifying the supported marketplace (such as <code>EBAY_GB</code>) to see the VAT-inclusive pricing. For more information on VAT, refer to <a href="https://www.ebay.co.uk/help/listings/default/vat-obligations-eu?id=4650&st=12&pos=1&query=Your%20VAT%20obligations%20in%20the%20EU&intent=VAT">VAT Obligations in the EU</a>.</span>'
@@ -1280,7 +1292,7 @@ components:
           description: The size of the item.
         gender:
           type: string
-          description: In cases where items could vary by gender, this specifies which gender the product is for. <br /><br /><b>Valid values:</b> <code>male</code>, <code>female</code>, <code>unisex</code>.
+          description: In cases where items could vary by gender, this specifies for which gender the product is intended. Possible values include male, female, and unisex.
         material:
           type: string
           description: The material that the item is made of.
@@ -1326,6 +1338,27 @@ components:
         authenticityGuaranteeFeeCurrency:
           type: string
           description: The currency used for the Authenticity Guarantee service fee.
+        couponDiscountType:
+          type: string
+          description: The type of discount that the coupon applies.<br /><br /><span class="tablenote"><span style="color:#004680"><strong>Note:</strong></span> If all coupon fields return null values, it indicates that the item never had a coupon, or that the coupon has been removed. Please ensure that you update your inventory accordingly.</span>
+        couponRedemptionCode:
+          type: string
+          description: The redemption code for the coupon.
+        couponMessage:
+          type: string
+          description: A description of the coupon.
+        couponTermsWebUrl:
+          type: string
+          description: The URL to the coupon terms of use.
+        couponDiscountValue:
+          type: string
+          description: The discount amount after the coupon is applied.
+        couponDiscountCurrency:
+          type: string
+          description: The currency used to specify the coupon discount value.
+        couponExpirationDate:
+          type: string
+          description: The expiration date for the coupon.
       description: 'The type that defines the columns returned in the <b>Hourly Snapshot</b> feed file.  <p>  <b>Note: </b> When the value of the <b> availability</b> column is <code>UNAVAILABLE</code>, only the <b>itemId</b> and <b> availability</b> columns are populated.  </p> '
     ItemSnapshotResponse:
       type: object

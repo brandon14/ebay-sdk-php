@@ -1,4 +1,4 @@
-# trollandtoad/ebay-commerce-taxonomy-v1
+# brandon14/ebay-commerce-taxonomy-v1
 
 Use the Taxonomy API to discover the most appropriate eBay categories under which sellers can offer inventory items for sale, and the most likely categories under which buyers can browse or search for items to purchase. In addition, the Taxonomy API provides metadata about the required and recommended category aspects to include in listings, and also has two operations to retrieve parts compatibility information.
 
@@ -19,11 +19,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/trollandtoad/ebay-commerce-taxonomy-v1.git"
+      "url": "https://github.com/brandon14/ebay-commerce-taxonomy-v1.git"
     }
   ],
   "require": {
-    "trollandtoad/ebay-commerce-taxonomy-v1": "*@dev"
+    "brandon14/ebay-commerce-taxonomy-v1": "*@dev"
   }
 }
 ```
@@ -36,7 +36,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/trollandtoad/ebay-commerce-taxonomy-v1/vendor/autoload.php');
+require_once('/path/to/brandon14/ebay-commerce-taxonomy-v1/vendor/autoload.php');
 ```
 
 ## Getting Started

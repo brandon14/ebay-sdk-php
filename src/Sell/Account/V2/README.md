@@ -1,4 +1,4 @@
-# trollandtoad/ebay-sell-account-v2
+# brandon14/ebay-sell-account-v2
 
 This API allows sellers to retrieve and manage their custom shipping rate tables.
 
@@ -19,11 +19,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/trollandtoad/ebay-sell-account-v2.git"
+      "url": "https://github.com/brandon14/ebay-sell-account-v2.git"
     }
   ],
   "require": {
-    "trollandtoad/ebay-sell-account-v2": "*@dev"
+    "brandon14/ebay-sell-account-v2": "*@dev"
   }
 }
 ```
@@ -36,7 +36,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/trollandtoad/ebay-sell-account-v2/vendor/autoload.php');
+require_once('/path/to/brandon14/ebay-sell-account-v2/vendor/autoload.php');
 ```
 
 ## Getting Started

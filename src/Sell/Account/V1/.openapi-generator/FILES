@@ -3,6 +3,7 @@
 .php_cs
 .travis.yml
 ApiException.php
+Api/AdvertisingEligibilityApi.php
 Api/CustomPolicyApi.php
 Api/FulfillmentPolicyApi.php
 Api/KycApi.php
@@ -53,6 +54,8 @@ Model/ReturnPolicyResponse.php
 Model/SalesTax.php
 Model/SalesTaxBase.php
 Model/SalesTaxes.php
+Model/SellerEligibilityMultiProgramResponse.php
+Model/SellerEligibilityResponse.php
 Model/SellingLimit.php
 Model/SellingPrivileges.php
 Model/SetFulfillmentPolicyResponse.php
@@ -64,6 +67,7 @@ Model/TimeDuration.php
 ObjectSerializer.php
 README.md
 composer.json
+docs/Api/AdvertisingEligibilityApi.md
 docs/Api/CustomPolicyApi.md
 docs/Api/FulfillmentPolicyApi.md
 docs/Api/KycApi.md
@@ -111,6 +115,8 @@ docs/Model/ReturnPolicyResponse.md
 docs/Model/SalesTax.md
 docs/Model/SalesTaxBase.md
 docs/Model/SalesTaxes.md
+docs/Model/SellerEligibilityMultiProgramResponse.md
+docs/Model/SellerEligibilityResponse.md
 docs/Model/SellingLimit.md
 docs/Model/SellingPrivileges.md
 docs/Model/SetFulfillmentPolicyResponse.md

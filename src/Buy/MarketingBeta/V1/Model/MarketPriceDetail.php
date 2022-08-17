@@ -261,7 +261,7 @@ class MarketPriceDetail implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets condition_group.
      *
-     * @param string|null $condition_group The name for the condition of the product. For example: NEW<br /><br /><span class=\"tablenote\"><b> Note: </b>As of September 1, 2021, condition ID 2500 ('Seller Refurbished') is no longer a valid item condition in the <b>Cell Phones & Smartphones</b> category (category ID 9355) for the following marketplaces: US, Canada, UK, Germany, and Australia. This refurbished item condition has been replaced by three new refurbished values, which include 'Excellent - Refurbished' (condition ID 2010), 'Very Good - Refurbished' (condition ID 2020), and 'Good - Refurbished' (condition ID 2030).</span>
+     * @param string|null $condition_group The name for the condition of the product. For example: NEW
      *
      * @return self
      */
@@ -285,7 +285,7 @@ class MarketPriceDetail implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets condition_ids.
      *
-     * @param string[]|null $condition_ids An array of condition identifiers for the product.<br /><br /><span class=\"tablenote\"><b> Note: </b>As of September 1, 2021, condition ID 2500 ('Seller Refurbished') is no longer a valid item condition in the <b>Cell Phones & Smartphones</b> category (category ID 9355) for the following marketplaces: US, Canada, UK, Germany, and Australia. This refurbished item condition has been replaced by three new refurbished values, which include 'Excellent - Refurbished' (condition ID 2010), 'Very Good - Refurbished' (condition ID 2020), and 'Good - Refurbished' (condition ID 2030).</span>
+     * @param string[]|null $condition_ids an array of condition identifiers for the product
      *
      * @return self
      */

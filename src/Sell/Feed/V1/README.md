@@ -1,4 +1,4 @@
-# trollandtoad/ebay-sell-feed-v1
+# brandon14/ebay-sell-feed-v1
 
 <p>The <strong>Feed API</strong> lets sellers upload input files, download reports and files including their status, filter reports using URI parameters, and retrieve customer service metrics task details.</p>
 
@@ -19,11 +19,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/trollandtoad/ebay-sell-feed-v1.git"
+      "url": "https://github.com/brandon14/ebay-sell-feed-v1.git"
     }
   ],
   "require": {
-    "trollandtoad/ebay-sell-feed-v1": "*@dev"
+    "brandon14/ebay-sell-feed-v1": "*@dev"
   }
 }
 ```
@@ -36,7 +36,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/trollandtoad/ebay-sell-feed-v1/vendor/autoload.php');
+require_once('/path/to/brandon14/ebay-sell-feed-v1/vendor/autoload.php');
 ```
 
 ## Getting Started

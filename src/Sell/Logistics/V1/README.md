@@ -1,4 +1,4 @@
-# trollandtoad/ebay-sell-logistics-v1
+# brandon14/ebay-sell-logistics-v1
 
 <span class=\"tablenote\"><b>Note:</b> This is a <a href=\"https://developer.ebay.com/api-docs/static/versioning.html#limited\" target=\"_blank\"> <img src=\"/cms/img/docs/partners-api.svg\" class=\"legend-icon partners-icon\" title=\"Limited Release\"  alt=\"Limited Release\" />(Limited Release)</a> API available only to select developers approved by business units.</span><br /><br />The <b>Logistics API</b> resources offer the following capabilities: <ul><li><b>shipping_quote</b> &ndash; Consolidates into a list a set of live shipping rates, or quotes, from which you can select a rate to ship a package.</li> <li><b>shipment</b> &ndash; Creates a \"shipment\" for the selected shipping rate.</li></ul> Call <b>createShippingQuote</b> to get a list of live shipping rates. The rates returned are all valid for a specific time window and all quoted prices are at eBay-negotiated rates. <br><br>Select one of the live rates and using its associated <b>rateId</b>, create a \"shipment\" for the package by calling <b>createFromShippingQuote</b>. Creating a shipment completes an agreement, and the cost of the base service and any added shipping options are summed into the returned <b>totalShippingCost</b> value. This action also generates a shipping label that you can use to ship the package.  The total cost of the shipment is incurred when the package is shipped using the supplied shipping label.  <p class=\"tablenote\"><b>Important!</b> Sellers must set up a payment method via their eBay account before they can use the methods in this API to create a shipment and the associated shipping label.</p>
 
@@ -19,11 +19,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/trollandtoad/ebay-sell-logistics-v1.git"
+      "url": "https://github.com/brandon14/ebay-sell-logistics-v1.git"
     }
   ],
   "require": {
-    "trollandtoad/ebay-sell-logistics-v1": "*@dev"
+    "brandon14/ebay-sell-logistics-v1": "*@dev"
   }
 }
 ```
@@ -36,7 +36,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/trollandtoad/ebay-sell-logistics-v1/vendor/autoload.php');
+require_once('/path/to/brandon14/ebay-sell-logistics-v1/vendor/autoload.php');
 ```
 
 ## Getting Started
@@ -59,7 +59,7 @@ $apiInstance = new TNT\Ebay\Sell\Logistics\V1\Api\ShipmentApi(
     new GuzzleHttp\Client(),
     $config
 );
-$shipment_id = 'shipment_id_example'; // string | This path parameter specifies the unique eBay-assigned ID of the shipment to be canceled. The shipmentId value is generated and returned by a call to createFromShippingQuote.
+$shipment_id = 'shipment_id_example'; // string | This path parameter specifies the unique eBay-assigned ID of the shipment to be canceled. The <b>shipmentId</b> value is generated and returned by a call to <b>createFromShippingQuote</b>.
 
 try {
     $result = $apiInstance->cancelShipment($shipment_id);

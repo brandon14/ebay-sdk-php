@@ -1,4 +1,4 @@
-# trollandtoad/ebay-sell-account-v1
+# brandon14/ebay-sell-account-v1
 
 The <b>Account API</b> gives sellers the ability to configure their eBay seller accounts, including the seller's policies (eBay business policies and seller-defined custom policies), opt in and out of eBay seller programs, configure sales tax tables, and get account information.  <br/><br/>For details on the availability of the methods in this API, see <a href=\"/api-docs/sell/account/overview.html#requirements\">Account API requirements and restrictions</a>.
 
@@ -19,11 +19,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/trollandtoad/ebay-sell-account-v1.git"
+      "url": "https://github.com/brandon14/ebay-sell-account-v1.git"
     }
   ],
   "require": {
-    "trollandtoad/ebay-sell-account-v1": "*@dev"
+    "brandon14/ebay-sell-account-v1": "*@dev"
   }
 }
 ```
@@ -36,7 +36,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/trollandtoad/ebay-sell-account-v1/vendor/autoload.php');
+require_once('/path/to/brandon14/ebay-sell-account-v1/vendor/autoload.php');
 ```
 
 ## Getting Started
@@ -53,20 +53,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = TNT\Ebay\Sell\Account\V1\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new TNT\Ebay\Sell\Account\V1\Api\CustomPolicyApi(
+$apiInstance = new TNT\Ebay\Sell\Account\V1\Api\AdvertisingEligibilityApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$x_ebay_c_marketplace_id = 'x_ebay_c_marketplace_id_example'; // string | This header parameter specifies the eBay markeplace for the custom policy that is being created. Supported values for this header can be found in the <a href=\"/api-docs/sell/account/types/ba:MarketplaceIdEnum\" target=\"_blank\">MarketplaceIdEnum</a> type definition.<br/> <br/> <span class=\"tablenote\"><strong>Note:</strong> The following eBay marketplaces support Custom Policies: <ul><li>Germany (EBAY_DE)</li> <li>Canada (EBAY_CA)</li> <li>Australia (EBAY_AU)</li> <li>United States (EBAY_US)</li> <li>France (EBAY_FR)</li></ul></span>
-$custom_policy_create_request = new \TNT\Ebay\Sell\Account\V1\Model\CustomPolicyCreateRequest(); // \TNT\Ebay\Sell\Account\V1\Model\CustomPolicyCreateRequest | Request to create a new Custom Policy.
+$x_ebay_c_marketplace_id = 'x_ebay_c_marketplace_id_example'; // string | The unique identifier of the eBay marketplace for which the seller eligibility status shall be checked.<br /><br /><span class=\"tablenote\"><b>Note:</b> This value is case-sensitive.</span>
+$program_types = 'program_types_example'; // string | A comma-separated list of eBay advertising programs.<br /><br /><span class=\"tablenote\"><b>Tip:</b> See the <a href=\"/api-docs/sell/account/types/plser:AdvertisingProgramEnum\"> AdvertisingProgramEnum</a> type for possible values.</span><br /><br />If no programs are specified, the results will be returned for all programs.
 
 try {
-    $result = $apiInstance->createCustomPolicy($x_ebay_c_marketplace_id, $custom_policy_create_request);
+    $result = $apiInstance->getAdvertisingEligibility($x_ebay_c_marketplace_id, $program_types);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomPolicyApi->createCustomPolicy: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AdvertisingEligibilityApi->getAdvertisingEligibility: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -77,6 +77,7 @@ All URIs are relative to *https://api.ebay.com/sell/account/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AdvertisingEligibilityApi* | [**getAdvertisingEligibility**](docs/Api/AdvertisingEligibilityApi.md#getadvertisingeligibility) | **GET** /advertising_eligibility | 
 *CustomPolicyApi* | [**createCustomPolicy**](docs/Api/CustomPolicyApi.md#createcustompolicy) | **POST** /custom_policy/ | 
 *CustomPolicyApi* | [**getCustomPolicies**](docs/Api/CustomPolicyApi.md#getcustompolicies) | **GET** /custom_policy/ | 
 *CustomPolicyApi* | [**getCustomPolicy**](docs/Api/CustomPolicyApi.md#getcustompolicy) | **GET** /custom_policy/{custom_policy_id} | 
@@ -150,6 +151,8 @@ Class | Method | HTTP request | Description
 - [SalesTax](docs/Model/SalesTax.md)
 - [SalesTaxBase](docs/Model/SalesTaxBase.md)
 - [SalesTaxes](docs/Model/SalesTaxes.md)
+- [SellerEligibilityMultiProgramResponse](docs/Model/SellerEligibilityMultiProgramResponse.md)
+- [SellerEligibilityResponse](docs/Model/SellerEligibilityResponse.md)
 - [SellingLimit](docs/Model/SellingLimit.md)
 - [SellingPrivileges](docs/Model/SellingPrivileges.md)
 - [SetFulfillmentPolicyResponse](docs/Model/SetFulfillmentPolicyResponse.md)
@@ -187,5 +190,5 @@ vendor/bin/phpunit
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `v1.7.0`
+- API version: `v1.8.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

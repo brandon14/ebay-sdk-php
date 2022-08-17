@@ -267,7 +267,7 @@ class PickupSlot implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets pickup_slot_end_time.
      *
-     * @param string|null $pickup_slot_end_time The date and time the pickup slot ends, formatted as an ISO 8601 string, which is based on the 24-hour Coordinated Universal Time (UTC) clock. Format: [YYYY]-[MM]-[DD]T[HH]:[MM]:[SS].[SSS]Z Example: 2018-08-20T07:09:00.000Z
+     * @param string|null $pickup_slot_end_time The date and time the pickup slot ends, formatted as an <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\" title=\"https://www.iso.org\" target=\"_blank\">ISO 8601</a> string, which is based on the 24-hour Coordinated Universal Time (UTC) clock.  <br><br><b>Format:</b> <code>[YYYY]-[MM]-[DD]T[HH]:[MM]:[SS].[SSS]Z</code> <br><b>Example:</b> <code>2018-08-20T07:09:00.000Z</code>
      *
      * @return self
      */
@@ -291,7 +291,7 @@ class PickupSlot implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets pickup_slot_id.
      *
-     * @param string|null $pickup_slot_id seller-defined name for the pickup slot
+     * @param string|null $pickup_slot_id Seller-defined name for the pickup slot. <!-- Max characters? -->
      *
      * @return self
      */
@@ -315,7 +315,7 @@ class PickupSlot implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets pickup_slot_start_time.
      *
-     * @param string|null $pickup_slot_start_time the date and time the pickup slot begins, formatted as an ISO 8601 UTC string
+     * @param string|null $pickup_slot_start_time The date and time the pickup slot begins, formatted as an <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\" title=\"https://www.iso.org\" target=\"_blank\">ISO 8601</a> UTC string.
      *
      * @return self
      */
@@ -339,7 +339,7 @@ class PickupSlot implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets pickup_slot_time_zone.
      *
-     * @param string|null $pickup_slot_time_zone the time zone of the pickup location, returned as Time Zone Database ID (also know as an Olson time zone ID)
+     * @param string|null $pickup_slot_time_zone The time zone of the pickup location, returned as <a href=\"https://www.iana.org/time-zones\" target=\"_blank\">Time Zone Database</a> ID (also know as an Olson time zone ID).
      *
      * @return self
      */

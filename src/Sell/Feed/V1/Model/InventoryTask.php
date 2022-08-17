@@ -302,7 +302,7 @@ class InventoryTask implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets task_id.
      *
-     * @param string|null $task_id The ID of the task. This ID is generated when the task was created by the createInventoryTask method.
+     * @param string|null $task_id The ID of the task. This ID is generated when the task was created by the <strong>createInventoryTask</strong> method.
      *
      * @return self
      */
@@ -398,7 +398,7 @@ class InventoryTask implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets completion_date.
      *
-     * @param string|null $completion_date The timestamp when the task status went into the COMPLETED, COMPLETED_WITH_ERROR, or PARTIALLY_PROCESSED state. This field is only returned if the status is one of the three completed values.
+     * @param string|null $completion_date The timestamp when the task <strong>status</strong> went into the <code>COMPLETED</code>, <code>COMPLETED_WITH_ERROR</code>, or <code>PARTIALLY_PROCESSED</code> state. This field is only returned if the status is one of the three completed values.
      *
      * @return self
      */
@@ -446,7 +446,7 @@ class InventoryTask implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets detail_href.
      *
-     * @param string|null $detail_href The path to the call URI used to retrieve the task. This field points to the getInventoryTask URI.
+     * @param string|null $detail_href The path to the call URI used to retrieve the task. This field points to the <strong>getInventoryTask</strong> URI.
      *
      * @return self
      */
@@ -518,7 +518,7 @@ class InventoryTask implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets inventory_file_template.
      *
-     * @param string|null $inventory_file_template The inventory file template used to return specific types of inventory tasks, if set in the createInventoryTask method. This field does not apply to LMS_ACTIVE_INVENTORY_REPORT feed types. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:InventoryFileTemplateEnum'>eBay API documentation</a>
+     * @param string|null $inventory_file_template The inventory file template used to return specific types of inventory tasks, if set in the <strong>createInventoryTask</strong> method. This field does not apply to <code>LMS_ACTIVE_INVENTORY_REPORT</code> feed types. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:InventoryFileTemplateEnum'>eBay API documentation</a>
      *
      * @return self
      */

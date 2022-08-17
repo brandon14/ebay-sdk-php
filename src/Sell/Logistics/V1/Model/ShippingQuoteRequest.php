@@ -66,7 +66,7 @@ use TNT\Ebay\Sell\Logistics\V1\ObjectSerializer;
  * ShippingQuoteRequest Class Doc Comment.
  *
  * @category Class
- * @description This complex type defines the request body for createShippingQuote. Sellers request a quote for a shipment by defining the &amp;quot;To&amp;quot; and &amp;quot;From&amp;quot; addresses for the package, plus the package&#39;s size. Carriers respond by offering up a &amp;quot;rate&amp;quot; for the service of theirs that best fits seller&#39;s needs.
+ * @description This complex type defines the request body for &lt;b&gt;createShippingQuote&lt;/b&gt;. Sellers &lt;i&gt;request a quote&lt;/i&gt; for a shipment by defining the \&quot;To\&quot; and \&quot;From\&quot; addresses for the package, plus the package&#39;s size.  &lt;br&gt;&lt;br&gt;Carriers respond by offering up a \&quot;rate\&quot; for the service of theirs that best fits seller&#39;s needs.
  *
  * @author   OpenAPI Generator team
  *
@@ -267,7 +267,7 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets orders.
      *
-     * @param \TNT\Ebay\Sell\Logistics\V1\Model\Order[]|null $orders A seller-defined list that contains information about the orders in the package. This allows sellers to include information about the line items in the package with the shipment information. A package can contain any number of line items from one or more orders, providing they all ship in the same package. Maximum list size: 10
+     * @param \TNT\Ebay\Sell\Logistics\V1\Model\Order[]|null $orders A seller-defined list that contains information about the orders in the package. This allows sellers to include information about the line items in the package with the shipment information.  <br><br>A package can contain any number of line items from one or more orders, providing they all ship in the same package.  <br><br><b>Maximum list size:</b> 10
      *
      * @return self
      */

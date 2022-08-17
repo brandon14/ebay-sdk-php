@@ -1,8 +1,8 @@
 {
-    "name": "trollandtoad/ebay-commerce-translation-beta-v1",
+    "name": "brandon14/ebay-commerce-translation-beta-v1",
     "description": "This API allows 3rd party developers to translate item titles.",
     "keywords": ["openapitools", "openapi-generator", "openapi", "php", "sdk", "rest", "api", "ebay"],
-    "homepage": "https://github.com/trollandtoad/ebay-commerce-translation-beta-v1",
+    "homepage": "https://github.com/brandon14/ebay-commerce-translation-beta-v1",
     "license": "MIT",
     "authors": [
         {

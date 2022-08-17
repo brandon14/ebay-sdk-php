@@ -66,7 +66,7 @@ use TNT\Ebay\Sell\Logistics\V1\ObjectSerializer;
  * ShippingQuote Class Doc Comment.
  *
  * @category Class
- * @description This complex type describes a &amp;quot;shipping quote,&amp;quot; which contains the parameters for a package shipment. The shipping quote contains a list of &amp;quot;live quotes&amp;quot; or rates for the shipment. Rates are offerd by a carrier for a particular service, of set of services, for shipping the package. Included in the shipping quote are the package specifications, the shipment&#39;s origin and destination addresses, and the shipping parameters specified by the seller. Use the rateId value to select the specific service you want when you create a shipment by calling createFromShippingQuote.
+ * @description This complex type describes a \&quot;shipping quote,\&quot; which contains the parameters for a package shipment. The shipping quote contains a list of \&quot;live quotes\&quot; or &lt;i&gt;rates&lt;/i&gt; for the shipment. Rates are offerd by a carrier for a particular service, of set of services, for shipping the package. Included in the shipping quote are the package specifications, the shipment&#39;s origin and destination addresses, and the shipping parameters specified by the seller.  &lt;br&gt;&lt;br&gt;Use the &lt;b&gt;rateId&lt;/b&gt; value to select the specific service you want when you create a shipment by calling &lt;b&gt;createFromShippingQuote&lt;/b&gt;.
  *
  * @author   OpenAPI Generator team
  *
@@ -393,7 +393,7 @@ class ShippingQuote implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets rates.
      *
-     * @param \TNT\Ebay\Sell\Logistics\V1\Model\Rate[]|null $rates A list of rates where each rate, as identified by a rateId, contains information about a specific shipping service offered by a carrier. Rates include shipping carrier and service, the to and from locations, the pickup and delivery windows, the seller's shipping parameters, the service constraints, and the cost for the base service and a list of additional shipping options. Each rate offered is supported by a label service where you can purchase the rate, and associated shipping label, via a call to createFromShippingQuote.
+     * @param \TNT\Ebay\Sell\Logistics\V1\Model\Rate[]|null $rates A list of <i>rates</i> where each rate, as identified by a <b>rateId</b>, contains information about a specific shipping service offered by a carrier.  Rates include shipping carrier and service, the to and from locations, the pickup and delivery windows, the seller's shipping parameters, the service constraints, and the cost for the base service and a list of additional shipping options.  <br><br>Each rate offered is supported by a label service where you can purchase the rate, and associated shipping label, via a call to <b>createFromShippingQuote</b>.
      *
      * @return self
      */

@@ -1,4 +1,4 @@
-# trollandtoad/ebay-buy-deal-v1
+# brandon14/ebay-buy-deal-v1
 
 <span class=\"tablenote\"><b>Note:</b> This is a <a href=\"https://developer.ebay.com/api-docs/static/versioning.html#limited\" target=\"_blank\"> <img src=\"/cms/img/docs/partners-api.svg\" class=\"legend-icon partners-icon\" title=\"Limited Release\"  alt=\"Limited Release\" />(Limited Release)</a> API available only to select developers approved by business units.</span><br /><br />This API allows third-party developers to search for and retrieve details about eBay deals and events, as well as the items associated with those deals and events.
 
@@ -19,11 +19,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/trollandtoad/ebay-buy-deal-v1.git"
+      "url": "https://github.com/brandon14/ebay-buy-deal-v1.git"
     }
   ],
   "require": {
-    "trollandtoad/ebay-buy-deal-v1": "*@dev"
+    "brandon14/ebay-buy-deal-v1": "*@dev"
   }
 }
 ```
@@ -36,7 +36,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/trollandtoad/ebay-buy-deal-v1/vendor/autoload.php');
+require_once('/path/to/brandon14/ebay-buy-deal-v1/vendor/autoload.php');
 ```
 
 ## Getting Started

@@ -315,7 +315,7 @@ class InventoryFilterCriteria implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets listing_format.
      *
-     * @param string|null $listing_format The type of buying option for the order. Supports LMS_ACTIVE_INVENTORY_REPORT. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:ListingFormatEnum'>eBay API documentation</a>
+     * @param string|null $listing_format The type of buying option for the order. Supports <code>LMS_ACTIVE_INVENTORY_REPORT</code>. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:ListingFormatEnum'>eBay API documentation</a>
      *
      * @return self
      */
@@ -339,7 +339,7 @@ class InventoryFilterCriteria implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets listing_status.
      *
-     * @param string|null $listing_status The status of the listing (whether the listing was unsold or is active). The UNSOLD value does not apply to LMS_ACTIVE_INVENTORY_REPORT feed types. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:ListingStatusEnum'>eBay API documentation</a>
+     * @param string|null $listing_status The status of the listing (whether the listing was unsold or is active). The <strong>UNSOLD</strong> value does not apply to <code>LMS_ACTIVE_INVENTORY_REPORT</code> feed types. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:ListingStatusEnum'>eBay API documentation</a>
      *
      * @return self
      */

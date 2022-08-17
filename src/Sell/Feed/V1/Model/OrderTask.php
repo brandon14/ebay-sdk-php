@@ -66,7 +66,7 @@ use TNT\Ebay\Sell\Feed\V1\ObjectSerializer;
  * OrderTask Class Doc Comment.
  *
  * @category Class
- * @description The type that defines the fields for the getOrderTask response.
+ * @description The type that defines the fields for the &lt;b&gt; getOrderTask&lt;/b&gt; response.
  *
  * @author   OpenAPI Generator team
  *
@@ -297,7 +297,7 @@ class OrderTask implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets completion_date.
      *
-     * @param string|null $completion_date The timestamp when the task went into the COMPLETED or COMPLETED_WITH_ERROR state. This state means that eBay has compiled the report for the seller based on the seller&rsquo;s filter criteria, and the seller can run a getResultFile call to download the report.
+     * @param string|null $completion_date The timestamp when the task went into the <code>COMPLETED</code> or <code>COMPLETED_WITH_ERROR</code> state. This state means that eBay has compiled the report for the seller based on the seller’s filter criteria, and the seller can run a <strong>getResultFile</strong> call to download the report.
      *
      * @return self
      */
@@ -441,7 +441,7 @@ class OrderTask implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status.
      *
-     * @param string|null $status The enumeration value that indicates the state of the task that was submitted in the request. See FeedStatusEnum for information. The values COMPLETED and COMPLETED_WITH_ERROR indicate the Order Report file is ready to download. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:FeedStatusEnum'>eBay API documentation</a>
+     * @param string|null $status The enumeration value that indicates the state of the task that was submitted in the request. See <strong>FeedStatusEnum</strong> for information. <p>The values <code>COMPLETED </code>and<code> COMPLETED_WITH_ERROR</code> indicate the Order Report file is ready to download.</p> For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:FeedStatusEnum'>eBay API documentation</a>
      *
      * @return self
      */
