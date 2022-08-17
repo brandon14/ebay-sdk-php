@@ -17,7 +17,6 @@ coverage/
 .php-cs-fixer.cache
 
 # Doctum docs
-docs
 doctum_cache
 
 # Editor files.

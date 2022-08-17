@@ -38,18 +38,33 @@
     "scripts": {
         "analyze": "psalm",
         "analyze:stats": "composer run-script analyze -- --stats",
-        "lint:phpcs:check": "phpcs ./",
-        "lint:phpcs:fix": "phpcbf ./",
+        "lint:phpcs:check": [
+            "Composer\\Config::disableProcessTimeout",
+            "phpcs ./"
+        ],
+        "lint:phpcs:fix": [
+            "Composer\\Config::disableProcessTimeout",
+            "phpcbf ./"
+        ],
         "lint:phpmd": "phpmd ./ text ./phpmd.xml",
         "lint:php-cs-fixer:fix": [
             "@putenv PHP_CS_FIXER_IGNORE_ENV=1",
             "php-cs-fixer fix"
         ],
         "lint:php-cs-fixer:check": "composer run-script lint:php-cs-fixer:fix -- --dry-run --verbose",
-        "lint": "composer run-script lint:phpcs:check && composer run-script lint:php-cs-fixer:check && composer run-script lint:phpmd",
-        "lint:fix": "composer run-script lint:phpcs:fix && composer run-script lint:php-cs-fixer:fix",
+        "lint": [
+            "Composer\\Config::disableProcessTimeout",
+            "composer run-script lint:phpcs:check && composer run-script lint:php-cs-fixer:check && composer run-script lint:phpmd"
+        ],
+        "lint:fix": [
+            "Composer\\Config::disableProcessTimeout",
+            "composer run-script lint:phpcs:fix && composer run-script lint:php-cs-fixer:fix"
+        ],
         "test:phpunit": "phpunit --order-by=random --testdox",
-        "test": "composer run-script lint && composer run-script test:phpunit",
+        "test": [
+            "Composer\\Config::disableProcessTimeout",
+            "composer run-script lint && composer run-script test:phpunit"
+        ],
         "licenses:generate": "php-legal-licenses generate",
         "post-update-cmd": [
             "composer run-script test:phpunit",

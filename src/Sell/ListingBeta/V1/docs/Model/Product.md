@@ -1,0 +1,14 @@
+# # Product
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**aspects** | [**\TNT\Ebay\Sell\ListingBeta\V1\Model\Aspect[]**](Aspect.md) | The list of item aspects that describe the item (such as size, color, capacity, model, brand, etc.) | [optional]
+**brand** | **string** | The name brand of the item, such as Nike, Apple, etc. | [optional]
+**description** | **string** | The description of the item that was created by the seller. This field supports plain text or rich content within HTML tags.&lt;br /&gt;&lt;br /&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;Active content is not supported. Active content includes animation or video via JavaScript, Flash, plug-ins, or form actions.&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Max Length:&lt;/b&gt; 500,000 | [optional]
+**epid** | **string** | An EPID is the eBay product identifier of a product from the eBay product catalog. &lt;br /&gt;&lt;br /&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note: &lt;/b&gt; If you submit both a category ID and an EPID, eBay determines the best category based on the EPID and uses that. The category ID will be ignored. &lt;/span&gt; | [optional]
+**image_urls** | **string[]** | The image URLs of the item. The first URL will be the primary image, which appears on the View Item page in the eBay listing. &lt;br /&gt;&lt;br /&gt;The URL can be from the following: &lt;ul&gt;&lt;li&gt;The eBay Picture Services (images previously uploaded).  &lt;/li&gt;     &lt;li&gt;A server outside of eBay (self-hosted). &lt;/li&gt; &lt;/ul&gt;      For more details, see &lt;a href&#x3D;\&quot;https://developer.ebay.com/Devzone/XML/docs/Reference/eBay/AddFixedPriceItem.html#Request.Item.PictureDetails.PictureURL\&quot;  target&#x3D;\&quot;_blank\&quot;&gt;PictureURL&lt;/a&gt; and &lt;a href&#x3D;\&quot;https://developer.ebay.com/DevZone/guides/features-guide/default.html#development/Pictures-Intro.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Introduction to Pictures in Listings&lt;/a&gt;.   &lt;br /&gt;&lt;br /&gt;&lt;b&gt;Maximum: &lt;/b&gt;   12 URLs (for most categories and marketplaces)&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Restrictions: &lt;/b&gt;&lt;ul&gt;&lt;li&gt;You cannot mix self-hosted and EPS-hosted URLs in the same listing.&lt;/li&gt;  &lt;li&gt; All image URLs &lt;b&gt; must&lt;/b&gt; be &#39;https&#39;. &lt;/li&gt;  &lt;/ul&gt; | [optional]
+**title** | **string** | The seller-created title of the item. This should include unique characteristics of the item, such as brand, model, color, size, capacity, etc. &lt;br /&gt;&lt;br /&gt; &lt;b&gt;For example: &lt;/b&gt;  Levi&#39;s 501 size 10 black jeans | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

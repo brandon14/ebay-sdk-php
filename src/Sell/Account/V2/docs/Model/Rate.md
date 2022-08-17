@@ -1,0 +1,14 @@
+# # Rate
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**additional_cost** | [**\TNT\Ebay\Sell\Account\V2\Model\Amount**](Amount.md) |  | [optional]
+**rate_id** | **string** | The unique identifier for rate information.&lt;br/&gt;&lt;br/&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; This is a string that is automatically assigned by the system when a rate object is created.&lt;/span&gt; | [optional]
+**shipping_category** | **string** | Indicates the level of shipping service to which the shipping rate information applies.&lt;br/&gt;&lt;br/&gt;Available shipping categories are:&lt;ul&gt;&lt;li&gt;&lt;b&gt;ONE_DAY&lt;/b&gt;: &lt;i&gt;This option is not supported when &lt;b&gt;shippingOptionType&lt;/b&gt; is INTERNATIONAL.&lt;/i&gt; &lt;/li&gt;&lt;li&gt;&lt;b&gt;EXPEDITED&lt;/b&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;STANDARD&lt;/b&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;ECONOMY&lt;/b&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;EXPRESS&lt;/b&gt;: &lt;i&gt;This option is supported only when &lt;b&gt;MarketplaceId&lt;/b&gt; is &lt;code&gt;EBAY_DE&lt;/code&gt; (Germany)&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href&#x3D;&#39;https://developer.ebay.com/api-docs/sell/account/types/api:ShippingCategoryEnum&#39;&gt;eBay API documentation&lt;/a&gt; | [optional]
+**shipping_cost** | [**\TNT\Ebay\Sell\Account\V2\Model\Amount**](Amount.md) |  | [optional]
+**shipping_region_names** | **string[]** | An array of Region names to which the shipping rate information applies.&lt;br/&gt;&lt;br/&gt;Returned values may be:&lt;ul&gt;&lt;li&gt;Geographical Regions (e.g., &lt;code&gt;Worldwide&lt;/code&gt;, &lt;code&gt;Europe&lt;/code&gt;, and &lt;code&gt;Middle East&lt;/code&gt;)&lt;/li&gt;&lt;li&gt;Individual countries identified by a two-digit code such as &lt;code&gt;US&lt;/code&gt; (United States), &lt;code&gt;CA&lt;/code&gt; (Canada), and &lt;code&gt;GB&lt;/code&gt; (United Kingdom)&lt;/li&gt;&lt;li&gt;US states and/or Canadian provinces identified by a two-digit code such as &lt;code&gt;NY&lt;/code&gt; (New York) or &lt;code&gt;SK&lt;/code&gt; (Saskatchewan)&lt;/li&gt;&lt;li&gt;Domestic Regions such as &lt;code&gt;AK/HI&lt;/code&gt; (Alaska/Hawaii)&lt;/li&gt;&lt;/ul&gt; | [optional]
+**shipping_service_code** | **string** | An enum value that indicates the shipping service used for the specified shipping rate. These enum values align with &lt;b&gt;ShippingService&lt;/b&gt; metadata returned by a &lt;b&gt;GeteBayDetails&lt;/b&gt; call with &lt;b&gt;DetailName&lt;/b&gt; set to &lt;code&gt;shippingServiceDetails&lt;/code&gt;. | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

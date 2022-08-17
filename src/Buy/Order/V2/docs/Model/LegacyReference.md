@@ -1,0 +1,11 @@
+# # LegacyReference
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**legacy_item_id** | **string** | The legacy ID used to identify an item.&lt;br /&gt;&lt;br /&gt;This is used by the Post Order API &lt;a href&#x3D;\&quot;https://developer.ebay.com/Devzone/post-order/post-order_v2_return__post.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Create Return Request&lt;/a&gt; method. This call initiates the item return process. For more information on how to use this field in the Post Order API, see &lt;a href&#x3D;\&quot;/api-docs/buy/static/api-order.html#return-request\&quot;&gt;Create a return request&lt;/a&gt; in the Buy Integration Guide.&lt;br /&gt;&lt;br /&gt;&lt;b&gt; Restriction:&lt;/b&gt; The Post Order API can be used only with eBay member checkouts. | [optional]
+**legacy_order_id** | **string** | The legacy ID of the order.&lt;br /&gt;&lt;br /&gt;This is used by the Post Order API &lt;a href&#x3D;\&quot;https://developer.ebay.com/Devzone/post-order/post-order_v2_cancellation__post.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Submit Cancellation Request&lt;/a&gt; method. This method initiates the item cancellation process. For more information on how to use this field in the Post Order API, see &lt;a href&#x3D;\&quot;/api-docs/buy/static/api-order.html#using\&quot;&gt;Using the Post Order API&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Restriction:&lt;/b&gt; The Post Order API can be used only with eBay member checkouts. | [optional]
+**legacy_transaction_id** | **string** | The legacy ID of the transaction.&lt;br /&gt;&lt;br /&gt;This is used by the Post Order API &lt;a href&#x3D;\&quot;https://developer.ebay.com/devzone/post-order/post-order_v2_return__post.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Create Return Request&lt;/a&gt; call. This call initiates the item return process. For more information on how to use this field in the Post Order API, see &lt;a href&#x3D;\&quot;/api-docs/buy/static/api-order.html#using\&quot;&gt;Using the Post Order API&lt;/a&gt; in the Buy Integration Guide.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Restriction:&lt;/b&gt; The Post Order API can be used only with eBay member checkouts. | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
