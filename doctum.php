@@ -31,20 +31,30 @@ declare(strict_types=1);
 
 use Doctum\Doctum;
 use Symfony\Component\Finder\Finder;
+use Doctum\Version\GitVersionCollection;
 use Doctum\RemoteRepository\GitHubRemoteRepository;
 
 $dir = __DIR__.'/src';
 $iterator = Finder::create()
     ->files()
+    ->name('*.php')
+    ->exclude('tests')
     ->notName('.*.php')
     ->in($dir);
 
+$versions = GitVersionCollection::create(__DIR__)
+    ->addFromTags('v0.1.*-alpha')
+    ->add('1.0-dev', '1.0 dev branch')
+    ->add('main', 'main branch');
+
 return new Doctum($iterator, [
+    'versions'          => $versions,
     'title'             => 'brandon14/ebay-sdk-php Documentation',
     'source_dir'        => dirname($dir).'/',
     'remote_repository' => new GitHubRemoteRepository('brandon14/ebay-sdk-php', dirname($dir)),
-    'build_dir'         => __DIR__.'/docs',
-    'cache_dir'         => __DIR__.'/doctum_cache',
+    'build_dir'         => __DIR__.'/docs/%version%',
+    'cache_dir'         => __DIR__.'/doctum_cache/%version%',
+    'base_url'          => 'https://brandon14.github.io/ebay-sdk-php/',
     'footer_link'       => [
         'href'        => 'https://github.com/brandon14/ebay-sdk-php',
         'rel'         => 'noreferrer noopener',
