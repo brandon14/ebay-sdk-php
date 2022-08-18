@@ -63,8 +63,6 @@ if [[ "$OSTYPE" != "linux-gnu"* ]] || [[ "$OSTYPE" != "darwin"* ]] || [[ "$OSTYP
   PHP_CS_FIXER="$PHP_CS_FIXER.bat"
 fi
 
-export PHP_POST_PROCESS_FILE="$PHP_CS_FIXER fix --config=./.php-cs-fixer.sdk.php --using-cache=no "
-
 echo "Cleaning output folder [$BASE_PACKAGE_DIR]..."
 # Clean output directory.
 rm -rf "$BASE_PACKAGE_DIR"
@@ -104,13 +102,19 @@ for openapispec in ./api-specs/*_oas*.yaml; do
     echo ""
 
     # Run command to generate openapi library, run in background so we can speed up the process.
-    "$OPENAPI_GENERATOR" generate -i "$openapispec" -g php -o "$BASE_PACKAGE_DIR/${API_NAME^}/$API_SUB_NAME_PROPER/${API_VERSION^}" \
+    "$OPENAPI_GENERATOR" generate \
+    -i "$openapispec" \
+    -g php \
+    -o "$BASE_PACKAGE_DIR/${API_NAME^}/$API_SUB_NAME_PROPER/${API_VERSION^}" \
     --additional-properties=invokerPackage="$BASE_INVOKER_PACKAGE"\\"${API_NAME^}"\\"$API_SUB_NAME_PROPER"\\"${API_VERSION^}" \
     --additional-properties=packageName="$GITHUB_NAME"/"$BASE_PACKAGE_NAME"-"$API_NAME"-"$API_SUB_NAME"-"$API_VERSION" \
     --additional-properties=composerPackageName="$GITHUB_NAME"/"$BASE_PACKAGE_NAME"-"$API_NAME"-"$API_SUB_NAME"-"$API_VERSION" \
-    --global-property=apiTests=false --global-property=modelTests=false --additional-properties=srcBasePath=\"\" \
-    --git-user-id \""$GITHUB_NAME"\" --git-repo-id \""$BASE_PACKAGE_NAME"-"$API_NAME"-"$API_SUB_NAME"-"$API_VERSION"\" \
-    -t ./templates --enable-post-process-file &
+    --global-property=apiTests=false \
+    --global-property=modelTests=false \
+    --additional-properties=srcBasePath=\"\" \
+    --git-user-id \""$GITHUB_NAME"\" \
+    --git-repo-id \""$BASE_PACKAGE_NAME"-"$API_NAME"-"$API_SUB_NAME"-"$API_VERSION"\" \
+    -t ./templates &
 
     # Make test directory for each library.
     mkdir -p ./tests/Unit/${API_NAME^}/$API_SUB_NAME_PROPER/${API_VERSION^}
@@ -123,10 +127,17 @@ done
 
 wait
 
+LINT_START=$(date +%s)
+
+echo "===========> Running PHP linter on generated SDKs at $(date)..."
+# Batch PHP-CS-Fixer fixing using find-files and xargs to speed up linting.
+"$PHP_CS_FIXER" list-files | xargs -n 10 -P "$JOB_MAX" "$PHP_CS_FIXER" fix --using-cache=no --config=./.php-cs-fixer.dist.php
+
 END=$(date +%s)
 ELAPSED=$((END-START))
+LINT_ELAPSED=$((END-LINT_START))
 
 echo "===========> Finished generating OpenAPI SDK at $(date)..."
-echo "===========> Took $ELAPSED seconds to run..."
+echo "===========> Took $ELAPSED seconds to run in total, $LINT_ELAPSED to lint..."
 
 exit 0

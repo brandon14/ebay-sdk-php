@@ -65,6 +65,7 @@ use GuzzleHttp\RequestOptions;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\MultipartStream;
 use TNT\Ebay\Buy\Browse\V1\ApiException;
+use GuzzleHttp\Exception\GuzzleException;
 use TNT\Ebay\Buy\Browse\V1\Configuration;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
@@ -189,9 +190,11 @@ class ItemApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -239,6 +242,7 @@ class ItemApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -300,7 +304,7 @@ class ItemApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -318,12 +322,12 @@ class ItemApi
      */
     public function checkCompatibilityRequest($item_id, $x_ebay_c_marketplace_id, $compatibility_payload = null)
     {
-        // verify the required parameter 'item_id' is set
-        if ($item_id === null || (is_array($item_id) && count($item_id) === 0)) {
+        // Verify the required parameter 'item_id' is set.
+        if ($item_id === null || (\is_array($item_id) && count($item_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $item_id when calling checkCompatibility');
         }
-        // verify the required parameter 'x_ebay_c_marketplace_id' is set
-        if ($x_ebay_c_marketplace_id === null || (is_array($x_ebay_c_marketplace_id) && count($x_ebay_c_marketplace_id) === 0)) {
+        // Verify the required parameter 'x_ebay_c_marketplace_id' is set.
+        if ($x_ebay_c_marketplace_id === null || (\is_array($x_ebay_c_marketplace_id) && count($x_ebay_c_marketplace_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $x_ebay_c_marketplace_id when calling checkCompatibility');
         }
 
@@ -369,6 +373,7 @@ class ItemApi
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -378,6 +383,7 @@ class ItemApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -457,9 +463,11 @@ class ItemApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -507,6 +515,7 @@ class ItemApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -566,7 +575,7 @@ class ItemApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -583,8 +592,8 @@ class ItemApi
      */
     public function getItemRequest($item_id, $fieldgroups = null)
     {
-        // verify the required parameter 'item_id' is set
-        if ($item_id === null || (is_array($item_id) && count($item_id) === 0)) {
+        // Verify the required parameter 'item_id' is set.
+        if ($item_id === null || (\is_array($item_id) && count($item_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $item_id when calling getItem');
         }
 
@@ -628,6 +637,7 @@ class ItemApi
         if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -637,6 +647,7 @@ class ItemApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -720,9 +731,11 @@ class ItemApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -770,6 +783,7 @@ class ItemApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -833,7 +847,7 @@ class ItemApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -852,8 +866,8 @@ class ItemApi
      */
     public function getItemByLegacyIdRequest($legacy_item_id, $fieldgroups = null, $legacy_variation_id = null, $legacy_variation_sku = null)
     {
-        // verify the required parameter 'legacy_item_id' is set
-        if ($legacy_item_id === null || (is_array($legacy_item_id) && count($legacy_item_id) === 0)) {
+        // Verify the required parameter 'legacy_item_id' is set.
+        if ($legacy_item_id === null || (\is_array($legacy_item_id) && count($legacy_item_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $legacy_item_id when calling getItemByLegacyId');
         }
 
@@ -912,6 +926,7 @@ class ItemApi
         if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -921,6 +936,7 @@ class ItemApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -1000,9 +1016,11 @@ class ItemApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -1050,6 +1068,7 @@ class ItemApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -1109,7 +1128,7 @@ class ItemApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -1165,6 +1184,7 @@ class ItemApi
         if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -1174,6 +1194,7 @@ class ItemApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -1251,9 +1272,11 @@ class ItemApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -1301,6 +1324,7 @@ class ItemApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -1358,7 +1382,7 @@ class ItemApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -1374,8 +1398,8 @@ class ItemApi
      */
     public function getItemsByItemGroupRequest($item_group_id)
     {
-        // verify the required parameter 'item_group_id' is set
-        if ($item_group_id === null || (is_array($item_group_id) && count($item_group_id) === 0)) {
+        // Verify the required parameter 'item_group_id' is set.
+        if ($item_group_id === null || (\is_array($item_group_id) && count($item_group_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $item_group_id when calling getItemsByItemGroup');
         }
 
@@ -1410,6 +1434,7 @@ class ItemApi
         if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -1419,6 +1444,7 @@ class ItemApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -1471,7 +1497,7 @@ class ItemApi
         $options = [];
 
         if ($this->config->getDebug()) {
-            $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
+            $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'ab');
 
             if (! $options[RequestOptions::DEBUG]) {
                 throw new \RuntimeException('Failed to open the debug file: '.$this->config->getDebugFile());

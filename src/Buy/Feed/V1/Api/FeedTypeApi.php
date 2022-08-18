@@ -67,6 +67,7 @@ use GuzzleHttp\Psr7\MultipartStream;
 use TNT\Ebay\Buy\Feed\V1\ApiException;
 use TNT\Ebay\Buy\Feed\V1\Configuration;
 use TNT\Ebay\Buy\Feed\V1\HeaderSelector;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
 use TNT\Ebay\Buy\Feed\V1\ObjectSerializer;
@@ -185,9 +186,11 @@ class FeedTypeApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -235,6 +238,7 @@ class FeedTypeApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -292,7 +296,7 @@ class FeedTypeApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -308,8 +312,8 @@ class FeedTypeApi
      */
     public function getFeedTypeRequest($feed_type_id)
     {
-        // verify the required parameter 'feed_type_id' is set
-        if ($feed_type_id === null || (is_array($feed_type_id) && count($feed_type_id) === 0)) {
+        // Verify the required parameter 'feed_type_id' is set.
+        if ($feed_type_id === null || (\is_array($feed_type_id) && count($feed_type_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $feed_type_id when calling getFeedType');
         }
 
@@ -344,6 +348,7 @@ class FeedTypeApi
         if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -353,6 +358,7 @@ class FeedTypeApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -432,9 +438,11 @@ class FeedTypeApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -482,6 +490,7 @@ class FeedTypeApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -545,7 +554,7 @@ class FeedTypeApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -619,6 +628,7 @@ class FeedTypeApi
         if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -628,6 +638,7 @@ class FeedTypeApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -676,7 +687,7 @@ class FeedTypeApi
         $options = [];
 
         if ($this->config->getDebug()) {
-            $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
+            $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'ab');
 
             if (! $options[RequestOptions::DEBUG]) {
                 throw new \RuntimeException('Failed to open the debug file: '.$this->config->getDebugFile());

@@ -64,6 +64,7 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\MultipartStream;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
 use TNT\Ebay\Sell\Account\V1\ApiException;
@@ -187,9 +188,11 @@ class SalesTaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -202,6 +205,7 @@ class SalesTaxApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
             }
+
             throw $e;
         }
     }
@@ -253,7 +257,7 @@ class SalesTaxApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -271,16 +275,16 @@ class SalesTaxApi
      */
     public function createOrReplaceSalesTaxRequest($country_code, $jurisdiction_id, $sales_tax_base)
     {
-        // verify the required parameter 'country_code' is set
-        if ($country_code === null || (is_array($country_code) && count($country_code) === 0)) {
+        // Verify the required parameter 'country_code' is set.
+        if ($country_code === null || (\is_array($country_code) && count($country_code) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $country_code when calling createOrReplaceSalesTax');
         }
-        // verify the required parameter 'jurisdiction_id' is set
-        if ($jurisdiction_id === null || (is_array($jurisdiction_id) && count($jurisdiction_id) === 0)) {
+        // Verify the required parameter 'jurisdiction_id' is set.
+        if ($jurisdiction_id === null || (\is_array($jurisdiction_id) && count($jurisdiction_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $jurisdiction_id when calling createOrReplaceSalesTax');
         }
-        // verify the required parameter 'sales_tax_base' is set
-        if ($sales_tax_base === null || (is_array($sales_tax_base) && count($sales_tax_base) === 0)) {
+        // Verify the required parameter 'sales_tax_base' is set.
+        if ($sales_tax_base === null || (\is_array($sales_tax_base) && count($sales_tax_base) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $sales_tax_base when calling createOrReplaceSalesTax');
         }
 
@@ -329,6 +333,7 @@ class SalesTaxApi
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -338,6 +343,7 @@ class SalesTaxApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -411,9 +417,11 @@ class SalesTaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -426,6 +434,7 @@ class SalesTaxApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
             }
+
             throw $e;
         }
     }
@@ -475,7 +484,7 @@ class SalesTaxApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -492,12 +501,12 @@ class SalesTaxApi
      */
     public function deleteSalesTaxRequest($country_code, $jurisdiction_id)
     {
-        // verify the required parameter 'country_code' is set
-        if ($country_code === null || (is_array($country_code) && count($country_code) === 0)) {
+        // Verify the required parameter 'country_code' is set.
+        if ($country_code === null || (\is_array($country_code) && count($country_code) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $country_code when calling deleteSalesTax');
         }
-        // verify the required parameter 'jurisdiction_id' is set
-        if ($jurisdiction_id === null || (is_array($jurisdiction_id) && count($jurisdiction_id) === 0)) {
+        // Verify the required parameter 'jurisdiction_id' is set.
+        if ($jurisdiction_id === null || (\is_array($jurisdiction_id) && count($jurisdiction_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $jurisdiction_id when calling deleteSalesTax');
         }
 
@@ -540,6 +549,7 @@ class SalesTaxApi
         if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -549,6 +559,7 @@ class SalesTaxApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -624,9 +635,11 @@ class SalesTaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -674,6 +687,7 @@ class SalesTaxApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -733,7 +747,7 @@ class SalesTaxApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -750,12 +764,12 @@ class SalesTaxApi
      */
     public function getSalesTaxRequest($country_code, $jurisdiction_id)
     {
-        // verify the required parameter 'country_code' is set
-        if ($country_code === null || (is_array($country_code) && count($country_code) === 0)) {
+        // Verify the required parameter 'country_code' is set.
+        if ($country_code === null || (\is_array($country_code) && count($country_code) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $country_code when calling getSalesTax');
         }
-        // verify the required parameter 'jurisdiction_id' is set
-        if ($jurisdiction_id === null || (is_array($jurisdiction_id) && count($jurisdiction_id) === 0)) {
+        // Verify the required parameter 'jurisdiction_id' is set.
+        if ($jurisdiction_id === null || (\is_array($jurisdiction_id) && count($jurisdiction_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $jurisdiction_id when calling getSalesTax');
         }
 
@@ -798,6 +812,7 @@ class SalesTaxApi
         if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -807,6 +822,7 @@ class SalesTaxApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -880,9 +896,11 @@ class SalesTaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -930,6 +948,7 @@ class SalesTaxApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -987,7 +1006,7 @@ class SalesTaxApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -1003,8 +1022,8 @@ class SalesTaxApi
      */
     public function getSalesTaxesRequest($country_code)
     {
-        // verify the required parameter 'country_code' is set
-        if ($country_code === null || (is_array($country_code) && count($country_code) === 0)) {
+        // Verify the required parameter 'country_code' is set.
+        if ($country_code === null || (\is_array($country_code) && count($country_code) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $country_code when calling getSalesTaxes');
         }
 
@@ -1039,6 +1058,7 @@ class SalesTaxApi
         if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -1048,6 +1068,7 @@ class SalesTaxApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -1096,7 +1117,7 @@ class SalesTaxApi
         $options = [];
 
         if ($this->config->getDebug()) {
-            $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
+            $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'ab');
 
             if (! $options[RequestOptions::DEBUG]) {
                 throw new \RuntimeException('Failed to open the debug file: '.$this->config->getDebugFile());

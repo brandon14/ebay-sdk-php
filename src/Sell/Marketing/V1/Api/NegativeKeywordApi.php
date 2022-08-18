@@ -64,6 +64,7 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\MultipartStream;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
 use TNT\Ebay\Sell\Marketing\V1\ApiException;
@@ -185,9 +186,11 @@ class NegativeKeywordApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -235,6 +238,7 @@ class NegativeKeywordApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -292,7 +296,7 @@ class NegativeKeywordApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -308,8 +312,8 @@ class NegativeKeywordApi
      */
     public function bulkCreateNegativeKeywordRequest($bulk_create_negative_keyword_request)
     {
-        // verify the required parameter 'bulk_create_negative_keyword_request' is set
-        if ($bulk_create_negative_keyword_request === null || (is_array($bulk_create_negative_keyword_request) && count($bulk_create_negative_keyword_request) === 0)) {
+        // Verify the required parameter 'bulk_create_negative_keyword_request' is set.
+        if ($bulk_create_negative_keyword_request === null || (\is_array($bulk_create_negative_keyword_request) && count($bulk_create_negative_keyword_request) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $bulk_create_negative_keyword_request when calling bulkCreateNegativeKeyword');
         }
 
@@ -341,6 +345,7 @@ class NegativeKeywordApi
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -350,6 +355,7 @@ class NegativeKeywordApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -427,9 +433,11 @@ class NegativeKeywordApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -477,6 +485,7 @@ class NegativeKeywordApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -534,7 +543,7 @@ class NegativeKeywordApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -550,8 +559,8 @@ class NegativeKeywordApi
      */
     public function bulkUpdateNegativeKeywordRequest($bulk_update_negative_keyword_request)
     {
-        // verify the required parameter 'bulk_update_negative_keyword_request' is set
-        if ($bulk_update_negative_keyword_request === null || (is_array($bulk_update_negative_keyword_request) && count($bulk_update_negative_keyword_request) === 0)) {
+        // Verify the required parameter 'bulk_update_negative_keyword_request' is set.
+        if ($bulk_update_negative_keyword_request === null || (\is_array($bulk_update_negative_keyword_request) && count($bulk_update_negative_keyword_request) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $bulk_update_negative_keyword_request when calling bulkUpdateNegativeKeyword');
         }
 
@@ -583,6 +592,7 @@ class NegativeKeywordApi
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -592,6 +602,7 @@ class NegativeKeywordApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -669,9 +680,11 @@ class NegativeKeywordApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -719,6 +732,7 @@ class NegativeKeywordApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -776,7 +790,7 @@ class NegativeKeywordApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -792,8 +806,8 @@ class NegativeKeywordApi
      */
     public function createNegativeKeywordRequest($create_negative_keyword_request)
     {
-        // verify the required parameter 'create_negative_keyword_request' is set
-        if ($create_negative_keyword_request === null || (is_array($create_negative_keyword_request) && count($create_negative_keyword_request) === 0)) {
+        // Verify the required parameter 'create_negative_keyword_request' is set.
+        if ($create_negative_keyword_request === null || (\is_array($create_negative_keyword_request) && count($create_negative_keyword_request) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $create_negative_keyword_request when calling createNegativeKeyword');
         }
 
@@ -825,6 +839,7 @@ class NegativeKeywordApi
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -834,6 +849,7 @@ class NegativeKeywordApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -911,9 +927,11 @@ class NegativeKeywordApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -961,6 +979,7 @@ class NegativeKeywordApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -1018,7 +1037,7 @@ class NegativeKeywordApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -1034,8 +1053,8 @@ class NegativeKeywordApi
      */
     public function getNegativeKeywordRequest($negative_keyword_id)
     {
-        // verify the required parameter 'negative_keyword_id' is set
-        if ($negative_keyword_id === null || (is_array($negative_keyword_id) && count($negative_keyword_id) === 0)) {
+        // Verify the required parameter 'negative_keyword_id' is set.
+        if ($negative_keyword_id === null || (\is_array($negative_keyword_id) && count($negative_keyword_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $negative_keyword_id when calling getNegativeKeyword');
         }
 
@@ -1070,6 +1089,7 @@ class NegativeKeywordApi
         if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -1079,6 +1099,7 @@ class NegativeKeywordApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -1164,9 +1185,11 @@ class NegativeKeywordApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -1214,6 +1237,7 @@ class NegativeKeywordApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -1279,7 +1303,7 @@ class NegativeKeywordApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -1362,6 +1386,7 @@ class NegativeKeywordApi
         if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -1371,6 +1396,7 @@ class NegativeKeywordApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -1448,9 +1474,11 @@ class NegativeKeywordApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -1463,6 +1491,7 @@ class NegativeKeywordApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
             }
+
             throw $e;
         }
     }
@@ -1512,7 +1541,7 @@ class NegativeKeywordApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -1529,12 +1558,12 @@ class NegativeKeywordApi
      */
     public function updateNegativeKeywordRequest($negative_keyword_id, $update_negative_keyword_request)
     {
-        // verify the required parameter 'negative_keyword_id' is set
-        if ($negative_keyword_id === null || (is_array($negative_keyword_id) && count($negative_keyword_id) === 0)) {
+        // Verify the required parameter 'negative_keyword_id' is set.
+        if ($negative_keyword_id === null || (\is_array($negative_keyword_id) && count($negative_keyword_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $negative_keyword_id when calling updateNegativeKeyword');
         }
-        // verify the required parameter 'update_negative_keyword_request' is set
-        if ($update_negative_keyword_request === null || (is_array($update_negative_keyword_request) && count($update_negative_keyword_request) === 0)) {
+        // Verify the required parameter 'update_negative_keyword_request' is set.
+        if ($update_negative_keyword_request === null || (\is_array($update_negative_keyword_request) && count($update_negative_keyword_request) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $update_negative_keyword_request when calling updateNegativeKeyword');
         }
 
@@ -1575,6 +1604,7 @@ class NegativeKeywordApi
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -1584,6 +1614,7 @@ class NegativeKeywordApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -1636,7 +1667,7 @@ class NegativeKeywordApi
         $options = [];
 
         if ($this->config->getDebug()) {
-            $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
+            $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'ab');
 
             if (! $options[RequestOptions::DEBUG]) {
                 throw new \RuntimeException('Failed to open the debug file: '.$this->config->getDebugFile());

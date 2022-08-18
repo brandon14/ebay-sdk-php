@@ -27,6 +27,7 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\MultipartStream;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
 use {{invokerPackage}}\ApiException;
@@ -202,14 +203,24 @@ use {{invokerPackage}}\ObjectSerializer;
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null,
+                    $e
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
                     null,
-                    null
+                    null,
+                    $e
+                );
+            } catch (GuzzleException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null,
+                    $e
                 );
             }
 
@@ -287,6 +298,7 @@ use {{invokerPackage}}\ObjectSerializer;
             {{/dataType}}
         {{/responses}}
             }
+
             throw $e;
         }
     }
@@ -407,7 +419,8 @@ use {{invokerPackage}}\ObjectSerializer;
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string) $response->getBody(),
+                        $exception instanceof \Throwable ? $exception : null
                     );
                 }
             );
@@ -442,7 +455,7 @@ use {{invokerPackage}}\ObjectSerializer;
     public function {{operationId}}Request({{^vendorExtensions.x-group-parameters}}{{#allParams}}${{paramName}}{{^required}} = {{{defaultValue}}}{{^defaultValue}}null{{/defaultValue}}{{/required}}{{^-last}}, {{/-last}}{{/allParams}}{{/vendorExtensions.x-group-parameters}}{{#vendorExtensions.x-group-parameters}}$associative_array{{/vendorExtensions.x-group-parameters}})
     {
         {{#vendorExtensions.x-group-parameters}}
-        // unbox the parameters from the associative array
+        // Unbox the parameters from the associative array.
         {{#allParams}}
         ${{paramName}} = array_key_exists('{{paramName}}', $associative_array) ? $associative_array['{{paramName}}'] : {{{defaultValue}}}{{^defaultValue}}null{{/defaultValue}};
         {{/allParams}}
@@ -450,8 +463,8 @@ use {{invokerPackage}}\ObjectSerializer;
         {{/vendorExtensions.x-group-parameters}}
         {{#allParams}}
         {{#required}}
-        // verify the required parameter '{{paramName}}' is set
-        if (${{paramName}} === null || (is_array(${{paramName}}) && count(${{paramName}}) === 0)) {
+        // Verify the required parameter '{{paramName}}' is set.
+        if (${{paramName}} === null || (\is_array(${{paramName}}) && count(${{paramName}}) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter ${{paramName}} when calling {{operationId}}'
             );
@@ -518,7 +531,7 @@ use {{invokerPackage}}\ObjectSerializer;
         {{#headerParams}}
         // header params
         {{#collectionFormat}}
-        if (is_array(${{paramName}})) {
+        if (\is_array(${{paramName}})) {
             ${{paramName}} = ObjectSerializer::serializeCollection(${{paramName}}, '{{collectionFormat}}');
         }
         {{/collectionFormat}}
@@ -530,7 +543,7 @@ use {{invokerPackage}}\ObjectSerializer;
         {{#pathParams}}
         // path params
         {{#collectionFormat}}
-        if (is_array(${{paramName}})) {
+        if (\is_array(${{paramName}})) {
             ${{paramName}} = ObjectSerializer::serializeCollection(${{paramName}}, '{{collectionFormat}}');
         }
         {{/collectionFormat}}
@@ -549,13 +562,15 @@ use {{invokerPackage}}\ObjectSerializer;
             {{#isFile}}
             $multipart = true;
             $formParams['{{baseName}}'] = [];
-            $paramFiles = is_array(${{paramName}}) ? ${{paramName}} : [${{paramName}}];
+            $paramFiles = \is_array(${{paramName}}) ? ${{paramName}} : [${{paramName}}];
+
             foreach ($paramFiles as $paramFile) {
                 $formParams['{{baseName}}'][] = \GuzzleHttp\Psr7\Utils::tryFopen(
                     ObjectSerializer::toFormValue($paramFile),
                     'rb'
                 );
             }
+
             {{/isFile}}
             {{^isFile}}
             $formParams['{{baseName}}'] = ObjectSerializer::toFormValue(${{paramName}});
@@ -589,6 +604,7 @@ use {{invokerPackage}}\ObjectSerializer;
         {{/bodyParams}}
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -598,6 +614,7 @@ use {{invokerPackage}}\ObjectSerializer;
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
 
@@ -652,7 +669,7 @@ use {{invokerPackage}}\ObjectSerializer;
 
         {{#servers.0}}
         $operationHosts = [{{#servers}}"{{{url}}}"{{^-last}}, {{/-last}}{{/servers}}];
-        if ($this->hostIndex < 0 || $this->hostIndex >= sizeof($operationHosts)) {
+        if ($this->hostIndex < 0 || $this->hostIndex >= count($operationHosts)) {
             throw new \InvalidArgumentException("Invalid index {$this->hostIndex} when selecting the host. Must be less than ".sizeof($operationHosts));
         }
 
@@ -660,6 +677,7 @@ use {{invokerPackage}}\ObjectSerializer;
 
         {{/servers.0}}
         $query = ObjectSerializer::buildQuery($queryParams);
+
         return new Request(
             '{{httpMethod}}',
             {{^servers.0}}$this->config->getHost(){{/servers.0}}{{#servers.0}}$operationHost{{/servers.0}} . $resourcePath . ($query ? "?{$query}" : ''),

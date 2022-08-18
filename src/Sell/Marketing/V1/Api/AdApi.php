@@ -64,6 +64,7 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\MultipartStream;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
 use TNT\Ebay\Sell\Marketing\V1\ApiException;
@@ -187,9 +188,11 @@ class AdApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -237,6 +240,7 @@ class AdApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -296,7 +300,7 @@ class AdApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -313,12 +317,12 @@ class AdApi
      */
     public function bulkCreateAdsByInventoryReferenceRequest($campaign_id, $bulk_create_ads_by_inventory_reference_request)
     {
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // Verify the required parameter 'campaign_id' is set.
+        if ($campaign_id === null || (\is_array($campaign_id) && count($campaign_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $campaign_id when calling bulkCreateAdsByInventoryReference');
         }
-        // verify the required parameter 'bulk_create_ads_by_inventory_reference_request' is set
-        if ($bulk_create_ads_by_inventory_reference_request === null || (is_array($bulk_create_ads_by_inventory_reference_request) && count($bulk_create_ads_by_inventory_reference_request) === 0)) {
+        // Verify the required parameter 'bulk_create_ads_by_inventory_reference_request' is set.
+        if ($bulk_create_ads_by_inventory_reference_request === null || (\is_array($bulk_create_ads_by_inventory_reference_request) && count($bulk_create_ads_by_inventory_reference_request) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $bulk_create_ads_by_inventory_reference_request when calling bulkCreateAdsByInventoryReference');
         }
 
@@ -359,6 +363,7 @@ class AdApi
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -368,6 +373,7 @@ class AdApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -447,9 +453,11 @@ class AdApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -497,6 +505,7 @@ class AdApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -556,7 +565,7 @@ class AdApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -573,12 +582,12 @@ class AdApi
      */
     public function bulkCreateAdsByListingIdRequest($campaign_id, $bulk_create_ad_request)
     {
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // Verify the required parameter 'campaign_id' is set.
+        if ($campaign_id === null || (\is_array($campaign_id) && count($campaign_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $campaign_id when calling bulkCreateAdsByListingId');
         }
-        // verify the required parameter 'bulk_create_ad_request' is set
-        if ($bulk_create_ad_request === null || (is_array($bulk_create_ad_request) && count($bulk_create_ad_request) === 0)) {
+        // Verify the required parameter 'bulk_create_ad_request' is set.
+        if ($bulk_create_ad_request === null || (\is_array($bulk_create_ad_request) && count($bulk_create_ad_request) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $bulk_create_ad_request when calling bulkCreateAdsByListingId');
         }
 
@@ -619,6 +628,7 @@ class AdApi
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -628,6 +638,7 @@ class AdApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -707,9 +718,11 @@ class AdApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -757,6 +770,7 @@ class AdApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -816,7 +830,7 @@ class AdApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -833,12 +847,12 @@ class AdApi
      */
     public function bulkDeleteAdsByInventoryReferenceRequest($campaign_id, $bulk_delete_ads_by_inventory_reference_request)
     {
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // Verify the required parameter 'campaign_id' is set.
+        if ($campaign_id === null || (\is_array($campaign_id) && count($campaign_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $campaign_id when calling bulkDeleteAdsByInventoryReference');
         }
-        // verify the required parameter 'bulk_delete_ads_by_inventory_reference_request' is set
-        if ($bulk_delete_ads_by_inventory_reference_request === null || (is_array($bulk_delete_ads_by_inventory_reference_request) && count($bulk_delete_ads_by_inventory_reference_request) === 0)) {
+        // Verify the required parameter 'bulk_delete_ads_by_inventory_reference_request' is set.
+        if ($bulk_delete_ads_by_inventory_reference_request === null || (\is_array($bulk_delete_ads_by_inventory_reference_request) && count($bulk_delete_ads_by_inventory_reference_request) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $bulk_delete_ads_by_inventory_reference_request when calling bulkDeleteAdsByInventoryReference');
         }
 
@@ -879,6 +893,7 @@ class AdApi
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -888,6 +903,7 @@ class AdApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -967,9 +983,11 @@ class AdApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -1017,6 +1035,7 @@ class AdApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -1076,7 +1095,7 @@ class AdApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -1093,12 +1112,12 @@ class AdApi
      */
     public function bulkDeleteAdsByListingIdRequest($campaign_id, $bulk_delete_ad_request)
     {
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // Verify the required parameter 'campaign_id' is set.
+        if ($campaign_id === null || (\is_array($campaign_id) && count($campaign_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $campaign_id when calling bulkDeleteAdsByListingId');
         }
-        // verify the required parameter 'bulk_delete_ad_request' is set
-        if ($bulk_delete_ad_request === null || (is_array($bulk_delete_ad_request) && count($bulk_delete_ad_request) === 0)) {
+        // Verify the required parameter 'bulk_delete_ad_request' is set.
+        if ($bulk_delete_ad_request === null || (\is_array($bulk_delete_ad_request) && count($bulk_delete_ad_request) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $bulk_delete_ad_request when calling bulkDeleteAdsByListingId');
         }
 
@@ -1139,6 +1158,7 @@ class AdApi
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -1148,6 +1168,7 @@ class AdApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -1227,9 +1248,11 @@ class AdApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -1277,6 +1300,7 @@ class AdApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -1336,7 +1360,7 @@ class AdApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -1353,12 +1377,12 @@ class AdApi
      */
     public function bulkUpdateAdsBidByInventoryReferenceRequest($campaign_id, $bulk_create_ads_by_inventory_reference_request)
     {
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // Verify the required parameter 'campaign_id' is set.
+        if ($campaign_id === null || (\is_array($campaign_id) && count($campaign_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $campaign_id when calling bulkUpdateAdsBidByInventoryReference');
         }
-        // verify the required parameter 'bulk_create_ads_by_inventory_reference_request' is set
-        if ($bulk_create_ads_by_inventory_reference_request === null || (is_array($bulk_create_ads_by_inventory_reference_request) && count($bulk_create_ads_by_inventory_reference_request) === 0)) {
+        // Verify the required parameter 'bulk_create_ads_by_inventory_reference_request' is set.
+        if ($bulk_create_ads_by_inventory_reference_request === null || (\is_array($bulk_create_ads_by_inventory_reference_request) && count($bulk_create_ads_by_inventory_reference_request) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $bulk_create_ads_by_inventory_reference_request when calling bulkUpdateAdsBidByInventoryReference');
         }
 
@@ -1399,6 +1423,7 @@ class AdApi
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -1408,6 +1433,7 @@ class AdApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -1487,9 +1513,11 @@ class AdApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -1537,6 +1565,7 @@ class AdApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -1596,7 +1625,7 @@ class AdApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -1613,12 +1642,12 @@ class AdApi
      */
     public function bulkUpdateAdsBidByListingIdRequest($campaign_id, $bulk_create_ad_request)
     {
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // Verify the required parameter 'campaign_id' is set.
+        if ($campaign_id === null || (\is_array($campaign_id) && count($campaign_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $campaign_id when calling bulkUpdateAdsBidByListingId');
         }
-        // verify the required parameter 'bulk_create_ad_request' is set
-        if ($bulk_create_ad_request === null || (is_array($bulk_create_ad_request) && count($bulk_create_ad_request) === 0)) {
+        // Verify the required parameter 'bulk_create_ad_request' is set.
+        if ($bulk_create_ad_request === null || (\is_array($bulk_create_ad_request) && count($bulk_create_ad_request) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $bulk_create_ad_request when calling bulkUpdateAdsBidByListingId');
         }
 
@@ -1659,6 +1688,7 @@ class AdApi
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -1668,6 +1698,7 @@ class AdApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -1747,9 +1778,11 @@ class AdApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -1797,6 +1830,7 @@ class AdApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -1856,7 +1890,7 @@ class AdApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -1873,12 +1907,12 @@ class AdApi
      */
     public function bulkUpdateAdsStatusRequest($campaign_id, $bulk_update_ad_status_request)
     {
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // Verify the required parameter 'campaign_id' is set.
+        if ($campaign_id === null || (\is_array($campaign_id) && count($campaign_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $campaign_id when calling bulkUpdateAdsStatus');
         }
-        // verify the required parameter 'bulk_update_ad_status_request' is set
-        if ($bulk_update_ad_status_request === null || (is_array($bulk_update_ad_status_request) && count($bulk_update_ad_status_request) === 0)) {
+        // Verify the required parameter 'bulk_update_ad_status_request' is set.
+        if ($bulk_update_ad_status_request === null || (\is_array($bulk_update_ad_status_request) && count($bulk_update_ad_status_request) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $bulk_update_ad_status_request when calling bulkUpdateAdsStatus');
         }
 
@@ -1919,6 +1953,7 @@ class AdApi
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -1928,6 +1963,7 @@ class AdApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -2007,9 +2043,11 @@ class AdApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -2057,6 +2095,7 @@ class AdApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -2116,7 +2155,7 @@ class AdApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -2133,12 +2172,12 @@ class AdApi
      */
     public function bulkUpdateAdsStatusByListingIdRequest($campaign_id, $bulk_update_ad_status_by_listing_id_request)
     {
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // Verify the required parameter 'campaign_id' is set.
+        if ($campaign_id === null || (\is_array($campaign_id) && count($campaign_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $campaign_id when calling bulkUpdateAdsStatusByListingId');
         }
-        // verify the required parameter 'bulk_update_ad_status_by_listing_id_request' is set
-        if ($bulk_update_ad_status_by_listing_id_request === null || (is_array($bulk_update_ad_status_by_listing_id_request) && count($bulk_update_ad_status_by_listing_id_request) === 0)) {
+        // Verify the required parameter 'bulk_update_ad_status_by_listing_id_request' is set.
+        if ($bulk_update_ad_status_by_listing_id_request === null || (\is_array($bulk_update_ad_status_by_listing_id_request) && count($bulk_update_ad_status_by_listing_id_request) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $bulk_update_ad_status_by_listing_id_request when calling bulkUpdateAdsStatusByListingId');
         }
 
@@ -2179,6 +2218,7 @@ class AdApi
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -2188,6 +2228,7 @@ class AdApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -2267,9 +2308,11 @@ class AdApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -2317,6 +2360,7 @@ class AdApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -2376,7 +2420,7 @@ class AdApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -2393,12 +2437,12 @@ class AdApi
      */
     public function createAdByListingIdRequest($campaign_id, $create_ad_request)
     {
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // Verify the required parameter 'campaign_id' is set.
+        if ($campaign_id === null || (\is_array($campaign_id) && count($campaign_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $campaign_id when calling createAdByListingId');
         }
-        // verify the required parameter 'create_ad_request' is set
-        if ($create_ad_request === null || (is_array($create_ad_request) && count($create_ad_request) === 0)) {
+        // Verify the required parameter 'create_ad_request' is set.
+        if ($create_ad_request === null || (\is_array($create_ad_request) && count($create_ad_request) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $create_ad_request when calling createAdByListingId');
         }
 
@@ -2439,6 +2483,7 @@ class AdApi
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -2448,6 +2493,7 @@ class AdApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -2527,9 +2573,11 @@ class AdApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -2577,6 +2625,7 @@ class AdApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -2636,7 +2685,7 @@ class AdApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -2653,12 +2702,12 @@ class AdApi
      */
     public function createAdsByInventoryReferenceRequest($campaign_id, $create_ads_by_inventory_reference_request)
     {
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // Verify the required parameter 'campaign_id' is set.
+        if ($campaign_id === null || (\is_array($campaign_id) && count($campaign_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $campaign_id when calling createAdsByInventoryReference');
         }
-        // verify the required parameter 'create_ads_by_inventory_reference_request' is set
-        if ($create_ads_by_inventory_reference_request === null || (is_array($create_ads_by_inventory_reference_request) && count($create_ads_by_inventory_reference_request) === 0)) {
+        // Verify the required parameter 'create_ads_by_inventory_reference_request' is set.
+        if ($create_ads_by_inventory_reference_request === null || (\is_array($create_ads_by_inventory_reference_request) && count($create_ads_by_inventory_reference_request) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $create_ads_by_inventory_reference_request when calling createAdsByInventoryReference');
         }
 
@@ -2699,6 +2748,7 @@ class AdApi
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -2708,6 +2758,7 @@ class AdApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -2785,9 +2836,11 @@ class AdApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -2800,6 +2853,7 @@ class AdApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
             }
+
             throw $e;
         }
     }
@@ -2849,7 +2903,7 @@ class AdApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -2866,12 +2920,12 @@ class AdApi
      */
     public function deleteAdRequest($ad_id, $campaign_id)
     {
-        // verify the required parameter 'ad_id' is set
-        if ($ad_id === null || (is_array($ad_id) && count($ad_id) === 0)) {
+        // Verify the required parameter 'ad_id' is set.
+        if ($ad_id === null || (\is_array($ad_id) && count($ad_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $ad_id when calling deleteAd');
         }
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // Verify the required parameter 'campaign_id' is set.
+        if ($campaign_id === null || (\is_array($campaign_id) && count($campaign_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $campaign_id when calling deleteAd');
         }
 
@@ -2914,6 +2968,7 @@ class AdApi
         if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -2923,6 +2978,7 @@ class AdApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -3002,9 +3058,11 @@ class AdApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -3052,6 +3110,7 @@ class AdApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -3111,7 +3170,7 @@ class AdApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -3128,12 +3187,12 @@ class AdApi
      */
     public function deleteAdsByInventoryReferenceRequest($campaign_id, $delete_ads_by_inventory_reference_request)
     {
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // Verify the required parameter 'campaign_id' is set.
+        if ($campaign_id === null || (\is_array($campaign_id) && count($campaign_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $campaign_id when calling deleteAdsByInventoryReference');
         }
-        // verify the required parameter 'delete_ads_by_inventory_reference_request' is set
-        if ($delete_ads_by_inventory_reference_request === null || (is_array($delete_ads_by_inventory_reference_request) && count($delete_ads_by_inventory_reference_request) === 0)) {
+        // Verify the required parameter 'delete_ads_by_inventory_reference_request' is set.
+        if ($delete_ads_by_inventory_reference_request === null || (\is_array($delete_ads_by_inventory_reference_request) && count($delete_ads_by_inventory_reference_request) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $delete_ads_by_inventory_reference_request when calling deleteAdsByInventoryReference');
         }
 
@@ -3174,6 +3233,7 @@ class AdApi
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -3183,6 +3243,7 @@ class AdApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -3262,9 +3323,11 @@ class AdApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -3312,6 +3375,7 @@ class AdApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -3371,7 +3435,7 @@ class AdApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -3388,12 +3452,12 @@ class AdApi
      */
     public function getAdRequest($ad_id, $campaign_id)
     {
-        // verify the required parameter 'ad_id' is set
-        if ($ad_id === null || (is_array($ad_id) && count($ad_id) === 0)) {
+        // Verify the required parameter 'ad_id' is set.
+        if ($ad_id === null || (\is_array($ad_id) && count($ad_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $ad_id when calling getAd');
         }
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // Verify the required parameter 'campaign_id' is set.
+        if ($campaign_id === null || (\is_array($campaign_id) && count($campaign_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $campaign_id when calling getAd');
         }
 
@@ -3436,6 +3500,7 @@ class AdApi
         if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -3445,6 +3510,7 @@ class AdApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -3532,9 +3598,11 @@ class AdApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -3582,6 +3650,7 @@ class AdApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -3649,7 +3718,7 @@ class AdApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -3670,8 +3739,8 @@ class AdApi
      */
     public function getAdsRequest($campaign_id, $ad_group_ids = null, $ad_status = null, $limit = null, $listing_ids = null, $offset = null)
     {
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // Verify the required parameter 'campaign_id' is set.
+        if ($campaign_id === null || (\is_array($campaign_id) && count($campaign_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $campaign_id when calling getAds');
         }
 
@@ -3747,6 +3816,7 @@ class AdApi
         if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -3756,6 +3826,7 @@ class AdApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -3837,9 +3908,11 @@ class AdApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -3887,6 +3960,7 @@ class AdApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -3948,7 +4022,7 @@ class AdApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -3966,16 +4040,16 @@ class AdApi
      */
     public function getAdsByInventoryReferenceRequest($campaign_id, $inventory_reference_id, $inventory_reference_type)
     {
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // Verify the required parameter 'campaign_id' is set.
+        if ($campaign_id === null || (\is_array($campaign_id) && count($campaign_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $campaign_id when calling getAdsByInventoryReference');
         }
-        // verify the required parameter 'inventory_reference_id' is set
-        if ($inventory_reference_id === null || (is_array($inventory_reference_id) && count($inventory_reference_id) === 0)) {
+        // Verify the required parameter 'inventory_reference_id' is set.
+        if ($inventory_reference_id === null || (\is_array($inventory_reference_id) && count($inventory_reference_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $inventory_reference_id when calling getAdsByInventoryReference');
         }
-        // verify the required parameter 'inventory_reference_type' is set
-        if ($inventory_reference_type === null || (is_array($inventory_reference_type) && count($inventory_reference_type) === 0)) {
+        // Verify the required parameter 'inventory_reference_type' is set.
+        if ($inventory_reference_type === null || (\is_array($inventory_reference_type) && count($inventory_reference_type) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $inventory_reference_type when calling getAdsByInventoryReference');
         }
 
@@ -4027,6 +4101,7 @@ class AdApi
         if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -4036,6 +4111,7 @@ class AdApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -4115,9 +4191,11 @@ class AdApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -4130,6 +4208,7 @@ class AdApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
             }
+
             throw $e;
         }
     }
@@ -4181,7 +4260,7 @@ class AdApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -4199,16 +4278,16 @@ class AdApi
      */
     public function updateBidRequest($ad_id, $campaign_id, $update_bid_percentage_request)
     {
-        // verify the required parameter 'ad_id' is set
-        if ($ad_id === null || (is_array($ad_id) && count($ad_id) === 0)) {
+        // Verify the required parameter 'ad_id' is set.
+        if ($ad_id === null || (\is_array($ad_id) && count($ad_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $ad_id when calling updateBid');
         }
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+        // Verify the required parameter 'campaign_id' is set.
+        if ($campaign_id === null || (\is_array($campaign_id) && count($campaign_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $campaign_id when calling updateBid');
         }
-        // verify the required parameter 'update_bid_percentage_request' is set
-        if ($update_bid_percentage_request === null || (is_array($update_bid_percentage_request) && count($update_bid_percentage_request) === 0)) {
+        // Verify the required parameter 'update_bid_percentage_request' is set.
+        if ($update_bid_percentage_request === null || (\is_array($update_bid_percentage_request) && count($update_bid_percentage_request) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $update_bid_percentage_request when calling updateBid');
         }
 
@@ -4257,6 +4336,7 @@ class AdApi
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -4266,6 +4346,7 @@ class AdApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -4318,7 +4399,7 @@ class AdApi
         $options = [];
 
         if ($this->config->getDebug()) {
-            $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
+            $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'ab');
 
             if (! $options[RequestOptions::DEBUG]) {
                 throw new \RuntimeException('Failed to open the debug file: '.$this->config->getDebugFile());

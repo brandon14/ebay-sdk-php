@@ -64,6 +64,7 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\MultipartStream;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
 use TNT\Ebay\Buy\FeedBeta\V1\ApiException;
@@ -195,9 +196,11 @@ class ItemApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -265,6 +268,7 @@ class ItemApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -332,7 +336,7 @@ class ItemApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -353,24 +357,24 @@ class ItemApi
      */
     public function getItemFeedRequest($accept, $x_ebay_c_marketplace_id, $range, $feed_scope, $category_id, $date = null)
     {
-        // verify the required parameter 'accept' is set
-        if ($accept === null || (is_array($accept) && count($accept) === 0)) {
+        // Verify the required parameter 'accept' is set.
+        if ($accept === null || (\is_array($accept) && count($accept) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $accept when calling getItemFeed');
         }
-        // verify the required parameter 'x_ebay_c_marketplace_id' is set
-        if ($x_ebay_c_marketplace_id === null || (is_array($x_ebay_c_marketplace_id) && count($x_ebay_c_marketplace_id) === 0)) {
+        // Verify the required parameter 'x_ebay_c_marketplace_id' is set.
+        if ($x_ebay_c_marketplace_id === null || (\is_array($x_ebay_c_marketplace_id) && count($x_ebay_c_marketplace_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $x_ebay_c_marketplace_id when calling getItemFeed');
         }
-        // verify the required parameter 'range' is set
-        if ($range === null || (is_array($range) && count($range) === 0)) {
+        // Verify the required parameter 'range' is set.
+        if ($range === null || (\is_array($range) && count($range) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $range when calling getItemFeed');
         }
-        // verify the required parameter 'feed_scope' is set
-        if ($feed_scope === null || (is_array($feed_scope) && count($feed_scope) === 0)) {
+        // Verify the required parameter 'feed_scope' is set.
+        if ($feed_scope === null || (\is_array($feed_scope) && count($feed_scope) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $feed_scope when calling getItemFeed');
         }
-        // verify the required parameter 'category_id' is set
-        if ($category_id === null || (is_array($category_id) && count($category_id) === 0)) {
+        // Verify the required parameter 'category_id' is set.
+        if ($category_id === null || (\is_array($category_id) && count($category_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $category_id when calling getItemFeed');
         }
 
@@ -434,6 +438,7 @@ class ItemApi
         if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -443,6 +448,7 @@ class ItemApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -491,7 +497,7 @@ class ItemApi
         $options = [];
 
         if ($this->config->getDebug()) {
-            $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
+            $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'ab');
 
             if (! $options[RequestOptions::DEBUG]) {
                 throw new \RuntimeException('Failed to open the debug file: '.$this->config->getDebugFile());

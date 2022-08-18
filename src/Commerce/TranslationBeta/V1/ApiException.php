@@ -100,10 +100,11 @@ class ApiException extends Exception
      * @param int                   $code            HTTP status code
      * @param string[]|null         $responseHeaders HTTP response header
      * @param \stdClass|string|null $responseBody    HTTP decoded body of the server response either as \stdClass or string
+     * @param \Throwable|null       $previous        Previous exception
      */
-    public function __construct($message = '', $code = 0, $responseHeaders = [], $responseBody = null)
+    public function __construct($message = '', $code = 0, $responseHeaders = [], $responseBody = null, ?\Throwable $previous = null)
     {
-        parent::__construct($message, $code);
+        parent::__construct($message, $code, $previous);
 
         $this->responseHeaders = $responseHeaders;
         $this->responseBody = $responseBody;

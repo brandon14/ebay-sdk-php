@@ -64,6 +64,7 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\MultipartStream;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
 use TNT\Ebay\Commerce\Taxonomy\V1\ApiException;
@@ -189,9 +190,11 @@ class CategoryTreeApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -239,6 +242,7 @@ class CategoryTreeApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -300,7 +304,7 @@ class CategoryTreeApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -316,8 +320,8 @@ class CategoryTreeApi
      */
     public function fetchItemAspectsRequest($category_tree_id)
     {
-        // verify the required parameter 'category_tree_id' is set
-        if ($category_tree_id === null || (is_array($category_tree_id) && count($category_tree_id) === 0)) {
+        // Verify the required parameter 'category_tree_id' is set.
+        if ($category_tree_id === null || (\is_array($category_tree_id) && count($category_tree_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $category_tree_id when calling fetchItemAspects');
         }
 
@@ -352,6 +356,7 @@ class CategoryTreeApi
         if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -361,6 +366,7 @@ class CategoryTreeApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -440,9 +446,11 @@ class CategoryTreeApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -490,6 +498,7 @@ class CategoryTreeApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -553,7 +562,7 @@ class CategoryTreeApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -570,12 +579,12 @@ class CategoryTreeApi
      */
     public function getCategorySubtreeRequest($category_id, $category_tree_id)
     {
-        // verify the required parameter 'category_id' is set
-        if ($category_id === null || (is_array($category_id) && count($category_id) === 0)) {
+        // Verify the required parameter 'category_id' is set.
+        if ($category_id === null || (\is_array($category_id) && count($category_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $category_id when calling getCategorySubtree');
         }
-        // verify the required parameter 'category_tree_id' is set
-        if ($category_tree_id === null || (is_array($category_tree_id) && count($category_tree_id) === 0)) {
+        // Verify the required parameter 'category_tree_id' is set.
+        if ($category_tree_id === null || (\is_array($category_tree_id) && count($category_tree_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $category_tree_id when calling getCategorySubtree');
         }
 
@@ -619,6 +628,7 @@ class CategoryTreeApi
         if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -628,6 +638,7 @@ class CategoryTreeApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -707,9 +718,11 @@ class CategoryTreeApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -757,6 +770,7 @@ class CategoryTreeApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -820,7 +834,7 @@ class CategoryTreeApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -837,12 +851,12 @@ class CategoryTreeApi
      */
     public function getCategorySuggestionsRequest($category_tree_id, $q)
     {
-        // verify the required parameter 'category_tree_id' is set
-        if ($category_tree_id === null || (is_array($category_tree_id) && count($category_tree_id) === 0)) {
+        // Verify the required parameter 'category_tree_id' is set.
+        if ($category_tree_id === null || (\is_array($category_tree_id) && count($category_tree_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $category_tree_id when calling getCategorySuggestions');
         }
-        // verify the required parameter 'q' is set
-        if ($q === null || (is_array($q) && count($q) === 0)) {
+        // Verify the required parameter 'q' is set.
+        if ($q === null || (\is_array($q) && count($q) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $q when calling getCategorySuggestions');
         }
 
@@ -886,6 +900,7 @@ class CategoryTreeApi
         if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -895,6 +910,7 @@ class CategoryTreeApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -972,9 +988,11 @@ class CategoryTreeApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -1022,6 +1040,7 @@ class CategoryTreeApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -1083,7 +1102,7 @@ class CategoryTreeApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -1099,8 +1118,8 @@ class CategoryTreeApi
      */
     public function getCategoryTreeRequest($category_tree_id)
     {
-        // verify the required parameter 'category_tree_id' is set
-        if ($category_tree_id === null || (is_array($category_tree_id) && count($category_tree_id) === 0)) {
+        // Verify the required parameter 'category_tree_id' is set.
+        if ($category_tree_id === null || (\is_array($category_tree_id) && count($category_tree_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $category_tree_id when calling getCategoryTree');
         }
 
@@ -1135,6 +1154,7 @@ class CategoryTreeApi
         if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -1144,6 +1164,7 @@ class CategoryTreeApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -1223,9 +1244,11 @@ class CategoryTreeApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -1273,6 +1296,7 @@ class CategoryTreeApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -1336,7 +1360,7 @@ class CategoryTreeApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -1353,12 +1377,12 @@ class CategoryTreeApi
      */
     public function getCompatibilityPropertiesRequest($category_tree_id, $category_id)
     {
-        // verify the required parameter 'category_tree_id' is set
-        if ($category_tree_id === null || (is_array($category_tree_id) && count($category_tree_id) === 0)) {
+        // Verify the required parameter 'category_tree_id' is set.
+        if ($category_tree_id === null || (\is_array($category_tree_id) && count($category_tree_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $category_tree_id when calling getCompatibilityProperties');
         }
-        // verify the required parameter 'category_id' is set
-        if ($category_id === null || (is_array($category_id) && count($category_id) === 0)) {
+        // Verify the required parameter 'category_id' is set.
+        if ($category_id === null || (\is_array($category_id) && count($category_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $category_id when calling getCompatibilityProperties');
         }
 
@@ -1402,6 +1426,7 @@ class CategoryTreeApi
         if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -1411,6 +1436,7 @@ class CategoryTreeApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -1494,9 +1520,11 @@ class CategoryTreeApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -1544,6 +1572,7 @@ class CategoryTreeApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -1611,7 +1640,7 @@ class CategoryTreeApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -1630,16 +1659,16 @@ class CategoryTreeApi
      */
     public function getCompatibilityPropertyValuesRequest($category_tree_id, $compatibility_property, $category_id, $filter = null)
     {
-        // verify the required parameter 'category_tree_id' is set
-        if ($category_tree_id === null || (is_array($category_tree_id) && count($category_tree_id) === 0)) {
+        // Verify the required parameter 'category_tree_id' is set.
+        if ($category_tree_id === null || (\is_array($category_tree_id) && count($category_tree_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $category_tree_id when calling getCompatibilityPropertyValues');
         }
-        // verify the required parameter 'compatibility_property' is set
-        if ($compatibility_property === null || (is_array($compatibility_property) && count($compatibility_property) === 0)) {
+        // Verify the required parameter 'compatibility_property' is set.
+        if ($compatibility_property === null || (\is_array($compatibility_property) && count($compatibility_property) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $compatibility_property when calling getCompatibilityPropertyValues');
         }
-        // verify the required parameter 'category_id' is set
-        if ($category_id === null || (is_array($category_id) && count($category_id) === 0)) {
+        // Verify the required parameter 'category_id' is set.
+        if ($category_id === null || (\is_array($category_id) && count($category_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $category_id when calling getCompatibilityPropertyValues');
         }
 
@@ -1699,6 +1728,7 @@ class CategoryTreeApi
         if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -1708,6 +1738,7 @@ class CategoryTreeApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -1787,9 +1818,11 @@ class CategoryTreeApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -1837,6 +1870,7 @@ class CategoryTreeApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -1900,7 +1934,7 @@ class CategoryTreeApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -1917,8 +1951,8 @@ class CategoryTreeApi
      */
     public function getDefaultCategoryTreeIdRequest($marketplace_id, $accept_language = null)
     {
-        // verify the required parameter 'marketplace_id' is set
-        if ($marketplace_id === null || (is_array($marketplace_id) && count($marketplace_id) === 0)) {
+        // Verify the required parameter 'marketplace_id' is set.
+        if ($marketplace_id === null || (\is_array($marketplace_id) && count($marketplace_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $marketplace_id when calling getDefaultCategoryTreeId');
         }
 
@@ -1958,6 +1992,7 @@ class CategoryTreeApi
         if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -1967,6 +2002,7 @@ class CategoryTreeApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -2042,9 +2078,11 @@ class CategoryTreeApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -2092,6 +2130,7 @@ class CategoryTreeApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -2151,7 +2190,7 @@ class CategoryTreeApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -2168,12 +2207,12 @@ class CategoryTreeApi
      */
     public function getItemAspectsForCategoryRequest($category_id, $category_tree_id)
     {
-        // verify the required parameter 'category_id' is set
-        if ($category_id === null || (is_array($category_id) && count($category_id) === 0)) {
+        // Verify the required parameter 'category_id' is set.
+        if ($category_id === null || (\is_array($category_id) && count($category_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $category_id when calling getItemAspectsForCategory');
         }
-        // verify the required parameter 'category_tree_id' is set
-        if ($category_tree_id === null || (is_array($category_tree_id) && count($category_tree_id) === 0)) {
+        // Verify the required parameter 'category_tree_id' is set.
+        if ($category_tree_id === null || (\is_array($category_tree_id) && count($category_tree_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $category_tree_id when calling getItemAspectsForCategory');
         }
 
@@ -2217,6 +2256,7 @@ class CategoryTreeApi
         if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -2226,6 +2266,7 @@ class CategoryTreeApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -2274,7 +2315,7 @@ class CategoryTreeApi
         $options = [];
 
         if ($this->config->getDebug()) {
-            $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
+            $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'ab');
 
             if (! $options[RequestOptions::DEBUG]) {
                 throw new \RuntimeException('Failed to open the debug file: '.$this->config->getDebugFile());

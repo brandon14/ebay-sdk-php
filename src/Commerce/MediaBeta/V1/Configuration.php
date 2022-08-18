@@ -177,7 +177,7 @@ class Configuration
      */
     public function getApiKey($apiKeyIdentifier)
     {
-        return isset($this->apiKeys[$apiKeyIdentifier]) ? $this->apiKeys[$apiKeyIdentifier] : null;
+        return $this->apiKeys[$apiKeyIdentifier] ?? null;
     }
 
     /**
@@ -204,7 +204,7 @@ class Configuration
      */
     public function getApiKeyPrefix($apiKeyIdentifier)
     {
-        return isset($this->apiKeyPrefixes[$apiKeyIdentifier]) ? $this->apiKeyPrefixes[$apiKeyIdentifier] : null;
+        return $this->apiKeyPrefixes[$apiKeyIdentifier] ?? null;
     }
 
     /**
@@ -314,7 +314,7 @@ class Configuration
      */
     public function setUserAgent($userAgent)
     {
-        if (! is_string($userAgent)) {
+        if (! \is_string($userAgent)) {
             throw new \InvalidArgumentException('User-agent must be a string.');
         }
 
@@ -497,7 +497,7 @@ class Configuration
      */
     public function getHostFromSettings($index, $variables = null)
     {
-        if (null === $variables) {
+        if ($variables === null) {
             $variables = [];
         }
 
@@ -513,8 +513,8 @@ class Configuration
 
         // go through variable and assign a value
         foreach ($host['variables'] ?? [] as $name => $variable) {
-            if (array_key_exists($name, $variables)) { // check to see if it's in the variables provided by the user
-                if (in_array($variables[$name], $variable['enum_values'], true)) { // check to see if the value is in the enum
+            if (\array_key_exists($name, $variables)) { // check to see if it's in the variables provided by the user
+                if (\in_array($variables[$name], $variable['enum_values'], true)) { // check to see if the value is in the enum
                     $url = str_replace('{'.$name.'}', $variables[$name], $url);
                 } else {
                     throw new \InvalidArgumentException("The variable `$name` in the host URL has invalid value ".$variables[$name].'. Must be '.implode(',', $variable['enum_values']).'.');

@@ -30,7 +30,7 @@
 declare(strict_types=1);
 
 /**
- * ApiException.
+ * HeaderSelector.
  *
  * PHP version ^7.2 || ^8.0
  *
@@ -60,7 +60,7 @@ declare(strict_types=1);
 namespace TNT\Ebay\Buy\Feed\V1;
 
 /**
- * ApiException Class Doc Comment.
+ * HeaderSelector Class Doc Comment.
  *
  * @category Class
  *

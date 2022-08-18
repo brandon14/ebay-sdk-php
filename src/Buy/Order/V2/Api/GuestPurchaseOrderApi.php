@@ -66,6 +66,7 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\MultipartStream;
 use TNT\Ebay\Buy\Order\V2\ApiException;
 use TNT\Ebay\Buy\Order\V2\Configuration;
+use GuzzleHttp\Exception\GuzzleException;
 use TNT\Ebay\Buy\Order\V2\HeaderSelector;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
@@ -191,9 +192,11 @@ class GuestPurchaseOrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -241,6 +244,7 @@ class GuestPurchaseOrderApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -304,7 +308,7 @@ class GuestPurchaseOrderApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -323,8 +327,8 @@ class GuestPurchaseOrderApi
      */
     public function getGuestPurchaseOrderRequest($purchase_order_id)
     {
-        // verify the required parameter 'purchase_order_id' is set
-        if ($purchase_order_id === null || (is_array($purchase_order_id) && count($purchase_order_id) === 0)) {
+        // Verify the required parameter 'purchase_order_id' is set.
+        if ($purchase_order_id === null || (\is_array($purchase_order_id) && count($purchase_order_id) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $purchase_order_id when calling getGuestPurchaseOrder');
         }
 
@@ -359,6 +363,7 @@ class GuestPurchaseOrderApi
         if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -368,6 +373,7 @@ class GuestPurchaseOrderApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -423,7 +429,7 @@ class GuestPurchaseOrderApi
         $options = [];
 
         if ($this->config->getDebug()) {
-            $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
+            $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'ab');
 
             if (! $options[RequestOptions::DEBUG]) {
                 throw new \RuntimeException('Failed to open the debug file: '.$this->config->getDebugFile());

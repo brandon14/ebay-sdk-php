@@ -64,6 +64,7 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\MultipartStream;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
 use TNT\Ebay\Sell\Inventory\V1\ApiException;
@@ -189,9 +190,11 @@ class InventoryItemGroupApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -259,6 +262,7 @@ class InventoryItemGroupApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -320,7 +324,7 @@ class InventoryItemGroupApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -338,16 +342,16 @@ class InventoryItemGroupApi
      */
     public function createOrReplaceInventoryItemGroupRequest($content_language, $inventory_item_group_key, $inventory_item_group)
     {
-        // verify the required parameter 'content_language' is set
-        if ($content_language === null || (is_array($content_language) && count($content_language) === 0)) {
+        // Verify the required parameter 'content_language' is set.
+        if ($content_language === null || (\is_array($content_language) && count($content_language) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $content_language when calling createOrReplaceInventoryItemGroup');
         }
-        // verify the required parameter 'inventory_item_group_key' is set
-        if ($inventory_item_group_key === null || (is_array($inventory_item_group_key) && count($inventory_item_group_key) === 0)) {
+        // Verify the required parameter 'inventory_item_group_key' is set.
+        if ($inventory_item_group_key === null || (\is_array($inventory_item_group_key) && count($inventory_item_group_key) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $inventory_item_group_key when calling createOrReplaceInventoryItemGroup');
         }
-        // verify the required parameter 'inventory_item_group' is set
-        if ($inventory_item_group === null || (is_array($inventory_item_group) && count($inventory_item_group) === 0)) {
+        // Verify the required parameter 'inventory_item_group' is set.
+        if ($inventory_item_group === null || (\is_array($inventory_item_group) && count($inventory_item_group) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $inventory_item_group when calling createOrReplaceInventoryItemGroup');
         }
 
@@ -393,6 +397,7 @@ class InventoryItemGroupApi
         } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -402,6 +407,7 @@ class InventoryItemGroupApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -473,9 +479,11 @@ class InventoryItemGroupApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -488,6 +496,7 @@ class InventoryItemGroupApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
             }
+
             throw $e;
         }
     }
@@ -535,7 +544,7 @@ class InventoryItemGroupApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -551,8 +560,8 @@ class InventoryItemGroupApi
      */
     public function deleteInventoryItemGroupRequest($inventory_item_group_key)
     {
-        // verify the required parameter 'inventory_item_group_key' is set
-        if ($inventory_item_group_key === null || (is_array($inventory_item_group_key) && count($inventory_item_group_key) === 0)) {
+        // Verify the required parameter 'inventory_item_group_key' is set.
+        if ($inventory_item_group_key === null || (\is_array($inventory_item_group_key) && count($inventory_item_group_key) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $inventory_item_group_key when calling deleteInventoryItemGroup');
         }
 
@@ -587,6 +596,7 @@ class InventoryItemGroupApi
         if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -596,6 +606,7 @@ class InventoryItemGroupApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -669,9 +680,11 @@ class InventoryItemGroupApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null, $e);
             } catch (ConnectException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
+            } catch (GuzzleException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null, $e);
             }
 
             $statusCode = $response->getStatusCode();
@@ -719,6 +732,7 @@ class InventoryItemGroupApi
                     $e->setResponseObject($data);
                     break;
             }
+
             throw $e;
         }
     }
@@ -776,7 +790,7 @@ class InventoryItemGroupApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody(), $exception instanceof \Throwable ? $exception : null);
                 }
             );
     }
@@ -792,8 +806,8 @@ class InventoryItemGroupApi
      */
     public function getInventoryItemGroupRequest($inventory_item_group_key)
     {
-        // verify the required parameter 'inventory_item_group_key' is set
-        if ($inventory_item_group_key === null || (is_array($inventory_item_group_key) && count($inventory_item_group_key) === 0)) {
+        // Verify the required parameter 'inventory_item_group_key' is set.
+        if ($inventory_item_group_key === null || (\is_array($inventory_item_group_key) && count($inventory_item_group_key) === 0)) {
             throw new \InvalidArgumentException('Missing the required parameter $inventory_item_group_key when calling getInventoryItemGroup');
         }
 
@@ -828,6 +842,7 @@ class InventoryItemGroupApi
         if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
+
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
@@ -837,6 +852,7 @@ class InventoryItemGroupApi
                         ];
                     }
                 }
+
                 // For HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
             } elseif ($headers['Content-Type'] === 'application/json') {
@@ -885,7 +901,7 @@ class InventoryItemGroupApi
         $options = [];
 
         if ($this->config->getDebug()) {
-            $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
+            $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'ab');
 
             if (! $options[RequestOptions::DEBUG]) {
                 throw new \RuntimeException('Failed to open the debug file: '.$this->config->getDebugFile());

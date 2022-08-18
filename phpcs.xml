@@ -29,6 +29,7 @@
   <rule ref="PSR12" >
     <exclude name="PSR12.Operators.OperatorSpacing.NoSpaceBefore"></exclude>
     <exclude name="PSR12.Operators.OperatorSpacing.NoSpaceAfter"></exclude>
+    <exclude name="PSR12.Files.FileHeader.IncorrectOrder"></exclude>
   </rule>
 
 </ruleset>
