@@ -22,7 +22,7 @@
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "guzzlehttp/guzzle": "^6.2.1 || ^7.0",
+        "guzzlehttp/guzzle": "^6.5.8 || ^7.4.5",
         "guzzlehttp/psr7": "^1.7 || ^2.0"
     },
     "require-dev": {
@@ -40,11 +40,11 @@
         "analyze:stats": "composer run-script analyze -- --stats",
         "lint:phpcs:check": [
             "Composer\\Config::disableProcessTimeout",
-            "phpcs ./"
+            "phpcs ./ --cache=.phpcs.cache"
         ],
         "lint:phpcs:fix": [
             "Composer\\Config::disableProcessTimeout",
-            "phpcbf ./"
+            "phpcbf ./ --cache=.phpcs.cache"
         ],
         "lint:phpmd": "phpmd ./ text ./phpmd.xml",
         "lint:php-cs-fixer:fix": [
@@ -54,7 +54,7 @@
         "lint:php-cs-fixer:check": "composer run-script lint:php-cs-fixer:fix -- --dry-run --verbose",
         "lint": [
             "Composer\\Config::disableProcessTimeout",
-            "composer run-script lint:phpcs:check && composer run-script lint:php-cs-fixer:check && composer run-script lint:phpmd"
+            "composer validate --strict && composer run-script lint:phpcs:check && composer run-script lint:php-cs-fixer:check && composer run-script lint:phpmd"
         ],
         "lint:fix": [
             "Composer\\Config::disableProcessTimeout",
@@ -67,11 +67,13 @@
         ],
         "licenses:generate": "php-legal-licenses generate",
         "post-update-cmd": [
-            "composer run-script test:phpunit",
+            "composer validate --strict",
+            "composer run-script test:phpunit -- --no-coverage",
             "composer run-script licenses:generate",
             "phpcs --config-set installed_paths vendor/phpcompatibility/php-compatibility"
         ],
         "post-install-cmd": [
+            "composer validate --strict",
             "composer run-script licenses:generate",
             "phpcs --config-set installed_paths vendor/phpcompatibility/php-compatibility"
         ]
@@ -96,5 +98,6 @@
             "dev-main": "1.0-dev"
         }
     },
+    "minimum-stability": "dev",
     "prefer-stable": true
 }

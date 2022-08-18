@@ -16,6 +16,9 @@ coverage/
 .php_cs.cache
 .php-cs-fixer.cache
 
+# PHP Code Sniffer cache
+.phpcs.cache
+
 # Doctum docs
 doctum_cache
 
