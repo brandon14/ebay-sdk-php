@@ -204,7 +204,7 @@ class KeywordApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Marketing\V1\Model\BulkCreateKeywordResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -219,7 +219,7 @@ class KeywordApi
             $returnType = '\TNT\Ebay\Sell\Marketing\V1\Model\BulkCreateKeywordResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -285,7 +285,7 @@ class KeywordApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -469,7 +469,7 @@ class KeywordApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Marketing\V1\Model\BulkUpdateKeywordResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -484,7 +484,7 @@ class KeywordApi
             $returnType = '\TNT\Ebay\Sell\Marketing\V1\Model\BulkUpdateKeywordResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -550,7 +550,7 @@ class KeywordApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -734,7 +734,7 @@ class KeywordApi
             switch ($statusCode) {
                 case 201:
                     if ('object' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -749,7 +749,7 @@ class KeywordApi
             $returnType = 'object';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -815,7 +815,7 @@ class KeywordApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -999,7 +999,7 @@ class KeywordApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Marketing\V1\Model\Keyword' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1014,7 +1014,7 @@ class KeywordApi
             $returnType = '\TNT\Ebay\Sell\Marketing\V1\Model\Keyword';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -1080,7 +1080,7 @@ class KeywordApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1272,7 +1272,7 @@ class KeywordApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Marketing\V1\Model\KeywordPagedCollectionResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1287,7 +1287,7 @@ class KeywordApi
             $returnType = '\TNT\Ebay\Sell\Marketing\V1\Model\KeywordPagedCollectionResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -1359,7 +1359,7 @@ class KeywordApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }

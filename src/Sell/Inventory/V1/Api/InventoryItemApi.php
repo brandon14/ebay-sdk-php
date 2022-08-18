@@ -202,7 +202,7 @@ class InventoryItemApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Inventory\V1\Model\BulkInventoryItemResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -217,7 +217,7 @@ class InventoryItemApi
             $returnType = '\TNT\Ebay\Sell\Inventory\V1\Model\BulkInventoryItemResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -281,7 +281,7 @@ class InventoryItemApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -445,7 +445,7 @@ class InventoryItemApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Inventory\V1\Model\BulkGetInventoryItemResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -460,7 +460,7 @@ class InventoryItemApi
             $returnType = '\TNT\Ebay\Sell\Inventory\V1\Model\BulkGetInventoryItemResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -524,7 +524,7 @@ class InventoryItemApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -688,7 +688,7 @@ class InventoryItemApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Inventory\V1\Model\BulkPriceQuantityResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -703,7 +703,7 @@ class InventoryItemApi
             $returnType = '\TNT\Ebay\Sell\Inventory\V1\Model\BulkPriceQuantityResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -767,7 +767,7 @@ class InventoryItemApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -935,7 +935,7 @@ class InventoryItemApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Inventory\V1\Model\BaseResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -947,7 +947,7 @@ class InventoryItemApi
                     ];
                 case 201:
                     if ('\TNT\Ebay\Sell\Inventory\V1\Model\BaseResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -962,7 +962,7 @@ class InventoryItemApi
             $returnType = '\TNT\Ebay\Sell\Inventory\V1\Model\BaseResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -1038,7 +1038,7 @@ class InventoryItemApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1425,7 +1425,7 @@ class InventoryItemApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Inventory\V1\Model\InventoryItemWithSkuLocaleGroupid' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1440,7 +1440,7 @@ class InventoryItemApi
             $returnType = '\TNT\Ebay\Sell\Inventory\V1\Model\InventoryItemWithSkuLocaleGroupid';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -1504,7 +1504,7 @@ class InventoryItemApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1673,7 +1673,7 @@ class InventoryItemApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Inventory\V1\Model\InventoryItems' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1688,7 +1688,7 @@ class InventoryItemApi
             $returnType = '\TNT\Ebay\Sell\Inventory\V1\Model\InventoryItems';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -1754,7 +1754,7 @@ class InventoryItemApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }

@@ -202,7 +202,7 @@ class ItemPriceMarkdownApi
             switch ($statusCode) {
                 case 201:
                     if ('object' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -217,7 +217,7 @@ class ItemPriceMarkdownApi
             $returnType = 'object';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -281,7 +281,7 @@ class ItemPriceMarkdownApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -647,7 +647,7 @@ class ItemPriceMarkdownApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Marketing\V1\Model\ItemPriceMarkdown' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -662,7 +662,7 @@ class ItemPriceMarkdownApi
             $returnType = '\TNT\Ebay\Sell\Marketing\V1\Model\ItemPriceMarkdown';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -726,7 +726,7 @@ class ItemPriceMarkdownApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -899,7 +899,7 @@ class ItemPriceMarkdownApi
             switch ($statusCode) {
                 case 200:
                     if ('object' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -914,7 +914,7 @@ class ItemPriceMarkdownApi
             $returnType = 'object';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -980,7 +980,7 @@ class ItemPriceMarkdownApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }

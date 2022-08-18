@@ -202,7 +202,7 @@ class RateTableApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Account\V2\Model\RateTableDetails' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -217,7 +217,7 @@ class RateTableApi
             $returnType = '\TNT\Ebay\Sell\Account\V2\Model\RateTableDetails';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -281,7 +281,7 @@ class RateTableApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }

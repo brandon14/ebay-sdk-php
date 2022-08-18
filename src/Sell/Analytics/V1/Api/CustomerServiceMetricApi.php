@@ -206,7 +206,7 @@ class CustomerServiceMetricApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Analytics\V1\Model\GetCustomerServiceMetricResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -221,7 +221,7 @@ class CustomerServiceMetricApi
             $returnType = '\TNT\Ebay\Sell\Analytics\V1\Model\GetCustomerServiceMetricResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -289,7 +289,7 @@ class CustomerServiceMetricApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }

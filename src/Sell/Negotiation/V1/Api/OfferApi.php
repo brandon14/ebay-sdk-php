@@ -206,7 +206,7 @@ class OfferApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Negotiation\V1\Model\PagedEligibleItemCollection' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -221,7 +221,7 @@ class OfferApi
             $returnType = '\TNT\Ebay\Sell\Negotiation\V1\Model\PagedEligibleItemCollection';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -289,7 +289,7 @@ class OfferApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -473,7 +473,7 @@ class OfferApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Negotiation\V1\Model\SendOfferToInterestedBuyersCollectionResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -488,7 +488,7 @@ class OfferApi
             $returnType = '\TNT\Ebay\Sell\Negotiation\V1\Model\SendOfferToInterestedBuyersCollectionResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -554,7 +554,7 @@ class OfferApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }

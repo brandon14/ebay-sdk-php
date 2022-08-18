@@ -202,7 +202,7 @@ class TransferApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Finances\V1\Model\Transfer' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -217,7 +217,7 @@ class TransferApi
             $returnType = '\TNT\Ebay\Sell\Finances\V1\Model\Transfer';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -281,7 +281,7 @@ class TransferApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }

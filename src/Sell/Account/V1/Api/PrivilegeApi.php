@@ -198,7 +198,7 @@ class PrivilegeApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Account\V1\Model\SellingPrivileges' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -213,7 +213,7 @@ class PrivilegeApi
             $returnType = '\TNT\Ebay\Sell\Account\V1\Model\SellingPrivileges';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -273,7 +273,7 @@ class PrivilegeApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }

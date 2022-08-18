@@ -210,7 +210,7 @@ class ItemSnapshotApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Buy\FeedBeta\V1\Model\ItemSnapshotResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -222,7 +222,7 @@ class ItemSnapshotApi
                     ];
                 case 206:
                     if ('\TNT\Ebay\Buy\FeedBeta\V1\Model\ItemSnapshotResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -237,7 +237,7 @@ class ItemSnapshotApi
             $returnType = '\TNT\Ebay\Buy\FeedBeta\V1\Model\ItemSnapshotResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -317,7 +317,7 @@ class ItemSnapshotApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }

@@ -206,7 +206,7 @@ class InventoryItemGroupApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Inventory\V1\Model\BaseResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -218,7 +218,7 @@ class InventoryItemGroupApi
                     ];
                 case 201:
                     if ('\TNT\Ebay\Sell\Inventory\V1\Model\BaseResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -233,7 +233,7 @@ class InventoryItemGroupApi
             $returnType = '\TNT\Ebay\Sell\Inventory\V1\Model\BaseResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -309,7 +309,7 @@ class InventoryItemGroupApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -696,7 +696,7 @@ class InventoryItemGroupApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Inventory\V1\Model\InventoryItemGroup' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -711,7 +711,7 @@ class InventoryItemGroupApi
             $returnType = '\TNT\Ebay\Sell\Inventory\V1\Model\InventoryItemGroup';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -775,7 +775,7 @@ class InventoryItemGroupApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }

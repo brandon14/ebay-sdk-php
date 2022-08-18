@@ -208,7 +208,7 @@ class TrafficReportApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Analytics\V1\Model\Report' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -223,7 +223,7 @@ class TrafficReportApi
             $returnType = '\TNT\Ebay\Sell\Analytics\V1\Model\Report';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -293,7 +293,7 @@ class TrafficReportApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }

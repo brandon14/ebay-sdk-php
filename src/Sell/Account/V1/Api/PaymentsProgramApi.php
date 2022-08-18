@@ -204,7 +204,7 @@ class PaymentsProgramApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Account\V1\Model\PaymentsProgramResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -219,7 +219,7 @@ class PaymentsProgramApi
             $returnType = '\TNT\Ebay\Sell\Account\V1\Model\PaymentsProgramResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -285,7 +285,7 @@ class PaymentsProgramApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }

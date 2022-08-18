@@ -204,7 +204,7 @@ class AdvertisingEligibilityApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Account\V1\Model\SellerEligibilityMultiProgramResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -219,7 +219,7 @@ class AdvertisingEligibilityApi
             $returnType = '\TNT\Ebay\Sell\Account\V1\Model\SellerEligibilityMultiProgramResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -285,7 +285,7 @@ class AdvertisingEligibilityApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }

@@ -204,7 +204,7 @@ class ShippingQuoteApi
             switch ($statusCode) {
                 case 201:
                     if ('\TNT\Ebay\Sell\Logistics\V1\Model\ShippingQuote' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -219,7 +219,7 @@ class ShippingQuoteApi
             $returnType = '\TNT\Ebay\Sell\Logistics\V1\Model\ShippingQuote';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -285,7 +285,7 @@ class ShippingQuoteApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -459,7 +459,7 @@ class ShippingQuoteApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Logistics\V1\Model\ShippingQuote' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -474,7 +474,7 @@ class ShippingQuoteApi
             $returnType = '\TNT\Ebay\Sell\Logistics\V1\Model\ShippingQuote';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -538,7 +538,7 @@ class ShippingQuoteApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }

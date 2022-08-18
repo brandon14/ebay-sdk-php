@@ -212,7 +212,7 @@ class EventItemApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Buy\Deal\V1\Model\EventItemSearchResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -227,7 +227,7 @@ class EventItemApi
             $returnType = '\TNT\Ebay\Buy\Deal\V1\Model\EventItemSearchResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -301,7 +301,7 @@ class EventItemApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }

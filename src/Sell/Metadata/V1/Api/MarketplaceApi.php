@@ -204,7 +204,7 @@ class MarketplaceApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Metadata\V1\Model\AutomotivePartsCompatibilityPolicyResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -219,7 +219,7 @@ class MarketplaceApi
             $returnType = '\TNT\Ebay\Sell\Metadata\V1\Model\AutomotivePartsCompatibilityPolicyResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -285,7 +285,7 @@ class MarketplaceApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -468,7 +468,7 @@ class MarketplaceApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Metadata\V1\Model\ExtendedProducerResponsibilityPolicyResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -483,7 +483,7 @@ class MarketplaceApi
             $returnType = '\TNT\Ebay\Sell\Metadata\V1\Model\ExtendedProducerResponsibilityPolicyResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -549,7 +549,7 @@ class MarketplaceApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -732,7 +732,7 @@ class MarketplaceApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Metadata\V1\Model\ItemConditionPolicyResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -747,7 +747,7 @@ class MarketplaceApi
             $returnType = '\TNT\Ebay\Sell\Metadata\V1\Model\ItemConditionPolicyResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -813,7 +813,7 @@ class MarketplaceApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -996,7 +996,7 @@ class MarketplaceApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Metadata\V1\Model\ListingStructurePolicyResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1011,7 +1011,7 @@ class MarketplaceApi
             $returnType = '\TNT\Ebay\Sell\Metadata\V1\Model\ListingStructurePolicyResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -1077,7 +1077,7 @@ class MarketplaceApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1260,7 +1260,7 @@ class MarketplaceApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Metadata\V1\Model\NegotiatedPricePolicyResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1275,7 +1275,7 @@ class MarketplaceApi
             $returnType = '\TNT\Ebay\Sell\Metadata\V1\Model\NegotiatedPricePolicyResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -1341,7 +1341,7 @@ class MarketplaceApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1524,7 +1524,7 @@ class MarketplaceApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Metadata\V1\Model\ReturnPolicyResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1539,7 +1539,7 @@ class MarketplaceApi
             $returnType = '\TNT\Ebay\Sell\Metadata\V1\Model\ReturnPolicyResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -1605,7 +1605,7 @@ class MarketplaceApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }

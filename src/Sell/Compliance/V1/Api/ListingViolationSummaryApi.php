@@ -204,7 +204,7 @@ class ListingViolationSummaryApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Compliance\V1\Model\ComplianceSummary' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -219,7 +219,7 @@ class ListingViolationSummaryApi
             $returnType = '\TNT\Ebay\Sell\Compliance\V1\Model\ComplianceSummary';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -285,7 +285,7 @@ class ListingViolationSummaryApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }

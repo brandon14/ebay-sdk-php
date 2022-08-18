@@ -204,7 +204,7 @@ class UserRateLimitApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Developer\AnalyticsBeta\V1\Model\RateLimitsResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -216,7 +216,7 @@ class UserRateLimitApi
                     ];
                 case 500:
                     if ('\TNT\Ebay\Developer\AnalyticsBeta\V1\Model\InlineResponse500' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -231,7 +231,7 @@ class UserRateLimitApi
             $returnType = '\TNT\Ebay\Developer\AnalyticsBeta\V1\Model\RateLimitsResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
             }
@@ -305,7 +305,7 @@ class UserRateLimitApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
