@@ -51,9 +51,9 @@ if [[ ! -x "$OPENAPI_GENERATOR" ]]; then
   exit 1
 fi
 
-# Ensure composer is available.
+# Ensure PHP-CS-Fixer is available.
 if [[ ! -x "$PHP_CS_FIXER" ]]; then
-  echo "Cannot find executable composer. Please try again..."
+  echo "Cannot find PHP-CS-Fixer script. Please try again..."
   exit 1
 fi
 
