@@ -198,7 +198,7 @@ class ConfigApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Commerce\Notification\V1\Model\Config' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -213,7 +213,7 @@ class ConfigApi
             $returnType = '\TNT\Ebay\Commerce\Notification\V1\Model\Config';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -273,7 +273,7 @@ class ConfigApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

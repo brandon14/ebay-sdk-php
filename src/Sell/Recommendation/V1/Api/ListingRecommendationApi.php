@@ -210,7 +210,7 @@ class ListingRecommendationApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Recommendation\V1\Model\PagedListingRecommendationCollection' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -225,7 +225,7 @@ class ListingRecommendationApi
             $returnType = '\TNT\Ebay\Sell\Recommendation\V1\Model\PagedListingRecommendationCollection';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -297,7 +297,7 @@ class ListingRecommendationApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

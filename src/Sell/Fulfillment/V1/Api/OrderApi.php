@@ -204,7 +204,7 @@ class OrderApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Fulfillment\V1\Model\Order' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -219,7 +219,7 @@ class OrderApi
             $returnType = '\TNT\Ebay\Sell\Fulfillment\V1\Model\Order';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -285,7 +285,7 @@ class OrderApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -470,7 +470,7 @@ class OrderApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Fulfillment\V1\Model\OrderSearchPagedCollection' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -485,7 +485,7 @@ class OrderApi
             $returnType = '\TNT\Ebay\Sell\Fulfillment\V1\Model\OrderSearchPagedCollection';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -557,7 +557,7 @@ class OrderApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -761,7 +761,7 @@ class OrderApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Fulfillment\V1\Model\Refund' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -776,7 +776,7 @@ class OrderApi
             $returnType = '\TNT\Ebay\Sell\Fulfillment\V1\Model\Refund';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -846,7 +846,7 @@ class OrderApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

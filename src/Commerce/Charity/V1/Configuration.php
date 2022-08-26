@@ -122,7 +122,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = 'OpenAPI-Generator/1.0.0/PHP';
+    protected $userAgent = 'brandon14/ebay-sdk-php/0.2.1/php';
 
     /**
      * Debug switch (default set to false).

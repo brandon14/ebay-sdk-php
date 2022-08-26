@@ -605,7 +605,7 @@ class AdReportTaskApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Marketing\V1\Model\ReportTask' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -620,7 +620,7 @@ class AdReportTaskApi
             $returnType = '\TNT\Ebay\Sell\Marketing\V1\Model\ReportTask';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -684,7 +684,7 @@ class AdReportTaskApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -859,7 +859,7 @@ class AdReportTaskApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Marketing\V1\Model\ReportTaskPagedCollection' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -874,7 +874,7 @@ class AdReportTaskApi
             $returnType = '\TNT\Ebay\Sell\Marketing\V1\Model\ReportTaskPagedCollection';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -942,7 +942,7 @@ class AdReportTaskApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

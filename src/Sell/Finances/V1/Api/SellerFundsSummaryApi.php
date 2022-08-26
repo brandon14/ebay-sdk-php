@@ -198,7 +198,7 @@ class SellerFundsSummaryApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Finances\V1\Model\SellerFundsSummaryResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -213,7 +213,7 @@ class SellerFundsSummaryApi
             $returnType = '\TNT\Ebay\Sell\Finances\V1\Model\SellerFundsSummaryResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -273,7 +273,7 @@ class SellerFundsSummaryApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

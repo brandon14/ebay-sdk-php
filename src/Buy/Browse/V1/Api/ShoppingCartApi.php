@@ -202,7 +202,7 @@ class ShoppingCartApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Buy\Browse\V1\Model\RemoteShopcartResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -217,7 +217,7 @@ class ShoppingCartApi
             $returnType = '\TNT\Ebay\Buy\Browse\V1\Model\RemoteShopcartResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -281,7 +281,7 @@ class ShoppingCartApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -440,7 +440,7 @@ class ShoppingCartApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Buy\Browse\V1\Model\RemoteShopcartResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -455,7 +455,7 @@ class ShoppingCartApi
             $returnType = '\TNT\Ebay\Buy\Browse\V1\Model\RemoteShopcartResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -515,7 +515,7 @@ class ShoppingCartApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -670,7 +670,7 @@ class ShoppingCartApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Buy\Browse\V1\Model\RemoteShopcartResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -685,7 +685,7 @@ class ShoppingCartApi
             $returnType = '\TNT\Ebay\Buy\Browse\V1\Model\RemoteShopcartResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -749,7 +749,7 @@ class ShoppingCartApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -912,7 +912,7 @@ class ShoppingCartApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Buy\Browse\V1\Model\RemoteShopcartResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -927,7 +927,7 @@ class ShoppingCartApi
             $returnType = '\TNT\Ebay\Buy\Browse\V1\Model\RemoteShopcartResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -991,7 +991,7 @@ class ShoppingCartApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

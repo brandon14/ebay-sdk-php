@@ -5,11 +5,9 @@
 - [ ] Clean up documentation.
 - [ ] Clean up README.
 - [ ] Build and publish project documentation.
-
-## Examples
-
-- [ ] Build out more classes to provide more in depth examples for unit testing.
+- [ ] Fix CI and other workflows to get automated releases on tag pushes, and auto documentation building and
+  publishing.
 
 ## Tests
 
-- [ ] Add integration tests using filesystems, tests databases, etc for a more complete testing picture.
+- [ ] Add unit tests for all API classes and models.

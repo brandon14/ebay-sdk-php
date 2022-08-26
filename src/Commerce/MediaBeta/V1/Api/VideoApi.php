@@ -393,7 +393,7 @@ class VideoApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Commerce\MediaBeta\V1\Model\Video' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -408,7 +408,7 @@ class VideoApi
             $returnType = '\TNT\Ebay\Commerce\MediaBeta\V1\Model\Video';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -472,7 +472,7 @@ class VideoApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

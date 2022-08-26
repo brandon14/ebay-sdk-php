@@ -35,6 +35,9 @@ BASE_PACKAGE_DIR="./src"
 BASE_INVOKER_PACKAGE="TNT\\Ebay"
 BASE_PACKAGE_NAME="ebay"
 GITHUB_NAME="brandon14"
+SDK_VERSION=0.2.1
+SDK_USER_AGENT="$GITHUB_NAME/ebay-sdk-php/$SDK_VERSION/php"
+
 # Set JOB_MAX default if not supplied.
 [[ -z ${JOB_MAX+x} ]] && JOB_MAX=8
 
@@ -112,8 +115,9 @@ for openapispec in ./api-specs/*_oas*.yaml; do
     --global-property=apiTests=false \
     --global-property=modelTests=false \
     --additional-properties=srcBasePath=\"\" \
-    --git-user-id \""$GITHUB_NAME"\" \
-    --git-repo-id \""$BASE_PACKAGE_NAME"-"$API_NAME"-"$API_SUB_NAME"-"$API_VERSION"\" \
+    --git-user-id "$GITHUB_NAME" \
+    --git-repo-id "$BASE_PACKAGE_NAME"-"$API_NAME"-"$API_SUB_NAME"-"$API_VERSION" \
+    --http-user-agent "$SDK_USER_AGENT" \
     -t ./templates &
 
     # Make test directory for each library.
@@ -131,7 +135,7 @@ LINT_START=$(date +%s)
 
 echo "===========> Running PHP linter on generated SDKs at $(date)..."
 # Batch PHP-CS-Fixer fixing using find-files and xargs to speed up linting.
-"$PHP_CS_FIXER" list-files | xargs -n 10 -P "$JOB_MAX" "$PHP_CS_FIXER" fix --using-cache=no --config=./.php-cs-fixer.dist.php
+"$PHP_CS_FIXER" list-files | xargs -n 10 -P "$JOB_MAX" "$PHP_CS_FIXER" fix --using-cache=no --config=./.php-cs-fixer.dist.php --allow-risky=yes
 
 END=$(date +%s)
 ELAPSED=$((END-START))

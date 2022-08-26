@@ -210,7 +210,7 @@ class ItemPriorityApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Buy\FeedBeta\V1\Model\ItemPriorityResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -222,7 +222,7 @@ class ItemPriorityApi
                     ];
                 case 206:
                     if ('\TNT\Ebay\Buy\FeedBeta\V1\Model\ItemPriorityResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -237,7 +237,7 @@ class ItemPriorityApi
             $returnType = '\TNT\Ebay\Buy\FeedBeta\V1\Model\ItemPriorityResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -317,7 +317,7 @@ class ItemPriorityApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

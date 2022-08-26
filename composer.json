@@ -40,16 +40,16 @@
         "analyze:stats": "composer run-script analyze -- --stats",
         "lint:phpcs:check": [
             "Composer\\Config::disableProcessTimeout",
-            "phpcs --cache=.phpcs.cache --parallel=8 ./"
+            "phpcs --cache=.phpcs.cache --parallel=2 ./"
         ],
         "lint:phpcs:fix": [
             "Composer\\Config::disableProcessTimeout",
-            "phpcbf --parallel=8 ./"
+            "phpcbf --parallel=2 ./"
         ],
         "lint:phpmd": "phpmd ./ text ./phpmd.dist.xml",
         "lint:php-cs-fixer:fix": [
             "@putenv PHP_CS_FIXER_IGNORE_ENV=1",
-            "php-cs-fixer list-files --config=./.php-cs-fixer.dist.php | xargs -n 10 -P 8 php-cs-fixer fix --config=./.php-cs-fixer.dist.php"
+            "php-cs-fixer list-files --config=./.php-cs-fixer.dist.php | xargs -n 10 -P 8 php-cs-fixer fix --config=./.php-cs-fixer.dist.php --allow-risky=yes"
         ],
         "lint:php-cs-fixer:check": "composer run-script lint:php-cs-fixer:fix -- --dry-run --verbose",
         "lint": [

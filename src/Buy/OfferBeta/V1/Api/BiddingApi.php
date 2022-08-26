@@ -204,7 +204,7 @@ class BiddingApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Buy\OfferBeta\V1\Model\Bidding' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -219,7 +219,7 @@ class BiddingApi
             $returnType = '\TNT\Ebay\Buy\OfferBeta\V1\Model\Bidding';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -285,7 +285,7 @@ class BiddingApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -466,7 +466,7 @@ class BiddingApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Buy\OfferBeta\V1\Model\PlaceProxyBidResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -481,7 +481,7 @@ class BiddingApi
             $returnType = '\TNT\Ebay\Buy\OfferBeta\V1\Model\PlaceProxyBidResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -549,7 +549,7 @@ class BiddingApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

@@ -202,7 +202,7 @@ class OfferApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Inventory\V1\Model\BulkOfferResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -217,7 +217,7 @@ class OfferApi
             $returnType = '\TNT\Ebay\Sell\Inventory\V1\Model\BulkOfferResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -281,7 +281,7 @@ class OfferApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -445,7 +445,7 @@ class OfferApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Inventory\V1\Model\BulkPublishResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -460,7 +460,7 @@ class OfferApi
             $returnType = '\TNT\Ebay\Sell\Inventory\V1\Model\BulkPublishResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -524,7 +524,7 @@ class OfferApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -690,7 +690,7 @@ class OfferApi
             switch ($statusCode) {
                 case 201:
                     if ('\TNT\Ebay\Sell\Inventory\V1\Model\OfferResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -705,7 +705,7 @@ class OfferApi
             $returnType = '\TNT\Ebay\Sell\Inventory\V1\Model\OfferResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -771,7 +771,7 @@ class OfferApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1144,7 +1144,7 @@ class OfferApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Inventory\V1\Model\FeesSummaryResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1159,7 +1159,7 @@ class OfferApi
             $returnType = '\TNT\Ebay\Sell\Inventory\V1\Model\FeesSummaryResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -1223,7 +1223,7 @@ class OfferApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1382,7 +1382,7 @@ class OfferApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Inventory\V1\Model\EbayOfferDetailsWithAll' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1397,7 +1397,7 @@ class OfferApi
             $returnType = '\TNT\Ebay\Sell\Inventory\V1\Model\EbayOfferDetailsWithAll';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -1461,7 +1461,7 @@ class OfferApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1636,7 +1636,7 @@ class OfferApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Inventory\V1\Model\Offers' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1651,7 +1651,7 @@ class OfferApi
             $returnType = '\TNT\Ebay\Sell\Inventory\V1\Model\Offers';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -1723,7 +1723,7 @@ class OfferApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1921,7 +1921,7 @@ class OfferApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Inventory\V1\Model\PublishResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1936,7 +1936,7 @@ class OfferApi
             $returnType = '\TNT\Ebay\Sell\Inventory\V1\Model\PublishResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -2000,7 +2000,7 @@ class OfferApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -2167,7 +2167,7 @@ class OfferApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Inventory\V1\Model\PublishResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -2182,7 +2182,7 @@ class OfferApi
             $returnType = '\TNT\Ebay\Sell\Inventory\V1\Model\PublishResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -2246,7 +2246,7 @@ class OfferApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -2414,7 +2414,7 @@ class OfferApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Inventory\V1\Model\OfferResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -2429,7 +2429,7 @@ class OfferApi
             $returnType = '\TNT\Ebay\Sell\Inventory\V1\Model\OfferResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -2497,7 +2497,7 @@ class OfferApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -2685,7 +2685,7 @@ class OfferApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Inventory\V1\Model\WithdrawResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -2700,7 +2700,7 @@ class OfferApi
             $returnType = '\TNT\Ebay\Sell\Inventory\V1\Model\WithdrawResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -2764,7 +2764,7 @@ class OfferApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

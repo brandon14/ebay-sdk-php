@@ -206,7 +206,7 @@ class ItemDraftApi
             switch ($statusCode) {
                 case 201:
                     if ('\TNT\Ebay\Sell\ListingBeta\V1\Model\ItemDraftResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -221,7 +221,7 @@ class ItemDraftApi
             $returnType = '\TNT\Ebay\Sell\ListingBeta\V1\Model\ItemDraftResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -289,7 +289,7 @@ class ItemDraftApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

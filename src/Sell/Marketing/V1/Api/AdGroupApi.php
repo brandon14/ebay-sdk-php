@@ -204,7 +204,7 @@ class AdGroupApi
             switch ($statusCode) {
                 case 201:
                     if ('object' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -219,7 +219,7 @@ class AdGroupApi
             $returnType = 'object';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -285,7 +285,7 @@ class AdGroupApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -469,7 +469,7 @@ class AdGroupApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Marketing\V1\Model\AdGroup' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -484,7 +484,7 @@ class AdGroupApi
             $returnType = '\TNT\Ebay\Sell\Marketing\V1\Model\AdGroup';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -550,7 +550,7 @@ class AdGroupApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -740,7 +740,7 @@ class AdGroupApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Marketing\V1\Model\AdGroupPagedCollectionResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -755,7 +755,7 @@ class AdGroupApi
             $returnType = '\TNT\Ebay\Sell\Marketing\V1\Model\AdGroupPagedCollectionResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -825,7 +825,7 @@ class AdGroupApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1028,7 +1028,7 @@ class AdGroupApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Marketing\V1\Model\TargetedBidsPagedCollection' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1043,7 +1043,7 @@ class AdGroupApi
             $returnType = '\TNT\Ebay\Sell\Marketing\V1\Model\TargetedBidsPagedCollection';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -1111,7 +1111,7 @@ class AdGroupApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1310,7 +1310,7 @@ class AdGroupApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Marketing\V1\Model\TargetedKeywordsPagedCollection' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1325,7 +1325,7 @@ class AdGroupApi
             $returnType = '\TNT\Ebay\Sell\Marketing\V1\Model\TargetedKeywordsPagedCollection';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -1393,7 +1393,7 @@ class AdGroupApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

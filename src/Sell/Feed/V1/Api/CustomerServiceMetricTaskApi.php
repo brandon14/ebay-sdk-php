@@ -412,7 +412,7 @@ class CustomerServiceMetricTaskApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Feed\V1\Model\ServiceMetricsTask' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -427,7 +427,7 @@ class CustomerServiceMetricTaskApi
             $returnType = '\TNT\Ebay\Sell\Feed\V1\Model\ServiceMetricsTask';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -491,7 +491,7 @@ class CustomerServiceMetricTaskApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -666,7 +666,7 @@ class CustomerServiceMetricTaskApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Feed\V1\Model\CustomerServiceMetricTaskCollection' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -681,7 +681,7 @@ class CustomerServiceMetricTaskApi
             $returnType = '\TNT\Ebay\Sell\Feed\V1\Model\CustomerServiceMetricTaskCollection';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -753,7 +753,7 @@ class CustomerServiceMetricTaskApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

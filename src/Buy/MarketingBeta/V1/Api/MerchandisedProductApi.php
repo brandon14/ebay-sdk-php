@@ -208,7 +208,7 @@ class MerchandisedProductApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Buy\MarketingBeta\V1\Model\BestSellingProductResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -223,7 +223,7 @@ class MerchandisedProductApi
             $returnType = '\TNT\Ebay\Buy\MarketingBeta\V1\Model\BestSellingProductResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -293,7 +293,7 @@ class MerchandisedProductApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

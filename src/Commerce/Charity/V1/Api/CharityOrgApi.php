@@ -204,7 +204,7 @@ class CharityOrgApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Commerce\Charity\V1\Model\CharityOrg' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -219,7 +219,7 @@ class CharityOrgApi
             $returnType = '\TNT\Ebay\Commerce\Charity\V1\Model\CharityOrg';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -285,7 +285,7 @@ class CharityOrgApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -464,7 +464,7 @@ class CharityOrgApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Commerce\Charity\V1\Model\CharityOrg' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -479,7 +479,7 @@ class CharityOrgApi
             $returnType = '\TNT\Ebay\Commerce\Charity\V1\Model\CharityOrg';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -545,7 +545,7 @@ class CharityOrgApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -730,7 +730,7 @@ class CharityOrgApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Commerce\Charity\V1\Model\CharitySearchResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -745,7 +745,7 @@ class CharityOrgApi
             $returnType = '\TNT\Ebay\Commerce\Charity\V1\Model\CharitySearchResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -817,7 +817,7 @@ class CharityOrgApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

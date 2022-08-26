@@ -206,7 +206,7 @@ class CategoryTreeApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Commerce\Taxonomy\V1\Model\GetCategoriesAspectResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -221,7 +221,7 @@ class CategoryTreeApi
             $returnType = '\TNT\Ebay\Commerce\Taxonomy\V1\Model\GetCategoriesAspectResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -289,7 +289,7 @@ class CategoryTreeApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -462,7 +462,7 @@ class CategoryTreeApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Commerce\Taxonomy\V1\Model\CategorySubtree' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -477,7 +477,7 @@ class CategoryTreeApi
             $returnType = '\TNT\Ebay\Commerce\Taxonomy\V1\Model\CategorySubtree';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -547,7 +547,7 @@ class CategoryTreeApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -734,7 +734,7 @@ class CategoryTreeApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Commerce\Taxonomy\V1\Model\CategorySuggestionResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -749,7 +749,7 @@ class CategoryTreeApi
             $returnType = '\TNT\Ebay\Commerce\Taxonomy\V1\Model\CategorySuggestionResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -819,7 +819,7 @@ class CategoryTreeApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1004,7 +1004,7 @@ class CategoryTreeApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Commerce\Taxonomy\V1\Model\CategoryTree' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1019,7 +1019,7 @@ class CategoryTreeApi
             $returnType = '\TNT\Ebay\Commerce\Taxonomy\V1\Model\CategoryTree';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -1087,7 +1087,7 @@ class CategoryTreeApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1260,7 +1260,7 @@ class CategoryTreeApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Commerce\Taxonomy\V1\Model\GetCompatibilityMetadataResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1275,7 +1275,7 @@ class CategoryTreeApi
             $returnType = '\TNT\Ebay\Commerce\Taxonomy\V1\Model\GetCompatibilityMetadataResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -1345,7 +1345,7 @@ class CategoryTreeApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1536,7 +1536,7 @@ class CategoryTreeApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Commerce\Taxonomy\V1\Model\GetCompatibilityPropertyValuesResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1551,7 +1551,7 @@ class CategoryTreeApi
             $returnType = '\TNT\Ebay\Commerce\Taxonomy\V1\Model\GetCompatibilityPropertyValuesResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -1625,7 +1625,7 @@ class CategoryTreeApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1834,7 +1834,7 @@ class CategoryTreeApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Commerce\Taxonomy\V1\Model\BaseCategoryTree' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1849,7 +1849,7 @@ class CategoryTreeApi
             $returnType = '\TNT\Ebay\Commerce\Taxonomy\V1\Model\BaseCategoryTree';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -1919,7 +1919,7 @@ class CategoryTreeApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -2094,7 +2094,7 @@ class CategoryTreeApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Commerce\Taxonomy\V1\Model\AspectMetadata' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -2109,7 +2109,7 @@ class CategoryTreeApi
             $returnType = '\TNT\Ebay\Commerce\Taxonomy\V1\Model\AspectMetadata';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -2175,7 +2175,7 @@ class CategoryTreeApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
