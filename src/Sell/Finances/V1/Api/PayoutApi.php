@@ -202,7 +202,7 @@ class PayoutApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Finances\V1\Model\Payout' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -217,7 +217,7 @@ class PayoutApi
             $returnType = '\TNT\Ebay\Sell\Finances\V1\Model\Payout';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -281,7 +281,7 @@ class PayoutApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -448,7 +448,7 @@ class PayoutApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Finances\V1\Model\PayoutSummaryResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -463,7 +463,7 @@ class PayoutApi
             $returnType = '\TNT\Ebay\Sell\Finances\V1\Model\PayoutSummaryResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -527,7 +527,7 @@ class PayoutApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -695,7 +695,7 @@ class PayoutApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Finances\V1\Model\Payouts' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -710,7 +710,7 @@ class PayoutApi
             $returnType = '\TNT\Ebay\Sell\Finances\V1\Model\Payouts';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -780,7 +780,7 @@ class PayoutApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

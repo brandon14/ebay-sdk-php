@@ -202,7 +202,7 @@ class ProductApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Commerce\CatalogBeta\V1\Model\Product' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -217,7 +217,7 @@ class ProductApi
             $returnType = '\TNT\Ebay\Commerce\CatalogBeta\V1\Model\Product';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -281,7 +281,7 @@ class ProductApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

@@ -202,7 +202,7 @@ class ScheduleApi
             switch ($statusCode) {
                 case 201:
                     if ('object' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -217,7 +217,7 @@ class ScheduleApi
             $returnType = 'object';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -281,7 +281,7 @@ class ScheduleApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -644,7 +644,7 @@ class ScheduleApi
             switch ($statusCode) {
                 case 200:
                     if ('object' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -659,7 +659,7 @@ class ScheduleApi
             $returnType = 'object';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -723,7 +723,7 @@ class ScheduleApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -890,7 +890,7 @@ class ScheduleApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Feed\V1\Model\UserScheduleResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -905,7 +905,7 @@ class ScheduleApi
             $returnType = '\TNT\Ebay\Sell\Feed\V1\Model\UserScheduleResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -969,7 +969,7 @@ class ScheduleApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1136,7 +1136,7 @@ class ScheduleApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Feed\V1\Model\ScheduleTemplateResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1151,7 +1151,7 @@ class ScheduleApi
             $returnType = '\TNT\Ebay\Sell\Feed\V1\Model\ScheduleTemplateResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -1215,7 +1215,7 @@ class ScheduleApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1386,7 +1386,7 @@ class ScheduleApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Feed\V1\Model\ScheduleTemplateCollection' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1401,7 +1401,7 @@ class ScheduleApi
             $returnType = '\TNT\Ebay\Sell\Feed\V1\Model\ScheduleTemplateCollection';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -1469,7 +1469,7 @@ class ScheduleApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1658,7 +1658,7 @@ class ScheduleApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Feed\V1\Model\UserScheduleCollection' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1673,7 +1673,7 @@ class ScheduleApi
             $returnType = '\TNT\Ebay\Sell\Feed\V1\Model\UserScheduleCollection';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -1741,7 +1741,7 @@ class ScheduleApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

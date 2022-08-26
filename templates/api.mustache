@@ -248,7 +248,7 @@ use {{invokerPackage}}\ObjectSerializer;
             {{#dataType}}
                 {{^isWildcard}}case {{code}}:{{/isWildcard}}{{#isWildcard}}default:{{/isWildcard}}
                     if ('{{{dataType}}}' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -267,7 +267,7 @@ use {{invokerPackage}}\ObjectSerializer;
             $returnType = '{{{returnType}}}';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -392,7 +392,7 @@ use {{invokerPackage}}\ObjectSerializer;
                 function ($response) use ($returnType) {
                     {{#returnType}}
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

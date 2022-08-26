@@ -198,7 +198,7 @@ class UserApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Commerce\Identity\V1\Model\UserResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -213,7 +213,7 @@ class UserApi
             $returnType = '\TNT\Ebay\Commerce\Identity\V1\Model\UserResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -273,7 +273,7 @@ class UserApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

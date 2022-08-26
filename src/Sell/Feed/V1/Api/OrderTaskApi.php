@@ -408,7 +408,7 @@ class OrderTaskApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Feed\V1\Model\OrderTask' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -423,7 +423,7 @@ class OrderTaskApi
             $returnType = '\TNT\Ebay\Sell\Feed\V1\Model\OrderTask';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -487,7 +487,7 @@ class OrderTaskApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -664,7 +664,7 @@ class OrderTaskApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Feed\V1\Model\OrderTaskCollection' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -679,7 +679,7 @@ class OrderTaskApi
             $returnType = '\TNT\Ebay\Sell\Feed\V1\Model\OrderTaskCollection';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -753,7 +753,7 @@ class OrderTaskApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

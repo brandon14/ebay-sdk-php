@@ -454,7 +454,7 @@ class PaymentDisputeApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Fulfillment\V1\Model\AddEvidencePaymentDisputeResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -469,7 +469,7 @@ class PaymentDisputeApi
             $returnType = '\TNT\Ebay\Sell\Fulfillment\V1\Model\AddEvidencePaymentDisputeResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -545,7 +545,7 @@ class PaymentDisputeApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -983,7 +983,7 @@ class PaymentDisputeApi
             switch ($statusCode) {
                 case 200:
                     if ('string[]' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -998,7 +998,7 @@ class PaymentDisputeApi
             $returnType = 'string[]';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -1076,7 +1076,7 @@ class PaymentDisputeApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1290,7 +1290,7 @@ class PaymentDisputeApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Fulfillment\V1\Model\PaymentDisputeActivityHistory' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1305,7 +1305,7 @@ class PaymentDisputeApi
             $returnType = '\TNT\Ebay\Sell\Fulfillment\V1\Model\PaymentDisputeActivityHistory';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -1379,7 +1379,7 @@ class PaymentDisputeApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1566,7 +1566,7 @@ class PaymentDisputeApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Fulfillment\V1\Model\PaymentDispute' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1581,7 +1581,7 @@ class PaymentDisputeApi
             $returnType = '\TNT\Ebay\Sell\Fulfillment\V1\Model\PaymentDispute';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -1655,7 +1655,7 @@ class PaymentDisputeApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1854,7 +1854,7 @@ class PaymentDisputeApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Fulfillment\V1\Model\DisputeSummaryResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -1869,7 +1869,7 @@ class PaymentDisputeApi
             $returnType = '\TNT\Ebay\Sell\Fulfillment\V1\Model\DisputeSummaryResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -1955,7 +1955,7 @@ class PaymentDisputeApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -2431,7 +2431,7 @@ class PaymentDisputeApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Fulfillment\V1\Model\FileEvidence' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -2446,7 +2446,7 @@ class PaymentDisputeApi
             $returnType = '\TNT\Ebay\Sell\Fulfillment\V1\Model\FileEvidence';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -2520,7 +2520,7 @@ class PaymentDisputeApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

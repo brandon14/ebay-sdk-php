@@ -202,7 +202,7 @@ class ShipmentApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Logistics\V1\Model\Shipment' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -217,7 +217,7 @@ class ShipmentApi
             $returnType = '\TNT\Ebay\Sell\Logistics\V1\Model\Shipment';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -281,7 +281,7 @@ class ShipmentApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -448,7 +448,7 @@ class ShipmentApi
             switch ($statusCode) {
                 case 201:
                     if ('\TNT\Ebay\Sell\Logistics\V1\Model\Shipment' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -463,7 +463,7 @@ class ShipmentApi
             $returnType = '\TNT\Ebay\Sell\Logistics\V1\Model\Shipment';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -527,7 +527,7 @@ class ShipmentApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -691,7 +691,7 @@ class ShipmentApi
             switch ($statusCode) {
                 case 200:
                     if ('string[]' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -706,7 +706,7 @@ class ShipmentApi
             $returnType = 'string[]';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -770,7 +770,7 @@ class ShipmentApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -937,7 +937,7 @@ class ShipmentApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Logistics\V1\Model\Shipment' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -952,7 +952,7 @@ class ShipmentApi
             $returnType = '\TNT\Ebay\Sell\Logistics\V1\Model\Shipment';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -1016,7 +1016,7 @@ class ShipmentApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

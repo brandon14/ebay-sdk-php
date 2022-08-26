@@ -198,7 +198,7 @@ class AccessApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Buy\Feed\V1\Model\ApplicationAccess' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -213,7 +213,7 @@ class AccessApi
             $returnType = '\TNT\Ebay\Buy\Feed\V1\Model\ApplicationAccess';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -273,7 +273,7 @@ class AccessApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

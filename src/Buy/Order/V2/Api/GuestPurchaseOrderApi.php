@@ -208,7 +208,7 @@ class GuestPurchaseOrderApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Buy\Order\V2\Model\GuestPurchaseOrderV2' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -223,7 +223,7 @@ class GuestPurchaseOrderApi
             $returnType = '\TNT\Ebay\Buy\Order\V2\Model\GuestPurchaseOrderV2';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -293,7 +293,7 @@ class GuestPurchaseOrderApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

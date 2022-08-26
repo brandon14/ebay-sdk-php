@@ -202,7 +202,7 @@ class PublicKeyApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Commerce\Notification\V1\Model\PublicKey' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -217,7 +217,7 @@ class PublicKeyApi
             $returnType = '\TNT\Ebay\Commerce\Notification\V1\Model\PublicKey';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -281,7 +281,7 @@ class PublicKeyApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

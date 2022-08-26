@@ -41,10 +41,10 @@ environments.
 | ext-json      | *       |
 | ext-mbstring  | *       |
 
-| Composer Packages                                                     | Version                  |
-|-----------------------------------------------------------------------|--------------------------|
-| [guzzlehttp/guzzle](https://packagist.org/packages/guzzlehttp/guzzle) | ^6.2.1 &#124;&#124; ^7.0 |
-| [guzzlehttp/psr7](https://packagist.org/packages/guzzlehttp/psr7)     | ^2.0                     |
+| Composer Packages                                                     | Version                    |
+|-----------------------------------------------------------------------|----------------------------|
+| [guzzlehttp/guzzle](https://packagist.org/packages/guzzlehttp/guzzle) | ^6.5.8 &#124;&#124; ^7.4.5 |
+| [guzzlehttp/psr7](https://packagist.org/packages/guzzlehttp/psr7)     | ^2.0                       |
 
 
 ## Purpose
@@ -79,7 +79,7 @@ composer require brandon14/ebay-buy-browse-v1
 
 We strive to meet the [PSR-12](https://www.php-fig.org/psr/psr-12/) coding style for PHP projects, and enforce our
 coding standard via the [php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) linting tool. Our ruleset can be
-found in the `.php-cs-fixer.base.php` file.
+found in the `.php-cs-fixer.dist.php` file.
 
 ## Coverage
 

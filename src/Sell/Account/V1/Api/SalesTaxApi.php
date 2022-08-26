@@ -651,7 +651,7 @@ class SalesTaxApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Account\V1\Model\SalesTax' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -666,7 +666,7 @@ class SalesTaxApi
             $returnType = '\TNT\Ebay\Sell\Account\V1\Model\SalesTax';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -732,7 +732,7 @@ class SalesTaxApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -912,7 +912,7 @@ class SalesTaxApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Account\V1\Model\SalesTaxes' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -927,7 +927,7 @@ class SalesTaxApi
             $returnType = '\TNT\Ebay\Sell\Account\V1\Model\SalesTaxes';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -991,7 +991,7 @@ class SalesTaxApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

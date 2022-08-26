@@ -198,7 +198,7 @@ class SellerStandardsProfileApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Analytics\V1\Model\FindSellerStandardsProfilesResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -213,7 +213,7 @@ class SellerStandardsProfileApi
             $returnType = '\TNT\Ebay\Sell\Analytics\V1\Model\FindSellerStandardsProfilesResponse';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -273,7 +273,7 @@ class SellerStandardsProfileApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -426,7 +426,7 @@ class SellerStandardsProfileApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Sell\Analytics\V1\Model\StandardsProfile' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -441,7 +441,7 @@ class SellerStandardsProfileApi
             $returnType = '\TNT\Ebay\Sell\Analytics\V1\Model\StandardsProfile';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -507,7 +507,7 @@ class SellerStandardsProfileApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }

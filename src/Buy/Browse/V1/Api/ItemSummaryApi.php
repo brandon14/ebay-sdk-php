@@ -226,7 +226,7 @@ class ItemSummaryApi
             switch ($statusCode) {
                 case 200:
                     if ('\TNT\Ebay\Buy\Browse\V1\Model\SearchPagedCollection' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
@@ -241,7 +241,7 @@ class ItemSummaryApi
             $returnType = '\TNT\Ebay\Buy\Browse\V1\Model\SearchPagedCollection';
 
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); // Stream goes to serializer.
             } else {
                 $content = (string) $response->getBody();
             }
@@ -329,7 +329,7 @@ class ItemSummaryApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); // Stream goes to serializer.
                     } else {
                         $content = (string) $response->getBody();
                     }
