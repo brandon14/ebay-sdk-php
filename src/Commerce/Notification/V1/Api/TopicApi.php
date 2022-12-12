@@ -327,7 +327,7 @@ class TopicApi
         // path params
         if ($topic_id !== null) {
             $resourcePath = str_replace(
-                '{'.'topic_id'.'}',
+                '{topic_id}',
                 ObjectSerializer::toPathValue($topic_id),
                 $resourcePath
             );

@@ -17,7 +17,7 @@ getCharityOrg($charity_org_id, $x_ebay_c_marketplace_id): \TNT\Ebay\Commerce\Cha
 
 
 
-This call is used to retrieve detailed information about supported charitable organizations. It allows users to retrieve the details for a specific charitable organization using its charity organization ID.<br /><br />The call returns the full details for the charitable organization that matches the specified ID.
+This call is used to retrieve detailed information about supported charitable organizations. It allows users to retrieve the details for a specific charitable organization using its charity organization ID.
 
 ### Example
 
@@ -79,7 +79,7 @@ getCharityOrgByLegacyId($x_ebay_c_marketplace_id, $legacy_charity_org_id): \TNT\
 
 
 
-This call allows users to retrieve the details for a specific charitable organization using its legacy charity ID, which has also been referred to as the charity number, external ID, and PayPal Giving Fund ID. The legacy charity ID is separate from eBay’s generic charity ID.
+<span class=\"tablenote\"><b>Note: </b>The <a href=\"https://developer.ebay.com/api-docs/commerce/charity/resources/charity_org/methods/getCharityOrgByLegacyId\">getCharityOrgByLegacyId</a> method requires a PayPal Giving Fund ID to retrieve an eBay charitable organizaiton, and eBay will no longer support these IDs beginning on January 16, 2023. The alternative to this method is the <a href=\"https://developer.ebay.com/api-docs/commerce/charity/resources/charity_org/methods/getCharityOrg\">getCharityOrg</a> method, and this method requires the eBay-generated ID for a charitable organization.</span><br /><br />This call allows users to retrieve the details for a specific charitable organization using its legacy charity ID, which has also been referred to as the charity number, external ID, and PayPal Giving Fund ID. The legacy charity ID is separate from eBay’s generic charity ID.<br /><br />The call returns the full details for the charitable organization that matches the specified ID.
 
 ### Example
 

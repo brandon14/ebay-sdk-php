@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Buy\MarketplaceInsightsBeta\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Buy\MarketplaceInsightsBeta\V1\ObjectSerializer;
 
 /**
  * ItemLocation Class Doc Comment.
  *
  * @category Class
+ *
  * @description The type that defines the fields for the locaton of an item, including postal code, county, state/province, street address, city, and country (2-digit ISO code).
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemLocation implements ModelInterface, ArrayAccess, \JsonSerializable
+class ItemLocation implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -105,7 +107,9 @@ class ItemLocation implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

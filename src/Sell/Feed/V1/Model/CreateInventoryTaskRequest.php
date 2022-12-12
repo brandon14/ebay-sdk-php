@@ -59,7 +59,6 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Feed\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Feed\V1\ObjectSerializer;
 
 /**
@@ -70,11 +69,13 @@ use TNT\Ebay\Sell\Feed\V1\ObjectSerializer;
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CreateInventoryTaskRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateInventoryTaskRequest implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -94,21 +95,21 @@ class CreateInventoryTaskRequest implements ModelInterface, ArrayAccess, \JsonSe
         'schema_version' => 'string',
         'feed_type' => 'string',
         'filter_criteria' => '\TNT\Ebay\Sell\Feed\V1\Model\InventoryFilterCriteria',
-        'inventory_file_template' => 'string',
     ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
         'schema_version' => null,
         'feed_type' => null,
         'filter_criteria' => null,
-        'inventory_file_template' => null,
     ];
 
     /**
@@ -141,7 +142,6 @@ class CreateInventoryTaskRequest implements ModelInterface, ArrayAccess, \JsonSe
         'schema_version' => 'schemaVersion',
         'feed_type' => 'feedType',
         'filter_criteria' => 'filterCriteria',
-        'inventory_file_template' => 'inventoryFileTemplate',
     ];
 
     /**
@@ -153,7 +153,6 @@ class CreateInventoryTaskRequest implements ModelInterface, ArrayAccess, \JsonSe
         'schema_version' => 'setSchemaVersion',
         'feed_type' => 'setFeedType',
         'filter_criteria' => 'setFilterCriteria',
-        'inventory_file_template' => 'setInventoryFileTemplate',
     ];
 
     /**
@@ -165,7 +164,6 @@ class CreateInventoryTaskRequest implements ModelInterface, ArrayAccess, \JsonSe
         'schema_version' => 'getSchemaVersion',
         'feed_type' => 'getFeedType',
         'filter_criteria' => 'getFilterCriteria',
-        'inventory_file_template' => 'getInventoryFileTemplate',
     ];
 
     /**
@@ -227,7 +225,6 @@ class CreateInventoryTaskRequest implements ModelInterface, ArrayAccess, \JsonSe
         $this->container['schema_version'] = $data['schema_version'] ?? null;
         $this->container['feed_type'] = $data['feed_type'] ?? null;
         $this->container['filter_criteria'] = $data['filter_criteria'] ?? null;
-        $this->container['inventory_file_template'] = $data['inventory_file_template'] ?? null;
     }
 
     /**
@@ -290,7 +287,7 @@ class CreateInventoryTaskRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets feed_type.
      *
-     * @param string|null $feed_type The feed type associated with the inventory task you are about to create. Use a <strong>feedType</strong> that is available for your API. Presently, only one feed type is available:<ul><li><code>LMS_ACTIVE_INVENTORY_REPORT</code></li></ul><br/><br/>See <a href=\"/api-docs/sell/static/feed/lms-feeds-quick-reference.html#merchant-data-reports-download-feed-types\" target=\"_blank\">Report download feed types</a> for more information.
+     * @param string|null $feed_type The feed type associated with the inventory task you are about to create. Use a <strong>feedType</strong> that is available for your API. Presently, only one feed type is available:<ul><li><code>LMS_ACTIVE_INVENTORY_REPORT</code></li></ul><br/>See <a href=\"/api-docs/sell/static/feed/lms-feeds-quick-reference.html#merchant-data-reports-download-feed-types\" target=\"_blank\">Report download feed types</a> for more information.
      *
      * @return self
      */
@@ -321,30 +318,6 @@ class CreateInventoryTaskRequest implements ModelInterface, ArrayAccess, \JsonSe
     public function setFilterCriteria($filter_criteria)
     {
         $this->container['filter_criteria'] = $filter_criteria;
-
-        return $this;
-    }
-
-    /**
-     * Gets inventory_file_template.
-     *
-     * @return string|null
-     */
-    public function getInventoryFileTemplate()
-    {
-        return $this->container['inventory_file_template'];
-    }
-
-    /**
-     * Sets inventory_file_template.
-     *
-     * @param string|null $inventory_file_template The inventory file template used to return specific types of inventory tasks. Presently not applicable for <code>LMS_ACTIVE_INVENTORY_REPORT</code>. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:InventoryFileTemplateEnum'>eBay API documentation</a>
-     *
-     * @return self
-     */
-    public function setInventoryFileTemplate($inventory_file_template)
-    {
-        $this->container['inventory_file_template'] = $inventory_file_template;
 
         return $this;
     }

@@ -23,7 +23,10 @@ Model/DisputeAmount.php
 Model/DisputeEvidence.php
 Model/DisputeSummaryResponse.php
 Model/EbayCollectAndRemitTax.php
+Model/EbayCollectedCharges.php
 Model/EbayFulfillmentProgram.php
+Model/EbayInternationalShipping.php
+Model/EbayShipping.php
 Model/EbayTaxReference.php
 Model/EbayVaultProgram.php
 Model/Error.php
@@ -98,7 +101,10 @@ docs/Model/DisputeAmount.md
 docs/Model/DisputeEvidence.md
 docs/Model/DisputeSummaryResponse.md
 docs/Model/EbayCollectAndRemitTax.md
+docs/Model/EbayCollectedCharges.md
 docs/Model/EbayFulfillmentProgram.md
+docs/Model/EbayInternationalShipping.md
+docs/Model/EbayShipping.md
 docs/Model/EbayTaxReference.md
 docs/Model/EbayVaultProgram.md
 docs/Model/Error.md

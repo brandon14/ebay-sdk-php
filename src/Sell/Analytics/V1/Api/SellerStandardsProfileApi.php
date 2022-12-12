@@ -558,7 +558,7 @@ class SellerStandardsProfileApi
         // path params
         if ($cycle !== null) {
             $resourcePath = str_replace(
-                '{'.'cycle'.'}',
+                '{cycle}',
                 ObjectSerializer::toPathValue($cycle),
                 $resourcePath
             );
@@ -566,7 +566,7 @@ class SellerStandardsProfileApi
         // path params
         if ($program !== null) {
             $resourcePath = str_replace(
-                '{'.'program'.'}',
+                '{program}',
                 ObjectSerializer::toPathValue($program),
                 $resourcePath
             );

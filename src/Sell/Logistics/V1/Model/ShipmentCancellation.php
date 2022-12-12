@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Logistics\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Logistics\V1\ObjectSerializer;
 
 /**
  * ShipmentCancellation Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type defines a shipment cancellation by the date and time the cancellation request was made and the current status of the request.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ShipmentCancellation implements ModelInterface, ArrayAccess, \JsonSerializable
+class ShipmentCancellation implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -100,7 +102,9 @@ class ShipmentCancellation implements ModelInterface, ArrayAccess, \JsonSerializ
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

@@ -9,7 +9,6 @@ Configuration.php
 HeaderSelector.php
 Model/Error.php
 Model/ErrorParameter.php
-Model/InlineResponse500.php
 Model/ModelInterface.php
 Model/Rate.php
 Model/RateLimit.php
@@ -22,7 +21,6 @@ docs/Api/RateLimitApi.md
 docs/Api/UserRateLimitApi.md
 docs/Model/Error.md
 docs/Model/ErrorParameter.md
-docs/Model/InlineResponse500.md
 docs/Model/Rate.md
 docs/Model/RateLimit.md
 docs/Model/RateLimitsResponse.md

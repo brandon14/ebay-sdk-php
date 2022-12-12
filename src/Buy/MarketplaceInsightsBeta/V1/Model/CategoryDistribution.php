@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Buy\MarketplaceInsightsBeta\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Buy\MarketplaceInsightsBeta\V1\ObjectSerializer;
 
 /**
  * CategoryDistribution Class Doc Comment.
  *
  * @category Class
+ *
  * @description The container that defines the fields for the category refinements. This container is returned when &lt;b&gt; fieldgroups&lt;/b&gt; is set to &lt;code&gt;CATEGORY_REFINEMENTS&lt;/code&gt; or &lt;code&gt;FULL&lt;/code&gt; in the request.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CategoryDistribution implements ModelInterface, ArrayAccess, \JsonSerializable
+class CategoryDistribution implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -102,7 +104,9 @@ class CategoryDistribution implements ModelInterface, ArrayAccess, \JsonSerializ
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

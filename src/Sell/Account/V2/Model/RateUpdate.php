@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Account\V2\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Account\V2\ObjectSerializer;
 
 /**
  * RateUpdate Class Doc Comment.
  *
  * @category Class
+ *
  * @description This container defines the updated shipping cost information for a rate object identified by &lt;b&gt;rateId&lt;/b&gt;.&lt;br/&gt;&lt;br/&gt;To view a list of all rate objects and corresponding &lt;b&gt;rateID&lt;/b&gt; values, issue &lt;b&gt;getRateTable&lt;/b&gt; for the rate table identified by &lt;b&gt;rateTableId&lt;/b&gt;.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class RateUpdate implements ModelInterface, ArrayAccess, \JsonSerializable
+class RateUpdate implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -101,7 +103,9 @@ class RateUpdate implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

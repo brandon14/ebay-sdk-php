@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Commerce\MediaBeta\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Commerce\MediaBeta\V1\ObjectSerializer;
 
 /**
  * Video Class Doc Comment.
  *
  * @category Class
+ *
  * @description A response field that retrieves all the metadata for the video, including its &lt;b&gt;title&lt;/b&gt;, &lt;b&gt;classification&lt;/b&gt;, &lt;b&gt;size&lt;/b&gt;, &lt;b&gt;description&lt;/b&gt;, &lt;b&gt;status&lt;/b&gt;, &lt;b&gt;status message&lt;/b&gt; (if any), and &lt;b&gt;expiration date&lt;/b&gt;.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Video implements ModelInterface, ArrayAccess, \JsonSerializable
+class Video implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -109,7 +111,9 @@ class Video implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

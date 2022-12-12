@@ -52,6 +52,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: api_auth
 $config = TNT\Ebay\Sell\Account\V1\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+// Configure OAuth2 access token for authorization: api_auth
+$config = TNT\Ebay\Sell\Account\V1\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new TNT\Ebay\Sell\Account\V1\Api\AdvertisingEligibilityApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -78,6 +81,7 @@ All URIs are relative to *https://api.ebay.com/sell/account/v1*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AdvertisingEligibilityApi* | [**getAdvertisingEligibility**](docs/Api/AdvertisingEligibilityApi.md#getadvertisingeligibility) | **GET** /advertising_eligibility | 
+*CountryApi* | [**getSalesTaxJurisdictions**](docs/Api/CountryApi.md#getsalestaxjurisdictions) | **GET** /country/{countryCode}/sales_tax_jurisdiction | 
 *CustomPolicyApi* | [**createCustomPolicy**](docs/Api/CustomPolicyApi.md#createcustompolicy) | **POST** /custom_policy/ | 
 *CustomPolicyApi* | [**getCustomPolicies**](docs/Api/CustomPolicyApi.md#getcustompolicies) | **GET** /custom_policy/ | 
 *CustomPolicyApi* | [**getCustomPolicy**](docs/Api/CustomPolicyApi.md#getcustompolicy) | **GET** /custom_policy/{custom_policy_id} | 
@@ -89,6 +93,13 @@ Class | Method | HTTP request | Description
 *FulfillmentPolicyApi* | [**getFulfillmentPolicyByName**](docs/Api/FulfillmentPolicyApi.md#getfulfillmentpolicybyname) | **GET** /fulfillment_policy/get_by_policy_name | 
 *FulfillmentPolicyApi* | [**updateFulfillmentPolicy**](docs/Api/FulfillmentPolicyApi.md#updatefulfillmentpolicy) | **PUT** /fulfillment_policy/{fulfillmentPolicyId} | 
 *KycApi* | [**getKYC**](docs/Api/KycApi.md#getkyc) | **GET** /kyc | 
+*LocationApi* | [**createInventoryLocation**](docs/Api/LocationApi.md#createinventorylocation) | **POST** /location/{merchantLocationKey} | 
+*LocationApi* | [**deleteInventoryLocation**](docs/Api/LocationApi.md#deleteinventorylocation) | **DELETE** /location/{merchantLocationKey} | 
+*LocationApi* | [**disableInventoryLocation**](docs/Api/LocationApi.md#disableinventorylocation) | **POST** /location/{merchantLocationKey}/disable | 
+*LocationApi* | [**enableInventoryLocation**](docs/Api/LocationApi.md#enableinventorylocation) | **POST** /location/{merchantLocationKey}/enable | 
+*LocationApi* | [**getInventoryLocation**](docs/Api/LocationApi.md#getinventorylocation) | **GET** /location/{merchantLocationKey} | 
+*LocationApi* | [**getInventoryLocations**](docs/Api/LocationApi.md#getinventorylocations) | **GET** /location | 
+*LocationApi* | [**updateInventoryLocation**](docs/Api/LocationApi.md#updateinventorylocation) | **POST** /location/{merchantLocationKey}/update_location_details | 
 *OnboardingApi* | [**getPaymentsProgramOnboarding**](docs/Api/OnboardingApi.md#getpaymentsprogramonboarding) | **GET** /payments_program/{marketplace_id}/{payments_program_type}/onboarding | 
 *PaymentPolicyApi* | [**createPaymentPolicy**](docs/Api/PaymentPolicyApi.md#createpaymentpolicy) | **POST** /payment_policy | 
 *PaymentPolicyApi* | [**deletePaymentPolicy**](docs/Api/PaymentPolicyApi.md#deletepaymentpolicy) | **DELETE** /payment_policy/{payment_policy_id} | 
@@ -112,9 +123,11 @@ Class | Method | HTTP request | Description
 *SalesTaxApi* | [**deleteSalesTax**](docs/Api/SalesTaxApi.md#deletesalestax) | **DELETE** /sales_tax/{countryCode}/{jurisdictionId} | 
 *SalesTaxApi* | [**getSalesTax**](docs/Api/SalesTaxApi.md#getsalestax) | **GET** /sales_tax/{countryCode}/{jurisdictionId} | 
 *SalesTaxApi* | [**getSalesTaxes**](docs/Api/SalesTaxApi.md#getsalestaxes) | **GET** /sales_tax | 
+*SubscriptionApi* | [**getSubscription**](docs/Api/SubscriptionApi.md#getsubscription) | **GET** /subscription | 
 
 ## Models
 
+- [Address](docs/Model/Address.md)
 - [Amount](docs/Model/Amount.md)
 - [CategoryType](docs/Model/CategoryType.md)
 - [CompactCustomPolicyResponse](docs/Model/CompactCustomPolicyResponse.md)
@@ -128,9 +141,18 @@ Class | Method | HTTP request | Description
 - [FulfillmentPolicy](docs/Model/FulfillmentPolicy.md)
 - [FulfillmentPolicyRequest](docs/Model/FulfillmentPolicyRequest.md)
 - [FulfillmentPolicyResponse](docs/Model/FulfillmentPolicyResponse.md)
+- [GeoCoordinates](docs/Model/GeoCoordinates.md)
 - [InternationalReturnOverrideType](docs/Model/InternationalReturnOverrideType.md)
+- [Interval](docs/Model/Interval.md)
+- [InventoryLocation](docs/Model/InventoryLocation.md)
+- [InventoryLocationFull](docs/Model/InventoryLocationFull.md)
+- [InventoryLocationResponse](docs/Model/InventoryLocationResponse.md)
 - [KycCheck](docs/Model/KycCheck.md)
 - [KycResponse](docs/Model/KycResponse.md)
+- [Location](docs/Model/Location.md)
+- [LocationDetails](docs/Model/LocationDetails.md)
+- [LocationResponse](docs/Model/LocationResponse.md)
+- [OperatingHours](docs/Model/OperatingHours.md)
 - [PaymentMethod](docs/Model/PaymentMethod.md)
 - [PaymentPolicy](docs/Model/PaymentPolicy.md)
 - [PaymentPolicyRequest](docs/Model/PaymentPolicyRequest.md)
@@ -150,6 +172,8 @@ Class | Method | HTTP request | Description
 - [ReturnPolicyResponse](docs/Model/ReturnPolicyResponse.md)
 - [SalesTax](docs/Model/SalesTax.md)
 - [SalesTaxBase](docs/Model/SalesTaxBase.md)
+- [SalesTaxJurisdiction](docs/Model/SalesTaxJurisdiction.md)
+- [SalesTaxJurisdictions](docs/Model/SalesTaxJurisdictions.md)
 - [SalesTaxes](docs/Model/SalesTaxes.md)
 - [SellerEligibilityMultiProgramResponse](docs/Model/SellerEligibilityMultiProgramResponse.md)
 - [SellerEligibilityResponse](docs/Model/SellerEligibilityResponse.md)
@@ -160,6 +184,9 @@ Class | Method | HTTP request | Description
 - [SetReturnPolicyResponse](docs/Model/SetReturnPolicyResponse.md)
 - [ShippingOption](docs/Model/ShippingOption.md)
 - [ShippingService](docs/Model/ShippingService.md)
+- [SpecialHours](docs/Model/SpecialHours.md)
+- [Subscription](docs/Model/Subscription.md)
+- [SubscriptionResponse](docs/Model/SubscriptionResponse.md)
 - [TimeDuration](docs/Model/TimeDuration.md)
 
 ## Authorization
@@ -167,10 +194,21 @@ Class | Method | HTTP request | Description
 ### api_auth
 
 - **Type**: `OAuth`
+- **Flow**: `application`
+- **Authorization URL**: ``
+- **Scopes**: 
+    - **https://api.ebay.com/oauth/api_scope**: View public data from eBay
+
+
+### api_auth
+
+- **Type**: `OAuth`
 - **Flow**: `accessCode`
 - **Authorization URL**: `https://auth.ebay.com/oauth2/authorize`
 - **Scopes**: 
+    - **https://api.ebay.com/oauth/api_scope/sell.inventory**: View and manage your inventory and offers
     - **https://api.ebay.com/oauth/api_scope/sell.account.readonly**: View your account settings
+    - **https://api.ebay.com/oauth/api_scope/sell.inventory.readonly**: View your inventory and offers
     - **https://api.ebay.com/oauth/api_scope/sell.account**: View and manage your account settings
 
 ## Tests
@@ -190,5 +228,5 @@ vendor/bin/phpunit
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `v1.8.0`
+- API version: `v1.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

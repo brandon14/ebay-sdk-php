@@ -341,7 +341,7 @@ class EventApi
         // path params
         if ($event_id !== null) {
             $resourcePath = str_replace(
-                '{'.'event_id'.'}',
+                '{event_id}',
                 ObjectSerializer::toPathValue($event_id),
                 $resourcePath
             );

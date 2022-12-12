@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Commerce\TranslationBeta\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Commerce\TranslationBeta\V1\ObjectSerializer;
 
 /**
  * TranslateRequest Class Doc Comment.
  *
  * @category Class
+ *
  * @description This is the base type of the translate method request payload.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class TranslateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class TranslateRequest implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -102,7 +104,9 @@ class TranslateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

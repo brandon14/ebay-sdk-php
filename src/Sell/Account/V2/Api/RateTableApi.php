@@ -327,7 +327,7 @@ class RateTableApi
         // path params
         if ($rate_table_id !== null) {
             $resourcePath = str_replace(
-                '{'.'rate_table_id'.'}',
+                '{rate_table_id}',
                 ObjectSerializer::toPathValue($rate_table_id),
                 $resourcePath
             );
@@ -531,7 +531,7 @@ class RateTableApi
         // path params
         if ($rate_table_id !== null) {
             $resourcePath = str_replace(
-                '{'.'rate_table_id'.'}',
+                '{rate_table_id}',
                 ObjectSerializer::toPathValue($rate_table_id),
                 $resourcePath
             );

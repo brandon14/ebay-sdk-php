@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Commerce\CatalogBeta\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Commerce\CatalogBeta\V1\ObjectSerializer;
 
 /**
  * Refinement Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type identifies a product category and the aspects associated with that category. Each aspect distribution container returns the distribution of values that have been used for the aspect.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Refinement implements ModelInterface, ArrayAccess, \JsonSerializable
+class Refinement implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -100,7 +102,9 @@ class Refinement implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
@@ -255,7 +259,7 @@ class Refinement implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets aspect_distributions.
      *
-     * @param \TNT\Ebay\Commerce\CatalogBeta\V1\Model\AspectDistribution[]|null $aspect_distributions contains information about one or more aspects that are associated with the category identified by dominantCategoryId
+     * @param \TNT\Ebay\Commerce\CatalogBeta\V1\Model\AspectDistribution[]|null $aspect_distributions contains information about one or more aspects that are associated with the category identified by <b>dominantCategoryId</b>
      *
      * @return self
      */

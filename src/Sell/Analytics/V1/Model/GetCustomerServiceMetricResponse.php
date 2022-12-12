@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Analytics\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Analytics\V1\ObjectSerializer;
 
 /**
  * GetCustomerServiceMetricResponse Class Doc Comment.
  *
  * @category Class
+ *
  * @description This complex data type defines the response data that is returned from a request to getCustomerServiceMetric. The dimensionMetrics object contains the details of the dimension being measured and the calculated customer service metric values. The evaluationCycle defines the period used to calculate the metric values. The marketplaceId is the eBay marketplace for which the metrics are being considered.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetCustomerServiceMetricResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetCustomerServiceMetricResponse implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -101,7 +103,9 @@ class GetCustomerServiceMetricResponse implements ModelInterface, ArrayAccess, \
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

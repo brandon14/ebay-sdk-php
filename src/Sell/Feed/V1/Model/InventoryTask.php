@@ -59,7 +59,6 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Feed\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Feed\V1\ObjectSerializer;
 
 /**
@@ -70,11 +69,13 @@ use TNT\Ebay\Sell\Feed\V1\ObjectSerializer;
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class InventoryTask implements ModelInterface, ArrayAccess, \JsonSerializable
+class InventoryTask implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -100,14 +101,15 @@ class InventoryTask implements ModelInterface, ArrayAccess, \JsonSerializable
         'detail_href' => 'string',
         'upload_summary' => '\TNT\Ebay\Sell\Feed\V1\Model\UploadSummary',
         'filter_criteria' => '\TNT\Ebay\Sell\Feed\V1\Model\InventoryFilterCriteria',
-        'inventory_file_template' => 'string',
     ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
@@ -120,7 +122,6 @@ class InventoryTask implements ModelInterface, ArrayAccess, \JsonSerializable
         'detail_href' => null,
         'upload_summary' => null,
         'filter_criteria' => null,
-        'inventory_file_template' => null,
     ];
 
     /**
@@ -159,7 +160,6 @@ class InventoryTask implements ModelInterface, ArrayAccess, \JsonSerializable
         'detail_href' => 'detailHref',
         'upload_summary' => 'uploadSummary',
         'filter_criteria' => 'filterCriteria',
-        'inventory_file_template' => 'inventoryFileTemplate',
     ];
 
     /**
@@ -177,7 +177,6 @@ class InventoryTask implements ModelInterface, ArrayAccess, \JsonSerializable
         'detail_href' => 'setDetailHref',
         'upload_summary' => 'setUploadSummary',
         'filter_criteria' => 'setFilterCriteria',
-        'inventory_file_template' => 'setInventoryFileTemplate',
     ];
 
     /**
@@ -195,7 +194,6 @@ class InventoryTask implements ModelInterface, ArrayAccess, \JsonSerializable
         'detail_href' => 'getDetailHref',
         'upload_summary' => 'getUploadSummary',
         'filter_criteria' => 'getFilterCriteria',
-        'inventory_file_template' => 'getInventoryFileTemplate',
     ];
 
     /**
@@ -263,7 +261,6 @@ class InventoryTask implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['detail_href'] = $data['detail_href'] ?? null;
         $this->container['upload_summary'] = $data['upload_summary'] ?? null;
         $this->container['filter_criteria'] = $data['filter_criteria'] ?? null;
-        $this->container['inventory_file_template'] = $data['inventory_file_template'] ?? null;
     }
 
     /**
@@ -501,30 +498,6 @@ class InventoryTask implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setFilterCriteria($filter_criteria)
     {
         $this->container['filter_criteria'] = $filter_criteria;
-
-        return $this;
-    }
-
-    /**
-     * Gets inventory_file_template.
-     *
-     * @return string|null
-     */
-    public function getInventoryFileTemplate()
-    {
-        return $this->container['inventory_file_template'];
-    }
-
-    /**
-     * Sets inventory_file_template.
-     *
-     * @param string|null $inventory_file_template The inventory file template used to return specific types of inventory tasks, if set in the <strong>createInventoryTask</strong> method. This field does not apply to <code>LMS_ACTIVE_INVENTORY_REPORT</code> feed types. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:InventoryFileTemplateEnum'>eBay API documentation</a>
-     *
-     * @return self
-     */
-    public function setInventoryFileTemplate($inventory_file_template)
-    {
-        $this->container['inventory_file_template'] = $inventory_file_template;
 
         return $this;
     }

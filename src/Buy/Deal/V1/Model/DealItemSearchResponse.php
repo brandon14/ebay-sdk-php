@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Buy\Deal\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Buy\Deal\V1\ObjectSerializer;
 
 /**
  * DealItemSearchResponse Class Doc Comment.
  *
  * @category Class
+ *
  * @description The result set for the deal item search.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DealItemSearchResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class DealItemSearchResponse implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -105,7 +107,9 @@ class DealItemSearchResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

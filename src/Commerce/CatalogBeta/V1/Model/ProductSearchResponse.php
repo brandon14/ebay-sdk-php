@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Commerce\CatalogBeta\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Commerce\CatalogBeta\V1\ObjectSerializer;
 
 /**
  * ProductSearchResponse Class Doc Comment.
  *
  * @category Class
- * @description This type contains the specifications for the collection of products that match the search or filter criteria of a search call. A maximum of 200 product summaries is returned (the result set), fewer if you include the limit query parameter in the request.
+ *
+ * @description This type contains the specifications for the collection of products that match the search or filter criteria of a &lt;b&gt;search&lt;/b&gt; call. A maximum of 200 product summaries is returned (the result set), fewer if you include the &lt;b&gt;limit&lt;/b&gt; query parameter in the request.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class ProductSearchResponse implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -106,7 +108,9 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
@@ -291,7 +295,7 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets href.
      *
-     * @param string|null $href this field is reserved for internal or future use
+     * @param string|null $href This field is reserved for internal or future use. <!-- The URI of the <b>search</b> method request that produced this result set. -->
      *
      * @return self
      */
@@ -315,7 +319,7 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets limit.
      *
-     * @param int|null $limit The number of product summaries returned in the response. This is the result set, a subset of the full collection of products that match the search or filter criteria of this call. If the limit query parameter was included in the request, this field will have the same value. Default: 50
+     * @param int|null $limit The number of product summaries returned in the response. This is the <i>result set</i>, a subset of the full collection of products that match the search or filter criteria of this call. If the <b>limit</b> query parameter was included in the request, this field will have the same value. <br /><br /> <b>Default:</b> <code>50</code>
      *
      * @return self
      */
@@ -339,7 +343,7 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets next.
      *
-     * @param string|null $next this field is reserved for internal or future use
+     * @param string|null $next This field is reserved for internal or future use. <!-- <i>Returned only if</i> there are more product records to retrieve from the current collection of matching products, this field contains the <b>search</b> call URI for the next result set. For example, the following URI returns records 41 thru 50 from the collection of matched products: <br /><br /> <code><i>path</i>/product_summary/search?limit=10&offset=40</code> <br /><br />  <span class=\"tablenote\"><strong>Note:</strong> This feature employs a zero-based list, where the first product in the list has an offset of <code>0</code>.</span> -->
      *
      * @return self
      */
@@ -363,7 +367,7 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets offset.
      *
-     * @param int|null $offset this field is reserved for internal or future use
+     * @param int|null $offset This field is reserved for internal or future use. <!-- The distance (number of records) from the first product in the collection to the first product in this result set. If the <b>offset</b> query parameter was included in the request, this field will have the same value. The <b>offset</b> value is used in conjunction with the <b>limit</b> value to control the pagination of the output. For example, if <b>offset</b> is set to <code>30</code> and <b>limit</b> is set to <code>10</code>, the call retrieves products 31 thru 40 from the resulting collection of products. <br /><br />  <span class=\"tablenote\"><strong>Note:</strong> This feature employs a zero-based list, where the first item in the list has an offset of <code>0</code>.</span> <br /><br /> <b>Default:</b> <code>0</code> (zero) -->
      *
      * @return self
      */
@@ -387,7 +391,7 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets prev.
      *
-     * @param string|null $prev this field is reserved for internal or future use
+     * @param string|null $prev This field is reserved for internal or future use.  !-- <i>Not returned if</i> the currently returned result set is the first set of product records from the current collection of matching products. This field contains the <b>search</b> call URI for the previous result set. For example, the following URI returns products 21 thru 30 from the collection of products: <br /><br /> <code><i>path</i>/product_summary/search?limit=10&offset=20</code> <br /><br />  <span class=\"tablenote\"><strong>Note:</strong> This feature employs a zero-based list, where the first product in the list has an offset of <code>0</code>.</span> >
      *
      * @return self
      */
@@ -411,7 +415,7 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets product_summaries.
      *
-     * @param \TNT\Ebay\Commerce\CatalogBeta\V1\Model\ProductSummary[]|null $product_summaries Returned if the fieldGroups query parameter was omitted from the request, or if it was included with a value of MATCHING_PRODUCTS or FULL. This container provides an array of product summaries in the current result set for products that match the combination of the q, category_ids, and aspect_filter parameters that were provided in the request. Each product summary includes information about the product's identifiers, product images, aspects, the product page URL, and the getProduct URL for retrieving the product details.
+     * @param \TNT\Ebay\Commerce\CatalogBeta\V1\Model\ProductSummary[]|null $product_summaries <i>Returned if</i> the <b>fieldGroups</b> query parameter was omitted from the request, or if it was included with a value of <code>MATCHING_PRODUCTS</code> or <code>FULL</code>. This container provides an array of product summaries in the current result set for products that match the combination of the <b>q</b>, <b>category_ids</b>, and <b>aspect_filter</b> parameters that were provided in the request. Each product summary includes information about the product's identifiers, product images, aspects, the product page URL, and the <b>getProduct</b> URL for retrieving the product details.
      *
      * @return self
      */
@@ -459,7 +463,7 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets total.
      *
-     * @param int|null $total this field is reserved for internal or future use
+     * @param int|null $total This field is reserved for internal or future use. <!-- The total number of product records in the returned collection of matched products. >
      *
      * @return self
      */

@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Buy\MarketplaceInsightsBeta\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Buy\MarketplaceInsightsBeta\V1\ObjectSerializer;
 
 /**
  * Image Class Doc Comment.
  *
  * @category Class
+ *
  * @description Type the defines the details of an image, such as size and image URL. Currently only &lt;b&gt; imageUrl&lt;/b&gt; is  populated. The &lt;b&gt; height&lt;/b&gt; and &lt;b&gt; width&lt;/b&gt; were added for future use.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Image implements ModelInterface, ArrayAccess, \JsonSerializable
+class Image implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -101,7 +103,9 @@ class Image implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

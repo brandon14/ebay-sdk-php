@@ -523,7 +523,7 @@ class ScheduleApi
         // path params
         if ($schedule_id !== null) {
             $resourcePath = str_replace(
-                '{'.'schedule_id'.'}',
+                '{schedule_id}',
                 ObjectSerializer::toPathValue($schedule_id),
                 $resourcePath
             );
@@ -769,7 +769,7 @@ class ScheduleApi
         // path params
         if ($schedule_id !== null) {
             $resourcePath = str_replace(
-                '{'.'schedule_id'.'}',
+                '{schedule_id}',
                 ObjectSerializer::toPathValue($schedule_id),
                 $resourcePath
             );
@@ -1015,7 +1015,7 @@ class ScheduleApi
         // path params
         if ($schedule_id !== null) {
             $resourcePath = str_replace(
-                '{'.'schedule_id'.'}',
+                '{schedule_id}',
                 ObjectSerializer::toPathValue($schedule_id),
                 $resourcePath
             );
@@ -1261,7 +1261,7 @@ class ScheduleApi
         // path params
         if ($schedule_template_id !== null) {
             $resourcePath = str_replace(
-                '{'.'schedule_template_id'.'}',
+                '{schedule_template_id}',
                 ObjectSerializer::toPathValue($schedule_template_id),
                 $resourcePath
             );
@@ -2013,7 +2013,7 @@ class ScheduleApi
         // path params
         if ($schedule_id !== null) {
             $resourcePath = str_replace(
-                '{'.'schedule_id'.'}',
+                '{schedule_id}',
                 ObjectSerializer::toPathValue($schedule_id),
                 $resourcePath
             );

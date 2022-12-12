@@ -346,7 +346,7 @@ class GuestCheckoutSessionApi
         // path params
         if ($checkout_session_id !== null) {
             $resourcePath = str_replace(
-                '{'.'checkoutSessionId'.'}',
+                '{checkoutSessionId}',
                 ObjectSerializer::toPathValue($checkout_session_id),
                 $resourcePath
             );
@@ -612,7 +612,7 @@ class GuestCheckoutSessionApi
         // path params
         if ($checkout_session_id !== null) {
             $resourcePath = str_replace(
-                '{'.'checkoutSessionId'.'}',
+                '{checkoutSessionId}',
                 ObjectSerializer::toPathValue($checkout_session_id),
                 $resourcePath
             );
@@ -1139,7 +1139,7 @@ class GuestCheckoutSessionApi
         // path params
         if ($checkout_session_id !== null) {
             $resourcePath = str_replace(
-                '{'.'checkoutSessionId'.'}',
+                '{checkoutSessionId}',
                 ObjectSerializer::toPathValue($checkout_session_id),
                 $resourcePath
             );
@@ -1410,7 +1410,7 @@ class GuestCheckoutSessionApi
         // path params
         if ($checkout_session_id !== null) {
             $resourcePath = str_replace(
-                '{'.'checkoutSessionId'.'}',
+                '{checkoutSessionId}',
                 ObjectSerializer::toPathValue($checkout_session_id),
                 $resourcePath
             );
@@ -1681,7 +1681,7 @@ class GuestCheckoutSessionApi
         // path params
         if ($checkout_session_id !== null) {
             $resourcePath = str_replace(
-                '{'.'checkoutSessionId'.'}',
+                '{checkoutSessionId}',
                 ObjectSerializer::toPathValue($checkout_session_id),
                 $resourcePath
             );
@@ -1952,7 +1952,7 @@ class GuestCheckoutSessionApi
         // path params
         if ($checkout_session_id !== null) {
             $resourcePath = str_replace(
-                '{'.'checkoutSessionId'.'}',
+                '{checkoutSessionId}',
                 ObjectSerializer::toPathValue($checkout_session_id),
                 $resourcePath
             );

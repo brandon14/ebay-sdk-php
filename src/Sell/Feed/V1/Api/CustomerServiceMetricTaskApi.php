@@ -537,7 +537,7 @@ class CustomerServiceMetricTaskApi
         // path params
         if ($task_id !== null) {
             $resourcePath = str_replace(
-                '{'.'task_id'.'}',
+                '{task_id}',
                 ObjectSerializer::toPathValue($task_id),
                 $resourcePath
             );

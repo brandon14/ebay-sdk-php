@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Buy\MarketplaceInsightsBeta\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Buy\MarketplaceInsightsBeta\V1\ObjectSerializer;
 
 /**
  * ItemSales Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type defines the fields for the sold items sales history information.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemSales implements ModelInterface, ArrayAccess, \JsonSerializable
+class ItemSales implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -120,7 +122,9 @@ class ItemSales implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

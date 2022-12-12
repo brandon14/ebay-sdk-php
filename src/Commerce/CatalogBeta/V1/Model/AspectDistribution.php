@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Commerce\CatalogBeta\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Commerce\CatalogBeta\V1\ObjectSerializer;
 
 /**
  * AspectDistribution Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type contains information about one category aspect that is associated with a specified category.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AspectDistribution implements ModelInterface, ArrayAccess, \JsonSerializable
+class AspectDistribution implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -100,7 +102,9 @@ class AspectDistribution implements ModelInterface, ArrayAccess, \JsonSerializab
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
@@ -255,7 +259,7 @@ class AspectDistribution implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets aspect_value_distributions.
      *
-     * @param \TNT\Ebay\Commerce\CatalogBeta\V1\Model\AspectValueDistribution[]|null $aspect_value_distributions contains information about one or more values of the category aspect identified by localizedAspectName
+     * @param \TNT\Ebay\Commerce\CatalogBeta\V1\Model\AspectValueDistribution[]|null $aspect_value_distributions contains information about one or more values of the category aspect identified by <b>localizedAspectName</b>
      *
      * @return self
      */
@@ -279,7 +283,7 @@ class AspectDistribution implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets localized_aspect_name.
      *
-     * @param string|null $localized_aspect_name the localized name of an aspect that is associated with the category identified by dominantCategoryId
+     * @param string|null $localized_aspect_name the localized name of an aspect that is associated with the category identified by <b>dominantCategoryId</b>
      *
      * @return self
      */

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **amount** | [**\TNT\Ebay\Sell\Finances\V1\Model\Amount**](Amount.md) |  | [optional]
 **booking_entry** | **string** | The enumeration value returned in this field indicates if the monetary transaction amount is a (&lt;code&gt;CREDIT&lt;/code&gt;) or a (&lt;code&gt;DEBIT&lt;/code&gt;) to the seller&#39;s account. Typically, the &lt;code&gt;SALE&lt;/code&gt; and &lt;code&gt;CREDIT&lt;/code&gt; transaction types are credits to the seller&#39;s account, and the &lt;code&gt;REFUND&lt;/code&gt;, &lt;code&gt;DISPUTE&lt;/code&gt;, &lt;code&gt;SHIPPING_LABEL&lt;/code&gt;, and &lt;code&gt;TRANSFER&lt;/code&gt; transaction types are debits to the seller&#39;s account. For implementation help, refer to &lt;a href&#x3D;&#39;https://developer.ebay.com/api-docs/sell/finances/types/pay:BookingEntryEnum&#39;&gt;eBay API documentation&lt;/a&gt; | [optional]
 **buyer** | [**\TNT\Ebay\Sell\Finances\V1\Model\Buyer**](Buyer.md) |  | [optional]
+**e_bay_collected_tax_amount** | [**\TNT\Ebay\Sell\Finances\V1\Model\Amount**](Amount.md) |  | [optional]
 **fee_jurisdiction** | [**\TNT\Ebay\Sell\Finances\V1\Model\FeeJurisdiction**](FeeJurisdiction.md) |  | [optional]
 **fee_type** | **string** | The type of fee. For implementation help, refer to &lt;a href&#x3D;&#39;https://developer.ebay.com/api-docs/sell/finances/types/api:FeeTypeEnum&#39;&gt;eBay API documentation&lt;/a&gt; | [optional]
 **order_id** | **string** | The unique identifier of the eBay order associated with the monetary transaction. | [optional]
