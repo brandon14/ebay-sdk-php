@@ -1461,6 +1461,10 @@ paths:
                 domain: API_FEED
                 category: REQUEST
                 description: The file you tried to upload is too large. Please try using a smaller file. For more information, see the documentation for this API.
+              '160100':
+                domain: API_FEED
+                category: REQUEST
+                description: Payload not found. Make sure your file is uploaded inside the Request Body under the key name 'file'.
         '403':
           description: Forbidden
           x-response-codes:
@@ -1738,13 +1742,10 @@ components:
           description: The schemaVersion/version number of the file format (use the schema version of the API to which you are programming):<ul><li><a href="/api-docs/sell/static/lms-migration/lms-to-feed-version-details-schema-version.html" target="_blank">LMS Version Details / Schema Version</a></li><li><a href="/api-docs/sell/static/feed/fx-feeds-quick-reference.html#schema" target="_blank">Seller Hub feed schema version</a></li></ul>
         feedType:
           type: string
-          description: The feed type associated with the inventory task you are about to create. Use a <strong>feedType</strong> that is available for your API. Presently, only one feed type is available:<ul><li><code>LMS_ACTIVE_INVENTORY_REPORT</code></li></ul><br/><br/>See <a href="/api-docs/sell/static/feed/lms-feeds-quick-reference.html#merchant-data-reports-download-feed-types" target="_blank">Report download feed types</a> for more information.
+          description: The feed type associated with the inventory task you are about to create. Use a <strong>feedType</strong> that is available for your API. Presently, only one feed type is available:<ul><li><code>LMS_ACTIVE_INVENTORY_REPORT</code></li></ul><br/>See <a href="/api-docs/sell/static/feed/lms-feeds-quick-reference.html#merchant-data-reports-download-feed-types" target="_blank">Report download feed types</a> for more information.
         filterCriteria:
-          description: The container for the filter fields. This container is used to set the filter criteria for the ActiveInventoryReport. A seller can set date range filters and/or can retrieve listings in a specific state, date, or format.
+          description: The container for the filter fields. This container is used to set the filter criteria for the ActiveInventoryReport. A seller can retrieve listings for a specified format.
           $ref: '#/components/schemas/InventoryFilterCriteria'
-        inventoryFileTemplate:
-          type: string
-          description: The inventory file template used to return specific types of inventory tasks. Presently not applicable for <code>LMS_ACTIVE_INVENTORY_REPORT</code>. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:InventoryFileTemplateEnum'>eBay API documentation</a>
     CreateOrderTaskRequest:
       type: object
       properties:
@@ -1954,19 +1955,10 @@ components:
     InventoryFilterCriteria:
       type: object
       properties:
-        creationDateRange:
-          description: The creation date range of the listings you want returned. Set the date range so it contains less than 10 days (maximum). If you do not specify a <strong>creationDateRange</strong>, results from the last 10 days will be returned in <strong>ActiveInventoryReport</strong> by default.
-          $ref: '#/components/schemas/DateRange'
-        modifiedDateRange:
-          description: The modified date range of the listings you want returned.
-          $ref: '#/components/schemas/DateRange'
         listingFormat:
           type: string
-          description: The type of buying option for the order. Supports <code>LMS_ACTIVE_INVENTORY_REPORT</code>. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:ListingFormatEnum'>eBay API documentation</a>
-        listingStatus:
-          type: string
-          description: The status of the listing (whether the listing was unsold or is active). The <strong>UNSOLD</strong> value does not apply to <code>LMS_ACTIVE_INVENTORY_REPORT</code> feed types. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:ListingStatusEnum'>eBay API documentation</a>
-      description: The container for the filter fields. This container is used to set the filter criteria for the order report. A seller can set date range filters and/or can retrieve orders in a specific state.
+          description: The type of buying option for the order. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:ListingFormatEnum'>eBay API documentation</a>
+      description: The container for the filter fields. This container is used to set the filter criteria for the order report. A seller can retrieve listings for a specified format.
     InventoryTask:
       type: object
       properties:
@@ -1995,11 +1987,8 @@ components:
           description: This container provides summary information on an upload feed (not applicable for download feed types).
           $ref: '#/components/schemas/UploadSummary'
         filterCriteria:
-          description: This container is used to set the filter criteria for the ActiveInventoryReport. A seller can set date range filters and/or can retrieve listings in a specific state, date, or format.
+          description: This container is used to set the filter criteria for the ActiveInventoryReport. A seller can retrieve listings for a specified format.
           $ref: '#/components/schemas/InventoryFilterCriteria'
-        inventoryFileTemplate:
-          type: string
-          description: The inventory file template used to return specific types of inventory tasks, if set in the <strong>createInventoryTask</strong> method. This field does not apply to <code>LMS_ACTIVE_INVENTORY_REPORT</code> feed types. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:InventoryFileTemplateEnum'>eBay API documentation</a>
     InventoryTaskCollection:
       type: object
       properties:

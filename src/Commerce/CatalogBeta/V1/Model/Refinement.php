@@ -255,7 +255,7 @@ class Refinement implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets aspect_distributions.
      *
-     * @param \TNT\Ebay\Commerce\CatalogBeta\V1\Model\AspectDistribution[]|null $aspect_distributions contains information about one or more aspects that are associated with the category identified by dominantCategoryId
+     * @param \TNT\Ebay\Commerce\CatalogBeta\V1\Model\AspectDistribution[]|null $aspect_distributions contains information about one or more aspects that are associated with the category identified by <b>dominantCategoryId</b>
      *
      * @return self
      */

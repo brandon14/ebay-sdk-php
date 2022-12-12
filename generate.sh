@@ -35,7 +35,7 @@ BASE_PACKAGE_DIR="./src"
 BASE_INVOKER_PACKAGE="TNT\\Ebay"
 BASE_PACKAGE_NAME="ebay"
 GITHUB_NAME="brandon14"
-SDK_VERSION=0.2.1
+SDK_VERSION=0.2.2
 SDK_USER_AGENT="$GITHUB_NAME/ebay-sdk-php/$SDK_VERSION/php"
 
 # Set JOB_MAX default if not supplied.

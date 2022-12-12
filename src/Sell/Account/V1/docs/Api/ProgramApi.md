@@ -29,6 +29,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: api_auth
 $config = TNT\Ebay\Sell\Account\V1\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+// Configure OAuth2 access token for authorization: api_auth
+$config = TNT\Ebay\Sell\Account\V1\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new TNT\Ebay\Sell\Account\V1\Api\ProgramApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -55,7 +58,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[api_auth](../../README.md#api_auth)
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
 
 ### HTTP request headers
 
@@ -82,6 +85,9 @@ This method opts the seller in to an eBay seller program. Refer to the <a href=\
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure OAuth2 access token for authorization: api_auth
+$config = TNT\Ebay\Sell\Account\V1\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: api_auth
 $config = TNT\Ebay\Sell\Account\V1\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -115,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_auth](../../README.md#api_auth)
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
 
 ### HTTP request headers
 
@@ -142,6 +148,9 @@ This method opts the seller out of a seller program to which you have previously
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure OAuth2 access token for authorization: api_auth
+$config = TNT\Ebay\Sell\Account\V1\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: api_auth
 $config = TNT\Ebay\Sell\Account\V1\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -175,7 +184,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_auth](../../README.md#api_auth)
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
 
 ### HTTP request headers
 

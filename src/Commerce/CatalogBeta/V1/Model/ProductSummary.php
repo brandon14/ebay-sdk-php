@@ -66,7 +66,7 @@ use TNT\Ebay\Commerce\CatalogBeta\V1\ObjectSerializer;
  * ProductSummary Class Doc Comment.
  *
  * @category Class
- * @description This type contains a summary of a specified product. The product summary includes information about the product&#39;s identifiers, product images, aspects, and the getProduct URL for retrieving the product details.
+ * @description This type contains a summary of a specified product. The product summary includes information about the product&#39;s identifiers, product images, aspects, and the &lt;b&gt;getProduct&lt;/b&gt; URL for retrieving the product details.
  *
  * @author   OpenAPI Generator team
  *
@@ -321,7 +321,7 @@ class ProductSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets additional_images.
      *
-     * @param \TNT\Ebay\Commerce\CatalogBeta\V1\Model\Image[]|null $additional_images Contains information about additional images associated with this product. For the primary image, see the image container.
+     * @param \TNT\Ebay\Commerce\CatalogBeta\V1\Model\Image[]|null $additional_images Contains information about additional images associated with this product. For the primary image, see the <b>image</b> container.
      *
      * @return self
      */
@@ -441,7 +441,7 @@ class ProductSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets gtin.
      *
-     * @param string[]|null $gtin A list of all GTINs that identify this product. This includes all of the values returned in the ean, isbn, and upc fields.
+     * @param string[]|null $gtin A list of all GTINs that identify this product. This includes all of the values returned in the <b>ean</b>, <b>isbn</b>, and <b>upc</b> fields.
      *
      * @return self
      */
@@ -537,7 +537,7 @@ class ProductSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets product_href.
      *
-     * @param string|null $product_href the URI of the getProduct call request that retrieves this product's details
+     * @param string|null $product_href the URI of the <b>getProduct</b> call request that retrieves this product's details
      *
      * @return self
      */

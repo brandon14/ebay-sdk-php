@@ -255,7 +255,7 @@ class AspectDistribution implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets aspect_value_distributions.
      *
-     * @param \TNT\Ebay\Commerce\CatalogBeta\V1\Model\AspectValueDistribution[]|null $aspect_value_distributions contains information about one or more values of the category aspect identified by localizedAspectName
+     * @param \TNT\Ebay\Commerce\CatalogBeta\V1\Model\AspectValueDistribution[]|null $aspect_value_distributions contains information about one or more values of the category aspect identified by <b>localizedAspectName</b>
      *
      * @return self
      */
@@ -279,7 +279,7 @@ class AspectDistribution implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets localized_aspect_name.
      *
-     * @param string|null $localized_aspect_name the localized name of an aspect that is associated with the category identified by dominantCategoryId
+     * @param string|null $localized_aspect_name the localized name of an aspect that is associated with the category identified by <b>dominantCategoryId</b>
      *
      * @return self
      */

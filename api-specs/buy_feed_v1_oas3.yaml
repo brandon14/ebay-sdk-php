@@ -7,7 +7,7 @@ info:
   license:
     name: eBay API License Agreement
     url: https://go.developer.ebay.com/api-license-agreement
-  version: v1.0.1
+  version: v1.0.2
 servers:
   - url: https://api.ebay.com{basePath}
     description: Production
