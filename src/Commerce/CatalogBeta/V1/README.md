@@ -59,10 +59,11 @@ $apiInstance = new TNT\Ebay\Commerce\CatalogBeta\V1\Api\ProductApi(
     new GuzzleHttp\Client(),
     $config
 );
-$epid = 'epid_example'; // string | The ePID of the product being requested. This value can be discovered by issuing the search call and examining the value of the productSummaries.epid field for the desired returned product summary.
+$epid = 'epid_example'; // string | The ePID of the product being requested. This value can be discovered by issuing the <b>search</b> method and examining the value of the <b>productSummaries.epid</b> field for the desired returned product summary.
+$x_ebay_c_marketplace_id = 'x_ebay_c_marketplace_id_example'; // string | This method also uses the <code>X-EBAY-C-MARKETPLACE-ID</code> header to identify the seller's eBay marketplace. It is required for all marketplaces except EBAY_US, which is the default. <b>Note:</b> This method is limited to <code>EBAY_US</code>, <code>EBAY_AU</code>, <code>EBAY_CA</code>, and <code>EBAY_GB</code> values.
 
 try {
-    $result = $apiInstance->getProduct($epid);
+    $result = $apiInstance->getProduct($epid, $x_ebay_c_marketplace_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProductApi->getProduct: ', $e->getMessage(), PHP_EOL;

@@ -32,6 +32,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: api_auth
 $config = TNT\Ebay\Sell\Account\V1\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+// Configure OAuth2 access token for authorization: api_auth
+$config = TNT\Ebay\Sell\Account\V1\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new TNT\Ebay\Sell\Account\V1\Api\FulfillmentPolicyApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -61,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_auth](../../README.md#api_auth)
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
 
 ### HTTP request headers
 
@@ -88,6 +91,9 @@ This method deletes a fulfillment policy. Supply the ID of the policy you want t
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure OAuth2 access token for authorization: api_auth
+$config = TNT\Ebay\Sell\Account\V1\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: api_auth
 $config = TNT\Ebay\Sell\Account\V1\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -120,7 +126,7 @@ void (empty response body)
 
 ### Authorization
 
-[api_auth](../../README.md#api_auth)
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
 
 ### HTTP request headers
 
@@ -147,6 +153,9 @@ This method retrieves all the fulfillment policies configured for the marketplac
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure OAuth2 access token for authorization: api_auth
+$config = TNT\Ebay\Sell\Account\V1\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: api_auth
 $config = TNT\Ebay\Sell\Account\V1\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -180,7 +189,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_auth](../../README.md#api_auth)
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
 
 ### HTTP request headers
 
@@ -207,6 +216,9 @@ This method retrieves the complete details of a fulfillment policy. Supply the I
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure OAuth2 access token for authorization: api_auth
+$config = TNT\Ebay\Sell\Account\V1\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: api_auth
 $config = TNT\Ebay\Sell\Account\V1\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -240,7 +252,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_auth](../../README.md#api_auth)
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
 
 ### HTTP request headers
 
@@ -267,6 +279,9 @@ This method retrieves the details for a specific fulfillment policy. In the requ
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure OAuth2 access token for authorization: api_auth
+$config = TNT\Ebay\Sell\Account\V1\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: api_auth
 $config = TNT\Ebay\Sell\Account\V1\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -302,7 +317,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_auth](../../README.md#api_auth)
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
 
 ### HTTP request headers
 
@@ -329,6 +344,9 @@ This method updates an existing fulfillment policy. Specify the policy you want 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure OAuth2 access token for authorization: api_auth
+$config = TNT\Ebay\Sell\Account\V1\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: api_auth
 $config = TNT\Ebay\Sell\Account\V1\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -364,7 +382,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_auth](../../README.md#api_auth)
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
 
 ### HTTP request headers
 

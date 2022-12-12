@@ -7,7 +7,7 @@ info:
   license:
     name: eBay API License Agreement
     url: https://go.developer.ebay.com/api-license-agreement
-  version: v1.16.0
+  version: v1.18.0
 servers:
   - url: https://api.ebay.com{basePath}
     description: Production
@@ -24,7 +24,7 @@ paths:
       parameters:
         - name: aspect_filter
           in: query
-          description: 'This field lets you filter by item aspects. The aspect name/value pairs and category, which is required, is used to limit the results to specific aspects of the item. For example, in a clothing category one aspect pair would be Color/Red. <br /><br />For example, the method below uses the category ID for Women''s Clothing. This will return only items for a woman''s red shirt.<br /><br /><code>/buy/browse/v1/item_summary/search?q=shirt&category_ids=15724&aspect_filter=categoryId:15724,Color:{Red}</code> <br /><br />To get a list of the aspects pairs and the category, which is returned in the <b> dominantCategoryId</b> field, set <b> fieldgroups</b> to <code>ASPECT_REFINEMENTS</code>.   <br /><br /> <code>/buy/browse/v1/item_summary/search?q=shirt&amp;fieldgroups=ASPECT_REFINEMENTS</code> <br /><br /><b>Required: </b> The category ID is required <i>twice</i>; once as a URI parameter and as part of the <b> aspect_filter</b>. For implementation help, refer to eBay API documentation at https://developer.ebay.com/api-docs/buy/browse/types/gct:AspectFilter'
+          description: This field lets you filter by item aspects. The aspect name/value pairs and category, which is required, is used to limit the results to specific aspects of the item. For example, in a clothing category one aspect pair would be Color/Red. <br /><br />For example, the method below uses the category ID for Women's Clothing. This will return only items for a woman's red shirt.<br /><br /><code>/buy/browse/v1/item_summary/search?q=shirt&category_ids=15724&aspect_filter=categoryId:15724,Color:{Red}</code> <br /><br />To get a list of the aspect pairs and the category, which is returned in the <b>dominantCategoryId</b> field, set <b>fieldgroups</b> to <code>ASPECT_REFINEMENTS</code>.   <br /><br /> <code>/buy/browse/v1/item_summary/search?q=shirt&amp;fieldgroups=ASPECT_REFINEMENTS</code> <br /><br /><span class="tablenote"><b> Note:</b> The pipe symbol is used as a delimiter between aspect filter values. If a value contains a pipe symbol (for example, the brand name 'Bed|Stü'), you must enter a backslash before the pipe character to prevent it from being evaluated as a delimiter. <br /><br />The following example shows the correct format for entering two brand names as aspect filter values, one of which contains a pipe symbol:<br /><br /><code>/buy/browse/v1/item_summary/search?limit=50&category_ids=3034&filter=buyingOptions:{AUCTION|FIXED_PRICE}&aspect_filter=categoryId:3034,Brand:{Bed&bsol;|Stü|Nike}</code></span><br /><br /><b>Required:</b> The category ID is required <i>twice</i>; once as a URI parameter and as part of the <b> aspect_filter</b>. For implementation help, refer to eBay API documentation at https://developer.ebay.com/api-docs/buy/browse/types/gct:AspectFilter
           required: false
           schema:
             type: string
@@ -1606,8 +1606,11 @@ components:
       properties:
         categoryId:
           type: string
-          description: The unique identifier of the primary item category of the item, as well as the secondary item category if item was listed in two categories.
-      description: This type is used by the <b> categories</b>  container in the response of the <b> search</b>  method, and contains the primary item category ID of the item, as well as the secondary item category if the item was listed in two categories.
+          description: The unique identifier of the category.
+        categoryName:
+          type: string
+          description: The name of the category.
+      description: This type is used by the <b>categories</b> container in the response of the <b>search</b>  method, and contains the name and ID of the item category.
     CategoryDistribution:
       type: object
       properties:
@@ -2411,7 +2414,7 @@ components:
             type: string
         categories:
           type: array
-          description: 'This container returns the primary category ID of the item (as well as the secondary category if the item was listed in two categories). '
+          description: This array returns the name and ID of each category associated with the item, including top level, branch, and leaf categories.
           items:
             $ref: '#/components/schemas/Category'
         compatibilityMatch:
@@ -2470,6 +2473,11 @@ components:
         itemWebUrl:
           type: string
           description: The URL to the View Item page of the item.  This enables you to include a "Report Item on eBay" hyperlink that takes the buyer to the View Item page on eBay. From there they can report any issues regarding this item to eBay.
+        leafCategoryIds:
+          type: array
+          description: The leaf category IDs of the item. When the item belongs to two leaf categories, the ID values are returned in the order primary, secondary.
+          items:
+            type: string
         legacyItemId:
           type: string
           description: The unique identifier of the eBay listing that contains the item. This is the traditional/legacy ID that is often seen in the URL of the listing View Item page.
@@ -2983,7 +2991,7 @@ components:
           description: The deadline date that the item must be purchased by in order to be received by the buyer within the delivery window (<b> maxEstimatedDeliveryDate</b> and  <b> minEstimatedDeliveryDate</b> fields). This field is returned only for items that are eligible for 'Same Day Handling'. For these items, the value of this field is what is displayed in the <b> Delivery</b> line on the View Item page.  <br /><br />This value is returned in UTC format (yyyy-MM-ddThh:mm:ss.sssZ), which you can convert into the local time of the buyer.
         fulfilledThrough:
           type: string
-          description: If the item is being shipped by eBay's <a href="https://pages.ebay.com/seller-center/shipping/global-shipping-program.html ">Global Shipping Program</a>, this field returns <code>GLOBAL_SHIPPING</code>. Otherwise this field is null. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/buy/browse/types/gct:FulfilledThroughEnum'>eBay API documentation</a>
+          description: If the item is being shipped by the eBay <a href="https://pages.ebay.com/seller-center/shipping/global-shipping-program.html ">Global Shipping program</a>, this field returns <code>GLOBAL_SHIPPING</code>.<br /><br />If the item is being shipped using the eBay International Shipping program, this field returns <code>INTERNATIONAL_SHIPPING</code>. <br /><br />Otherwise, this field is null. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/buy/browse/types/gct:FulfilledThroughEnum'>eBay API documentation</a>
         guaranteedDelivery:
           type: boolean
           description: Indicates if the seller has committed to shipping the item with eBay Guaranteed Delivery. With eBay Guaranteed Delivery, the  seller is committed to getting the line item to the buyer within 4 business days or less. See the <a href="https://www.ebay.com/help/buying/shipping-delivery/buying-items-ebay-guaranteed-delivery?id=4641 ">Buying items with eBay Guaranteed Delivery</a> help topic for more details about eBay Guaranteed Delivery.

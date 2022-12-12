@@ -339,7 +339,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets additional_images.
      *
-     * @param \TNT\Ebay\Commerce\CatalogBeta\V1\Model\Image[]|null $additional_images Contains information about additional images associated with this product. For the primary image, see the image container.
+     * @param \TNT\Ebay\Commerce\CatalogBeta\V1\Model\Image[]|null $additional_images Contains information about  additional images associated with this product. For the primary image, see the <b>image</b> container.
      *
      * @return self
      */
@@ -579,7 +579,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets other_applicable_category_ids.
      *
-     * @param string[]|null $other_applicable_category_ids a list of category IDs (other than the value of primaryCategoryId) for all the leaf categories to which this product might belong
+     * @param string[]|null $other_applicable_category_ids a list of category IDs (other than the value of <b>primaryCategoryId</b>) for all the leaf categories to which this product might belong
      *
      * @return self
      */
@@ -603,7 +603,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets primary_category_id.
      *
-     * @param string|null $primary_category_id The identifier of the leaf category that eBay recommends using to list this product, based on previous listings of similar products. Products in the eBay catalog are not automatically associated with any particular category, but using an inappropriate category can make it difficult for prospective buyers to find the product. For other possible categories that might be used, see otherApplicableCategoryIds.
+     * @param string|null $primary_category_id The identifier of the leaf category that eBay recommends using to list this product, based on previous listings of similar products. Products in the eBay catalog are not automatically associated with any particular category, but using an inappropriate category can make it difficult for prospective buyers to find the product. For other possible categories that might be used, see <b>otherApplicableCategoryIds</b>.
      *
      * @return self
      */

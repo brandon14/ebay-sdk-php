@@ -122,7 +122,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = 'brandon14/ebay-sdk-php/0.2.1/php';
+    protected $userAgent = 'brandon14/ebay-sdk-php/0.2.2/php';
 
     /**
      * Debug switch (default set to false).

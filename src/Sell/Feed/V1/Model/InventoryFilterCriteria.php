@@ -66,7 +66,7 @@ use TNT\Ebay\Sell\Feed\V1\ObjectSerializer;
  * InventoryFilterCriteria Class Doc Comment.
  *
  * @category Class
- * @description The container for the filter fields. This container is used to set the filter criteria for the order report. A seller can set date range filters and/or can retrieve orders in a specific state.
+ * @description The container for the filter fields. This container is used to set the filter criteria for the order report. A seller can retrieve listings for a specified format.
  *
  * @author   OpenAPI Generator team
  *
@@ -92,10 +92,7 @@ class InventoryFilterCriteria implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $openAPITypes = [
-        'creation_date_range' => '\TNT\Ebay\Sell\Feed\V1\Model\DateRange',
-        'modified_date_range' => '\TNT\Ebay\Sell\Feed\V1\Model\DateRange',
         'listing_format' => 'string',
-        'listing_status' => 'string',
     ];
 
     /**
@@ -106,10 +103,7 @@ class InventoryFilterCriteria implements ModelInterface, ArrayAccess, \JsonSeria
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'creation_date_range' => null,
-        'modified_date_range' => null,
         'listing_format' => null,
-        'listing_status' => null,
     ];
 
     /**
@@ -139,10 +133,7 @@ class InventoryFilterCriteria implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'creation_date_range' => 'creationDateRange',
-        'modified_date_range' => 'modifiedDateRange',
         'listing_format' => 'listingFormat',
-        'listing_status' => 'listingStatus',
     ];
 
     /**
@@ -151,10 +142,7 @@ class InventoryFilterCriteria implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'creation_date_range' => 'setCreationDateRange',
-        'modified_date_range' => 'setModifiedDateRange',
         'listing_format' => 'setListingFormat',
-        'listing_status' => 'setListingStatus',
     ];
 
     /**
@@ -163,10 +151,7 @@ class InventoryFilterCriteria implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'creation_date_range' => 'getCreationDateRange',
-        'modified_date_range' => 'getModifiedDateRange',
         'listing_format' => 'getListingFormat',
-        'listing_status' => 'getListingStatus',
     ];
 
     /**
@@ -225,10 +210,7 @@ class InventoryFilterCriteria implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->container['creation_date_range'] = $data['creation_date_range'] ?? null;
-        $this->container['modified_date_range'] = $data['modified_date_range'] ?? null;
         $this->container['listing_format'] = $data['listing_format'] ?? null;
-        $this->container['listing_status'] = $data['listing_status'] ?? null;
     }
 
     /**
@@ -255,54 +237,6 @@ class InventoryFilterCriteria implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets creation_date_range.
-     *
-     * @return \TNT\Ebay\Sell\Feed\V1\Model\DateRange|null
-     */
-    public function getCreationDateRange()
-    {
-        return $this->container['creation_date_range'];
-    }
-
-    /**
-     * Sets creation_date_range.
-     *
-     * @param \TNT\Ebay\Sell\Feed\V1\Model\DateRange|null $creation_date_range creation_date_range
-     *
-     * @return self
-     */
-    public function setCreationDateRange($creation_date_range)
-    {
-        $this->container['creation_date_range'] = $creation_date_range;
-
-        return $this;
-    }
-
-    /**
-     * Gets modified_date_range.
-     *
-     * @return \TNT\Ebay\Sell\Feed\V1\Model\DateRange|null
-     */
-    public function getModifiedDateRange()
-    {
-        return $this->container['modified_date_range'];
-    }
-
-    /**
-     * Sets modified_date_range.
-     *
-     * @param \TNT\Ebay\Sell\Feed\V1\Model\DateRange|null $modified_date_range modified_date_range
-     *
-     * @return self
-     */
-    public function setModifiedDateRange($modified_date_range)
-    {
-        $this->container['modified_date_range'] = $modified_date_range;
-
-        return $this;
-    }
-
-    /**
      * Gets listing_format.
      *
      * @return string|null
@@ -315,37 +249,13 @@ class InventoryFilterCriteria implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets listing_format.
      *
-     * @param string|null $listing_format The type of buying option for the order. Supports <code>LMS_ACTIVE_INVENTORY_REPORT</code>. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:ListingFormatEnum'>eBay API documentation</a>
+     * @param string|null $listing_format The type of buying option for the order. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:ListingFormatEnum'>eBay API documentation</a>
      *
      * @return self
      */
     public function setListingFormat($listing_format)
     {
         $this->container['listing_format'] = $listing_format;
-
-        return $this;
-    }
-
-    /**
-     * Gets listing_status.
-     *
-     * @return string|null
-     */
-    public function getListingStatus()
-    {
-        return $this->container['listing_status'];
-    }
-
-    /**
-     * Sets listing_status.
-     *
-     * @param string|null $listing_status The status of the listing (whether the listing was unsold or is active). The <strong>UNSOLD</strong> value does not apply to <code>LMS_ACTIVE_INVENTORY_REPORT</code> feed types. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/feed/types/api:ListingStatusEnum'>eBay API documentation</a>
-     *
-     * @return self
-     */
-    public function setListingStatus($listing_status)
-    {
-        $this->container['listing_status'] = $listing_status;
 
         return $this;
     }

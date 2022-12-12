@@ -152,16 +152,17 @@ class ProductApi
     /**
      * Operation getProduct.
      *
-     * @param string $epid The ePID of the product being requested. This value can be discovered by issuing the search call and examining the value of the productSummaries.epid field for the desired returned product summary. (required)
+     * @param string $epid                    The ePID of the product being requested. This value can be discovered by issuing the &lt;b&gt;search&lt;/b&gt; method and examining the value of the &lt;b&gt;productSummaries.epid&lt;/b&gt; field for the desired returned product summary. (required)
+     * @param string $x_ebay_c_marketplace_id This method also uses the &lt;code&gt;X-EBAY-C-MARKETPLACE-ID&lt;/code&gt; header to identify the seller&#39;s eBay marketplace. It is required for all marketplaces except EBAY_US, which is the default. &lt;b&gt;Note:&lt;/b&gt; This method is limited to &lt;code&gt;EBAY_US&lt;/code&gt;, &lt;code&gt;EBAY_AU&lt;/code&gt;, &lt;code&gt;EBAY_CA&lt;/code&gt;, and &lt;code&gt;EBAY_GB&lt;/code&gt; values. (optional)
      *
      * @throws \TNT\Ebay\Commerce\CatalogBeta\V1\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      *
      * @return \TNT\Ebay\Commerce\CatalogBeta\V1\Model\Product
      */
-    public function getProduct($epid)
+    public function getProduct($epid, $x_ebay_c_marketplace_id = null)
     {
-        [$response] = $this->getProductWithHttpInfo($epid);
+        [$response] = $this->getProductWithHttpInfo($epid, $x_ebay_c_marketplace_id);
 
         return $response;
     }
@@ -169,16 +170,17 @@ class ProductApi
     /**
      * Operation getProductWithHttpInfo.
      *
-     * @param string $epid The ePID of the product being requested. This value can be discovered by issuing the search call and examining the value of the productSummaries.epid field for the desired returned product summary. (required)
+     * @param string $epid                    The ePID of the product being requested. This value can be discovered by issuing the &lt;b&gt;search&lt;/b&gt; method and examining the value of the &lt;b&gt;productSummaries.epid&lt;/b&gt; field for the desired returned product summary. (required)
+     * @param string $x_ebay_c_marketplace_id This method also uses the &lt;code&gt;X-EBAY-C-MARKETPLACE-ID&lt;/code&gt; header to identify the seller&#39;s eBay marketplace. It is required for all marketplaces except EBAY_US, which is the default. &lt;b&gt;Note:&lt;/b&gt; This method is limited to &lt;code&gt;EBAY_US&lt;/code&gt;, &lt;code&gt;EBAY_AU&lt;/code&gt;, &lt;code&gt;EBAY_CA&lt;/code&gt;, and &lt;code&gt;EBAY_GB&lt;/code&gt; values. (optional)
      *
      * @throws \TNT\Ebay\Commerce\CatalogBeta\V1\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      *
      * @return array of \TNT\Ebay\Commerce\CatalogBeta\V1\Model\Product, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProductWithHttpInfo($epid)
+    public function getProductWithHttpInfo($epid, $x_ebay_c_marketplace_id = null)
     {
-        $request = $this->getProductRequest($epid);
+        $request = $this->getProductRequest($epid, $x_ebay_c_marketplace_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -246,15 +248,16 @@ class ProductApi
     /**
      * Operation getProductAsync.
      *
-     * @param string $epid The ePID of the product being requested. This value can be discovered by issuing the search call and examining the value of the productSummaries.epid field for the desired returned product summary. (required)
+     * @param string $epid                    The ePID of the product being requested. This value can be discovered by issuing the &lt;b&gt;search&lt;/b&gt; method and examining the value of the &lt;b&gt;productSummaries.epid&lt;/b&gt; field for the desired returned product summary. (required)
+     * @param string $x_ebay_c_marketplace_id This method also uses the &lt;code&gt;X-EBAY-C-MARKETPLACE-ID&lt;/code&gt; header to identify the seller&#39;s eBay marketplace. It is required for all marketplaces except EBAY_US, which is the default. &lt;b&gt;Note:&lt;/b&gt; This method is limited to &lt;code&gt;EBAY_US&lt;/code&gt;, &lt;code&gt;EBAY_AU&lt;/code&gt;, &lt;code&gt;EBAY_CA&lt;/code&gt;, and &lt;code&gt;EBAY_GB&lt;/code&gt; values. (optional)
      *
      * @throws \InvalidArgumentException
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProductAsync($epid)
+    public function getProductAsync($epid, $x_ebay_c_marketplace_id = null)
     {
-        return $this->getProductAsyncWithHttpInfo($epid)
+        return $this->getProductAsyncWithHttpInfo($epid, $x_ebay_c_marketplace_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -265,16 +268,17 @@ class ProductApi
     /**
      * Operation getProductAsyncWithHttpInfo.
      *
-     * @param string $epid The ePID of the product being requested. This value can be discovered by issuing the search call and examining the value of the productSummaries.epid field for the desired returned product summary. (required)
+     * @param string $epid                    The ePID of the product being requested. This value can be discovered by issuing the &lt;b&gt;search&lt;/b&gt; method and examining the value of the &lt;b&gt;productSummaries.epid&lt;/b&gt; field for the desired returned product summary. (required)
+     * @param string $x_ebay_c_marketplace_id This method also uses the &lt;code&gt;X-EBAY-C-MARKETPLACE-ID&lt;/code&gt; header to identify the seller&#39;s eBay marketplace. It is required for all marketplaces except EBAY_US, which is the default. &lt;b&gt;Note:&lt;/b&gt; This method is limited to &lt;code&gt;EBAY_US&lt;/code&gt;, &lt;code&gt;EBAY_AU&lt;/code&gt;, &lt;code&gt;EBAY_CA&lt;/code&gt;, and &lt;code&gt;EBAY_GB&lt;/code&gt; values. (optional)
      *
      * @throws \InvalidArgumentException
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProductAsyncWithHttpInfo($epid)
+    public function getProductAsyncWithHttpInfo($epid, $x_ebay_c_marketplace_id = null)
     {
         $returnType = '\TNT\Ebay\Commerce\CatalogBeta\V1\Model\Product';
-        $request = $this->getProductRequest($epid);
+        $request = $this->getProductRequest($epid, $x_ebay_c_marketplace_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -304,13 +308,14 @@ class ProductApi
     /**
      * Create request for operation 'getProduct'.
      *
-     * @param string $epid The ePID of the product being requested. This value can be discovered by issuing the search call and examining the value of the productSummaries.epid field for the desired returned product summary. (required)
+     * @param string $epid                    The ePID of the product being requested. This value can be discovered by issuing the &lt;b&gt;search&lt;/b&gt; method and examining the value of the &lt;b&gt;productSummaries.epid&lt;/b&gt; field for the desired returned product summary. (required)
+     * @param string $x_ebay_c_marketplace_id This method also uses the &lt;code&gt;X-EBAY-C-MARKETPLACE-ID&lt;/code&gt; header to identify the seller&#39;s eBay marketplace. It is required for all marketplaces except EBAY_US, which is the default. &lt;b&gt;Note:&lt;/b&gt; This method is limited to &lt;code&gt;EBAY_US&lt;/code&gt;, &lt;code&gt;EBAY_AU&lt;/code&gt;, &lt;code&gt;EBAY_CA&lt;/code&gt;, and &lt;code&gt;EBAY_GB&lt;/code&gt; values. (optional)
      *
      * @throws \InvalidArgumentException
      *
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProductRequest($epid)
+    public function getProductRequest($epid, $x_ebay_c_marketplace_id = null)
     {
         // Verify the required parameter 'epid' is set.
         if ($epid === null || (\is_array($epid) && count($epid) === 0)) {
@@ -323,6 +328,11 @@ class ProductApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
+
+        // header params
+        if ($x_ebay_c_marketplace_id !== null) {
+            $headerParams['X-EBAY-C-MARKETPLACE-ID'] = ObjectSerializer::toHeaderValue($x_ebay_c_marketplace_id);
+        }
 
         // path params
         if ($epid !== null) {

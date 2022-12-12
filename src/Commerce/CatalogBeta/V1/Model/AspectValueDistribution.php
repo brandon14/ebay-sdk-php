@@ -261,7 +261,7 @@ class AspectValueDistribution implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets localized_aspect_value.
      *
-     * @param string|null $localized_aspect_value The localized value of the category aspect identified by refinement.aspectDistributions.localizedAspectName.
+     * @param string|null $localized_aspect_value The localized value of the category aspect identified by <b>refinement.aspectDistributions.localizedAspectName</b>.
      *
      * @return self
      */
@@ -285,7 +285,7 @@ class AspectValueDistribution implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets match_count.
      *
-     * @param int|null $match_count The number of times the value of localizedAspectValue has been used for eBay product listings. By comparing this quantity to the matchCount for other values of the same aspect, you can present a histogram of the values to sellers, who can use that information to select which aspect value is most appropriate for their product. You can then include the user-selected value in the the search call's aspect_filter parameter to refine your search.
+     * @param int|null $match_count The number of times the value of <b>localizedAspectValue</b> has been used for eBay product listings. By comparing this quantity to the <b>matchCount</b> for other values of the same aspect, you can present a histogram of the values to sellers, who can use that information to select which aspect value is most appropriate for their product. You can then include the user-selected value in the the <b>search</b> call's <b>aspect_filter</b> parameter to refine your search.
      *
      * @return self
      */
@@ -309,7 +309,7 @@ class AspectValueDistribution implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets refinement_href.
      *
-     * @param string|null $refinement_href a HATEOAS reference that further refines the search with this particular localizedAspectValue
+     * @param string|null $refinement_href a HATEOAS reference that further refines the search with this particular <b>localizedAspectValue</b>
      *
      * @return self
      */
