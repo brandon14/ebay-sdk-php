@@ -1068,7 +1068,7 @@ class NegativeKeywordApi
         // path params
         if ($negative_keyword_id !== null) {
             $resourcePath = str_replace(
-                '{'.'negative_keyword_id'.'}',
+                '{negative_keyword_id}',
                 ObjectSerializer::toPathValue($negative_keyword_id),
                 $resourcePath
             );
@@ -1577,7 +1577,7 @@ class NegativeKeywordApi
         // path params
         if ($negative_keyword_id !== null) {
             $resourcePath = str_replace(
-                '{'.'negative_keyword_id'.'}',
+                '{negative_keyword_id}',
                 ObjectSerializer::toPathValue($negative_keyword_id),
                 $resourcePath
             );

@@ -327,7 +327,7 @@ class AdReportApi
         // path params
         if ($report_id !== null) {
             $resourcePath = str_replace(
-                '{'.'report_id'.'}',
+                '{report_id}',
                 ObjectSerializer::toPathValue($report_id),
                 $resourcePath
             );

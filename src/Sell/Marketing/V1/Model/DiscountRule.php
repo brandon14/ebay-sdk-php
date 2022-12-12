@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Marketing\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Marketing\V1\ObjectSerializer;
 
 /**
  * DiscountRule Class Doc Comment.
  *
  * @category Class
+ *
  * @description This complex type defines a promotion as being either a monetary amount or a percentage of a sales price that&#39;s subtracted from the price of an item or order. &lt;p&gt;Set the amount of the discount and the rules that govern when the discount triggers using the &lt;b&gt;discountBenefit&lt;/b&gt; and &lt;b&gt;discountSpecification&lt;/b&gt; fields.&lt;/p&gt;  &lt;p class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; In &lt;b&gt;volume pricing promotions&lt;/b&gt;, you must configure at least two &lt;b&gt;discountRule&lt;/b&gt; containers and at most four.&lt;/p&gt;
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DiscountRule implements ModelInterface, ArrayAccess, \JsonSerializable
+class DiscountRule implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -102,7 +104,9 @@ class DiscountRule implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

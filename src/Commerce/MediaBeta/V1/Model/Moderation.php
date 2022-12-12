@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Commerce\MediaBeta\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Commerce\MediaBeta\V1\ObjectSerializer;
 
 /**
  * Moderation Class Doc Comment.
  *
  * @category Class
+ *
  * @description A container that provides video moderation information when calling the &lt;strong&gt;getVideo&lt;/strong&gt; method.&lt;br /&gt;&lt;br /&gt;This container is returned if the specified video has been blocked by moderators.&lt;br /&gt;&lt;br /&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;span style&#x3D;\&quot;color:#478415\&quot;&gt;&lt;strong&gt;Tip:&lt;/strong&gt;&lt;/span&gt; See &lt;a href&#x3D;\&quot;https://www.ebay.com/help/selling/listings/creating-managing-listings/add-video-to-listing?id&#x3D;5272#section2\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Video moderation and restrictions&lt;/a&gt; in the eBay Seller Center for details about video moderation.&lt;/span&gt;
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Moderation implements ModelInterface, ArrayAccess, \JsonSerializable
+class Moderation implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -99,7 +101,9 @@ class Moderation implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

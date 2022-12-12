@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Recommendation\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Recommendation\V1\ObjectSerializer;
 
 /**
  * MarketingRecommendation Class Doc Comment.
  *
  * @category Class
+ *
  * @description A complex type that contains information about how a seller can improve their listing configurations. The AD object contains Promoted Listings recommendations and information, which the seller can use to improve buyer conversions. The response can also contain an optional message about the returned data.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class MarketingRecommendation implements ModelInterface, ArrayAccess, \JsonSerializable
+class MarketingRecommendation implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -100,7 +102,9 @@ class MarketingRecommendation implements ModelInterface, ArrayAccess, \JsonSeria
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

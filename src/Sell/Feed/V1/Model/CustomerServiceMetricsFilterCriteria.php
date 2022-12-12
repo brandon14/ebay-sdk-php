@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Feed\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Feed\V1\ObjectSerializer;
 
 /**
  * CustomerServiceMetricsFilterCriteria Class Doc Comment.
  *
  * @category Class
+ *
  * @description A complex data type that filters data for report creation. See &lt;strong&gt;CustomerServiceMetricsFilterCriteria&lt;/strong&gt; for fields and descriptions.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CustomerServiceMetricsFilterCriteria implements ModelInterface, ArrayAccess, \JsonSerializable
+class CustomerServiceMetricsFilterCriteria implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -102,7 +104,9 @@ class CustomerServiceMetricsFilterCriteria implements ModelInterface, ArrayAcces
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

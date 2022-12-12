@@ -336,7 +336,7 @@ class PaymentsProgramApi
         // path params
         if ($marketplace_id !== null) {
             $resourcePath = str_replace(
-                '{'.'marketplace_id'.'}',
+                '{marketplace_id}',
                 ObjectSerializer::toPathValue($marketplace_id),
                 $resourcePath
             );
@@ -344,7 +344,7 @@ class PaymentsProgramApi
         // path params
         if ($payments_program_type !== null) {
             $resourcePath = str_replace(
-                '{'.'payments_program_type'.'}',
+                '{payments_program_type}',
                 ObjectSerializer::toPathValue($payments_program_type),
                 $resourcePath
             );

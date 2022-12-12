@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Buy\Feed\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Buy\Feed\V1\ObjectSerializer;
 
 /**
  * SupportedFeed Class Doc Comment.
  *
  * @category Class
+ *
  * @description The object that is returned by a successful &lt;b&gt;getFeedType&lt;/b&gt; or &lt;b&gt;getFeedTypes&lt;/b&gt; search describing the characteristics of a feed type.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SupportedFeed implements ModelInterface, ArrayAccess, \JsonSerializable
+class SupportedFeed implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -104,7 +106,9 @@ class SupportedFeed implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

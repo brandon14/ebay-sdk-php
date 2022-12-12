@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Fulfillment\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Fulfillment\V1\ObjectSerializer;
 
 /**
  * DisputeAmount Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type defines the monetary value of an amount. It can provide the amount in both the currency used on the eBay site where an item is being offered and the conversion of that value into another currency, if applicable.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DisputeAmount implements ModelInterface, ArrayAccess, \JsonSerializable
+class DisputeAmount implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -103,7 +105,9 @@ class DisputeAmount implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

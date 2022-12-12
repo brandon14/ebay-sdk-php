@@ -527,7 +527,7 @@ class PaymentPolicyApi
         // path params
         if ($payment_policy_id !== null) {
             $resourcePath = str_replace(
-                '{'.'payment_policy_id'.'}',
+                '{payment_policy_id}',
                 ObjectSerializer::toPathValue($payment_policy_id),
                 $resourcePath
             );
@@ -1027,7 +1027,7 @@ class PaymentPolicyApi
         // path params
         if ($payment_policy_id !== null) {
             $resourcePath = str_replace(
-                '{'.'payment_policy_id'.'}',
+                '{payment_policy_id}',
                 ObjectSerializer::toPathValue($payment_policy_id),
                 $resourcePath
             );
@@ -1553,7 +1553,7 @@ class PaymentPolicyApi
         // path params
         if ($payment_policy_id !== null) {
             $resourcePath = str_replace(
-                '{'.'payment_policy_id'.'}',
+                '{payment_policy_id}',
                 ObjectSerializer::toPathValue($payment_policy_id),
                 $resourcePath
             );

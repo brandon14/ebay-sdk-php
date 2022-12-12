@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Marketing\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Marketing\V1\ObjectSerializer;
 
 /**
  * ItemPromotion Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type defines the fields that describe a threshold promotion and includes the promotional discount, the items included in the promotion, and the rules that specify when the promotion is applied.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemPromotion implements ModelInterface, ArrayAccess, \JsonSerializable
+class ItemPromotion implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -112,7 +114,9 @@ class ItemPromotion implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

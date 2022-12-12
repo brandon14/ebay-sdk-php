@@ -584,7 +584,7 @@ class ShippingQuoteApi
         // path params
         if ($shipping_quote_id !== null) {
             $resourcePath = str_replace(
-                '{'.'shippingQuoteId'.'}',
+                '{shippingQuoteId}',
                 ObjectSerializer::toPathValue($shipping_quote_id),
                 $resourcePath
             );

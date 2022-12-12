@@ -289,7 +289,7 @@ class LocationApi
         // path params
         if ($merchant_location_key !== null) {
             $resourcePath = str_replace(
-                '{'.'merchantLocationKey'.'}',
+                '{merchantLocationKey}',
                 ObjectSerializer::toPathValue($merchant_location_key),
                 $resourcePath
             );
@@ -494,7 +494,7 @@ class LocationApi
         // path params
         if ($merchant_location_key !== null) {
             $resourcePath = str_replace(
-                '{'.'merchantLocationKey'.'}',
+                '{merchantLocationKey}',
                 ObjectSerializer::toPathValue($merchant_location_key),
                 $resourcePath
             );
@@ -740,7 +740,7 @@ class LocationApi
         // path params
         if ($merchant_location_key !== null) {
             $resourcePath = str_replace(
-                '{'.'merchantLocationKey'.'}',
+                '{merchantLocationKey}',
                 ObjectSerializer::toPathValue($merchant_location_key),
                 $resourcePath
             );
@@ -986,7 +986,7 @@ class LocationApi
         // path params
         if ($merchant_location_key !== null) {
             $resourcePath = str_replace(
-                '{'.'merchantLocationKey'.'}',
+                '{merchantLocationKey}',
                 ObjectSerializer::toPathValue($merchant_location_key),
                 $resourcePath
             );
@@ -1232,7 +1232,7 @@ class LocationApi
         // path params
         if ($merchant_location_key !== null) {
             $resourcePath = str_replace(
-                '{'.'merchantLocationKey'.'}',
+                '{merchantLocationKey}',
                 ObjectSerializer::toPathValue($merchant_location_key),
                 $resourcePath
             );
@@ -1694,7 +1694,7 @@ class LocationApi
         // path params
         if ($merchant_location_key !== null) {
             $resourcePath = str_replace(
-                '{'.'merchantLocationKey'.'}',
+                '{merchantLocationKey}',
                 ObjectSerializer::toPathValue($merchant_location_key),
                 $resourcePath
             );

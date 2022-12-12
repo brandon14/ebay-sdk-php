@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Account\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Account\V1\ObjectSerializer;
 
 /**
  * SpecialHours Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type is used to express the special operating hours of a store location on a specific date. A &lt;strong&gt;specialHours&lt;/strong&gt; container is needed when the store&#39;s opening hours on a specific date are different than the normal operating hours on that particular day of the week.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SpecialHours implements ModelInterface, ArrayAccess, \JsonSerializable
+class SpecialHours implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -100,7 +102,9 @@ class SpecialHours implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

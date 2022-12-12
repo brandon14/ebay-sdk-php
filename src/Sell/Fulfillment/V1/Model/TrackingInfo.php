@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Fulfillment\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Fulfillment\V1\ObjectSerializer;
 
 /**
  * TrackingInfo Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type is used by the &lt;strong&gt;shipmentTracking&lt;/strong&gt; array returned under the &lt;strong&gt;evidence&lt;/strong&gt; container if the seller has provided shipment tracking information as evidence to support &lt;code&gt;PROOF_OF_DELIVERY&lt;/code&gt; for an INR-related payment dispute.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class TrackingInfo implements ModelInterface, ArrayAccess, \JsonSerializable
+class TrackingInfo implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -100,7 +102,9 @@ class TrackingInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Buy\Browse\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Buy\Browse\V1\ObjectSerializer;
 
 /**
  * Items Class Doc Comment.
  *
  * @category Class
+ *
  * @description Container for a list of items.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Items implements ModelInterface, ArrayAccess, \JsonSerializable
+class Items implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -101,7 +103,9 @@ class Items implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

@@ -553,7 +553,7 @@ class AdReportMetadataApi
         // path params
         if ($report_type !== null) {
             $resourcePath = str_replace(
-                '{'.'report_type'.'}',
+                '{report_type}',
                 ObjectSerializer::toPathValue($report_type),
                 $resourcePath
             );

@@ -370,7 +370,7 @@ class ProductCompatibilityApi
         // path params
         if ($sku !== null) {
             $resourcePath = str_replace(
-                '{'.'sku'.'}',
+                '{sku}',
                 ObjectSerializer::toPathValue($sku),
                 $resourcePath
             );
@@ -575,7 +575,7 @@ class ProductCompatibilityApi
         // path params
         if ($sku !== null) {
             $resourcePath = str_replace(
-                '{'.'sku'.'}',
+                '{sku}',
                 ObjectSerializer::toPathValue($sku),
                 $resourcePath
             );
@@ -821,7 +821,7 @@ class ProductCompatibilityApi
         // path params
         if ($sku !== null) {
             $resourcePath = str_replace(
-                '{'.'sku'.'}',
+                '{sku}',
                 ObjectSerializer::toPathValue($sku),
                 $resourcePath
             );

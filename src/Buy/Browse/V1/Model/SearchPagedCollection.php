@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Buy\Browse\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Buy\Browse\V1\ObjectSerializer;
 
 /**
  * SearchPagedCollection Class Doc Comment.
  *
  * @category Class
+ *
  * @description The type that defines the fields for a paginated result set. The response consists of 0 or more sequenced &lt;em&gt; pages&lt;/em&gt; where each page has 0 or more items.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SearchPagedCollection implements ModelInterface, ArrayAccess, \JsonSerializable
+class SearchPagedCollection implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -108,7 +110,9 @@ class SearchPagedCollection implements ModelInterface, ArrayAccess, \JsonSeriali
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

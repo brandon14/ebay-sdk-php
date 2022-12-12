@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Inventory\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Inventory\V1\ObjectSerializer;
 
 /**
  * EbayOfferDetailsWithId Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type provides details of an offer, and is used by the base request payload of the &lt;strong&gt;updateOffer&lt;/strong&gt; call. Every field that is currently set with the unpublished/published offer must also be passed into the &lt;strong&gt;updateOffer&lt;/strong&gt; call, even those fields whose values are not changing. Note that for published offers, a successful &lt;strong&gt;updateOffer&lt;/strong&gt; call will actually update the active eBay listing with whatever changes were made.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class EbayOfferDetailsWithId implements ModelInterface, ArrayAccess, \JsonSerializable
+class EbayOfferDetailsWithId implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -115,7 +117,9 @@ class EbayOfferDetailsWithId implements ModelInterface, ArrayAccess, \JsonSerial
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

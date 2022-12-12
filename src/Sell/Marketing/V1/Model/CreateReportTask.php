@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Marketing\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Marketing\V1\ObjectSerializer;
 
 /**
  * CreateReportTask Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type defines the rules that govern the generation of a report task and the criteria that&#39;s used to create the report. The report-generation rules include the starting and ending dates for the report. Report-task criteria includes the report dimensions, metrics, listings covered in the report, and so on. For information on the required and optional fields for each report type, see &lt;a href&#x3D;\&quot;/api-docs/sell/static/marketing/pl-reports.html\&quot;&gt;Promoted Listings reporting&lt;/a&gt;.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CreateReportTask implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateReportTask implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -110,7 +112,9 @@ class CreateReportTask implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

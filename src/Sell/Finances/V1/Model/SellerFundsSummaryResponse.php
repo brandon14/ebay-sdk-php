@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Finances\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Finances\V1\ObjectSerializer;
 
 /**
  * SellerFundsSummaryResponse Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type is used by the response payload of the &lt;strong&gt;getSellerFundsSummary&lt;/strong&gt; method. All of the funds returned in  &lt;strong&gt;getSellerFundsSummary&lt;/strong&gt; are funds that have not yet been paid to the seller through a seller payout. If there are no funds that are pending, on hold, or being processed for the seller&#39;s account, no response payload is returned, and an http status code of &lt;code&gt;204 - No Content&lt;/code&gt; is returned instead.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SellerFundsSummaryResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class SellerFundsSummaryResponse implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -102,7 +104,9 @@ class SellerFundsSummaryResponse implements ModelInterface, ArrayAccess, \JsonSe
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

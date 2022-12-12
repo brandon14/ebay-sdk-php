@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Metadata\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Metadata\V1\ObjectSerializer;
 
 /**
  * ItemCondition Class Doc Comment.
  *
  * @category Class
+ *
  * @description &lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;In all eBay marketplaces, Condition ID 2000 now maps to an item condition of &#39;Certified Refurbished&#39;, and not &#39;Manufacturer Refurbished&#39;. To list an item as &#39;Certified Refurbished&#39;, a seller must be pre-qualified by eBay for this feature. Any seller who is not eligible for this feature will be blocked if they try to create a new listing or revise an existing listing with this item condition. Any active listings on any eBay marketplace that had &#39;Manufacturer Refurbished&#39; as the item condition should have been automatically updated by eBay to the &#39;Seller Refurbished&#39; item condition (Condition ID 2500). &lt;br&gt;&lt;br&gt; Any seller that is interested in eligibility requirements to list with &#39;Certified Refurbished&#39; should see the &lt;a href&#x3D;\&quot;https://pages.ebay.com/seller-center/listing-and-marketing/certified-refurbished-program.html \&quot; target&#x3D;\&quot;_blank\&quot;&gt;Certified refurbished program&lt;/a&gt; page in Seller Center. &lt;/span&gt;
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable
+class ItemCondition implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -101,7 +103,9 @@ class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

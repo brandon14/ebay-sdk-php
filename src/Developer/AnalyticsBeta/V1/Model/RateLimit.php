@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Developer\AnalyticsBeta\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Developer\AnalyticsBeta\V1\ObjectSerializer;
 
 /**
  * RateLimit Class Doc Comment.
  *
  * @category Class
+ *
  * @description This complex types defines the resource (such as an API method) for which the rate-limit data is returned.  &lt;br&gt;&lt;br&gt;A method is included in an API, and an API is part of an API context for the API version specified.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class RateLimit implements ModelInterface, ArrayAccess, \JsonSerializable
+class RateLimit implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -102,7 +104,9 @@ class RateLimit implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Buy\FeedBeta\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Buy\FeedBeta\V1\ObjectSerializer;
 
 /**
  * ItemSnapshot Class Doc Comment.
  *
  * @category Class
+ *
  * @description The type that defines the columns returned in the &lt;b&gt;Hourly Snapshot&lt;/b&gt; feed file.  &lt;p&gt;  &lt;b&gt;Note: &lt;/b&gt; When the value of the &lt;b&gt; availability&lt;/b&gt; column is &lt;code&gt;UNAVAILABLE&lt;/code&gt;, only the &lt;b&gt;itemId&lt;/b&gt; and &lt;b&gt; availability&lt;/b&gt; columns are populated.  &lt;/p&gt;
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemSnapshot implements ModelInterface, ArrayAccess, \JsonSerializable
+class ItemSnapshot implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -188,7 +190,9 @@ class ItemSnapshot implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

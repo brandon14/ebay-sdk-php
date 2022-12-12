@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Commerce\Charity\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Commerce\Charity\V1\ObjectSerializer;
 
 /**
  * Address Class Doc Comment.
  *
  * @category Class
+ *
  * @description The physical location of the item.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Address implements ModelInterface, ArrayAccess, \JsonSerializable
+class Address implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -102,7 +104,9 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

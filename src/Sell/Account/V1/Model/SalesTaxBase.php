@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Account\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Account\V1\ObjectSerializer;
 
 /**
  * SalesTaxBase Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type is used by the base request of the &lt;b&gt;createOrReplaceSalesTax&lt;/b&gt;.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SalesTaxBase implements ModelInterface, ArrayAccess, \JsonSerializable
+class SalesTaxBase implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -100,7 +102,9 @@ class SalesTaxBase implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Inventory\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Inventory\V1\ObjectSerializer;
 
 /**
  * ShippingCostOverride Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type is used if the seller wants to override the shipping costs or surcharge associated with a specific domestic or international shipping service option defined in the fulfillment listing policy that is being applied toward the offer. The shipping-related costs that can be overridden include the shipping cost to ship one item, the shipping cost to ship each additional item (if multiple quantity are purchased), and the shipping surcharge applied to the shipping service option.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ShippingCostOverride implements ModelInterface, ArrayAccess, \JsonSerializable
+class ShippingCostOverride implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -103,7 +105,9 @@ class ShippingCostOverride implements ModelInterface, ArrayAccess, \JsonSerializ
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

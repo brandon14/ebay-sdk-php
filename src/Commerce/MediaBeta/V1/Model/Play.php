@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Commerce\MediaBeta\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Commerce\MediaBeta\V1\ObjectSerializer;
 
 /**
  * Play Class Doc Comment.
  *
  * @category Class
+ *
  * @description The two streaming video URLs available for a successfully uploaded video with a status of &lt;code&gt;LIVE&lt;/code&gt;. The supported streaming video protocols are DASH (Dynamic Adaptive Streaming over HTTP) and HLS (HTTP Live Streaming).
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Play implements ModelInterface, ArrayAccess, \JsonSerializable
+class Play implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -100,7 +102,9 @@ class Play implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

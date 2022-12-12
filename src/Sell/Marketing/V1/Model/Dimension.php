@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Marketing\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Marketing\V1\ObjectSerializer;
 
 /**
  * Dimension Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type defines the annotation and dimension key used by the report. For information on how to set these values, see &lt;a href&#x3D;\&quot;/api-docs/sell/static/marketing/pl-reports.html\&quot;&gt;Promoted Listings reporting&lt;/a&gt;.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Dimension implements ModelInterface, ArrayAccess, \JsonSerializable
+class Dimension implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -100,7 +102,9 @@ class Dimension implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

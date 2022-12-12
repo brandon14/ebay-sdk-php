@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Account\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Account\V1\ObjectSerializer;
 
 /**
  * ReturnPolicyRequest Class Doc Comment.
  *
  * @category Class
+ *
  * @description This root container defines a seller&#39;s return business policy for a specific marketplace and category group. This type is used when creating or updating a return business policy.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ReturnPolicyRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class ReturnPolicyRequest implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -111,7 +113,9 @@ class ReturnPolicyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

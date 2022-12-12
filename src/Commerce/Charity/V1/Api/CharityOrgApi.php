@@ -341,7 +341,7 @@ class CharityOrgApi
         // path params
         if ($charity_org_id !== null) {
             $resourcePath = str_replace(
-                '{'.'charity_org_id'.'}',
+                '{charity_org_id}',
                 ObjectSerializer::toPathValue($charity_org_id),
                 $resourcePath
             );

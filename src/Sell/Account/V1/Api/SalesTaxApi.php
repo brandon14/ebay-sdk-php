@@ -298,7 +298,7 @@ class SalesTaxApi
         // path params
         if ($country_code !== null) {
             $resourcePath = str_replace(
-                '{'.'countryCode'.'}',
+                '{countryCode}',
                 ObjectSerializer::toPathValue($country_code),
                 $resourcePath
             );
@@ -306,7 +306,7 @@ class SalesTaxApi
         // path params
         if ($jurisdiction_id !== null) {
             $resourcePath = str_replace(
-                '{'.'jurisdictionId'.'}',
+                '{jurisdictionId}',
                 ObjectSerializer::toPathValue($jurisdiction_id),
                 $resourcePath
             );
@@ -524,7 +524,7 @@ class SalesTaxApi
         // path params
         if ($country_code !== null) {
             $resourcePath = str_replace(
-                '{'.'countryCode'.'}',
+                '{countryCode}',
                 ObjectSerializer::toPathValue($country_code),
                 $resourcePath
             );
@@ -532,7 +532,7 @@ class SalesTaxApi
         // path params
         if ($jurisdiction_id !== null) {
             $resourcePath = str_replace(
-                '{'.'jurisdictionId'.'}',
+                '{jurisdictionId}',
                 ObjectSerializer::toPathValue($jurisdiction_id),
                 $resourcePath
             );
@@ -791,7 +791,7 @@ class SalesTaxApi
         // path params
         if ($country_code !== null) {
             $resourcePath = str_replace(
-                '{'.'countryCode'.'}',
+                '{countryCode}',
                 ObjectSerializer::toPathValue($country_code),
                 $resourcePath
             );
@@ -799,7 +799,7 @@ class SalesTaxApi
         // path params
         if ($jurisdiction_id !== null) {
             $resourcePath = str_replace(
-                '{'.'jurisdictionId'.'}',
+                '{jurisdictionId}',
                 ObjectSerializer::toPathValue($jurisdiction_id),
                 $resourcePath
             );

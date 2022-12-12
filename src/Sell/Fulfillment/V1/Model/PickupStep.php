@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Fulfillment\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Fulfillment\V1\ObjectSerializer;
 
 /**
  * PickupStep Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type is used to indicate the merchant&#39;s store where the buyer will pickup their In-Store Pickup order. The &lt;b&gt;pickupStep&lt;/b&gt; container is only returned for In-Store Pickup orders. The In-Store Pickup feature is supported in the US, Canada, UK, Germany, and Australia marketplaces.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PickupStep implements ModelInterface, ArrayAccess, \JsonSerializable
+class PickupStep implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -99,7 +101,9 @@ class PickupStep implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

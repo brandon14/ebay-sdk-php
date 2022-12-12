@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Commerce\Notification\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Commerce\Notification\V1\ObjectSerializer;
 
 /**
  * DestinationRequest Class Doc Comment.
  *
  * @category Class
+ *
  * @description A type that contains information about the destination request.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DestinationRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class DestinationRequest implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -101,7 +103,9 @@ class DestinationRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Account\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Account\V1\ObjectSerializer;
 
 /**
  * ShippingOption Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type is used by the &lt;b&gt;shippingOptions&lt;/b&gt; array, which is used to provide detailed information on the domestic and international shipping options available for the policy. A separate &lt;b&gt;ShippingOption&lt;/b&gt; object covers domestic shipping service options and international shipping service options (if the seller ships to international locations).
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ShippingOption implements ModelInterface, ArrayAccess, \JsonSerializable
+class ShippingOption implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -105,7 +107,9 @@ class ShippingOption implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

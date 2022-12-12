@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Developer\AnalyticsBeta\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Developer\AnalyticsBeta\V1\ObjectSerializer;
 
 /**
  * Rate Class Doc Comment.
  *
  * @category Class
+ *
  * @description This complex type defines a \&quot;rate\&quot; as the quota of calls that can be made to a resource per time window, the remaining number of calls before the threshold is met, the amount of time until the time window resets, and the length of the time window (in seconds).
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
+class Rate implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -102,7 +104,9 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

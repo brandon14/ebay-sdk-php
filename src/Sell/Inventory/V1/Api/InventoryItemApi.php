@@ -1099,7 +1099,7 @@ class InventoryItemApi
         // path params
         if ($sku !== null) {
             $resourcePath = str_replace(
-                '{'.'sku'.'}',
+                '{sku}',
                 ObjectSerializer::toPathValue($sku),
                 $resourcePath
             );
@@ -1304,7 +1304,7 @@ class InventoryItemApi
         // path params
         if ($sku !== null) {
             $resourcePath = str_replace(
-                '{'.'sku'.'}',
+                '{sku}',
                 ObjectSerializer::toPathValue($sku),
                 $resourcePath
             );
@@ -1550,7 +1550,7 @@ class InventoryItemApi
         // path params
         if ($sku !== null) {
             $resourcePath = str_replace(
-                '{'.'sku'.'}',
+                '{sku}',
                 ObjectSerializer::toPathValue($sku),
                 $resourcePath
             );

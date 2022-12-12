@@ -336,7 +336,7 @@ class ShippingFulfillmentApi
         // path params
         if ($order_id !== null) {
             $resourcePath = str_replace(
-                '{'.'orderId'.'}',
+                '{orderId}',
                 ObjectSerializer::toPathValue($order_id),
                 $resourcePath
             );
@@ -597,7 +597,7 @@ class ShippingFulfillmentApi
         // path params
         if ($fulfillment_id !== null) {
             $resourcePath = str_replace(
-                '{'.'fulfillmentId'.'}',
+                '{fulfillmentId}',
                 ObjectSerializer::toPathValue($fulfillment_id),
                 $resourcePath
             );
@@ -605,7 +605,7 @@ class ShippingFulfillmentApi
         // path params
         if ($order_id !== null) {
             $resourcePath = str_replace(
-                '{'.'orderId'.'}',
+                '{orderId}',
                 ObjectSerializer::toPathValue($order_id),
                 $resourcePath
             );
@@ -851,7 +851,7 @@ class ShippingFulfillmentApi
         // path params
         if ($order_id !== null) {
             $resourcePath = str_replace(
-                '{'.'orderId'.'}',
+                '{orderId}',
                 ObjectSerializer::toPathValue($order_id),
                 $resourcePath
             );

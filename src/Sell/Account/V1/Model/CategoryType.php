@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Account\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Account\V1\ObjectSerializer;
 
 /**
  * CategoryType Class Doc Comment.
  *
  * @category Class
+ *
  * @description The category type discerns whether the policy applies to motor vehicle listings, or to any other items except motor vehicle listings. &lt;br/&gt;&lt;br/&gt;Each business policy can be associated with either or both categories (&#39;MOTORS_VEHICLES&#39; and &#39;ALL_EXCLUDING_MOTORS_VEHICLES&#39;); however, return business policies are not applicable for motor vehicle listings.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CategoryType implements ModelInterface, ArrayAccess, \JsonSerializable
+class CategoryType implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -100,7 +102,9 @@ class CategoryType implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

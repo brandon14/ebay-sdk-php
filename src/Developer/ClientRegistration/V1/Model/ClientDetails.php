@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Developer\ClientRegistration\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Developer\ClientRegistration\V1\ObjectSerializer;
 
 /**
  * ClientDetails Class Doc Comment.
  *
  * @category Class
+ *
  * @description This container stores information about the third party provider&#39;s financial application that has been registered with eBay.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ClientDetails implements ModelInterface, ArrayAccess, \JsonSerializable
+class ClientDetails implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -110,7 +112,9 @@ class ClientDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

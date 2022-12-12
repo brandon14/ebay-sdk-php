@@ -342,7 +342,7 @@ class CountryApi
         // path params
         if ($country_code !== null) {
             $resourcePath = str_replace(
-                '{'.'countryCode'.'}',
+                '{countryCode}',
                 ObjectSerializer::toPathValue($country_code),
                 $resourcePath
             );

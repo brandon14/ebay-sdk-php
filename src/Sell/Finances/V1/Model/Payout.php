@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Finances\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Finances\V1\ObjectSerializer;
 
 /**
  * Payout Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type is used to express the details of one seller payout that is returned with the &lt;strong&gt;getPayout&lt;/strong&gt; or &lt;strong&gt;getPayouts&lt;/strong&gt; methods.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Payout implements ModelInterface, ArrayAccess, \JsonSerializable
+class Payout implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -110,7 +112,9 @@ class Payout implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

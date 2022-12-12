@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Finances\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Finances\V1\ObjectSerializer;
 
 /**
  * Transaction Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type is used to express the details of one of the following monetary transactions: a buyer&#39;s payment for an order, a refund to the buyer for a returned item or cancelled order, or a credit issued by eBay to the seller&#39;s account.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Transaction implements ModelInterface, ArrayAccess, \JsonSerializable
+class Transaction implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -117,7 +119,9 @@ class Transaction implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

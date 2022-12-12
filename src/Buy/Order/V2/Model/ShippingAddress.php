@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Buy\Order\V2\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Buy\Order\V2\ObjectSerializer;
 
 /**
  * ShippingAddress Class Doc Comment.
  *
  * @category Class
+ *
  * @description A type that defines the fields for a shipping address. For restrictions, see &lt;a href&#x3D;\&quot;/api-docs/buy/order/overview.html#Shipping\&quot;&gt;Shipping restrictions&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; If the address cannot be validated, a warning message will be returned.&lt;/span&gt;
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ShippingAddress implements ModelInterface, ArrayAccess, \JsonSerializable
+class ShippingAddress implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -107,7 +109,9 @@ class ShippingAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

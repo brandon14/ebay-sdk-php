@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Inventory\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Inventory\V1\ObjectSerializer;
 
 /**
  * EbayOfferDetailsWithAll Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type provides details of an offer, and is used by the response payloads of the &lt;strong&gt;getOffer&lt;/strong&gt; and the &lt;strong&gt;getOffers&lt;/strong&gt; calls.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class EbayOfferDetailsWithAll implements ModelInterface, ArrayAccess, \JsonSerializable
+class EbayOfferDetailsWithAll implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -121,7 +123,9 @@ class EbayOfferDetailsWithAll implements ModelInterface, ArrayAccess, \JsonSeria
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

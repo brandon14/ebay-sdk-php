@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Buy\Browse\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Buy\Browse\V1\ObjectSerializer;
 
 /**
  * AspectDistribution Class Doc Comment.
  *
  * @category Class
+ *
  * @description The type that define the fields for the aspect information. Aspects are the variations of an item, such as color, size, etc.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AspectDistribution implements ModelInterface, ArrayAccess, \JsonSerializable
+class AspectDistribution implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -100,7 +102,9 @@ class AspectDistribution implements ModelInterface, ArrayAccess, \JsonSerializab
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

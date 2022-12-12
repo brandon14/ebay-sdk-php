@@ -370,7 +370,7 @@ class FileApi
         // path params
         if ($file_id !== null) {
             $resourcePath = str_replace(
-                '{'.'file_id'.'}',
+                '{file_id}',
                 ObjectSerializer::toPathValue($file_id),
                 $resourcePath
             );
@@ -630,7 +630,7 @@ class FileApi
         // path params
         if ($file_id !== null) {
             $resourcePath = str_replace(
-                '{'.'file_id'.'}',
+                '{file_id}',
                 ObjectSerializer::toPathValue($file_id),
                 $resourcePath
             );

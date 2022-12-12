@@ -308,7 +308,7 @@ class PaymentDisputeApi
         // path params
         if ($payment_dispute_id !== null) {
             $resourcePath = str_replace(
-                '{'.'payment_dispute_id'.'}',
+                '{payment_dispute_id}',
                 ObjectSerializer::toPathValue($payment_dispute_id),
                 $resourcePath
             );
@@ -595,7 +595,7 @@ class PaymentDisputeApi
         // path params
         if ($payment_dispute_id !== null) {
             $resourcePath = str_replace(
-                '{'.'payment_dispute_id'.'}',
+                '{payment_dispute_id}',
                 ObjectSerializer::toPathValue($payment_dispute_id),
                 $resourcePath
             );
@@ -835,7 +835,7 @@ class PaymentDisputeApi
         // path params
         if ($payment_dispute_id !== null) {
             $resourcePath = str_replace(
-                '{'.'payment_dispute_id'.'}',
+                '{payment_dispute_id}',
                 ObjectSerializer::toPathValue($payment_dispute_id),
                 $resourcePath
             );
@@ -1152,7 +1152,7 @@ class PaymentDisputeApi
         // path params
         if ($payment_dispute_id !== null) {
             $resourcePath = str_replace(
-                '{'.'payment_dispute_id'.'}',
+                '{payment_dispute_id}',
                 ObjectSerializer::toPathValue($payment_dispute_id),
                 $resourcePath
             );
@@ -1428,7 +1428,7 @@ class PaymentDisputeApi
         // path params
         if ($payment_dispute_id !== null) {
             $resourcePath = str_replace(
-                '{'.'payment_dispute_id'.'}',
+                '{payment_dispute_id}',
                 ObjectSerializer::toPathValue($payment_dispute_id),
                 $resourcePath
             );
@@ -1704,7 +1704,7 @@ class PaymentDisputeApi
         // path params
         if ($payment_dispute_id !== null) {
             $resourcePath = str_replace(
-                '{'.'payment_dispute_id'.'}',
+                '{payment_dispute_id}',
                 ObjectSerializer::toPathValue($payment_dispute_id),
                 $resourcePath
             );
@@ -2287,7 +2287,7 @@ class PaymentDisputeApi
         // path params
         if ($payment_dispute_id !== null) {
             $resourcePath = str_replace(
-                '{'.'payment_dispute_id'.'}',
+                '{payment_dispute_id}',
                 ObjectSerializer::toPathValue($payment_dispute_id),
                 $resourcePath
             );
@@ -2569,7 +2569,7 @@ class PaymentDisputeApi
         // path params
         if ($payment_dispute_id !== null) {
             $resourcePath = str_replace(
-                '{'.'payment_dispute_id'.'}',
+                '{payment_dispute_id}',
                 ObjectSerializer::toPathValue($payment_dispute_id),
                 $resourcePath
             );

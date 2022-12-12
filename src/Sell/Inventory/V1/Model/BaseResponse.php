@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Inventory\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Inventory\V1\ObjectSerializer;
 
 /**
  * BaseResponse Class Doc Comment.
  *
  * @category Class
+ *
  * @description This is the base response of the &lt;strong&gt;createOrReplaceInventoryItem&lt;/strong&gt;, &lt;strong&gt;createOrReplaceInventoryItemGroup&lt;/strong&gt;,  and &lt;strong&gt;createOrReplaceProductCompatibility&lt;/strong&gt;  calls. A response payload will only be returned for these three calls if one or more errors or warnings occur with the call.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class BaseResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class BaseResponse implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -99,7 +101,9 @@ class BaseResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

@@ -336,7 +336,7 @@ class KeywordApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );
@@ -601,7 +601,7 @@ class KeywordApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );
@@ -866,7 +866,7 @@ class KeywordApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );
@@ -1131,7 +1131,7 @@ class KeywordApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );
@@ -1139,7 +1139,7 @@ class KeywordApi
         // path params
         if ($keyword_id !== null) {
             $resourcePath = str_replace(
-                '{'.'keyword_id'.'}',
+                '{keyword_id}',
                 ObjectSerializer::toPathValue($keyword_id),
                 $resourcePath
             );
@@ -1442,7 +1442,7 @@ class KeywordApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );
@@ -1663,7 +1663,7 @@ class KeywordApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );
@@ -1671,7 +1671,7 @@ class KeywordApi
         // path params
         if ($keyword_id !== null) {
             $resourcePath = str_replace(
-                '{'.'keyword_id'.'}',
+                '{keyword_id}',
                 ObjectSerializer::toPathValue($keyword_id),
                 $resourcePath
             );

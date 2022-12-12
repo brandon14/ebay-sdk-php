@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Finances\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Finances\V1\ObjectSerializer;
 
 /**
  * TransactionSummaryResponse Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type is the base response type of the &lt;strong&gt;getTransactionSummary&lt;/strong&gt; method, and based on the filters that are used in the &lt;strong&gt;getTransactionSummary&lt;/strong&gt; call URI, the response may include  total count and amount of the seller&#39;s sales and credits, total count and amount of buyer refunds, and total count and amount of seller payment holds.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class TransactionSummaryResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class TransactionSummaryResponse implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -131,7 +133,9 @@ class TransactionSummaryResponse implements ModelInterface, ArrayAccess, \JsonSe
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

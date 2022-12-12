@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Marketing\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Marketing\V1\ObjectSerializer;
 
 /**
  * ItemBasis Class Doc Comment.
  *
  * @category Class
+ *
  * @description A container for details regarding the basis for an item.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemBasis implements ModelInterface, ArrayAccess, \JsonSerializable
+class ItemBasis implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -100,7 +102,9 @@ class ItemBasis implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

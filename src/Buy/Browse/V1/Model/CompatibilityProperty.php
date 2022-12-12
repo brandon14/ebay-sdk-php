@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Buy\Browse\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Buy\Browse\V1\ObjectSerializer;
 
 /**
  * CompatibilityProperty Class Doc Comment.
  *
  * @category Class
+ *
  * @description This container returns the product attribute name/value pairs that are compatible with the keyword. These attributes are submitted in the  &lt;b&gt;compatibility_filter&lt;/b&gt; request field.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CompatibilityProperty implements ModelInterface, ArrayAccess, \JsonSerializable
+class CompatibilityProperty implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -101,7 +103,9 @@ class CompatibilityProperty implements ModelInterface, ArrayAccess, \JsonSeriali
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

@@ -346,7 +346,7 @@ class ItemApi
         // path params
         if ($item_id !== null) {
             $resourcePath = str_replace(
-                '{'.'item_id'.'}',
+                '{item_id}',
                 ObjectSerializer::toPathValue($item_id),
                 $resourcePath
             );
@@ -616,7 +616,7 @@ class ItemApi
         // path params
         if ($item_id !== null) {
             $resourcePath = str_replace(
-                '{'.'item_id'.'}',
+                '{item_id}',
                 ObjectSerializer::toPathValue($item_id),
                 $resourcePath
             );

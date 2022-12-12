@@ -337,7 +337,7 @@ class TransferApi
         // path params
         if ($transfer_id !== null) {
             $resourcePath = str_replace(
-                '{'.'transfer_Id'.'}',
+                '{transfer_Id}',
                 ObjectSerializer::toPathValue($transfer_id),
                 $resourcePath
             );

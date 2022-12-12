@@ -1023,7 +1023,7 @@ class OfferApi
         // path params
         if ($offer_id !== null) {
             $resourcePath = str_replace(
-                '{'.'offerId'.'}',
+                '{offerId}',
                 ObjectSerializer::toPathValue($offer_id),
                 $resourcePath
             );
@@ -1507,7 +1507,7 @@ class OfferApi
         // path params
         if ($offer_id !== null) {
             $resourcePath = str_replace(
-                '{'.'offerId'.'}',
+                '{offerId}',
                 ObjectSerializer::toPathValue($offer_id),
                 $resourcePath
             );
@@ -2046,7 +2046,7 @@ class OfferApi
         // path params
         if ($offer_id !== null) {
             $resourcePath = str_replace(
-                '{'.'offerId'.'}',
+                '{offerId}',
                 ObjectSerializer::toPathValue($offer_id),
                 $resourcePath
             );
@@ -2558,7 +2558,7 @@ class OfferApi
         // path params
         if ($offer_id !== null) {
             $resourcePath = str_replace(
-                '{'.'offerId'.'}',
+                '{offerId}',
                 ObjectSerializer::toPathValue($offer_id),
                 $resourcePath
             );
@@ -2810,7 +2810,7 @@ class OfferApi
         // path params
         if ($offer_id !== null) {
             $resourcePath = str_replace(
-                '{'.'offerId'.'}',
+                '{offerId}',
                 ObjectSerializer::toPathValue($offer_id),
                 $resourcePath
             );

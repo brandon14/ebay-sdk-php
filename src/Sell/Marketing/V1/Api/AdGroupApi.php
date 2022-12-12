@@ -336,7 +336,7 @@ class AdGroupApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );
@@ -601,7 +601,7 @@ class AdGroupApi
         // path params
         if ($ad_group_id !== null) {
             $resourcePath = str_replace(
-                '{'.'ad_group_id'.'}',
+                '{ad_group_id}',
                 ObjectSerializer::toPathValue($ad_group_id),
                 $resourcePath
             );
@@ -609,7 +609,7 @@ class AdGroupApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );
@@ -899,7 +899,7 @@ class AdGroupApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );
@@ -1167,7 +1167,7 @@ class AdGroupApi
         // path params
         if ($ad_group_id !== null) {
             $resourcePath = str_replace(
-                '{'.'ad_group_id'.'}',
+                '{ad_group_id}',
                 ObjectSerializer::toPathValue($ad_group_id),
                 $resourcePath
             );
@@ -1175,7 +1175,7 @@ class AdGroupApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );
@@ -1445,7 +1445,7 @@ class AdGroupApi
         // path params
         if ($ad_group_id !== null) {
             $resourcePath = str_replace(
-                '{'.'ad_group_id'.'}',
+                '{ad_group_id}',
                 ObjectSerializer::toPathValue($ad_group_id),
                 $resourcePath
             );
@@ -1453,7 +1453,7 @@ class AdGroupApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );
@@ -1680,7 +1680,7 @@ class AdGroupApi
         // path params
         if ($ad_group_id !== null) {
             $resourcePath = str_replace(
-                '{'.'ad_group_id'.'}',
+                '{ad_group_id}',
                 ObjectSerializer::toPathValue($ad_group_id),
                 $resourcePath
             );
@@ -1688,7 +1688,7 @@ class AdGroupApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );

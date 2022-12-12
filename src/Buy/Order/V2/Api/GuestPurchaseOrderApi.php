@@ -342,7 +342,7 @@ class GuestPurchaseOrderApi
         // path params
         if ($purchase_order_id !== null) {
             $resourcePath = str_replace(
-                '{'.'purchaseOrderId'.'}',
+                '{purchaseOrderId}',
                 ObjectSerializer::toPathValue($purchase_order_id),
                 $resourcePath
             );

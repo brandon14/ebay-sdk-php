@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Inventory\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Inventory\V1\ObjectSerializer;
 
 /**
  * Dimension Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type is used to specify the dimensions (and the unit used to measure those dimensions) of a shipping package. The &lt;strong&gt;dimensions&lt;/strong&gt; container is conditionally required if the seller will be offering calculated shipping rates to determine shipping cost. See the &lt;a href&#x3D;\&quot;https://pages.ebay.com/help/pay/calculated-shipping.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Calculated shipping&lt;/a&gt; help page for more information on calculated shipping.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Dimension implements ModelInterface, ArrayAccess, \JsonSerializable
+class Dimension implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -102,7 +104,9 @@ class Dimension implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

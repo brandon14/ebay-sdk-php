@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Buy\Browse\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Buy\Browse\V1\ObjectSerializer;
 
 /**
  * Aspect Class Doc Comment.
  *
  * @category Class
+ *
  * @description The type that defines the fields for the name/value pairs for the aspects of the product. For example: BRAND/Apple
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Aspect implements ModelInterface, ArrayAccess, \JsonSerializable
+class Aspect implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -100,7 +102,9 @@ class Aspect implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

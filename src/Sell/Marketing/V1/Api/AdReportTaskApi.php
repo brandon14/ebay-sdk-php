@@ -480,7 +480,7 @@ class AdReportTaskApi
         // path params
         if ($report_task_id !== null) {
             $resourcePath = str_replace(
-                '{'.'report_task_id'.'}',
+                '{report_task_id}',
                 ObjectSerializer::toPathValue($report_task_id),
                 $resourcePath
             );
@@ -730,7 +730,7 @@ class AdReportTaskApi
         // path params
         if ($report_task_id !== null) {
             $resourcePath = str_replace(
-                '{'.'report_task_id'.'}',
+                '{report_task_id}',
                 ObjectSerializer::toPathValue($report_task_id),
                 $resourcePath
             );

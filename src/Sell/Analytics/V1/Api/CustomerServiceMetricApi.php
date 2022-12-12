@@ -354,7 +354,7 @@ class CustomerServiceMetricApi
         // path params
         if ($customer_service_metric_type !== null) {
             $resourcePath = str_replace(
-                '{'.'customer_service_metric_type'.'}',
+                '{customer_service_metric_type}',
                 ObjectSerializer::toPathValue($customer_service_metric_type),
                 $resourcePath
             );
@@ -362,7 +362,7 @@ class CustomerServiceMetricApi
         // path params
         if ($evaluation_type !== null) {
             $resourcePath = str_replace(
-                '{'.'evaluation_type'.'}',
+                '{evaluation_type}',
                 ObjectSerializer::toPathValue($evaluation_type),
                 $resourcePath
             );

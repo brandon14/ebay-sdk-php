@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\ListingBeta\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\ListingBeta\V1\ObjectSerializer;
 
 /**
  * ItemDraftResponse Class Doc Comment.
  *
  * @category Class
+ *
  * @description The type that defines the field for the &lt;b&gt; createItemDraft&lt;/b&gt; response.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemDraftResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class ItemDraftResponse implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -101,7 +103,9 @@ class ItemDraftResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

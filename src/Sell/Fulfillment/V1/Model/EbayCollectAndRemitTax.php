@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Fulfillment\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Fulfillment\V1\ObjectSerializer;
 
 /**
  * EbayCollectAndRemitTax Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type contains information about the type and amount of tax that eBay will collect and remit to the state, province, country, or other taxing authority in the buyer&#39;s location, as required by that taxing authority.&lt;br/&gt;&lt;br/&gt;&#39;Collect and Remit&#39; tax includes:&lt;ul&gt;&lt;li&gt;US state-mandated sales tax&lt;/li&gt;&lt;li&gt;Federal and Provincial Sales Tax in Canada&lt;/li&gt;&lt;li&gt;&#39;Goods and Services&#39; tax in Canada, Australia, and New Zealand&lt;/li&gt;&lt;li&gt;VAT collected for the UK and EU countries&lt;/li&gt;&lt;/ul&gt;
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class EbayCollectAndRemitTax implements ModelInterface, ArrayAccess, \JsonSerializable
+class EbayCollectAndRemitTax implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -102,7 +104,9 @@ class EbayCollectAndRemitTax implements ModelInterface, ArrayAccess, \JsonSerial
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

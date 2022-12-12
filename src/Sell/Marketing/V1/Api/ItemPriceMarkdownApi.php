@@ -522,7 +522,7 @@ class ItemPriceMarkdownApi
         // path params
         if ($promotion_id !== null) {
             $resourcePath = str_replace(
-                '{'.'promotion_id'.'}',
+                '{promotion_id}',
                 ObjectSerializer::toPathValue($promotion_id),
                 $resourcePath
             );
@@ -772,7 +772,7 @@ class ItemPriceMarkdownApi
         // path params
         if ($promotion_id !== null) {
             $resourcePath = str_replace(
-                '{'.'promotion_id'.'}',
+                '{promotion_id}',
                 ObjectSerializer::toPathValue($promotion_id),
                 $resourcePath
             );
@@ -1027,7 +1027,7 @@ class ItemPriceMarkdownApi
         // path params
         if ($promotion_id !== null) {
             $resourcePath = str_replace(
-                '{'.'promotion_id'.'}',
+                '{promotion_id}',
                 ObjectSerializer::toPathValue($promotion_id),
                 $resourcePath
             );

@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Buy\Order\V2\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Buy\Order\V2\ObjectSerializer;
 
 /**
  * LegacyReference Class Doc Comment.
  *
  * @category Class
+ *
  * @description A type that defines the fields to support using the &lt;a href&#x3D;\&quot;https://developer.ebay.com/devzone/post-order/index.html#callindex\&quot;&gt;Post Order API&lt;/a&gt; for returns and cancellations.&lt;br /&gt;&lt;br /&gt;&lt;b&gt; Restriction:&lt;/b&gt; The Post Order API can be used only with eBay member checkouts.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class LegacyReference implements ModelInterface, ArrayAccess, \JsonSerializable
+class LegacyReference implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -101,7 +103,9 @@ class LegacyReference implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

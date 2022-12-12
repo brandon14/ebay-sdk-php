@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Account\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Account\V1\ObjectSerializer;
 
 /**
  * InventoryLocationResponse Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type is used by the base response of the &lt;strong&gt;getInventoryLocation&lt;/strong&gt; and &lt;strong&gt;getInventoryLocations&lt;/strong&gt; calls. These responses provide details about inventory location(s) defined for the merchant&#39;s account.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class InventoryLocationResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class InventoryLocationResponse implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -109,7 +111,9 @@ class InventoryLocationResponse implements ModelInterface, ArrayAccess, \JsonSer
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

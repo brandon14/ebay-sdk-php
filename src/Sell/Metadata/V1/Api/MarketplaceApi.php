@@ -341,7 +341,7 @@ class MarketplaceApi
         // path params
         if ($marketplace_id !== null) {
             $resourcePath = str_replace(
-                '{'.'marketplace_id'.'}',
+                '{marketplace_id}',
                 ObjectSerializer::toPathValue($marketplace_id),
                 $resourcePath
             );
@@ -605,7 +605,7 @@ class MarketplaceApi
         // path params
         if ($marketplace_id !== null) {
             $resourcePath = str_replace(
-                '{'.'marketplace_id'.'}',
+                '{marketplace_id}',
                 ObjectSerializer::toPathValue($marketplace_id),
                 $resourcePath
             );
@@ -869,7 +869,7 @@ class MarketplaceApi
         // path params
         if ($marketplace_id !== null) {
             $resourcePath = str_replace(
-                '{'.'marketplace_id'.'}',
+                '{marketplace_id}',
                 ObjectSerializer::toPathValue($marketplace_id),
                 $resourcePath
             );
@@ -1133,7 +1133,7 @@ class MarketplaceApi
         // path params
         if ($marketplace_id !== null) {
             $resourcePath = str_replace(
-                '{'.'marketplace_id'.'}',
+                '{marketplace_id}',
                 ObjectSerializer::toPathValue($marketplace_id),
                 $resourcePath
             );
@@ -1397,7 +1397,7 @@ class MarketplaceApi
         // path params
         if ($marketplace_id !== null) {
             $resourcePath = str_replace(
-                '{'.'marketplace_id'.'}',
+                '{marketplace_id}',
                 ObjectSerializer::toPathValue($marketplace_id),
                 $resourcePath
             );
@@ -1661,7 +1661,7 @@ class MarketplaceApi
         // path params
         if ($marketplace_id !== null) {
             $resourcePath = str_replace(
-                '{'.'marketplace_id'.'}',
+                '{marketplace_id}',
                 ObjectSerializer::toPathValue($marketplace_id),
                 $resourcePath
             );

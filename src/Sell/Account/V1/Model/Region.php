@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Account\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Account\V1\ObjectSerializer;
 
 /**
  * Region Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type is used to define specific shipping regions. There are four &#39;levels&#39; of shipping regions, including large geographical regions (like &#39;Asia&#39;, &#39;Europe&#39;, or &#39;Middle East&#39;), individual countries, US states or Canadian provinces, and special locations/domestic regions within a country (like &#39;Alaska/Hawaii&#39; or &#39;PO Box&#39;).
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Region implements ModelInterface, ArrayAccess, \JsonSerializable
+class Region implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -100,7 +102,9 @@ class Region implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Marketing\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Marketing\V1\ObjectSerializer;
 
 /**
  * SummaryReportResponse Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type defines the fields in an Promotions Manager Summary report. Reports are formatted in JSON. For more details, see &lt;a href&#x3D;\&quot;/api-docs/sell/static/marketing/pm-summary-reports.html\&quot;&gt;Reading item promotion Summary reports&lt;/a&gt;.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SummaryReportResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class SummaryReportResponse implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -103,7 +105,9 @@ class SummaryReportResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

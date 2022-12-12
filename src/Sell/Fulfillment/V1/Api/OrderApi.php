@@ -341,7 +341,7 @@ class OrderApi
         // path params
         if ($order_id !== null) {
             $resourcePath = str_replace(
-                '{'.'orderId'.'}',
+                '{orderId}',
                 ObjectSerializer::toPathValue($order_id),
                 $resourcePath
             );
@@ -893,7 +893,7 @@ class OrderApi
         // path params
         if ($order_id !== null) {
             $resourcePath = str_replace(
-                '{'.'order_id'.'}',
+                '{order_id}',
                 ObjectSerializer::toPathValue($order_id),
                 $resourcePath
             );

@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Inventory\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Inventory\V1\ObjectSerializer;
 
 /**
  * InventoryItemListing Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type is used by the &lt;strong&gt;inventoryItems&lt;/strong&gt; container that is returned in the response of the &lt;strong&gt;bulkMigrateListing&lt;/strong&gt; call. Up to five &lt;strong&gt;sku&lt;/strong&gt;/&lt;strong&gt;offerId&lt;/strong&gt; pairs may be returned under the &lt;strong&gt;inventoryItems&lt;/strong&gt; container, dependent on how many eBay listings the seller is attempting to migrate to the inventory model.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class InventoryItemListing implements ModelInterface, ArrayAccess, \JsonSerializable
+class InventoryItemListing implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -100,7 +102,9 @@ class InventoryItemListing implements ModelInterface, ArrayAccess, \JsonSerializ
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

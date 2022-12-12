@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Commerce\Taxonomy\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Commerce\Taxonomy\V1\ObjectSerializer;
 
 /**
  * CategorySuggestion Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type contains information about a suggested category tree leaf node that corresponds to keywords provided in the request. It includes details about each of the category&#39;s ancestor nodes extending up to the root of the category tree.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CategorySuggestion implements ModelInterface, ArrayAccess, \JsonSerializable
+class CategorySuggestion implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -102,7 +104,9 @@ class CategorySuggestion implements ModelInterface, ArrayAccess, \JsonSerializab
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

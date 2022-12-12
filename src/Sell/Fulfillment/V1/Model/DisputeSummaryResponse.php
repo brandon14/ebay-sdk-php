@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Fulfillment\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Fulfillment\V1\ObjectSerializer;
 
 /**
  * DisputeSummaryResponse Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type defines the base response payload of the &lt;strong&gt;getPaymentDisputeSummaries&lt;/strong&gt; method. Each payment dispute that matches the input criteria is returned under the &lt;strong&gt;paymentDisputeSummaries&lt;/strong&gt; array.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DisputeSummaryResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class DisputeSummaryResponse implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -105,7 +107,9 @@ class DisputeSummaryResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Inventory\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Inventory\V1\ObjectSerializer;
 
 /**
  * PriceQuantityResponse Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type is used to display the result for each offer and/or inventory item that the seller attempted to update with a &lt;strong&gt;bulkUpdatePriceQuantity&lt;/strong&gt; call. If any errors or warnings occur, the error/warning data is returned at the offer/inventory item level.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PriceQuantityResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class PriceQuantityResponse implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -103,7 +105,9 @@ class PriceQuantityResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Inventory\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Inventory\V1\ObjectSerializer;
 
 /**
  * ShipToLocationAvailability Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type is used to specify the total &#39;ship-to-home&#39; quantity of the inventory item that will be available for purchase through one or more published offers.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ShipToLocationAvailability implements ModelInterface, ArrayAccess, \JsonSerializable
+class ShipToLocationAvailability implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -100,7 +102,9 @@ class ShipToLocationAvailability implements ModelInterface, ArrayAccess, \JsonSe
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

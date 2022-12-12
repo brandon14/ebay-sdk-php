@@ -327,7 +327,7 @@ class FeedTypeApi
         // path params
         if ($feed_type_id !== null) {
             $resourcePath = str_replace(
-                '{'.'feed_type_id'.'}',
+                '{feed_type_id}',
                 ObjectSerializer::toPathValue($feed_type_id),
                 $resourcePath
             );

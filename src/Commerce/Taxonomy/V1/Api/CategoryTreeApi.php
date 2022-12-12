@@ -335,7 +335,7 @@ class CategoryTreeApi
         // path params
         if ($category_tree_id !== null) {
             $resourcePath = str_replace(
-                '{'.'category_tree_id'.'}',
+                '{category_tree_id}',
                 ObjectSerializer::toPathValue($category_tree_id),
                 $resourcePath
             );
@@ -607,7 +607,7 @@ class CategoryTreeApi
         // path params
         if ($category_tree_id !== null) {
             $resourcePath = str_replace(
-                '{'.'category_tree_id'.'}',
+                '{category_tree_id}',
                 ObjectSerializer::toPathValue($category_tree_id),
                 $resourcePath
             );
@@ -879,7 +879,7 @@ class CategoryTreeApi
         // path params
         if ($category_tree_id !== null) {
             $resourcePath = str_replace(
-                '{'.'category_tree_id'.'}',
+                '{category_tree_id}',
                 ObjectSerializer::toPathValue($category_tree_id),
                 $resourcePath
             );
@@ -1133,7 +1133,7 @@ class CategoryTreeApi
         // path params
         if ($category_tree_id !== null) {
             $resourcePath = str_replace(
-                '{'.'category_tree_id'.'}',
+                '{category_tree_id}',
                 ObjectSerializer::toPathValue($category_tree_id),
                 $resourcePath
             );
@@ -1405,7 +1405,7 @@ class CategoryTreeApi
         // path params
         if ($category_tree_id !== null) {
             $resourcePath = str_replace(
-                '{'.'category_tree_id'.'}',
+                '{category_tree_id}',
                 ObjectSerializer::toPathValue($category_tree_id),
                 $resourcePath
             );
@@ -1707,7 +1707,7 @@ class CategoryTreeApi
         // path params
         if ($category_tree_id !== null) {
             $resourcePath = str_replace(
-                '{'.'category_tree_id'.'}',
+                '{category_tree_id}',
                 ObjectSerializer::toPathValue($category_tree_id),
                 $resourcePath
             );
@@ -2235,7 +2235,7 @@ class CategoryTreeApi
         // path params
         if ($category_tree_id !== null) {
             $resourcePath = str_replace(
-                '{'.'category_tree_id'.'}',
+                '{category_tree_id}',
                 ObjectSerializer::toPathValue($category_tree_id),
                 $resourcePath
             );

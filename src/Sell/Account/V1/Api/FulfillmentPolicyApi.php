@@ -527,7 +527,7 @@ class FulfillmentPolicyApi
         // path params
         if ($fulfillment_policy_id !== null) {
             $resourcePath = str_replace(
-                '{'.'fulfillmentPolicyId'.'}',
+                '{fulfillmentPolicyId}',
                 ObjectSerializer::toPathValue($fulfillment_policy_id),
                 $resourcePath
             );
@@ -1027,7 +1027,7 @@ class FulfillmentPolicyApi
         // path params
         if ($fulfillment_policy_id !== null) {
             $resourcePath = str_replace(
-                '{'.'fulfillmentPolicyId'.'}',
+                '{fulfillmentPolicyId}',
                 ObjectSerializer::toPathValue($fulfillment_policy_id),
                 $resourcePath
             );
@@ -1553,7 +1553,7 @@ class FulfillmentPolicyApi
         // path params
         if ($fulfillment_policy_id !== null) {
             $resourcePath = str_replace(
-                '{'.'fulfillmentPolicyId'.'}',
+                '{fulfillmentPolicyId}',
                 ObjectSerializer::toPathValue($fulfillment_policy_id),
                 $resourcePath
             );

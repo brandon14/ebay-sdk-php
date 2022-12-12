@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Feed\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Feed\V1\ObjectSerializer;
 
 /**
  * InventoryFilterCriteria Class Doc Comment.
  *
  * @category Class
+ *
  * @description The container for the filter fields. This container is used to set the filter criteria for the order report. A seller can retrieve listings for a specified format.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class InventoryFilterCriteria implements ModelInterface, ArrayAccess, \JsonSerializable
+class InventoryFilterCriteria implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -99,7 +101,9 @@ class InventoryFilterCriteria implements ModelInterface, ArrayAccess, \JsonSeria
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

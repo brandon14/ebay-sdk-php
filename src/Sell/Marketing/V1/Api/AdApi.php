@@ -336,7 +336,7 @@ class AdApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );
@@ -601,7 +601,7 @@ class AdApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );
@@ -866,7 +866,7 @@ class AdApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );
@@ -1131,7 +1131,7 @@ class AdApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );
@@ -1396,7 +1396,7 @@ class AdApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );
@@ -1661,7 +1661,7 @@ class AdApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );
@@ -1926,7 +1926,7 @@ class AdApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );
@@ -2191,7 +2191,7 @@ class AdApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );
@@ -2456,7 +2456,7 @@ class AdApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );
@@ -2721,7 +2721,7 @@ class AdApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );
@@ -2939,7 +2939,7 @@ class AdApi
         // path params
         if ($ad_id !== null) {
             $resourcePath = str_replace(
-                '{'.'ad_id'.'}',
+                '{ad_id}',
                 ObjectSerializer::toPathValue($ad_id),
                 $resourcePath
             );
@@ -2947,7 +2947,7 @@ class AdApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );
@@ -3206,7 +3206,7 @@ class AdApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );
@@ -3471,7 +3471,7 @@ class AdApi
         // path params
         if ($ad_id !== null) {
             $resourcePath = str_replace(
-                '{'.'ad_id'.'}',
+                '{ad_id}',
                 ObjectSerializer::toPathValue($ad_id),
                 $resourcePath
             );
@@ -3479,7 +3479,7 @@ class AdApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );
@@ -3795,7 +3795,7 @@ class AdApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );
@@ -4080,7 +4080,7 @@ class AdApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );
@@ -4301,7 +4301,7 @@ class AdApi
         // path params
         if ($ad_id !== null) {
             $resourcePath = str_replace(
-                '{'.'ad_id'.'}',
+                '{ad_id}',
                 ObjectSerializer::toPathValue($ad_id),
                 $resourcePath
             );
@@ -4309,7 +4309,7 @@ class AdApi
         // path params
         if ($campaign_id !== null) {
             $resourcePath = str_replace(
-                '{'.'campaign_id'.'}',
+                '{campaign_id}',
                 ObjectSerializer::toPathValue($campaign_id),
                 $resourcePath
             );

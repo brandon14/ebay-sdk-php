@@ -337,7 +337,7 @@ class PayoutApi
         // path params
         if ($payout_id !== null) {
             $resourcePath = str_replace(
-                '{'.'payout_Id'.'}',
+                '{payout_Id}',
                 ObjectSerializer::toPathValue($payout_id),
                 $resourcePath
             );

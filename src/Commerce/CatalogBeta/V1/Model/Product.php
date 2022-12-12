@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Commerce\CatalogBeta\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Commerce\CatalogBeta\V1\ObjectSerializer;
 
 /**
  * Product Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type contains the full details of a specified product, including information about the product&#39;s identifiers, product images, aspects, and categories.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Product implements ModelInterface, ArrayAccess, \JsonSerializable
+class Product implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -114,7 +116,9 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Buy\Order\V2\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Buy\Order\V2\ObjectSerializer;
 
 /**
  * Amount Class Doc Comment.
  *
  * @category Class
+ *
  * @description A container defining the monetary value of an amount, in the currency used on the eBay site that offers the item, and the conversion of that value into another currency.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Amount implements ModelInterface, ArrayAccess, \JsonSerializable
+class Amount implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -100,7 +102,9 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

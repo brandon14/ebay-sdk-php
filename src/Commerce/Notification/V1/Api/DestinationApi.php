@@ -522,7 +522,7 @@ class DestinationApi
         // path params
         if ($destination_id !== null) {
             $resourcePath = str_replace(
-                '{'.'destination_id'.'}',
+                '{destination_id}',
                 ObjectSerializer::toPathValue($destination_id),
                 $resourcePath
             );
@@ -772,7 +772,7 @@ class DestinationApi
         // path params
         if ($destination_id !== null) {
             $resourcePath = str_replace(
-                '{'.'destination_id'.'}',
+                '{destination_id}',
                 ObjectSerializer::toPathValue($destination_id),
                 $resourcePath
             );
@@ -1238,7 +1238,7 @@ class DestinationApi
         // path params
         if ($destination_id !== null) {
             $resourcePath = str_replace(
-                '{'.'destination_id'.'}',
+                '{destination_id}',
                 ObjectSerializer::toPathValue($destination_id),
                 $resourcePath
             );

@@ -862,7 +862,7 @@ class CustomPolicyApi
         // path params
         if ($custom_policy_id !== null) {
             $resourcePath = str_replace(
-                '{'.'custom_policy_id'.'}',
+                '{custom_policy_id}',
                 ObjectSerializer::toPathValue($custom_policy_id),
                 $resourcePath
             );
@@ -1088,7 +1088,7 @@ class CustomPolicyApi
         // path params
         if ($custom_policy_id !== null) {
             $resourcePath = str_replace(
-                '{'.'custom_policy_id'.'}',
+                '{custom_policy_id}',
                 ObjectSerializer::toPathValue($custom_policy_id),
                 $resourcePath
             );

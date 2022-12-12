@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Commerce\Taxonomy\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Commerce\Taxonomy\V1\ObjectSerializer;
 
 /**
  * CategoryTreeNode Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type contains information about all nodes of a category tree or subtree hierarchy, including and below the specified &lt;b&gt;Category&lt;/b&gt;, down to the leaf nodes. It is a recursive structure.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CategoryTreeNode implements ModelInterface, ArrayAccess, \JsonSerializable
+class CategoryTreeNode implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -103,7 +105,9 @@ class CategoryTreeNode implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

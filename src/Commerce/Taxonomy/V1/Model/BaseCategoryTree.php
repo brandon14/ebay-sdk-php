@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Commerce\Taxonomy\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Commerce\Taxonomy\V1\ObjectSerializer;
 
 /**
  * BaseCategoryTree Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type contains identifying information for the category tree associated with a particular eBay marketplace.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class BaseCategoryTree implements ModelInterface, ArrayAccess, \JsonSerializable
+class BaseCategoryTree implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -100,7 +102,9 @@ class BaseCategoryTree implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

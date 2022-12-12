@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Finances\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Finances\V1\ObjectSerializer;
 
 /**
  * Transfer Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type is the base response type used by &lt;code&gt;TRANSFER&lt;/code&gt; transaction type that is returned in the response.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
+class Transfer implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -103,7 +105,9 @@ class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

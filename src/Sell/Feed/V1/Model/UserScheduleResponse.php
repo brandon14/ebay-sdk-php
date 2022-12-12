@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Feed\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Feed\V1\ObjectSerializer;
 
 /**
  * UserScheduleResponse Class Doc Comment.
  *
  * @category Class
+ *
  * @description The type that defines the fields for a paginated result set of available schedules. The response consists of 0 or more sequenced &lt;em&gt; pages&lt;/em&gt; where each page has 0 or more items.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class UserScheduleResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class UserScheduleResponse implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -112,7 +114,9 @@ class UserScheduleResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

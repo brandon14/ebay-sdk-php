@@ -565,7 +565,7 @@ class SigningKeyApi
         // path params
         if ($signing_key_id !== null) {
             $resourcePath = str_replace(
-                '{'.'signing_key_id'.'}',
+                '{signing_key_id}',
                 ObjectSerializer::toPathValue($signing_key_id),
                 $resourcePath
             );

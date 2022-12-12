@@ -518,7 +518,7 @@ class VideoApi
         // path params
         if ($video_id !== null) {
             $resourcePath = str_replace(
-                '{'.'video_id'.'}',
+                '{video_id}',
                 ObjectSerializer::toPathValue($video_id),
                 $resourcePath
             );
@@ -754,7 +754,7 @@ class VideoApi
         // path params
         if ($video_id !== null) {
             $resourcePath = str_replace(
-                '{'.'video_id'.'}',
+                '{video_id}',
                 ObjectSerializer::toPathValue($video_id),
                 $resourcePath
             );

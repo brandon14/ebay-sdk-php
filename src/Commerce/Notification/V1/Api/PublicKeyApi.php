@@ -327,7 +327,7 @@ class PublicKeyApi
         // path params
         if ($public_key_id !== null) {
             $resourcePath = str_replace(
-                '{'.'public_key_id'.'}',
+                '{public_key_id}',
                 ObjectSerializer::toPathValue($public_key_id),
                 $resourcePath
             );

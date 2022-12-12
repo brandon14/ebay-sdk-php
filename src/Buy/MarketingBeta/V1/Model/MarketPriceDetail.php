@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Buy\MarketingBeta\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Buy\MarketingBeta\V1\ObjectSerializer;
 
 /**
  * MarketPriceDetail Class Doc Comment.
  *
  * @category Class
+ *
  * @description The type that defines the fields for details about the product, such as condition and estimated start price.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class MarketPriceDetail implements ModelInterface, ArrayAccess, \JsonSerializable
+class MarketPriceDetail implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -101,7 +103,9 @@ class MarketPriceDetail implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

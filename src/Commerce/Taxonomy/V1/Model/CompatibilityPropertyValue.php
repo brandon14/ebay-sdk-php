@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Commerce\Taxonomy\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Commerce\Taxonomy\V1\ObjectSerializer;
 
 /**
  * CompatibilityPropertyValue Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type is used by the &lt;strong&gt;compatibilityPropertyValues&lt;/strong&gt; array that is returned in the &lt;strong&gt;getCompatibilityPropertyValues&lt;/strong&gt; response. The &lt;strong&gt;compatibilityPropertyValues&lt;/strong&gt; array contains all compatible vehicle property values that match the specified eBay marketplace, specified eBay category, and filters in the request. If the &lt;strong&gt;compatibility_property&lt;/strong&gt; parameter value in the request is &#39;Trim&#39;, each value returned in each &lt;strong&gt;value&lt;/strong&gt; field will be a different vehicle trim, applicable to any filters that are set in the &lt;string&gt;filter&lt;/string&gt; query parameter of the request, and also based on the eBay marketplace and category specified in the call request.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CompatibilityPropertyValue implements ModelInterface, ArrayAccess, \JsonSerializable
+class CompatibilityPropertyValue implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -99,7 +101,9 @@ class CompatibilityPropertyValue implements ModelInterface, ArrayAccess, \JsonSe
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

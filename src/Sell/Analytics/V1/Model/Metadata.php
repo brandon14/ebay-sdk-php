@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Analytics\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Analytics\V1\ObjectSerializer;
 
 /**
  * Metadata Class Doc Comment.
  *
  * @category Class
+ *
  * @description Type the defines the metadata information of the report. This includes the headers and the individual metadata records.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Metadata implements ModelInterface, ArrayAccess, \JsonSerializable
+class Metadata implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -100,7 +102,9 @@ class Metadata implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

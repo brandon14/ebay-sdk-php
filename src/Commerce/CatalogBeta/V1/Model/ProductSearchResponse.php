@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Commerce\CatalogBeta\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Commerce\CatalogBeta\V1\ObjectSerializer;
 
 /**
  * ProductSearchResponse Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type contains the specifications for the collection of products that match the search or filter criteria of a &lt;b&gt;search&lt;/b&gt; call. A maximum of 200 product summaries is returned (the result set), fewer if you include the &lt;b&gt;limit&lt;/b&gt; query parameter in the request.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class ProductSearchResponse implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -106,7 +108,9 @@ class ProductSearchResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

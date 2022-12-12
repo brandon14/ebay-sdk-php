@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Buy\Browse\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Buy\Browse\V1\ObjectSerializer;
 
 /**
  * CompatibilityPayload Class Doc Comment.
  *
  * @category Class
+ *
  * @description An array of attribute name/value pairs used to define a specific product. For example: If you wanted to specify a specific car, one of the name/value pairs would be &lt;br /&gt;&lt;code&gt;\&quot;name\&quot; : \&quot;Year\&quot;, &lt;br /&gt;\&quot;value\&quot; : \&quot;2019\&quot;&lt;/code&gt;  &lt;p&gt; For a list of the attributes required for cars and trucks and motorcycles see &lt;a href&#x3D;\&quot;/api-docs/buy/static/api-browse.html#Check\&quot;&gt;Check compatibility&lt;/a&gt; in the Buy Integration Guide.&lt;/p&gt;
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CompatibilityPayload implements ModelInterface, ArrayAccess, \JsonSerializable
+class CompatibilityPayload implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -99,7 +101,9 @@ class CompatibilityPayload implements ModelInterface, ArrayAccess, \JsonSerializ
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

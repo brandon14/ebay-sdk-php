@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Logistics\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Logistics\V1\ObjectSerializer;
 
 /**
  * Shipment Class Doc Comment.
  *
  * @category Class
+ *
  * @description This complex type defines a shipment for a specific package (for example, a box or letter). Shipments are always linked to a purchased shipping label.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
+class Shipment implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -111,7 +113,9 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

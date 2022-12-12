@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Marketing\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Marketing\V1\ObjectSerializer;
 
 /**
  * BulkDeleteAdsByInventoryReferenceRequest Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type defines the request fields that &lt;b&gt;bulkDeleteAdsByInventoryReference&lt;/b&gt; uses to delete ads in bulk.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class BulkDeleteAdsByInventoryReferenceRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class BulkDeleteAdsByInventoryReferenceRequest implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -99,7 +101,9 @@ class BulkDeleteAdsByInventoryReferenceRequest implements ModelInterface, ArrayA
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

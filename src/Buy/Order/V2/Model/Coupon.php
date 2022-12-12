@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Buy\Order\V2\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Buy\Order\V2\ObjectSerializer;
 
 /**
  * Coupon Class Doc Comment.
  *
  * @category Class
+ *
  * @description A type that defines the fields for the coupon information.&lt;br /&gt;&lt;br /&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This container is not returned for the &lt;b&gt;getGuestPurchaseOrder&lt;/b&gt; method.&lt;/span&gt;
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
+class Coupon implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -99,7 +101,9 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

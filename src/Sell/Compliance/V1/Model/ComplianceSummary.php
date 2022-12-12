@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Compliance\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Compliance\V1\ObjectSerializer;
 
 /**
  * ComplianceSummary Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type is the base type for the getListingViolationsSummary response. The violationSummaries container contains an array of policy violation counts for each unique eBay marketplace and compliance type violation.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ComplianceSummary implements ModelInterface, ArrayAccess, \JsonSerializable
+class ComplianceSummary implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -99,7 +101,9 @@ class ComplianceSummary implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

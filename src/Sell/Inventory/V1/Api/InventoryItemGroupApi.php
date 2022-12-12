@@ -370,7 +370,7 @@ class InventoryItemGroupApi
         // path params
         if ($inventory_item_group_key !== null) {
             $resourcePath = str_replace(
-                '{'.'inventoryItemGroupKey'.'}',
+                '{inventoryItemGroupKey}',
                 ObjectSerializer::toPathValue($inventory_item_group_key),
                 $resourcePath
             );
@@ -575,7 +575,7 @@ class InventoryItemGroupApi
         // path params
         if ($inventory_item_group_key !== null) {
             $resourcePath = str_replace(
-                '{'.'inventoryItemGroupKey'.'}',
+                '{inventoryItemGroupKey}',
                 ObjectSerializer::toPathValue($inventory_item_group_key),
                 $resourcePath
             );
@@ -821,7 +821,7 @@ class InventoryItemGroupApi
         // path params
         if ($inventory_item_group_key !== null) {
             $resourcePath = str_replace(
-                '{'.'inventoryItemGroupKey'.'}',
+                '{inventoryItemGroupKey}',
                 ObjectSerializer::toPathValue($inventory_item_group_key),
                 $resourcePath
             );

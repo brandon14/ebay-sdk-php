@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Marketing\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Marketing\V1\ObjectSerializer;
 
 /**
  * ReportTaskPagedCollection Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type defines the fields that paginate the reports tasks returned by the request. The entire &lt;i&gt;result set&lt;/i&gt; consists of 0 or more sequenced &lt;i&gt;response pages&lt;/i&gt;, where each page consists of 0 or more items from the complete result set.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ReportTaskPagedCollection implements ModelInterface, ArrayAccess, \JsonSerializable
+class ReportTaskPagedCollection implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -105,7 +107,9 @@ class ReportTaskPagedCollection implements ModelInterface, ArrayAccess, \JsonSer
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

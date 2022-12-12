@@ -337,7 +337,7 @@ class ProductApi
         // path params
         if ($epid !== null) {
             $resourcePath = str_replace(
-                '{'.'epid'.'}',
+                '{epid}',
                 ObjectSerializer::toPathValue($epid),
                 $resourcePath
             );

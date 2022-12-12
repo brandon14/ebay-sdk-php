@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Fulfillment\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Fulfillment\V1\ObjectSerializer;
 
 /**
  * ShippingFulfillmentPagedCollection Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type contains the specifications for the entire collection of shipping fulfillments that are associated with the order specified by a &lt;b&gt;getShippingFulfillments&lt;/b&gt; call. The &lt;b&gt;fulfillments&lt;/b&gt; container returns an array of all the fulfillments in the collection.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ShippingFulfillmentPagedCollection implements ModelInterface, ArrayAccess, \JsonSerializable
+class ShippingFulfillmentPagedCollection implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -101,7 +103,9 @@ class ShippingFulfillmentPagedCollection implements ModelInterface, ArrayAccess,
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

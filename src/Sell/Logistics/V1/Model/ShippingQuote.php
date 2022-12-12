@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Logistics\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Logistics\V1\ObjectSerializer;
 
 /**
  * ShippingQuote Class Doc Comment.
  *
  * @category Class
+ *
  * @description This complex type describes a \&quot;shipping quote,\&quot; which contains the parameters for a package shipment. The shipping quote contains a list of \&quot;live quotes\&quot; or &lt;i&gt;rates&lt;/i&gt; for the shipment. Rates are offerd by a carrier for a particular service, of set of services, for shipping the package. Included in the shipping quote are the package specifications, the shipment&#39;s origin and destination addresses, and the shipping parameters specified by the seller.  &lt;br&gt;&lt;br&gt;Use the &lt;b&gt;rateId&lt;/b&gt; value to select the specific service you want when you create a shipment by calling &lt;b&gt;createFromShippingQuote&lt;/b&gt;.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ShippingQuote implements ModelInterface, ArrayAccess, \JsonSerializable
+class ShippingQuote implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -107,7 +109,9 @@ class ShippingQuote implements ModelInterface, ArrayAccess, \JsonSerializable
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

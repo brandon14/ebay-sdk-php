@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Buy\Feed\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Buy\Feed\V1\ObjectSerializer;
 
 /**
  * ApplicationAccess Class Doc Comment.
  *
  * @category Class
+ *
  * @description An array of application configurations that determines the feed files available to the application.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ApplicationAccess implements ModelInterface, ArrayAccess, \JsonSerializable
+class ApplicationAccess implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -99,7 +101,9 @@ class ApplicationAccess implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

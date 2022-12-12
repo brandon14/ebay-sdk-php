@@ -59,23 +59,25 @@ declare(strict_types=1);
 
 namespace TNT\Ebay\Sell\Inventory\V1\Model;
 
-use ArrayAccess;
 use TNT\Ebay\Sell\Inventory\V1\ObjectSerializer;
 
 /**
  * BulkPriceQuantity Class Doc Comment.
  *
  * @category Class
+ *
  * @description This type is used by the base request payload of the &lt;strong&gt;bulkUpdatePriceQuantity&lt;/strong&gt; call. The &lt;strong&gt;bulkUpdatePriceQuantity&lt;/strong&gt; call allows the seller to update the total &#39;ship-to-home&#39; quantity of one or more inventory items (up to 25) and/or to update the price and/or quantity of one or more specific published offers.
  *
  * @author   OpenAPI Generator team
  *
  * @see     https://openapi-generator.tech
+ *
  * @implements \ArrayAccess<TKey, TValue>
+ *
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class BulkPriceQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
+class BulkPriceQuantity implements ModelInterface, \ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -99,7 +101,9 @@ class BulkPriceQuantity implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Array of property to format mappings. Used for (de)serialization.
      *
      * @var string[]
+     *
      * @phpstan-var array<string, string|null>
+     *
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [

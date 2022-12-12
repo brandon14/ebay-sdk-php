@@ -527,7 +527,7 @@ class ReturnPolicyApi
         // path params
         if ($return_policy_id !== null) {
             $resourcePath = str_replace(
-                '{'.'return_policy_id'.'}',
+                '{return_policy_id}',
                 ObjectSerializer::toPathValue($return_policy_id),
                 $resourcePath
             );
@@ -1027,7 +1027,7 @@ class ReturnPolicyApi
         // path params
         if ($return_policy_id !== null) {
             $resourcePath = str_replace(
-                '{'.'return_policy_id'.'}',
+                '{return_policy_id}',
                 ObjectSerializer::toPathValue($return_policy_id),
                 $resourcePath
             );
@@ -1553,7 +1553,7 @@ class ReturnPolicyApi
         // path params
         if ($return_policy_id !== null) {
             $resourcePath = str_replace(
-                '{'.'return_policy_id'.'}',
+                '{return_policy_id}',
                 ObjectSerializer::toPathValue($return_policy_id),
                 $resourcePath
             );

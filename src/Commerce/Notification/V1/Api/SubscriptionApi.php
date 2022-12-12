@@ -522,7 +522,7 @@ class SubscriptionApi
         // path params
         if ($subscription_id !== null) {
             $resourcePath = str_replace(
-                '{'.'subscription_id'.'}',
+                '{subscription_id}',
                 ObjectSerializer::toPathValue($subscription_id),
                 $resourcePath
             );
@@ -725,7 +725,7 @@ class SubscriptionApi
         // path params
         if ($subscription_id !== null) {
             $resourcePath = str_replace(
-                '{'.'subscription_id'.'}',
+                '{subscription_id}',
                 ObjectSerializer::toPathValue($subscription_id),
                 $resourcePath
             );
@@ -928,7 +928,7 @@ class SubscriptionApi
         // path params
         if ($subscription_id !== null) {
             $resourcePath = str_replace(
-                '{'.'subscription_id'.'}',
+                '{subscription_id}',
                 ObjectSerializer::toPathValue($subscription_id),
                 $resourcePath
             );
@@ -1178,7 +1178,7 @@ class SubscriptionApi
         // path params
         if ($subscription_id !== null) {
             $resourcePath = str_replace(
-                '{'.'subscription_id'.'}',
+                '{subscription_id}',
                 ObjectSerializer::toPathValue($subscription_id),
                 $resourcePath
             );
@@ -1639,7 +1639,7 @@ class SubscriptionApi
         // path params
         if ($subscription_id !== null) {
             $resourcePath = str_replace(
-                '{'.'subscription_id'.'}',
+                '{subscription_id}',
                 ObjectSerializer::toPathValue($subscription_id),
                 $resourcePath
             );
@@ -1847,7 +1847,7 @@ class SubscriptionApi
         // path params
         if ($subscription_id !== null) {
             $resourcePath = str_replace(
-                '{'.'subscription_id'.'}',
+                '{subscription_id}',
                 ObjectSerializer::toPathValue($subscription_id),
                 $resourcePath
             );
