@@ -1,5 +1,5 @@
 {
-    "name": "brandon14/ebay-sdk-php",
+    "name": "trollandtoad/ebay-sdk-php",
     "description": "Combined Ebay API SDK generated using the OpenAPI generator and the Ebay OpenAPI specifications",
     "type": "library",
     "keywords": ["openapitools", "openapi-generator", "openapi", "php", "sdk", "rest", "api", "ebay"],
