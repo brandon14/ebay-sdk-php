@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the brandon14/ebay-sdk-php package.
+ * This file is part of the trollandtoad/ebay-sdk-php package.
  *
  * MIT License
  *
@@ -525,7 +525,7 @@ class ObjectSerializer
     public static function buildQuery(
         $data,
         string $numeric_prefix = '',
-        ?string $arg_separator = null,
+        string $arg_separator = null,
         int $encoding_type = \PHP_QUERY_RFC3986
     ): string {
         return \GuzzleHttp\Psr7\Query::build($data, $encoding_type);

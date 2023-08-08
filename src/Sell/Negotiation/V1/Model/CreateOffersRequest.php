@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the brandon14/ebay-sdk-php package.
+ * This file is part of the trollandtoad/ebay-sdk-php package.
  *
  * MIT License
  *
