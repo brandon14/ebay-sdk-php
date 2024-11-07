@@ -33,7 +33,7 @@
         "phpunit/phpunit": "^8.5.23 || ^9.0",
         "roave/security-advisories": "dev-latest",
         "squizlabs/php_codesniffer": "^3.6",
-        "vimeo/psalm": "^4.15"
+        "vimeo/psalm": "^4.15 || ^5.0"
     },
     "scripts": {
         "analyze": "psalm --config=psalm.dist.xml",
